@@ -5,11 +5,22 @@ using UnityEngine.Events;
 
 namespace Puzzle_Control {
 	public abstract class PuzzleController : MonoBehaviour {
-		[SerializeField] UnityEvent onPuzzleComplete;
-		public event Action<string> notifyPuzzleSet; //Tell the contained puzzle set the puzzle is complete
+		[SerializeField] UnityEvent OnPuzzleComplete;
 
-		public readonly string guid = GUID.Generate().ToString();
+		public string Guid { get; private set; }
 
+		public event Action<string> NotifyPuzzleSet; //Tell the contained puzzle set the puzzle is complete
+		
 		public abstract void StartPuzzle();
+
+		void Start() {
+			Guid = GUID.Generate().ToString();
+		}
+
+		protected void Complete() {
+			OnPuzzleComplete.Invoke();
+			NotifyPuzzleSet?.Invoke(Guid);
+		}
+
 	}
 }
