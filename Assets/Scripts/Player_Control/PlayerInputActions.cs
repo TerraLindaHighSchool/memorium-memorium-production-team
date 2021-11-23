@@ -21,10 +21,34 @@ namespace Player_Control
             ""id"": ""b72ff146-3afd-44c2-b2a7-da5bec57016c"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
                     ""id"": ""995d598e-7990-4662-9988-ffa19154f4bd"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""361a4ffc-34e5-4393-b5c8-6da6370e807a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""b15db3f0-b46f-4d2c-953c-293823b125f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""3be3161a-da59-4ace-ba3a-ba3c44769b88"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -32,20 +56,20 @@ namespace Player_Control
                     ""name"": ""Look"",
                     ""type"": ""Value"",
                     ""id"": ""a3d58813-19da-4fa0-9a59-45b0dadedf6f"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Digital"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""W"",
                     ""id"": ""00ca640b-d935-4593-8157-c05846ea39b3"",
                     ""path"": ""Dpad"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""W"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,7 +80,7 @@ namespace Player_Control
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
+                    ""action"": ""W"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,73 +91,7 @@ namespace Player_Control
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1c5327b5-f71c-4f60-99c7-4e737386f1d1"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""d2581a9b-1d11-4566-b27d-b92aff5fabbc"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""2e46982e-44cc-431b-9f0b-c11910bf467a"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""77bff152-3580-4b21-b6de-dcd0c7e41164"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
+                    ""action"": ""W"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -147,6 +105,105 @@ namespace Player_Control
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""id"": ""48095d84-a298-432a-a1b6-d4ca0a203192"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""47e307e1-ad1c-4271-93c0-00e5cb40acb0"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""66aca146-c2e9-4960-b130-3a6cf1cab360"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""S"",
+                    ""id"": ""920743c9-f50a-494e-932e-3e8ab47d85a5"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7d9f796a-16b7-4178-be32-537655e411ec"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""044f849f-8400-4605-885d-7242ddc0b727"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D"",
+                    ""id"": ""2d4b6ca2-211d-42eb-85b0-02747b69552e"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ad603fb2-35ce-4229-bf5b-0008ca503845"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""84be568b-b5e3-46ef-b11d-ce5de44cf5a2"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -722,7 +779,10 @@ namespace Player_Control
 }");
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+            m_Player_W = m_Player.FindAction("W", throwIfNotFound: true);
+            m_Player_A = m_Player.FindAction("A", throwIfNotFound: true);
+            m_Player_S = m_Player.FindAction("S", throwIfNotFound: true);
+            m_Player_D = m_Player.FindAction("D", throwIfNotFound: true);
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -785,13 +845,19 @@ namespace Player_Control
         // Player
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
-        private readonly InputAction m_Player_Move;
+        private readonly InputAction m_Player_W;
+        private readonly InputAction m_Player_A;
+        private readonly InputAction m_Player_S;
+        private readonly InputAction m_Player_D;
         private readonly InputAction m_Player_Look;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
             public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Move => m_Wrapper.m_Player_Move;
+            public InputAction @W => m_Wrapper.m_Player_W;
+            public InputAction @A => m_Wrapper.m_Player_A;
+            public InputAction @S => m_Wrapper.m_Player_S;
+            public InputAction @D => m_Wrapper.m_Player_D;
             public InputAction @Look => m_Wrapper.m_Player_Look;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
@@ -802,9 +868,18 @@ namespace Player_Control
             {
                 if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
                 {
-                    @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                    @W.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnW;
+                    @W.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnW;
+                    @W.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnW;
+                    @A.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnA;
+                    @A.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnA;
+                    @A.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnA;
+                    @S.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnS;
+                    @S.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnS;
+                    @S.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnS;
+                    @D.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
+                    @D.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
+                    @D.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
                     @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                     @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                     @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
@@ -812,9 +887,18 @@ namespace Player_Control
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Move.started += instance.OnMove;
-                    @Move.performed += instance.OnMove;
-                    @Move.canceled += instance.OnMove;
+                    @W.started += instance.OnW;
+                    @W.performed += instance.OnW;
+                    @W.canceled += instance.OnW;
+                    @A.started += instance.OnA;
+                    @A.performed += instance.OnA;
+                    @A.canceled += instance.OnA;
+                    @S.started += instance.OnS;
+                    @S.performed += instance.OnS;
+                    @S.canceled += instance.OnS;
+                    @D.started += instance.OnD;
+                    @D.performed += instance.OnD;
+                    @D.canceled += instance.OnD;
                     @Look.started += instance.OnLook;
                     @Look.performed += instance.OnLook;
                     @Look.canceled += instance.OnLook;
@@ -974,7 +1058,10 @@ namespace Player_Control
         }
         public interface IPlayerActions
         {
-            void OnMove(InputAction.CallbackContext context);
+            void OnW(InputAction.CallbackContext context);
+            void OnA(InputAction.CallbackContext context);
+            void OnS(InputAction.CallbackContext context);
+            void OnD(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
         }
         public interface IUIActions
