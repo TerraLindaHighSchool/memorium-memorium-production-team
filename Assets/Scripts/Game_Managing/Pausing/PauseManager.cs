@@ -1,9 +1,8 @@
 ﻿using System;
 using Other;
-using UnityEngine;
 
 namespace Game_Managing.Pausing {
-	public class PauseManager : Singleton<PauseManager> {
+	public class PauseManager : Singleton<PauseManager> {//TODO: make accept Optional<PauseType> instead of bools, to differentiate different kinds of pausing
 		public enum PauseType {
 			Cutscene, All
 		}
