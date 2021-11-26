@@ -8,13 +8,11 @@ namespace Player_Control {
 		public float speed = 1f;
 
 		private CharacterController _characterController;
-		private PlayerInput         _playerInput;
 
 		private (bool, bool, bool, bool) _wasd;
 
 		void Start() {
 			_characterController = GetComponent<CharacterController>();
-			_playerInput         = GetComponent<PlayerInput>();
 
 			PlayerInputActions playerInputActions = new PlayerInputActions();
 			playerInputActions.Enable();

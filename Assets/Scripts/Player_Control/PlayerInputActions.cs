@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/playeractions.inputactions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/playeractions.inputactions'
 
 using System;
 using System.Collections;
@@ -14,7 +14,7 @@ namespace Player_Control
         public @PlayerInputActions()
         {
             asset = InputActionAsset.FromJson(@"{
-    ""name"": ""playeractions.inputactions"",
+    ""name"": ""playeractions"",
     ""maps"": [
         {
             ""name"": ""Player"",
@@ -49,14 +49,6 @@ namespace Player_Control
                     ""type"": ""Button"",
                     ""id"": ""3be3161a-da59-4ace-ba3a-ba3c44769b88"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""a3d58813-19da-4fa0-9a59-45b0dadedf6f"",
-                    ""expectedControlType"": ""Digital"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -94,17 +86,6 @@ namespace Player_Control
                     ""action"": ""W"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
-                    ""path"": ""<Pointer>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""A"",
@@ -783,7 +764,6 @@ namespace Player_Control
             m_Player_A = m_Player.FindAction("A", throwIfNotFound: true);
             m_Player_S = m_Player.FindAction("S", throwIfNotFound: true);
             m_Player_D = m_Player.FindAction("D", throwIfNotFound: true);
-            m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -849,7 +829,6 @@ namespace Player_Control
         private readonly InputAction m_Player_A;
         private readonly InputAction m_Player_S;
         private readonly InputAction m_Player_D;
-        private readonly InputAction m_Player_Look;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -858,7 +837,6 @@ namespace Player_Control
             public InputAction @A => m_Wrapper.m_Player_A;
             public InputAction @S => m_Wrapper.m_Player_S;
             public InputAction @D => m_Wrapper.m_Player_D;
-            public InputAction @Look => m_Wrapper.m_Player_Look;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -880,9 +858,6 @@ namespace Player_Control
                     @D.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
                     @D.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
                     @D.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
-                    @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                    @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                    @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -899,9 +874,6 @@ namespace Player_Control
                     @D.started += instance.OnD;
                     @D.performed += instance.OnD;
                     @D.canceled += instance.OnD;
-                    @Look.started += instance.OnLook;
-                    @Look.performed += instance.OnLook;
-                    @Look.canceled += instance.OnLook;
                 }
             }
         }
@@ -1062,7 +1034,6 @@ namespace Player_Control
             void OnA(InputAction.CallbackContext context);
             void OnS(InputAction.CallbackContext context);
             void OnD(InputAction.CallbackContext context);
-            void OnLook(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
