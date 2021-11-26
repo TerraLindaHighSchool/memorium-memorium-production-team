@@ -1,17 +1,20 @@
-﻿using UnityEngine;
+﻿using Camera_and_Lighting;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player_Control {
 	[RequireComponent(typeof(CharacterController))]
 	[RequireComponent(typeof(PlayerInput))]
 	public class PlayerController : MonoBehaviour {
-		public float speed = 1f;
+		public float speed = 10f;
+		
+		[SerializeField] private CameraController cameraController;
 
 		private CharacterController _characterController;
 
 		private (bool, bool, bool, bool) _wasd;
 
-		void Start() {
+		private void Start() {
 			_characterController = GetComponent<CharacterController>();
 
 			PlayerInputActions playerInputActions = new PlayerInputActions();
@@ -37,6 +40,19 @@ namespace Player_Control {
 		private void OnDCancelled(InputAction.CallbackContext context) { _wasd.Item4 = false; }
 
 		private void Move() {
+			if (!_wasd.Item1 && !_wasd.Item2 && !_wasd.Item3 && !_wasd.Item4) return;
+			
+			Vector3 eulers = transform.eulerAngles;
+
+			{
+				Vector3    storedCamTargetPos = cameraController.playerFollowCamTarget.position;
+				Quaternion storedCamTargetRot = cameraController.playerFollowCamTarget.rotation;
+			
+				transform.SetPositionAndRotation(transform.position, Quaternion.Euler(new Vector3(eulers.x, cameraController.GetYRotForForwards(), eulers.z)));
+			
+				cameraController.playerFollowCamTarget.SetPositionAndRotation(storedCamTargetPos, storedCamTargetRot);
+			}
+			
 			Vector3 motion = new Vector3();
 
 			if (_wasd.Item1) { motion += transform.forward; }
@@ -49,9 +65,9 @@ namespace Player_Control {
 
 			motion.Normalize();
 
-			_characterController.Move(motion * speed * Time.deltaTime);
+			_characterController.Move(motion * (speed * Time.deltaTime));
 		}
 
-		void Update() { Move(); }
+		private void Update() { Move(); }
 	}
 }

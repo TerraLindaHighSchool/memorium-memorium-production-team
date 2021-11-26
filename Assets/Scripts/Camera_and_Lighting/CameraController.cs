@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Camera_and_Lighting {
 	public class CameraController : MonoBehaviour {
 		[SerializeField] private float sensitivity  = 1.0f;
 		[SerializeField] private int   cameraYBound = 60;
 
-		[SerializeField] private Transform playerFollowCamTarget;
+		[SerializeField] public Transform playerFollowCamTarget;
 
 		private bool _inOrbitMode;
 
 		private Mouse _mouse;
 
-		void OnEnable() { _mouse = Mouse.current; }
+		// Returns the float that is the y of the follow target's rotation eulers
+		// Used for getting the forward vector of the follow target for player movement
+		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y; }
 
-		void LateUpdate() {
+		private void OnEnable() { _mouse = Mouse.current; }
+
+		private void LateUpdate() {
 			Vector2 mouseDelta = _mouse.delta.ReadValue();
 			_inOrbitMode = _mouse.rightButton.ReadValue() >= 1;
 

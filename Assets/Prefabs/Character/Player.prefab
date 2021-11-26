@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  cameraController: {fileID: 0}
 --- !u!114 &7886373920443050171
 MonoBehaviour:
   m_ObjectHideFlags: 0
