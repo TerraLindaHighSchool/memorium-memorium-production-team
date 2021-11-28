@@ -1,5 +1,5 @@
 {
-    "name": "playeractions.inputactions",
+    "name": "playeractions",
     "maps": [
         {
             "name": "Player",
@@ -33,6 +33,14 @@
                     "name": "D",
                     "type": "Button",
                     "id": "3be3161a-da59-4ace-ba3a-ba3c44769b88",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "c62d6cea-4d41-4d23-87e6-9bda89be0d6a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -170,6 +178,17 @@
                     "action": "D",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6eeddfa0-4f13-4298-8485-e4582117c4cb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -190,7 +190,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jump: 0.2
+  gravity: 0.003
+  amogus: 0
   cameraController: {fileID: 0}
+  momentum: {x: 0, y: 0, z: 0}
 --- !u!114 &7886373920443050171
 MonoBehaviour:
   m_ObjectHideFlags: 0

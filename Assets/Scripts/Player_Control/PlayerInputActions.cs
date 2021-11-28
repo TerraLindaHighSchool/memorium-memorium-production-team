@@ -51,6 +51,14 @@ namespace Player_Control
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""c62d6cea-4d41-4d23-87e6-9bda89be0d6a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -185,6 +193,17 @@ namespace Player_Control
                     ""action"": ""D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6eeddfa0-4f13-4298-8485-e4582117c4cb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -764,6 +783,7 @@ namespace Player_Control
             m_Player_A = m_Player.FindAction("A", throwIfNotFound: true);
             m_Player_S = m_Player.FindAction("S", throwIfNotFound: true);
             m_Player_D = m_Player.FindAction("D", throwIfNotFound: true);
+            m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -829,6 +849,7 @@ namespace Player_Control
         private readonly InputAction m_Player_A;
         private readonly InputAction m_Player_S;
         private readonly InputAction m_Player_D;
+        private readonly InputAction m_Player_Jump;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -837,6 +858,7 @@ namespace Player_Control
             public InputAction @A => m_Wrapper.m_Player_A;
             public InputAction @S => m_Wrapper.m_Player_S;
             public InputAction @D => m_Wrapper.m_Player_D;
+            public InputAction @Jump => m_Wrapper.m_Player_Jump;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -858,6 +880,9 @@ namespace Player_Control
                     @D.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
                     @D.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
                     @D.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnD;
+                    @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -874,6 +899,9 @@ namespace Player_Control
                     @D.started += instance.OnD;
                     @D.performed += instance.OnD;
                     @D.canceled += instance.OnD;
+                    @Jump.started += instance.OnJump;
+                    @Jump.performed += instance.OnJump;
+                    @Jump.canceled += instance.OnJump;
                 }
             }
         }
@@ -1034,6 +1062,7 @@ namespace Player_Control
             void OnA(InputAction.CallbackContext context);
             void OnS(InputAction.CallbackContext context);
             void OnD(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
