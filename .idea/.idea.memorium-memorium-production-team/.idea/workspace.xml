@@ -54,7 +54,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -92,7 +95,7 @@
       <workItem from="1637878463087" duration="6785000" />
       <workItem from="1638054055773" duration="7095000" />
       <workItem from="1638079178765" duration="4969000" />
-      <workItem from="1638087283186" duration="984000" />
+      <workItem from="1638087283186" duration="2666000" />
     </task>
     <servers />
   </component>

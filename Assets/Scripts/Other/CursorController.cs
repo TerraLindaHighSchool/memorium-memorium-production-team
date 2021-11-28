@@ -8,6 +8,8 @@ namespace Other {
 
 		public GameObject selectedInteractable;
 
+		public Material highlightMat;
+
 		private Vector3 _cursorPosition;
 
 		private void Start() { mainCamera = Camera.main; }
@@ -33,7 +35,24 @@ namespace Other {
 					Debug.LogWarning(
 						$"Object {hit.collider.gameObject} is in the Interactable layer, but does not have the Interactable component!");
 					selectedInteractable = null;
-				} else { selectedInteractable = hit.collider.gameObject; }
+				} else {
+					selectedInteractable = hit.collider.gameObject;
+
+					//add highlightMat to the selected object
+					MeshRenderer selectedMeshRenderer = selectedInteractable.GetComponent<MeshRenderer>();
+
+					if (!selectedMeshRenderer.materials[selectedMeshRenderer.materials.Length - 1].Equals(highlightMat)) {
+						Material[] mats = new Material[selectedMeshRenderer.materials.Length + 1];
+
+						for (int i = 0; i < selectedMeshRenderer.materials.Length; i++) {
+							mats[i] = selectedMeshRenderer.materials[i];
+						}
+
+						mats[mats.Length - 1] = highlightMat;
+
+						selectedMeshRenderer.materials = mats;
+					}
+				}
 			} else {
 				_cursorPosition      = ray.direction * maxRayLength + mainCamera.transform.position;
 				selectedInteractable = null;
