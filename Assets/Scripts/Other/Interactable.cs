@@ -4,5 +4,11 @@ using UnityEngine.Events;
 namespace Other {
 	public class Interactable : MonoBehaviour {
 		public UnityEvent onInteractEvent;
+
+		public void SetHighlight(bool value) {
+			Outline outline = GetComponent<Outline>();
+
+			outline.enabled = value;
+		}
 	}
 }

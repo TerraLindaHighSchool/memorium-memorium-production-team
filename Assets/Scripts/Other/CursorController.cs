@@ -8,8 +8,6 @@ namespace Other {
 
 		public GameObject selectedInteractable;
 
-		public Material highlightMat;
-
 		private Vector3 _cursorPosition;
 
 		private void Start() { mainCamera = Camera.main; }
@@ -34,10 +32,13 @@ namespace Other {
 				if (!highlighted) {
 					Debug.LogWarning(
 						$"Object {hit.collider.gameObject} is in the Interactable layer, but does not have the Interactable component!");
+					if (selectedInteractable != null) OnHighlightStop();
 					selectedInteractable = null;
 				} else {
-					selectedInteractable = hit.collider.gameObject;
+					if (!hit.collider.gameObject.Equals(selectedInteractable))
+						OnHighlightStart(hit.collider.gameObject);
 
+					/*
 					//add highlightMat to the selected object
 					MeshRenderer selectedMeshRenderer = selectedInteractable.GetComponent<MeshRenderer>();
 
@@ -52,10 +53,11 @@ namespace Other {
 
 						selectedMeshRenderer.materials = mats;
 					}
+					*/
 				}
 			} else {
-				_cursorPosition      = ray.direction * maxRayLength + mainCamera.transform.position;
-				selectedInteractable = null;
+				_cursorPosition = ray.direction * maxRayLength + mainCamera.transform.position;
+				if (selectedInteractable != null) OnHighlightStop();
 			}
 
 			transform.position = _cursorPosition;
@@ -63,6 +65,16 @@ namespace Other {
 
 		private void TriggerInteract() {
 			if (selectedInteractable) { selectedInteractable.GetComponent<Interactable>().onInteractEvent.Invoke(); }
+		}
+
+		private void OnHighlightStart(GameObject newInteractable) {
+			selectedInteractable = newInteractable;
+			selectedInteractable.GetComponent<Interactable>().SetHighlight(true);
+		}
+
+		private void OnHighlightStop() {
+			selectedInteractable.GetComponent<Interactable>().SetHighlight(false);
+			selectedInteractable = null;
 		}
 	}
 }

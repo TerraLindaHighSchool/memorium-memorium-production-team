@@ -36,8 +36,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Object_Control/DummyInteractable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21I9lUCELfyAblIfupa1OMFKL9S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -96,6 +94,7 @@
       <workItem from="1638054055773" duration="7095000" />
       <workItem from="1638079178765" duration="4969000" />
       <workItem from="1638087283186" duration="2666000" />
+      <workItem from="1638203614303" duration="1747000" />
     </task>
     <servers />
   </component>
