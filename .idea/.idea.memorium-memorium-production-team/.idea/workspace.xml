@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Interface/UI/Cursor.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Interface/UI/Cursor.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/CursorController_JRoberts.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/CursorController_JRoberts.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/PlayerController_JRoberts.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/PlayerController_JRoberts.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/playeractions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/playeractions.inputactions" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +29,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21I9lUCELfyAblIfupa1OMFKL9S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -51,11 +46,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-  </component>
-  <component name="ReaderModeSettings">
-    <option name="showLigatures" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../memorium-testing/amogus.DotSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -92,9 +84,7 @@
       <workItem from="1637703716551" duration="2599000" />
       <workItem from="1637878463087" duration="6785000" />
       <workItem from="1638054055773" duration="7095000" />
-      <workItem from="1638079178765" duration="4969000" />
-      <workItem from="1638087283186" duration="2666000" />
-      <workItem from="1638203614303" duration="1747000" />
+      <workItem from="1638079178765" duration="1442000" />
     </task>
     <servers />
   </component>
