@@ -7,10 +7,10 @@ namespace Game_Managing.Pausing {
 			Cutscene, All
 		}
 		
-		private bool              _paused = false;
-		public event Action<bool> OnSetPaused;
+		private Optional<PauseType>              _paused = new Optional<PauseType>(PauseType.All, false);
+		public event Action<Optional<PauseType>> OnSetPaused;
 
-		public bool Paused {
+		public Optional<PauseType> Paused {
 			get => _paused;
 			set {
 				_paused = value;
