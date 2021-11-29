@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c65efbcfe6dcdb2cb05a49ba41f92b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  selectedInteractable: {fileID: 0}
+  player: {fileID: 0}
   maxRayLength: 100
 --- !u!1 &4330414574708556831
 GameObject:
