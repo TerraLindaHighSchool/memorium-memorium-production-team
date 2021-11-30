@@ -1,28 +1,37 @@
-﻿using UnityEngine;
+﻿using Player_Control;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Other {
 	public class CursorController : MonoBehaviour {
-		public Camera mainCamera;
-
-		public float maxRayLength = 100f;
-
 		public GameObject selectedInteractable;
 
+		public PlayerController player;
+
+		[SerializeField] private float maxRayLength = 100f;
+
+		private Camera _mainCamera;
+
+		private PlayerInputActions _playerInputActions;
+
+		private Mouse   _mouse;
 		private Vector3 _cursorPosition;
 
-		private void Start() { mainCamera = Camera.main; }
+		private void Start() {
+			_mainCamera = Camera.main;
+			_mouse      = Mouse.current;
 
-		private void Update() {
-			SetMousePos();
-			//TODO: this is old input system, once merged modify to use new input system
-			if (Input.GetKeyDown("e")) { TriggerInteract(); }
+			_playerInputActions = player.PlayerInputActions;
+
+			_playerInputActions.Player.Interact.performed += TriggerInteract;
 		}
 
-		private void SetMousePos() {
-			//TODO: this is old input system, once merged modify to use new input system
-			Vector3 mousePos = Input.mousePosition;
+		private void Update() { SetMousePos(); }
 
-			Ray ray = mainCamera.ScreenPointToRay(mousePos);
+		private void SetMousePos() {
+			Vector2 mousePos = _mouse.position.ReadValue();
+
+			Ray ray = _mainCamera.ScreenPointToRay(mousePos);
 
 			LayerMask colliderMask = LayerMask.GetMask("Interactable");
 
@@ -37,33 +46,16 @@ namespace Other {
 				} else {
 					if (!hit.collider.gameObject.Equals(selectedInteractable))
 						OnHighlightStart(hit.collider.gameObject);
-
-					/*
-					//add highlightMat to the selected object
-					MeshRenderer selectedMeshRenderer = selectedInteractable.GetComponent<MeshRenderer>();
-
-					if (!selectedMeshRenderer.materials[selectedMeshRenderer.materials.Length - 1].Equals(highlightMat)) {
-						Material[] mats = new Material[selectedMeshRenderer.materials.Length + 1];
-
-						for (int i = 0; i < selectedMeshRenderer.materials.Length; i++) {
-							mats[i] = selectedMeshRenderer.materials[i];
-						}
-
-						mats[mats.Length - 1] = highlightMat;
-
-						selectedMeshRenderer.materials = mats;
-					}
-					*/
 				}
 			} else {
-				_cursorPosition = ray.direction * maxRayLength + mainCamera.transform.position;
+				_cursorPosition = ray.direction * maxRayLength + _mainCamera.transform.position;
 				if (selectedInteractable != null) OnHighlightStop();
 			}
 
 			transform.position = _cursorPosition;
 		}
 
-		private void TriggerInteract() {
+		private void TriggerInteract(InputAction.CallbackContext context) {
 			if (selectedInteractable) { selectedInteractable.GetComponent<Interactable>().onInteractEvent.Invoke(); }
 		}
 
