@@ -36,9 +36,9 @@ namespace Camera_and_Lighting {
 			//Clamp rotation around sideways axis
 			float attemptedNewCameraX = playerFollowCamTarget.eulerAngles.x + mouseDelta.y;
 			if (attemptedNewCameraX <= cameraYBound) {
-				playerFollowCamTarget.Rotate(playerTransform.right, mouseDelta.y);
+				playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
 			} else if (attemptedNewCameraX >= 360 - cameraYBound) {
-				playerFollowCamTarget.Rotate(playerTransform.right, mouseDelta.y);
+				playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
 			}
 
 			Vector3 playerFollowTargetEulers = playerFollowCamTarget.eulerAngles;
