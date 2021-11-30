@@ -46,6 +46,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.inputsystem": {
+      "version": "1.0.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.probuilder": {
       "version": "4.5.2",
       "depth": 0,
@@ -67,11 +74,6 @@
     "com.unity.settings-manager": {
       "version": "1.0.3",
       "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-    "com.unity.inputsystem": {
-      "version": "1.0.2",
-      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
