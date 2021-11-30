@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/PlayerController_JRoberts.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/PlayerController_JRoberts.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/PrototypeScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/PrototypeScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/PuzzleSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/PuzzleSet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -84,6 +90,7 @@
       <workItem from="1638079178765" duration="1442000" />
       <workItem from="1638225446754" duration="1259000" />
       <workItem from="1638309764571" duration="72000" />
+      <workItem from="1638314611457" duration="637000" />
     </task>
     <servers />
   </component>

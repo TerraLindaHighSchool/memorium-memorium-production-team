@@ -11,11 +11,12 @@ namespace Puzzle_Control {
 
 		[SerializeField] private PuzzleController[] puzzleComponents;
 
-		private Dictionary<string, bool> puzzlesComplete;
+		private Dictionary<string, bool> _puzzlesComplete;
 
-		private void Start() {
+		private void OnEnable() {
+			_puzzlesComplete = new Dictionary<string, bool>();
 			foreach (PuzzleController puzzle in puzzleComponents) {
-				puzzlesComplete.Add(puzzle.Guid, false);
+				_puzzlesComplete.Add(puzzle.Guid, false);
 				puzzle.NotifyPuzzleSet += HandlePuzzleComplete;
 			}
 		}
@@ -27,8 +28,8 @@ namespace Puzzle_Control {
 		}
 
 		private void HandlePuzzleComplete(String guid) {
-			puzzlesComplete[guid] = true;
-			if (puzzlesComplete.All(entry => entry.Value)) { onPuzzleSetComplete.Invoke();}
+			_puzzlesComplete[guid] = true;
+			if (_puzzlesComplete.All(entry => entry.Value)) { onPuzzleSetComplete.Invoke();}
 		}
 		
 		private void OnDrawGizmosSelected() {
