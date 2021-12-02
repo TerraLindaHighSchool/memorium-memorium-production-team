@@ -15,7 +15,7 @@ namespace Other {
 
 		[SerializeField] private float maxRayLength = 100f;
 
-		[SerializeField] private List<Interactable> interactablesInRange;
+		private List<Interactable> _interactablesInRange;
 
 		private Camera _mainCamera;
 
@@ -25,6 +25,8 @@ namespace Other {
 		private Vector3 _cursorPosition;
 
 		private void Start() {
+			_interactablesInRange = new List<Interactable>();
+			
 			_mainCamera = Camera.main;
 			_mouse      = Mouse.current;
 
@@ -37,12 +39,12 @@ namespace Other {
 			bool hasModifiedInteractableList = false;
 			foreach (Interactable interactable in FindObjectsOfType<Interactable>()) {
 				if (player.GetDistanceToObject(interactable.gameObject) <= player.interactDistance) {
-					if (!interactablesInRange.Contains(interactable)) {
-						interactablesInRange.Add(interactable);
+					if (!_interactablesInRange.Contains(interactable)) {
+						_interactablesInRange.Add(interactable);
 						hasModifiedInteractableList = true;
 					}
 				} else {
-					if (interactablesInRange.Remove(interactable)) {
+					if (_interactablesInRange.Remove(interactable)) {
 						interactable.SetHighlight(false, Color.clear);
 						hasModifiedInteractableList = true;
 					}
@@ -54,8 +56,8 @@ namespace Other {
 		}
 
 		private void ComputeInteractableOutlines() {
-			for (int i = 0; i < interactablesInRange.Count; i++) {
-				Interactable interactable       = interactablesInRange[i];
+			for (int i = 0; i < _interactablesInRange.Count; i++) {
+				Interactable interactable       = _interactablesInRange[i];
 				GameObject   interactableObject = interactable.gameObject;
 				interactable.SetHighlight(
 					true,
@@ -95,6 +97,7 @@ namespace Other {
 		private void TriggerInteract(InputAction.CallbackContext context) {
 			if (selectedInteractableObject) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
+				ComputeInteractableOutlines();
 			}
 		}
 

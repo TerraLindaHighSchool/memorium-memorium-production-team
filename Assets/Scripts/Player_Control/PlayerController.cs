@@ -1,7 +1,6 @@
 ﻿using Camera_and_Lighting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Player_Control {
 	[RequireComponent(typeof(CharacterController))]
@@ -16,7 +15,7 @@ namespace Player_Control {
 
 		[SerializeField] private CameraController cameraController;
 
-		[SerializeField] private Vector3 momentum;
+		private Vector3 _momentum;
 
 		private readonly bool[] _wasd = new bool[4];
 
@@ -46,7 +45,7 @@ namespace Player_Control {
 
 
 		private void OnJump(InputAction.CallbackContext context) {
-			if (_characterController.isGrounded) { momentum.y += jump; }
+			if (_characterController.isGrounded) { _momentum.y += jump; }
 		}
 
 		private void OnWStarted(InputAction.CallbackContext   context) { _wasd[0] = true; }
@@ -112,14 +111,14 @@ namespace Player_Control {
 				motion = transform.forward * (speed * Time.deltaTime);
 			}
 
-			momentum.x = motion.x;
-			momentum.z = motion.z;
+			_momentum.x = motion.x;
+			_momentum.z = motion.z;
 
-			momentum.y -= gravity * (1 + Time.deltaTime);
+			_momentum.y -= gravity * (1 + Time.deltaTime);
 
-			_characterController.Move(momentum);
+			_characterController.Move(_momentum);
 
-			if (_characterController.isGrounded) momentum.y = 0;
+			if (_characterController.isGrounded) _momentum.y = 0;
 		}
 
 		private void Update() { Move(); }
