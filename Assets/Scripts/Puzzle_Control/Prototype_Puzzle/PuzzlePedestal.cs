@@ -2,11 +2,12 @@
 using UnityEngine;
 
 namespace Puzzle_Control.Prototype_Puzzle {
+	[RequireComponent(typeof(Interactable))]
 	public class PuzzlePedestal : PuzzleController {
-		private bool _canComplete;
-
 		public override void StartPuzzle() {
-			if (!_canComplete) {
+			Interactable interactableComponent = GetComponent<Interactable>();
+			
+			if (!interactableComponent.isEnabled) {
 				Debug.Log("The requirements to do this puzzle are not met.");
 				return;
 			}
@@ -14,10 +15,6 @@ namespace Puzzle_Control.Prototype_Puzzle {
 			Debug.Log("First puzzle completed!");
 			Complete();
 			GetComponent<Interactable>().isEnabled = false;
-		}
-
-		public void SetCanComplete(bool value) {
-			_canComplete = value;
 		}
 	}
 }

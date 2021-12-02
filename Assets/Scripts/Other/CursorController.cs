@@ -10,7 +10,7 @@ namespace Other {
 		public PlayerController player;
 
 		public Color baseHighlightColor;
-		public Color selectedHighlightColor;
+		public Color selectedHighlightColor = Color.green;
 		public Color notEnabledHighlightColor;
 
 		[SerializeField] private float maxRayLength = 100f;
@@ -34,28 +34,44 @@ namespace Other {
 		}
 
 		private void Update() {
+			bool hasModifiedInteractableList = false;
 			foreach (Interactable interactable in FindObjectsOfType<Interactable>()) {
 				if (player.GetDistanceToObject(interactable.gameObject) <= player.interactDistance) {
-					GameObject interactableObject = interactable.gameObject;
-					interactable.SetHighlight(
-						true,
-						interactableObject == selectedInteractableObject
-							? (interactable.isEnabled ? selectedHighlightColor : notEnabledHighlightColor)
-							: baseHighlightColor,
-						interactableObject == selectedInteractableObject ? 5.0f : 2.0f);
-				}// else { interactable.SetHighlight(false, Color.blue); }
+					if (!interactablesInRange.Contains(interactable)) {
+						interactablesInRange.Add(interactable);
+						hasModifiedInteractableList = true;
+					}
+				} else {
+					if (interactablesInRange.Remove(interactable)) {
+						interactable.SetHighlight(false, Color.clear);
+						hasModifiedInteractableList = true;
+					}
+				}
 			}
 
+			if (hasModifiedInteractableList) ComputeInteractableOutlines();
 			SetMousePos();
 		}
 
+		private void ComputeInteractableOutlines() {
+			for (int i = 0; i < interactablesInRange.Count; i++) {
+				Interactable interactable       = interactablesInRange[i];
+				GameObject   interactableObject = interactable.gameObject;
+				interactable.SetHighlight(
+					true,
+					interactableObject == selectedInteractableObject
+						? interactable.isEnabled ? selectedHighlightColor : notEnabledHighlightColor
+						: baseHighlightColor,
+					interactableObject == selectedInteractableObject ? 5.0f : 2.0f);
+			}
+		}
+
+
 		private void SetMousePos() {
 			Vector2 mousePos = _mouse.position.ReadValue();
-
-			Ray ray = _mainCamera.ScreenPointToRay(mousePos);
+			Ray     ray      = _mainCamera.ScreenPointToRay(mousePos);
 
 			LayerMask colliderMask = LayerMask.GetMask("Interactable");
-
 			if (Physics.Raycast(ray, out RaycastHit hit, maxRayLength, colliderMask)) {
 				_cursorPosition = hit.point;
 				Interactable highlighted = hit.collider.gameObject.GetComponent<Interactable>();
@@ -77,7 +93,7 @@ namespace Other {
 		}
 
 		private void TriggerInteract(InputAction.CallbackContext context) {
-			if (selectedInteractableObject && selectedInteractableObject.GetComponent<Interactable>().isEnabled) {
+			if (selectedInteractableObject) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
 			}
 		}
@@ -85,22 +101,12 @@ namespace Other {
 		private void OnHighlightStart(GameObject newInteractable) {
 			if (player.GetDistanceToObject(newInteractable) > player.interactDistance) return;
 			selectedInteractableObject = newInteractable;
-			Interactable selectedInteractable = selectedInteractableObject.GetComponent<Interactable>();
-			selectedInteractable.SetHighlight(
-				true, selectedInteractable.isEnabled ? selectedHighlightColor : notEnabledHighlightColor, 5.0f);
+			ComputeInteractableOutlines();
 		}
 
 		private void OnHighlightStop() {
-			Interactable selectedInteractable = selectedInteractableObject.GetComponent<Interactable>();
-			/*
-			selectedInteractableObject.GetComponent<Interactable>()
-			                          .SetHighlight(
-				                           false,
-				                           selectedInteractable.isEnabled
-					                           ? selectedHighlightColor
-					                           : notEnabledHighlightColor);
-					                           */
 			selectedInteractableObject = null;
+			ComputeInteractableOutlines();
 		}
 	}
 }
