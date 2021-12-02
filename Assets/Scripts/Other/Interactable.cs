@@ -5,12 +5,18 @@ namespace Other {
 	//temporary, need for Asset Store outline plugin
 	[RequireComponent(typeof(Outline))]
 	public class Interactable : MonoBehaviour {
-		public UnityEvent onInteractEvent;
+		public bool isEnabled;
 
-		public void SetHighlight(bool value) {
+		private readonly Color _defaultHighlightColor = new Color(200, 200, 0);
+		
+		public UnityEvent onInteractEvent;
+		
+		public void SetHighlight(bool value, Color color, float width = 0.0f) {
 			Outline outline = GetComponent<Outline>();
 
-			outline.enabled = value;
+			if (width > 0) outline.OutlineWidth = width;
+			outline.OutlineColor = color;
+			outline.enabled      = value;
 		}
 	}
 }
