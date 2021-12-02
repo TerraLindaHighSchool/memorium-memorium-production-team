@@ -192,7 +192,7 @@ MonoBehaviour:
   speed: 10
   jump: 0.2
   gravity: 0.003
-  amogus: 0
+  interactDistance: 5
   cameraController: {fileID: 0}
   momentum: {x: 0, y: 0, z: 0}
 --- !u!114 &7886373920443050171

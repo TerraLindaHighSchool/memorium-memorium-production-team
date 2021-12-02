@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c65efbcfe6dcdb2cb05a49ba41f92b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedInteractable: {fileID: 0}
+  selectedInteractableObject: {fileID: 0}
   player: {fileID: 0}
+  baseHighlightColor: {r: 0.8113208, g: 0.7572237, b: 0.13394445, a: 1}
+  selectedHighlightColor: {r: 0.1432894, g: 0.8679245, b: 0.1432894, a: 1}
+  notEnabledHighlightColor: {r: 0.8679245, g: 0.12691349, b: 0.12691349, a: 1}
   maxRayLength: 100
+  interactablesInRange: []
 --- !u!1 &4330414574708556831
 GameObject:
   m_ObjectHideFlags: 0

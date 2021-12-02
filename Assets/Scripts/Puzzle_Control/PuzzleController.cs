@@ -13,7 +13,7 @@ namespace Puzzle_Control {
 		
 		public abstract void StartPuzzle();
 
-		void Start() {
+		void OnEnable() {
 			Guid = GUID.Generate().ToString();
 		}
 
