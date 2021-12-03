@@ -15,7 +15,7 @@ namespace Player_Control {
 
 		[SerializeField] private CameraController cameraController;
 
-		private Vector3 _momentum;
+		private Vector3 _velocity;
 
 		private readonly bool[] _wasd = new bool[4];
 
@@ -45,7 +45,7 @@ namespace Player_Control {
 
 
 		private void OnJump(InputAction.CallbackContext context) {
-			if (_characterController.isGrounded) { _momentum.y += jump; }
+			if (_characterController.isGrounded) { _velocity.y += jump; }
 		}
 
 		private void OnWStarted(InputAction.CallbackContext   context) { _wasd[0] = true; }
@@ -111,14 +111,14 @@ namespace Player_Control {
 				motion = transform.forward * (speed * Time.deltaTime);
 			}
 
-			_momentum.x = motion.x;
-			_momentum.z = motion.z;
+			_velocity.x = motion.x;
+			_velocity.z = motion.z;
 
-			_momentum.y -= gravity * (1 + Time.deltaTime);
+			_velocity.y -= gravity * Time.deltaTime;
 
-			_characterController.Move(_momentum);
+			_characterController.Move(_velocity);
 
-			if (_characterController.isGrounded) _momentum.y = 0;
+			if (_characterController.isGrounded) _velocity.y = 0;
 		}
 
 		private void Update() { Move(); }
