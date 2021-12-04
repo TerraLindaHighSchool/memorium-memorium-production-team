@@ -13,11 +13,16 @@ namespace Camera_and_Lighting {
 
 		private Mouse _mouse;
 
+		private Camera _mainCamera;
+
 		// Returns the float that is the y of the follow target's rotation eulers
 		// Used for getting the forward vector of the follow target for player movement
 		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y; }
 
-		private void OnEnable() { _mouse = Mouse.current; }
+		private void OnEnable() {
+			_mouse = Mouse.current;
+			_mainCamera = Camera.main;
+		}
 
 		private void LateUpdate() {
 			Vector2 mouseDelta = _mouse.delta.ReadValue();
@@ -43,10 +48,10 @@ namespace Camera_and_Lighting {
 
 			Vector3 playerFollowTargetEulers = playerFollowCamTarget.eulerAngles;
 
-			Quaternion removeZComponent =
+			Quaternion removeFollowTargetZComponent =
 				Quaternion.Euler(new Vector3(playerFollowTargetEulers.x, playerFollowTargetEulers.y,
 				                             0));
-			playerFollowCamTarget.SetPositionAndRotation(playerFollowCamTarget.position, removeZComponent);
+			playerFollowCamTarget.SetPositionAndRotation(playerFollowCamTarget.position, removeFollowTargetZComponent);
 		}
 	}
 }

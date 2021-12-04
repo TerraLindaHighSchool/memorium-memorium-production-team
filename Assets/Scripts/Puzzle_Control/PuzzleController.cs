@@ -14,7 +14,7 @@ namespace Puzzle_Control {
 		public abstract void StartPuzzle();
 
 		void OnEnable() {
-			Guid = GUID.Generate().ToString();
+			Guid = System.Guid.NewGuid().ToString();
 		}
 
 		protected void Complete() {
