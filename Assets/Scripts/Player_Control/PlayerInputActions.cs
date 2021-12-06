@@ -61,6 +61,30 @@ namespace Player_Control
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""e2bf14b5-30a6-479f-a217-19963f90b69e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""ce62fdea-58d0-45af-9989-87c99c10d4d8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Orbit"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ef2954e-3767-48ab-948a-f7785598d855"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""c8496fc3-ac1e-41ac-95c1-bdfcff1cbdb2"",
@@ -232,6 +256,39 @@ namespace Player_Control
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e0ee62f-0dcc-46ae-a380-aab176956ee8"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MouseDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1546182c-3df5-4a3b-a597-70dcb7878f59"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Orbit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd0d2256-d5fe-4363-a2aa-8d72c71983ae"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MousePos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -814,6 +871,9 @@ namespace Player_Control
             m_Player_S = m_Player.FindAction("S", throwIfNotFound: true);
             m_Player_D = m_Player.FindAction("D", throwIfNotFound: true);
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+            m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
+            m_Player_MouseDelta = m_Player.FindAction("MouseDelta", throwIfNotFound: true);
+            m_Player_Orbit = m_Player.FindAction("Orbit", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -881,6 +941,9 @@ namespace Player_Control
         private readonly InputAction m_Player_S;
         private readonly InputAction m_Player_D;
         private readonly InputAction m_Player_Jump;
+        private readonly InputAction m_Player_MousePos;
+        private readonly InputAction m_Player_MouseDelta;
+        private readonly InputAction m_Player_Orbit;
         private readonly InputAction m_Player_Interact;
         public struct PlayerActions
         {
@@ -891,6 +954,9 @@ namespace Player_Control
             public InputAction @S => m_Wrapper.m_Player_S;
             public InputAction @D => m_Wrapper.m_Player_D;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
+            public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
+            public InputAction @MouseDelta => m_Wrapper.m_Player_MouseDelta;
+            public InputAction @Orbit => m_Wrapper.m_Player_Orbit;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
@@ -916,6 +982,15 @@ namespace Player_Control
                     @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                    @MousePos.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                    @MousePos.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                    @MousePos.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                    @MouseDelta.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDelta;
+                    @MouseDelta.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDelta;
+                    @MouseDelta.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseDelta;
+                    @Orbit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
+                    @Orbit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
+                    @Orbit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
                     @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
@@ -938,6 +1013,15 @@ namespace Player_Control
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
+                    @MousePos.started += instance.OnMousePos;
+                    @MousePos.performed += instance.OnMousePos;
+                    @MousePos.canceled += instance.OnMousePos;
+                    @MouseDelta.started += instance.OnMouseDelta;
+                    @MouseDelta.performed += instance.OnMouseDelta;
+                    @MouseDelta.canceled += instance.OnMouseDelta;
+                    @Orbit.started += instance.OnOrbit;
+                    @Orbit.performed += instance.OnOrbit;
+                    @Orbit.canceled += instance.OnOrbit;
                     @Interact.started += instance.OnInteract;
                     @Interact.performed += instance.OnInteract;
                     @Interact.canceled += instance.OnInteract;
@@ -1102,6 +1186,9 @@ namespace Player_Control
             void OnS(InputAction.CallbackContext context);
             void OnD(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnMousePos(InputAction.CallbackContext context);
+            void OnMouseDelta(InputAction.CallbackContext context);
+            void OnOrbit(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
         }
         public interface IUIActions
