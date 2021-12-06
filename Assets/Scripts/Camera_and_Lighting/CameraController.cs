@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using Player_Control;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Camera_and_Lighting {
 	public class CameraController : MonoBehaviour {
@@ -9,27 +9,34 @@ namespace Camera_and_Lighting {
 
 		[SerializeField] public Transform playerFollowCamTarget;
 
-		private bool _inOrbitMode;
+		[SerializeField] private PlayerController player;
 
-		private Mouse _mouse;
+		private PlayerInputActions _playerInputActions;
 
-		private Camera _mainCamera;
+		private Vector2 _mouseDelta;
+		private bool    _inOrbitMode;
 
 		// Returns the float that is the y of the follow target's rotation eulers
 		// Used for getting the forward vector of the follow target for player movement
 		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y; }
 
-		private void OnEnable() {
-			_mouse = Mouse.current;
-			_mainCamera = Camera.main;
+		private void Start() {
+			_playerInputActions = player.PlayerInputActions;
+
+			_playerInputActions.Player.MouseDelta.performed += OnMouseDelta;
+
+			_playerInputActions.Player.Orbit.started  += OnOrbitStarted;
+			_playerInputActions.Player.Orbit.canceled += OnOrbitCancelled;
 		}
 
-		private void LateUpdate() {
-			Vector2 mouseDelta = _mouse.delta.ReadValue();
-			_inOrbitMode = _mouse.rightButton.ReadValue() >= 1;
+		private void OnMouseDelta(InputAction.CallbackContext context) {
+			if (_inOrbitMode) OrbitCamera(context.ReadValue<Vector2>());
+		}
 
-			if (mouseDelta == Vector2.zero || !_inOrbitMode) return;
+		private void OnOrbitStarted(InputAction.CallbackContext   context) { _inOrbitMode = true; }
+		private void OnOrbitCancelled(InputAction.CallbackContext context) { _inOrbitMode = false; }
 
+		private void OrbitCamera(Vector2 mouseDelta) {
 			mouseDelta   *= sensitivity * (1 + Time.deltaTime);
 			mouseDelta.y *= -1;
 

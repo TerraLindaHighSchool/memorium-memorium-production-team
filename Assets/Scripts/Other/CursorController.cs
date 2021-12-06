@@ -21,21 +21,33 @@ namespace Other {
 
 		private PlayerInputActions _playerInputActions;
 
-		private Mouse   _mouse;
+		//Vector2 for tracking the mouse in screen-space coords
+		private Vector2 _mousePos;
+
+		//Vector3 for tracking physical cursor position in the scene
 		private Vector3 _cursorPosition;
 
 		private void Start() {
 			_interactablesInRange = new List<Interactable>();
-			
+
 			_mainCamera = Camera.main;
-			_mouse      = Mouse.current;
+
+			player.Moved += CheckInteractactables;
+			player.Moved += SetMousePos;
 
 			_playerInputActions = player.PlayerInputActions;
 
 			_playerInputActions.Player.Interact.performed += TriggerInteract;
+			_playerInputActions.Player.MousePos.performed += OnMousePos;
 		}
 
-		private void Update() {
+		private void OnMousePos(InputAction.CallbackContext context) {
+			_mousePos = context.ReadValue<Vector2>();
+			CheckInteractactables();
+			SetMousePos();
+		}
+
+		private void CheckInteractactables() {
 			bool hasModifiedInteractableList = false;
 			foreach (Interactable interactable in FindObjectsOfType<Interactable>()) {
 				if (player.GetDistanceToObject(interactable.gameObject) <= player.interactDistance) {
@@ -52,7 +64,6 @@ namespace Other {
 			}
 
 			if (hasModifiedInteractableList) ComputeInteractableOutlines();
-			SetMousePos();
 		}
 
 		private void ComputeInteractableOutlines() {
@@ -70,8 +81,7 @@ namespace Other {
 
 
 		private void SetMousePos() {
-			Vector2 mousePos = _mouse.position.ReadValue();
-			Ray     ray      = _mainCamera.ScreenPointToRay(mousePos);
+			Ray ray = _mainCamera.ScreenPointToRay(_mousePos);
 
 			LayerMask colliderMask = LayerMask.GetMask("Interactable");
 			if (Physics.Raycast(ray, out RaycastHit hit, maxRayLength, colliderMask)) {

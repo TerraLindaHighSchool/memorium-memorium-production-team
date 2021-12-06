@@ -1,4 +1,5 @@
-﻿using Camera_and_Lighting;
+﻿using System;
+using Camera_and_Lighting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,10 @@ namespace Player_Control {
 		public float interactDistance = 5f;
 
 		public PlayerInputActions PlayerInputActions;
+
+		//Invoked after the player has moved
+		//Used for recalculating interactable outlines
+		public event Action Moved;
 
 		[SerializeField] private CameraController cameraController;
 
@@ -119,6 +124,8 @@ namespace Player_Control {
 			_characterController.Move(_velocity);
 
 			if (_characterController.isGrounded) _velocity.y = 0;
+
+			Moved?.Invoke();
 		}
 
 		private void Update() { Move(); }
