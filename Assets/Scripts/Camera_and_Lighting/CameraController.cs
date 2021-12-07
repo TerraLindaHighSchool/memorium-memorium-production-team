@@ -3,31 +3,35 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Camera_and_Lighting {
-	/*
-	 * This MonoBehaviour lives on the Player VCAM
-	 * It controls the orbit functionality for the camera
-	 * In the future may also control switching between VCAMS for cutscenes
-	 */
+	/// <summary>
+	/// Lives on the Player VCAM and controls the camera. 
+	/// Manages the orbit camera code around the player. 
+	/// In the future may also manage switching between VCAMs.
+	/// </summary>
 	public class CameraController : MonoBehaviour {
-		// Orbit camera settings, set in the editor or by settings
-		[SerializeField] private float sensitivity  = 1.0f;
-		[SerializeField] private int   cameraYBound = 60;
+		///Orbit camera sensitivity setting, set in the editor or by settings menu.
+		[SerializeField] private float sensitivity = 1.0f;
 
-		// The empty on the player that gets rotated to make the orbit camera
+		///Orbit camera vertical angle boundary, set in the editor or by settings menu.
+		[SerializeField] private int cameraYBound = 60;
+
+		///The empty on the player that gets rotated to make the orbit camera.
 		[SerializeField] public Transform playerFollowCamTarget;
 
-		// A reference to the player, used primarily to get the PlayerInputActions object
+		///A reference to the player, used primarily to get the PlayerInputActions object. 
 		[SerializeField] private PlayerController player;
 
-		// Fields for keeping track of mouse data from the input actions
+		///Keeps track of the mouse movement delta from frame to frame. 
 		private Vector2 _mouseDelta;
-		private bool    _inOrbitMode;
 
-		// Returns the float that is the y of the follow target's rotation eulers
-		// Used for getting the forward vector of the follow target for player movement
+		///Controls whether or not the camera is in "orbit mode", controlled by right click.
+		private bool _inOrbitMode;
+
+		///Returns the float that is the y of the follow target's rotation eulers. 
+		///Used for getting the forward vector of the follow target for player movement. 
 		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y; }
 
-		// Gets the PlayerInputActions from the player and subscribes to the necessary events
+		///Gets the PlayerInputActions from the player and subscribes to the necessary events. 
 		private void Start() {
 			PlayerInputActions playerInputActions = player.PlayerInputActions;
 
@@ -37,16 +41,30 @@ namespace Camera_and_Lighting {
 			playerInputActions.Player.Orbit.canceled += OnOrbitCancelled;
 		}
 
-		// Orbits the camera if necessary whenever the mouse delta changes
+		/// <summary>
+		/// Orbits the camera if necessary whenever the mouse delta changes. 
+		/// </summary>
+		/// <param name="context">The Action CallbackContext, passed in from the <c>MouseDelta.performed</c> event.</param>
 		private void OnMouseDelta(InputAction.CallbackContext context) {
 			if (_inOrbitMode) OrbitCamera(context.ReadValue<Vector2>());
 		}
 
-		// Sets _inOrbitMode whenever the right mouse button changes
-		private void OnOrbitStarted(InputAction.CallbackContext   context) { _inOrbitMode = true; }
+		/// <summary>
+		/// Sets <c>_inOrbitMode</c> to the state of the right click whenever it changes. 
+		/// </summary>
+		/// <param name="context">The Action CallbackContext, passed in from the <c>Orbit.started</c> event.</param>
+		private void OnOrbitStarted(InputAction.CallbackContext context) { _inOrbitMode = true; }
+
+		/// <summary>
+		/// Sets <c>_inOrbitMode</c> to the state of the right click whenever it changes. 
+		/// </summary>
+		/// <param name="context">The Action CallbackContext, passed in from the <c>Orbit.canceled</c> event.</param>
 		private void OnOrbitCancelled(InputAction.CallbackContext context) { _inOrbitMode = false; }
 
-		// Uses the passed in mouse delta to orbit the camera around the player, within the set bounds
+		/// <summary>
+		/// Uses the passed in mouse delta to orbit the camera around the player, within the set bounds.
+		/// </summary>
+		/// <param name="mouseDelta">A Vector2 for the x,y of the mouse movement delta this frame.</param>
 		private void OrbitCamera(Vector2 mouseDelta) {
 			mouseDelta   *= sensitivity * (1 + Time.deltaTime);
 			mouseDelta.y *= -1;
