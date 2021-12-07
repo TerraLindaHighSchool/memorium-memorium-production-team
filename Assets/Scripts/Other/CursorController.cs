@@ -5,36 +5,62 @@ using UnityEngine.InputSystem;
 using PlayerInputManager = Player_Control.PlayerInputManager;
 
 namespace Other {
+	/// <summary>
+	/// This class lives on the <c>Cursor</c>. prefab in the scene.
+	/// Manages placing the cursor in the scene, interactable highlighting,
+	/// and interactions. 
+	/// </summary>
 	public class CursorController : MonoBehaviour {
+		///The GameObject of whatever interactable is currently selected. 
 		public GameObject selectedInteractableObject;
 
+		/// <summary>
+		/// Reference to the player, right now just used to get the <c>PlayerInputActions</c> object. 
+		/// </summary>
 		public PlayerController player;
 
+		///The color that interactables will be when they are in range, but not selected. 
 		public Color baseHighlightColor;
-		public Color selectedHighlightColor = Color.green;
+
+		///The color interactables are highlighted when selected and they can be interacted with. 
+		public Color selectedHighlightColor;
+
+		///The color interactables are highlighted when selected but they can't yet be interacted with. 
 		public Color notEnabledHighlightColor;
 
+		/// <summary>
+		/// The max ray length for placing the cursor. 
+		/// The cursor will be at this distance from the camera if no interactable is hit. 
+		/// </summary>
 		[SerializeField] private float maxRayLength = 100f;
 
+		///List of all interactables that are currently within range of the player. 
 		private List<Interactable> _interactablesInRange;
 
+		///A reference to the main camera in the scene, used for casting out the ray for cursor position. 
 		private Camera _mainCamera;
 
+		/// <summary>
+		/// A reference to the player's <c>PlayerInputActions</c>, will hopefully be moved to a manager class soon. 
+		/// </summary>
 		private PlayerInputActions _playerInputActions;
 
-		//Vector2 for tracking the mouse in screen-space coords
+		///Vector2 for tracking the mouse in screen-space coords. 
 		private Vector2 _mousePos;
 
-		//Vector3 for tracking physical cursor position in the scene
+		///Vector3 for tracking physical cursor position in the scene. 
 		private Vector3 _cursorPosition;
 
+		/// <summary>
+		/// Creates the <c>_interactablesInRange</c> list, gets the main camera, and subscribes to necessary events. 
+		/// </summary>
 		private void Start() {
 			_interactablesInRange = new List<Interactable>();
 
 			_mainCamera = Camera.main;
 
 			player.Moved += CheckInteractactables;
-			player.Moved += SetMousePos;
+			player.Moved += SetCursorPos;
 
 			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
@@ -42,12 +68,21 @@ namespace Other {
 			_playerInputActions.Player.MousePos.performed += OnMousePos;
 		}
 
+		/// <summary>
+		/// Fires when the mouse screen position changes. 
+		/// Stores the new position and checks if interactable highlights need recalculating. 
+		/// </summary>
+		/// <param name="context">The Action CallbackContext, passed in from the <c>MousePos.performed</c> event.</param>
 		private void OnMousePos(InputAction.CallbackContext context) {
 			_mousePos = context.ReadValue<Vector2>();
 			CheckInteractactables();
-			SetMousePos();
+			SetCursorPos();
 		}
 
+		/// <summary>
+		/// Checks all interactables in the scene and sets the list of <c>_interactablesInRange</c>. 
+		/// If the list has been changed this frame, recompute the outlines. 
+		/// </summary>
 		private void CheckInteractactables() {
 			bool hasModifiedInteractableList = false;
 			foreach (Interactable interactable in FindObjectsOfType<Interactable>()) {
@@ -67,6 +102,7 @@ namespace Other {
 			if (hasModifiedInteractableList) ComputeInteractableOutlines();
 		}
 
+		///Computes and sets the outlines of all interactables within range of the player. 
 		private void ComputeInteractableOutlines() {
 			for (int i = 0; i < _interactablesInRange.Count; i++) {
 				Interactable interactable       = _interactablesInRange[i];
@@ -80,8 +116,8 @@ namespace Other {
 			}
 		}
 
-
-		private void SetMousePos() {
+		///Sets the position of the cursor in the scene, and sets the selected interactable to what is selected. 
+		private void SetCursorPos() {
 			Ray ray = _mainCamera.ScreenPointToRay(_mousePos);
 
 			LayerMask colliderMask = LayerMask.GetMask("Interactable");
@@ -105,6 +141,11 @@ namespace Other {
 			transform.position = _cursorPosition;
 		}
 
+		/// <summary>
+		/// Called from the <c>Interact</c> action in <c>PlayerInputActions</c>.
+		/// Interacts with an interactable if one is selected. 
+		/// </summary>
+		/// <param name="context">The Action CallbackContext, passed in from the <c>Interact.performed</c> event.</param>
 		private void TriggerInteract(InputAction.CallbackContext context) {
 			if (selectedInteractableObject) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
@@ -112,12 +153,19 @@ namespace Other {
 			}
 		}
 
+		/// <summary>
+		/// Sets the <c>selectedInteractableObject</c> to <c>newInteractable</c> and recomputes outlines. 
+		/// </summary>
+		/// <param name="newInteractable">The new GameObject (that has is an interactable) to be set as the selected interactable.</param>
 		private void OnHighlightStart(GameObject newInteractable) {
 			if (player.GetDistanceToObject(newInteractable) > player.interactDistance) return;
 			selectedInteractableObject = newInteractable;
 			ComputeInteractableOutlines();
 		}
 
+		/// <summary>
+		/// Sets the <c>selectedInteractableObject</c> to <c>null</c> and recomputes outlines. 
+		/// </summary>
 		private void OnHighlightStop() {
 			selectedInteractableObject = null;
 			ComputeInteractableOutlines();
