@@ -1,6 +1,7 @@
 ﻿using Player_Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlayerInputManager = Player_Control.PlayerInputManager;
 
 namespace Camera_and_Lighting {
 	/// <summary>

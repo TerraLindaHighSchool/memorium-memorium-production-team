@@ -2,6 +2,7 @@
 using Player_Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlayerInputManager = Player_Control.PlayerInputManager;
 
 namespace Other {
 	/// <summary>
@@ -61,7 +62,7 @@ namespace Other {
 			player.Moved += CheckInteractactables;
 			player.Moved += SetCursorPos;
 
-			_playerInputActions = player.PlayerInputActions;
+			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
 			_playerInputActions.Player.Interact.performed += TriggerInteract;
 			_playerInputActions.Player.MousePos.performed += OnMousePos;
