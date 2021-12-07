@@ -12,7 +12,7 @@ namespace Player_Control {
 		public float gravity          = 1f;
 		public float interactDistance = 5f;
 
-		public PlayerInputActions PlayerInputActions;
+		private PlayerInputActions _playerInputActions;
 
 		//Invoked after the player has moved
 		//Used for recalculating interactable outlines
@@ -29,19 +29,18 @@ namespace Player_Control {
 		private void OnEnable() {
 			_characterController = GetComponent<CharacterController>();
 
-			PlayerInputActions = new PlayerInputActions();
-			PlayerInputActions.Enable();
+			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
-			PlayerInputActions.Player.W.started  += OnWStarted;
-			PlayerInputActions.Player.W.canceled += OnWCancelled;
-			PlayerInputActions.Player.A.started  += OnAStarted;
-			PlayerInputActions.Player.A.canceled += OnACancelled;
-			PlayerInputActions.Player.S.started  += OnSStarted;
-			PlayerInputActions.Player.S.canceled += OnSCancelled;
-			PlayerInputActions.Player.D.started  += OnDStarted;
-			PlayerInputActions.Player.D.canceled += OnDCancelled;
+			_playerInputActions.Player.W.started  += OnWStarted;
+			_playerInputActions.Player.W.canceled += OnWCancelled;
+			_playerInputActions.Player.A.started  += OnAStarted;
+			_playerInputActions.Player.A.canceled += OnACancelled;
+			_playerInputActions.Player.S.started  += OnSStarted;
+			_playerInputActions.Player.S.canceled += OnSCancelled;
+			_playerInputActions.Player.D.started  += OnDStarted;
+			_playerInputActions.Player.D.canceled += OnDCancelled;
 
-			PlayerInputActions.Player.Jump.performed += OnJump;
+			_playerInputActions.Player.Jump.performed += OnJump;
 		}
 
 		public float GetDistanceToObject(GameObject obj) {

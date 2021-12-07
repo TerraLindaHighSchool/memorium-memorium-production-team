@@ -1,6 +1,7 @@
 ﻿using Player_Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlayerInputManager = Player_Control.PlayerInputManager;
 
 namespace Camera_and_Lighting {
 	public class CameraController : MonoBehaviour {
@@ -8,8 +9,6 @@ namespace Camera_and_Lighting {
 		[SerializeField] private int   cameraYBound = 60;
 
 		[SerializeField] public Transform playerFollowCamTarget;
-
-		[SerializeField] private PlayerController player;
 
 		private PlayerInputActions _playerInputActions;
 
@@ -21,7 +20,7 @@ namespace Camera_and_Lighting {
 		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y; }
 
 		private void Start() {
-			_playerInputActions = player.PlayerInputActions;
+			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
 			_playerInputActions.Player.MouseDelta.performed += OnMouseDelta;
 
