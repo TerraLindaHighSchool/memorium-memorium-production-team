@@ -15,7 +15,7 @@ namespace NPC_Control.Behavior_Tree {
 			                     EntityController entityController,
 			                     DialogueManager  dialogueManager,
 			                     CutsceneManager  cutsceneManager) {
-				this._outerObj         = outerObj;
+				this._outerObj        = outerObj;
 				this.entityController = entityController;
 				this.dialogueManager  = dialogueManager;
 				this.cutsceneManager  = cutsceneManager;
@@ -24,9 +24,10 @@ namespace NPC_Control.Behavior_Tree {
 			public void InvokeDialogueEvent(string eventKey) => _outerObj.InvokeEventReceivers(eventKey);
 		}
 
-		[SerializeField] NPC_Control.Behavior_Tree.BehaviorTree tree;
+		[SerializeField] BehaviorTree tree;
 
-		[SerializeField] Dictionary<string, IEventReceiver[]> eventReceivers = new Dictionary<string, IEventReceiver[]>();
+		[SerializeField]
+		Dictionary<string, IEventReceiver[]> eventReceivers = new Dictionary<string, IEventReceiver[]>();
 
 		private NPCDataHelper _npcDataHelper;
 

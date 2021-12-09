@@ -27,7 +27,7 @@ namespace NPC_Control.Behavior_Tree {
 				rootNode = (RootNode) node;
 			} else { node = (BehaviorNode) CreateInstance(type); }
 
-			node.guid = GUID.Generate().ToString();
+			node.guid = Guid.NewGuid().ToString();
 
 			nodes.Add(node);
 

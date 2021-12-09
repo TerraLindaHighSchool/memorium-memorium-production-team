@@ -15,9 +15,9 @@ namespace Editor {
 
 		public Action RefreshEditorWindow;
 
-		public class UXMLFactory : UxmlFactory<BehaviorTreeView, UxmlTraits> { }
+		public new class UxmlFactory : UxmlFactory<BehaviorTreeView, UxmlTraits> { }
 
-		public BehaviorTree tree;
+		public BehaviorTree Tree;
 
 		public BehaviorTreeView() {
 			Insert(0, new GridBackground());
@@ -34,7 +34,7 @@ namespace Editor {
 		private NodeView FindNodeView(BehaviorNode node) { return GetNodeByGuid(node.guid) as NodeView; }
 
 		public void PopulateView(BehaviorTree tree) {
-			this.tree = tree;
+			this.Tree = tree;
 
 			graphViewChanged -= OnGraphViewChanged;
 			DeleteElements(graphElements.ToList());
@@ -74,18 +74,18 @@ namespace Editor {
 							if (nodeView.node is RootNode) {
 								Debug.LogWarning("Attempted to delete the root node of a tree. Don\'t do that.");
 								Vector2 nodePos = nodeView.node.position;
-								tree.nodes.Remove(nodeView.node);
-								tree.rootNode = null;
+								Tree.nodes.Remove(nodeView.node);
+								Tree.rootNode = null;
 								CreateNode(typeof(RootNode), nodePos);
 								RefreshEditorWindow?.Invoke();
-							} else { tree.DeleteNode(nodeView.node); }
+							} else { Tree.DeleteNode(nodeView.node); }
 
 							break;
 						}
 						case Edge edge: {
 							NodeView parentView = edge.output.node as NodeView;
 							NodeView childView  = edge.input.node as NodeView;
-							tree.RemoveChild(parentView?.node, childView?.node);
+							Tree.RemoveChild(parentView?.node, childView?.node);
 							break;
 						}
 					}
@@ -96,7 +96,7 @@ namespace Editor {
 				foreach (Edge edge in graphviewchange.edgesToCreate) {
 					NodeView parentView = edge.output.node as NodeView;
 					NodeView childView  = edge.input.node as NodeView;
-					tree.AddChild(parentView?.node, childView?.node);
+					Tree.AddChild(parentView?.node, childView?.node);
 				}
 			}
 
@@ -104,17 +104,17 @@ namespace Editor {
 		}
 
 		private void CreateNode(Type type, Vector2 position = new Vector2()) {
-			if (!tree) {
+			if (!Tree) {
 				Debug.LogWarning("Please select a tree before trying to create a node.");
 				return;
 			}
 
-			if (type != typeof(RootNode) && !tree.rootNode) {
+			if (type != typeof(RootNode) && !Tree.rootNode) {
 				Debug.LogWarning("Tried to add to a tree without a root node. Adding a new root node.");
 				CreateNode(typeof(RootNode));
 			}
 
-			BehaviorNode node = tree.CreateNode(type);
+			BehaviorNode node = Tree.CreateNode(type);
 			if (node == null) return;
 			node.position = position;
 			CreateNodeView(node);
