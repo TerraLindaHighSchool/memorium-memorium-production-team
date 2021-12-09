@@ -15,7 +15,7 @@ namespace Other {
 		public GameObject selectedInteractableObject;
 
 		/// <summary>
-		/// Reference to the player, right now just used to get the <c>PlayerInputActions</c> object. 
+		/// Reference to the player, used to subscribe to the <c>Moved</c> event. 
 		/// </summary>
 		public PlayerController player;
 
@@ -40,11 +40,6 @@ namespace Other {
 		///A reference to the main camera in the scene, used for casting out the ray for cursor position. 
 		private Camera _mainCamera;
 
-		/// <summary>
-		/// A reference to the player's <c>PlayerInputActions</c>, will hopefully be moved to a manager class soon. 
-		/// </summary>
-		private PlayerInputActions _playerInputActions;
-
 		///Vector2 for tracking the mouse in screen-space coords. 
 		private Vector2 _mousePos;
 
@@ -62,10 +57,10 @@ namespace Other {
 			player.Moved += CheckInteractactables;
 			player.Moved += SetCursorPos;
 
-			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
-			_playerInputActions.Player.Interact.performed += TriggerInteract;
-			_playerInputActions.Player.MousePos.performed += OnMousePos;
+			playerInputActions.Player.Interact.performed += TriggerInteract;
+			playerInputActions.Player.MousePos.performed += OnMousePos;
 		}
 
 		/// <summary>
