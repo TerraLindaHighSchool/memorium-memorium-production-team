@@ -5,54 +5,79 @@ using UnityEngine.AI;
 
 public class EntityController : MonoBehaviour
 {
-    [SerializeField] private List<Vector3> patrolPoints = new List<Vector3>();
+    [SerializeField] private Vector3[] patrolPoints;
     private MovementMode _movementMode;
-    public MovementMode MovementMode { get { return MovementMode; } set { MovementMode = value; } }
-    public Vector3 HeadPos { get { return HeadPos; } set { HeadPos = value; } }
-    public float WalkSpeed { get { return WalkSpeed;  } set { WalkSpeed = value; } }
-    public float TurnSpeed { get { return TurnSpeed; } set { TurnSpeed = value; } }
+    public MovementMode MovementMode { get { return _movementMode; } set { _movementMode = value; } }
+    public Vector3 HeadPos { get; set; }
+    public float WaitTime { get; set; }
+    public NavMeshAgent agent;
 
-    public NavMeshAgent navMeshAgent;
-    public float StandTime; //How long the Entity will stand after they move before moving to next point
-    
-    private bool isAtPoint = false;
+    private bool isMoving;
+    private bool canMove;
+    private bool movementPaused;
+    private bool isAtPoint;
 
-    public void Start()
+    public void StartPatrol()
     {
-        SetSpeed();
+        MovementMode = MovementMode.Patrol;
+        if (isMoving)
+        {
+            MoveAlongPoints(patrolPoints);
+        }
+        else
+        {
+            movementPaused = false;
+        }
+    }
+    public void StopPatrol()
+    {
+        MovementMode = MovementMode.Default;
+        movementPaused = true;
+    }
+    public void LookAtPosition(Vector3 position)
+    {
+
+    }
+    public void MoveToPoint(Vector3 position)
+    {
+        isMoving = true;
+
+        agent.SetDestination(position);
+
+        isMoving = false;
+    }
+    public void MoveAlongPoints(Vector3[] points)
+    {
+        StartCoroutine(MovePoints(points));
     }
 
-    public void StartPatrol() { }
-    public void StopPatrol() { }
-    public void LookAtPos(Vector3 pos) { 
-        //Turn toward a position
-    }
-    public void MoveToPoint(Vector3 pos) {
-        //Moves to a postion
-        isAtPoint = false;
-        navMeshAgent.SetDestination(pos);
-        while (navMeshAgent.remainingDistance > 0) { }
+    private IEnumerator WaitAtPoint()
+    {
         isAtPoint = true;
+
+        yield return new WaitForSeconds(WaitTime);
+
+        isAtPoint = false;
     }
-    public void MoveAlongPath(Vector3[] points) {
-        //Moves to a series of points
+    private IEnumerator MovePoints(Vector3[] points)
+    {
+        isMoving = true;
+
         foreach (Vector3 point in points)
         {
-            MoveToPoint(point);
-            while (!isAtPoint) { }
+            agent.SetDestination(point);
+            StartCoroutine(WaitAtPoint());
         }
-        
-    }
 
-    private void SetSpeed()
-    {
-        navMeshAgent.speed = WalkSpeed;
-        navMeshAgent.angularSpeed = TurnSpeed;
+        isMoving = false;
+
+        yield return null;
     }
 }
 
 public enum MovementMode
 {
+    Default,
     Patrol,
     PathFollow,
     MoveToPoint,
