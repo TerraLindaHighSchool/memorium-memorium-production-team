@@ -8,68 +8,48 @@ public class EntityController : MonoBehaviour
     [SerializeField] private Vector3[] patrolPoints;
     private MovementMode _movementMode;
     public MovementMode MovementMode { get { return _movementMode; } set { _movementMode = value; } }
-    public Vector3 HeadPos { get; set; }
-    public float WaitTime { get; set; }
+    public Vector3 HeadPos;
+    public float WaitTime;
     public NavMeshAgent agent;
 
-    private bool isMoving;
-    private bool canMove;
-    private bool movementPaused;
-    private bool isAtPoint;
+    // FOR TESTING BITCH
+    private void Update()
+    {
+        LookAtPosition(new Vector3(0, 5, 0));
+    }
 
     public void StartPatrol()
     {
         MovementMode = MovementMode.Patrol;
-        if (isMoving)
-        {
-            MoveAlongPoints(patrolPoints);
-        }
-        else
-        {
-            movementPaused = false;
-        }
+        MoveAlongPoints(patrolPoints);
     }
     public void StopPatrol()
     {
         MovementMode = MovementMode.Default;
-        movementPaused = true;
     }
     public void LookAtPosition(Vector3 position)
     {
-
+        this.transform.LookAt(position, Vector3.up);
     }
     public void MoveToPoint(Vector3 position)
     {
-        isMoving = true;
-
         agent.SetDestination(position);
-
-        isMoving = false;
     }
     public void MoveAlongPoints(Vector3[] points)
     {
         StartCoroutine(MovePoints(points));
     }
-
-    private IEnumerator WaitAtPoint()
-    {
-        isAtPoint = true;
-
-        yield return new WaitForSeconds(WaitTime);
-
-        isAtPoint = false;
-    }
     private IEnumerator MovePoints(Vector3[] points)
     {
-        isMoving = true;
-
         foreach (Vector3 point in points)
         {
             agent.SetDestination(point);
-            StartCoroutine(WaitAtPoint());
+            if (agent.remainingDistance <= 0)
+            {
+                yield return new WaitForSeconds(1);
+            }
+            yield return new WaitForSeconds(WaitTime);
         }
-
-        isMoving = false;
 
         yield return null;
     }
