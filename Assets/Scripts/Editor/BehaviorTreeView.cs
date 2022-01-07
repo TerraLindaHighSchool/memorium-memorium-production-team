@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 namespace Editor {
 	public class BehaviorTreeView : GraphView {
-		public Action<NodeView> OnNodeSelected;
+		public Action<NodeView<BehaviorNode>> OnNodeSelected;
 
 		public Action RefreshEditorWindow;
 
@@ -27,11 +27,14 @@ namespace Editor {
 			this.AddManipulator(new SelectionDragger());
 			this.AddManipulator(new RectangleSelector());
 
-			StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/BehaviorTreeEditor.uss");
+			StyleSheet styleSheet =
+				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/BehaviorTreeEditor.uss");
 			styleSheets.Add(styleSheet);
 		}
 
-		private NodeView FindNodeView(BehaviorNode node) { return GetNodeByGuid(node.guid) as NodeView; }
+		private NodeView<T> FindNodeView<T>(T node) where T : BehaviorNode {
+			return GetNodeByGuid(node?.guid) as NodeView<T>;
+		}
 
 		public void PopulateView(BehaviorTree tree) {
 			this.Tree = tree;
@@ -45,17 +48,92 @@ namespace Editor {
 				CreateNodeView(node);
 			}
 
-			for (int i = 0; i < tree.nodes.Count; i++) {
-				BehaviorNode treeNode = tree.nodes[i];
-
+			foreach (BehaviorNode treeNode in tree.nodes) {
 				//Create edges
 				List<BehaviorNode> children = tree.GetChildren(treeNode);
-				foreach (BehaviorNode child in children) {
+				for (int i = 0; i < children.Count; i++) {
+					BehaviorNode child = children[i];
 					if (child == null || child == treeNode) continue;
-					NodeView parentView = FindNodeView(treeNode);
-					NodeView childView  = FindNodeView(child);
 
-					AddElement(parentView.output.ConnectTo(childView.input));
+					SingleChildNodeView singleChildView = (SingleChildNodeView) FindNodeView(child as SingleChildNode);
+					MultiChildNodeView  multiChildView  = (MultiChildNodeView) FindNodeView(child as MultiChildNode);
+					MapChildNodeView    mapChildView    = (MapChildNodeView) FindNodeView(child as MapChildNode);
+
+					if (singleChildView != null) {
+						CreateEdge(tree, treeNode, child as SingleChildNode, i);
+					} else if (multiChildView != null) {
+						CreateEdge(tree, treeNode, child as MultiChildNode, i);
+					} else if (mapChildView != null) {
+						CreateEdge(tree, treeNode, child as MapChildNode, i);
+					} else {
+						Debug.LogError($"When adding an edge to connect {treeNode} to {child}, the child had an unknown type.");
+					}
+				}
+			}
+		}
+
+		private void CreateEdge<T>(BehaviorTree tree, BehaviorNode treeNode, T child, int childIndex) where T : BehaviorNode {
+			NodeView<T> childView = FindNodeView(child);
+			switch (treeNode) {
+				case SingleChildNode node: {
+					SingleChildNodeView parentView = (SingleChildNodeView) FindNodeView(node);
+					Debug.Log($"parentView: {parentView}");
+					Debug.Log($"childView: {childView}");
+					AddElement(parentView.Output.ConnectTo(childView.Input));
+					break;
+				}
+				case MultiChildNode node: {
+					MultiChildNodeView parentView = (MultiChildNodeView) FindNodeView(node);
+
+					if (parentView.Outputs.Count < node.children.Count) {
+						Debug.LogError(
+							$"NodeView for {node} had less outputs than the node had children. Removing excess children.");
+						while (parentView.Outputs.Count < node.children.Count) {
+							tree.RemoveChild(node, node.children.Last());
+							Debug.LogWarning(
+								$"Removed {node}\'s child while in the less outputs error fix. If this goes on for a while, something is going very wrong.");
+						}
+					}
+
+					for (int j = 0; j < parentView.Outputs.Count; j++) {
+						if (j == childIndex) {
+							AddElement(parentView.Outputs[j].ConnectTo(childView.Input));
+							break;
+						}
+					}
+
+					break;
+				}
+				case MapChildNode node: {
+					MapChildNodeView parentView = (MapChildNodeView) FindNodeView(node);
+
+					if (parentView.Outputs.Count < node.children.Count) {
+						Debug.LogError(
+							$"NodeView for {node} had less outputs than the node had children. Removing excess children.");
+						while (parentView.Outputs.Count < node.children.Count) {
+							tree.RemoveChild(node, node.children.Last().Value);
+							Debug.LogWarning(
+								$"Removed {node}\'s child while in the less outputs error fix. If this goes on for a while, something is going very wrong.");
+						}
+					}
+
+					// search through to find the key of the child node in the dictionary
+					string childKey = "";
+					foreach (KeyValuePair<string, BehaviorNode> nodeKVP in node.children) {
+						if (nodeKVP.Value.Equals(node)) {
+							childKey = nodeKVP.Key;
+							break;
+						}
+					}
+
+					foreach (KeyValuePair<string, Port> portKVP in parentView.Outputs) {
+						if (portKVP.Key.Equals(childKey)) {
+							AddElement(portKVP.Value.ConnectTo(childView.Input));
+							break;
+						}
+					}
+
+					break;
 				}
 			}
 		}
@@ -64,27 +142,49 @@ namespace Editor {
 			if (graphviewchange.elementsToRemove != null) {
 				foreach (GraphElement graphElement in graphviewchange.elementsToRemove) {
 					switch (graphElement) {
-						case NodeView nodeView: {
-							if (nodeView.node == null) {
+						case SingleChildNodeView singleChildNodeView: {
+							if (singleChildNodeView.node == null) {
 								Debug.LogWarning("Please select a tree before trying to delete a node.");
 								RefreshEditorWindow?.Invoke();
 								continue;
 							}
 
-							if (nodeView.node is RootNode) {
+							if (singleChildNodeView.node is RootNode) {
 								Debug.LogWarning("Attempted to delete the root node of a tree. Don\'t do that.");
-								Vector2 nodePos = nodeView.node.position;
-								Tree.nodes.Remove(nodeView.node);
+								Vector2 nodePos = singleChildNodeView.node.position;
+								Tree.nodes.Remove(singleChildNodeView.node);
 								Tree.rootNode = null;
 								CreateNode(typeof(RootNode), nodePos);
 								RefreshEditorWindow?.Invoke();
-							} else { Tree.DeleteNode(nodeView.node); }
+							} else { Tree.DeleteNode(singleChildNodeView.node); }
+
+							break;
+						}
+						case MultiChildNodeView multiChildNodeView: {
+							if (multiChildNodeView.node == null) {
+								Debug.LogWarning("Please select a tree before trying to delete a node.");
+								RefreshEditorWindow?.Invoke();
+								continue;
+							}
+
+							Tree.DeleteNode(multiChildNodeView.node);
+
+							break;
+						}
+						case MapChildNodeView mapChildNodeView: {
+							if (mapChildNodeView.node == null) {
+								Debug.LogWarning("Please select a tree before trying to delete a node.");
+								RefreshEditorWindow?.Invoke();
+								continue;
+							}
+
+							Tree.DeleteNode(mapChildNodeView.node);
 
 							break;
 						}
 						case Edge edge: {
-							NodeView parentView = edge.output.node as NodeView;
-							NodeView childView  = edge.input.node as NodeView;
+							NodeView<BehaviorNode> parentView = edge.output.node as NodeView<BehaviorNode>;
+							NodeView<BehaviorNode> childView  = edge.input.node as NodeView<BehaviorNode>;
 							Tree.RemoveChild(parentView?.node, childView?.node);
 							break;
 						}
@@ -94,8 +194,8 @@ namespace Editor {
 
 			if (graphviewchange.edgesToCreate != null) {
 				foreach (Edge edge in graphviewchange.edgesToCreate) {
-					NodeView parentView = edge.output.node as NodeView;
-					NodeView childView  = edge.input.node as NodeView;
+					NodeView<BehaviorNode> parentView = edge.output.node as NodeView<BehaviorNode>;
+					NodeView<BehaviorNode> childView  = edge.input.node as NodeView<BehaviorNode>;
 					Tree.AddChild(parentView?.node, childView?.node);
 				}
 			}
@@ -121,8 +221,29 @@ namespace Editor {
 		}
 
 		private void CreateNodeView(BehaviorNode node) {
-			NodeView nodeView = new NodeView(node) {OnNodeSelected = this.OnNodeSelected};
-			AddElement(nodeView);
+			SingleChildNodeView singleChildNodeView = null;
+			MultiChildNodeView  multiChildNodeView  = null;
+			MapChildNodeView    mapChildNodeView    = null;
+
+			switch (node) {
+				case SingleChildNode singleChildNode: {
+					singleChildNodeView = new SingleChildNodeView(singleChildNode);
+					break;
+				}
+				case MultiChildNode multiChildNode: {
+					multiChildNodeView = new MultiChildNodeView(multiChildNode);
+					break;
+				}
+				case MapChildNode mapChildNode: {
+					mapChildNodeView = new MapChildNodeView(mapChildNode);
+					break;
+				}
+			}
+
+			if (singleChildNodeView != null) { AddElement(singleChildNodeView); } else if (
+				multiChildNodeView  != null) { AddElement(multiChildNodeView); } else if (mapChildNodeView != null) {
+				AddElement(mapChildNodeView);
+			} else { Debug.LogError($"When creating a node view for {node}, no generic node type was recognized."); }
 		}
 
 		public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter) {
@@ -149,7 +270,7 @@ namespace Editor {
 			}
 
 			{
-				TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<MapChildNode<string>>();
+				TypeCache.TypeCollection types = TypeCache.GetTypesDerivedFrom<MapChildNode>();
 				foreach (Type type in types) {
 					if (type?.BaseType == null) continue;
 					evt.menu.AppendAction($"[MapChildNodes]/{type.Name}", a => CreateNode(type));

@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace NPC_Control.Behavior_Tree {
-	[CreateAssetMenu()]
+	[CreateAssetMenu]
 	public class BehaviorTree : ScriptableObject {
 		[HideInInspector] public RootNode rootNode;
 
@@ -61,7 +61,7 @@ namespace NPC_Control.Behavior_Tree {
 			if (node is SingleChildNode singleChildNode) { returnList.Add(singleChildNode.child); } else if (
 				node is MultiChildNode multiChildNode) {
 				foreach (BehaviorNode child in multiChildNode.children) { returnList.Add(child); }
-			} else if (node is MapChildNode<string> mapChildNode) {
+			} else if (node is MapChildNode mapChildNode) {
 				foreach (KeyValuePair<string, BehaviorNode> kvp in mapChildNode.children) { returnList.Add(kvp.Value); }
 			}
 
@@ -71,32 +71,16 @@ namespace NPC_Control.Behavior_Tree {
 		public void AddChild(BehaviorNode parent, BehaviorNode child) {
 			if (parent is SingleChildNode singleChildNode) { singleChildNode.child = child; } else if (
 				parent is MultiChildNode multiChildNode) { multiChildNode.children.Add(child); } else if (
-				parent is MapChildNode<string> mapChildNode) {
-				//uhhhh idk rn
+				parent is MapChildNode mapChildNode) {
+				// not implemented yet cuz idk what the key should be
 			}
 		}
 
 		public void RemoveChild(BehaviorNode parent, BehaviorNode child) {
-			{
-				RootNode parentNode = parent as RootNode;
-				if (parentNode != null) {
-					parentNode.child = null;
-					return;
-				}
-			}
-
-			{
-				DebugLogNode parentNode = parent as DebugLogNode;
-				if (parentNode != null) {
-					parentNode.child = null;
-					return;
-				}
-			}
-
 			if (parent is SingleChildNode singleChildNode) { singleChildNode.child = null; } else if (
 				parent is MultiChildNode multiChildNode) { multiChildNode.children.Remove(child); } else if (
-				parent is MapChildNode<string>) {
-				//really no idea
+				parent is MapChildNode mapChildNode) {
+				// not implemented yet cuz idk what the key should be
 			}
 		}
 	}
