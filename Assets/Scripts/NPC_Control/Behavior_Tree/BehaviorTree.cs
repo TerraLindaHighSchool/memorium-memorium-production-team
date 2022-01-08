@@ -68,19 +68,27 @@ namespace NPC_Control.Behavior_Tree {
 			return returnList;
 		}
 
-		public void AddChild(BehaviorNode parent, BehaviorNode child) {
+		public void AddChild(BehaviorNode parent, BehaviorNode child, string key = "") {
 			if (parent is SingleChildNode singleChildNode) { singleChildNode.child = child; } else if (
 				parent is MultiChildNode multiChildNode) { multiChildNode.children.Add(child); } else if (
 				parent is MapChildNode mapChildNode) {
-				// not implemented yet cuz idk what the key should be
+				if (key == "") {
+					Debug.LogError($"Tried to add child {child} to {parent}, but no key was provided.");
+					return;
+				}
+				mapChildNode.children.Add(key, child);
 			}
 		}
 
-		public void RemoveChild(BehaviorNode parent, BehaviorNode child) {
+		public void RemoveChild(BehaviorNode parent, BehaviorNode child, string key = "") {
 			if (parent is SingleChildNode singleChildNode) { singleChildNode.child = null; } else if (
 				parent is MultiChildNode multiChildNode) { multiChildNode.children.Remove(child); } else if (
 				parent is MapChildNode mapChildNode) {
-				// not implemented yet cuz idk what the key should be
+				if (key == "") {
+					Debug.LogError($"Tried to add child {child} to {parent}, but no key was provided.");
+					return;
+				}
+				mapChildNode.children.Remove(key);
 			}
 		}
 	}

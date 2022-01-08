@@ -16,7 +16,7 @@ namespace Editor {
 		protected override void CreateInputPort() {
 			if (node is RootNode) {
 				//nothing, a root node has no inputs
-			} else { Input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, null); }
+			} else { Input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null); }
 
 			if (Input != null) {
 				Input.portName = "Input";

@@ -7,5 +7,9 @@ namespace NPC_Control.Behavior_Tree.Nodes {
 		[HideInInspector] public Dictionary<string, BehaviorNode> children;
 
 		public override BehaviorNode[] Children() => children.Values.ToArray();
+
+		public MapChildNode() {
+			children = new Dictionary<string, BehaviorNode>();
+		}
 	}
 }

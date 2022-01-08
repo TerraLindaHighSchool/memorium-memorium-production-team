@@ -32,7 +32,9 @@ namespace Editor {
 
             _treeView = root.Q<BehaviorTreeView>();
 
-            _treeView.RefreshEditorWindow += Repaint;
+            _treeView.RefreshEditorWindow       += Repaint;
+            MultiChildNodeView.RegenerateEditor += OnSelectionChange;
+            MapChildNodeView.RegenerateEditor   += OnSelectionChange;
 
             OnSelectionChange();
         }

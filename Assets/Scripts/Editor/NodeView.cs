@@ -23,8 +23,6 @@ namespace Editor {
 			viewDataKey = node.guid;
 
 			title = node.GetType().Name;
-			
-			Debug.Log($"Creating nodeView for node {node} with GUID {viewDataKey}");
 
 			style.left = node.position.x;
 			style.top  = node.position.y;
@@ -73,7 +71,7 @@ namespace Editor {
 			return container;
 		}
 
-		protected void CreateExtension() {
+		protected virtual void CreateExtension() {
 			VisualElement containerElement =
 				new VisualElement {style = {backgroundColor = new StyleColor(new Color(0.2f, 0.2f, 0.2f))}};
 
@@ -85,7 +83,7 @@ namespace Editor {
 		}
 
 		protected virtual void CreateInputPort() {
-			Input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, null);
+			Input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, null);
 
 			if (Input != null) {
 				Input.portName = "Input";
@@ -93,15 +91,15 @@ namespace Editor {
 			}
 		}
 		
-		protected Port CreatePort(Direction dir) {
+		protected Port CreatePort(Direction dir, string portName = "") {
 			Port port = InstantiatePort(Orientation.Horizontal, dir, Port.Capacity.Single, null);
 
 			if (port != null) {
 				if (dir == Direction.Input) {
-					port.portName = "Input";
+					port.portName = portName == "" ? "Input" : portName;
 					inputContainer.Add(port);
 				} else {
-					port.portName = "Output";
+					port.portName = portName == "" ? "Output" : portName;
 					outputContainer.Add(port);
 				}
 			}

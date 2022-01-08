@@ -4,6 +4,7 @@ using System.Linq;
 using NPC_Control.Behavior_Tree;
 using NPC_Control.Behavior_Tree.Nodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
+using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -30,6 +31,9 @@ namespace Editor {
 			StyleSheet styleSheet =
 				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/BehaviorTreeEditor.uss");
 			styleSheets.Add(styleSheet);
+
+			MultiChildNodeView.OnDisconnectChild += RemoveChildrenFromEdge;
+			MapChildNodeView.OnDisconnectChild   += RemoveChildrenFromEdge;
 		}
 
 		private NodeView<T> FindNodeView<T>(T node) where T : BehaviorNode {
@@ -59,26 +63,30 @@ namespace Editor {
 					MultiChildNodeView  multiChildView  = (MultiChildNodeView) FindNodeView(child as MultiChildNode);
 					MapChildNodeView    mapChildView    = (MapChildNodeView) FindNodeView(child as MapChildNode);
 
-					if (singleChildView != null) {
-						CreateEdge(tree, treeNode, child as SingleChildNode, i);
-					} else if (multiChildView != null) {
-						CreateEdge(tree, treeNode, child as MultiChildNode, i);
-					} else if (mapChildView != null) {
-						CreateEdge(tree, treeNode, child as MapChildNode, i);
-					} else {
-						Debug.LogError($"When adding an edge to connect {treeNode} to {child}, the child had an unknown type.");
+					if (singleChildView != null) { CreateEdge(tree, treeNode, child as SingleChildNode, i); } else if (
+						multiChildView  != null) { CreateEdge(tree, treeNode, child as MultiChildNode, i); } else if (
+						mapChildView    != null) { CreateEdge(tree, treeNode, child as MapChildNode, i); } else {
+						Debug.LogError(
+							$"When adding an edge to connect {treeNode} to {child}, the child had an unknown type.");
 					}
 				}
 			}
 		}
 
-		private void CreateEdge<T>(BehaviorTree tree, BehaviorNode treeNode, T child, int childIndex) where T : BehaviorNode {
+		/// <summary>
+		/// This method is quite terrible. 
+		/// </summary>
+		/// <param name="tree">The behavior tree</param>
+		/// <param name="treeNode"></param>
+		/// <param name="child"></param>
+		/// <param name="childIndex"></param>
+		/// <typeparam name="T"></typeparam>
+		private void CreateEdge<T>(BehaviorTree tree, BehaviorNode treeNode, T child, int childIndex)
+			where T : BehaviorNode {
 			NodeView<T> childView = FindNodeView(child);
 			switch (treeNode) {
 				case SingleChildNode node: {
 					SingleChildNodeView parentView = (SingleChildNodeView) FindNodeView(node);
-					Debug.Log($"parentView: {parentView}");
-					Debug.Log($"childView: {childView}");
 					AddElement(parentView.Output.ConnectTo(childView.Input));
 					break;
 				}
@@ -117,20 +125,31 @@ namespace Editor {
 						}
 					}
 
+					/*
 					// search through to find the key of the child node in the dictionary
 					string childKey = "";
 					foreach (KeyValuePair<string, BehaviorNode> nodeKVP in node.children) {
-						if (nodeKVP.Value.Equals(node)) {
+						if (nodeKVP.Value.Equals(child)) {
 							childKey = nodeKVP.Key;
 							break;
 						}
+						Debug.LogWarning($"Child {child} did not have a key in its parents dictionary.");
 					}
+					*/
+					string childKey = "";
+
+					Optional<string> possibleChildKey = FindKeyInDictionary(node.children, child);
+					if (!possibleChildKey.Enabled) {
+						Debug.LogWarning($"Child {child} did not have a key in its parents dictionary.");
+					} else { childKey = possibleChildKey.Value; }
 
 					foreach (KeyValuePair<string, Port> portKVP in parentView.Outputs) {
 						if (portKVP.Key.Equals(childKey)) {
 							AddElement(portKVP.Value.ConnectTo(childView.Input));
 							break;
 						}
+
+						Debug.LogError($"Could not connect child {child} to parent {node}");
 					}
 
 					break;
@@ -183,9 +202,7 @@ namespace Editor {
 							break;
 						}
 						case Edge edge: {
-							NodeView<BehaviorNode> parentView = edge.output.node as NodeView<BehaviorNode>;
-							NodeView<BehaviorNode> childView  = edge.input.node as NodeView<BehaviorNode>;
-							Tree.RemoveChild(parentView?.node, childView?.node);
+							RemoveChildrenFromEdge(edge);
 							break;
 						}
 					}
@@ -193,14 +210,143 @@ namespace Editor {
 			}
 
 			if (graphviewchange.edgesToCreate != null) {
-				foreach (Edge edge in graphviewchange.edgesToCreate) {
-					NodeView<BehaviorNode> parentView = edge.output.node as NodeView<BehaviorNode>;
-					NodeView<BehaviorNode> childView  = edge.input.node as NodeView<BehaviorNode>;
-					Tree.AddChild(parentView?.node, childView?.node);
-				}
+				foreach (Edge edge in graphviewchange.edgesToCreate) { AssignChildrenFromEdge(edge); }
 			}
 
 			return graphviewchange;
+		}
+
+		private void AssignChildrenFromEdge(Edge edge) {
+			switch (edge.output.node) {
+				case SingleChildNodeView parentView: {
+					switch (edge.input.node) {
+						case SingleChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node);
+							break;
+						}
+						case MultiChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node);
+							break;
+						}
+						case MapChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node);
+							break;
+						}
+					}
+
+					break;
+				}
+				case MultiChildNodeView parentView: {
+					switch (edge.input.node) {
+						case SingleChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node);
+							break;
+						}
+						case MultiChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node);
+							break;
+						}
+						case MapChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node);
+							break;
+						}
+					}
+
+					break;
+				}
+				case MapChildNodeView parentView: {
+					Optional<string> possiblePortKey = FindKeyInDictionary(parentView.Outputs, edge.output);
+					if (!possiblePortKey.Enabled) {
+						Debug.LogWarning($"Port {edge.output} not found in {parentView}\'s outputs.");
+						return;
+					}
+
+					switch (edge.input.node) {
+						case SingleChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
+							break;
+						}
+						case MultiChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
+							break;
+						}
+						case MapChildNodeView childView: {
+							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
+							break;
+						}
+					}
+
+					break;
+				}
+			}
+		}
+
+		private void RemoveChildrenFromEdge(Edge edge) {
+			if (Selection.activeObject as BehaviorTree != null) { Tree = Selection.activeObject as BehaviorTree; }
+
+			switch (edge.output.node) {
+				case SingleChildNodeView parentView: {
+					switch (edge.input.node) {
+						case SingleChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node);
+							break;
+						}
+						case MultiChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node);
+							break;
+						}
+						case MapChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node);
+							break;
+						}
+					}
+
+					break;
+				}
+				case MultiChildNodeView parentView: {
+					switch (edge.input.node) {
+						case SingleChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node);
+							break;
+						}
+						case MultiChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node);
+							break;
+						}
+						case MapChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node);
+							break;
+						}
+					}
+
+					break;
+				}
+				case MapChildNodeView parentView: {
+					Optional<string> possiblePortKey = FindKeyInDictionary(parentView.Outputs, edge.output);
+					if (!possiblePortKey.Enabled) {
+						Debug.LogWarning($"Port {edge.output} not found in {parentView}\'s outputs.");
+						return;
+					}
+
+					switch (edge.input.node) {
+						case SingleChildNodeView childView: {
+							if (Tree == null) Debug.Log("aaaaa");
+							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
+							break;
+						}
+						case MultiChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
+							break;
+						}
+						case MapChildNodeView childView: {
+							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
+							break;
+						}
+					}
+
+					break;
+				}
+			}
 		}
 
 		private void CreateNode(Type type, Vector2 position = new Vector2()) {
@@ -244,6 +390,14 @@ namespace Editor {
 				multiChildNodeView  != null) { AddElement(multiChildNodeView); } else if (mapChildNodeView != null) {
 				AddElement(mapChildNodeView);
 			} else { Debug.LogError($"When creating a node view for {node}, no generic node type was recognized."); }
+		}
+
+		public static Optional<TKey> FindKeyInDictionary<TKey, TValue>(Dictionary<TKey, TValue> dict, TValue obj) {
+			foreach (KeyValuePair<TKey, TValue> kvp in dict) {
+				if (kvp.Value.Equals(obj)) return new Optional<TKey>(kvp.Key, true);
+			}
+
+			return new Optional<TKey>();
 		}
 
 		public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter) {

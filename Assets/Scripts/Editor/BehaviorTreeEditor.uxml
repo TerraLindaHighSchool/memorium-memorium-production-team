@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <uie:Toolbar>
+    <uie:Toolbar style="flex-grow: 0; justify-content: flex-start;">
         <Style src="BehaviorTreeEditor.uss" />
         <uie:ToolbarMenu text="Assets" style="-unity-text-align: upper-left;" />
     </uie:Toolbar>
