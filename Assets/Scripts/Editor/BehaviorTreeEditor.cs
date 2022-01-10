@@ -43,10 +43,7 @@ namespace Editor {
         {
             Repaint();
             BehaviorTree tree = Selection.activeObject as BehaviorTree;
-            if (tree)
-            {
-                _treeView.PopulateView(tree);
-            }
+            _treeView.PopulateView(tree);
         }
     }
 }

@@ -47,6 +47,8 @@ namespace Editor {
 			DeleteElements(graphElements.ToList());
 			graphViewChanged += OnGraphViewChanged;
 
+			if (!tree) return;
+
 			foreach (BehaviorNode node in tree.nodes) {
 				//Creates node view
 				CreateNodeView(node);

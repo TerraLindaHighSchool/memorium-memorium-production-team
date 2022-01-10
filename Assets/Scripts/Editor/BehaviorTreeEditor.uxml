@@ -1,8 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <uie:Toolbar style="flex-grow: 0; justify-content: flex-start;">
-        <Style src="BehaviorTreeEditor.uss" />
-        <uie:ToolbarMenu text="Assets" style="-unity-text-align: upper-left;" />
-    </uie:Toolbar>
     <ui:VisualElement name="background" style="flex-grow: 1; align-items: center; flex-direction: row; justify-content: flex-end;">
         <Style src="BehaviorTreeEditor.uss" />
         <ui:VisualElement name="main-panel" style="flex-grow: 1; height: 100%; background-color: rgba(0, 54, 255, 0); width: 0;">

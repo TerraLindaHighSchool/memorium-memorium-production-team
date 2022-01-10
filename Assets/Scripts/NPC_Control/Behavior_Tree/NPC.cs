@@ -24,7 +24,7 @@ namespace NPC_Control.Behavior_Tree {
 			public void InvokeDialogueEvent(string eventKey) => _outerObj.InvokeEventReceivers(eventKey);
 		}
 
-		[SerializeField] BehaviorTree tree;
+		[SerializeField] private BehaviorTree tree;
 
 		[SerializeField]
 		Dictionary<string, IEventReceiver[]> eventReceivers = new Dictionary<string, IEventReceiver[]>();
