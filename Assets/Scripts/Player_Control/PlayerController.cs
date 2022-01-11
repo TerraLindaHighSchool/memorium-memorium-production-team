@@ -55,6 +55,8 @@ namespace Player_Control {
 		private void OnEnable() {
 			_characterController = GetComponent<CharacterController>();
 
+			PlayerInputActions _playerInputActions;
+
 			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
 			_playerInputActions.Player.W.started  += OnWStarted;
