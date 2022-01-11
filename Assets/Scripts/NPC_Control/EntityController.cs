@@ -12,12 +12,6 @@ public class EntityController : MonoBehaviour
     public float WaitTime;
     public NavMeshAgent agent;
 
-    // FOR TESTING BITCH
-    private void Update()
-    {
-        LookAtPosition(new Vector3(0, 5, 0));
-    }
-
     public void StartPatrol()
     {
         MovementMode = MovementMode.Patrol;
@@ -26,13 +20,16 @@ public class EntityController : MonoBehaviour
     public void StopPatrol()
     {
         MovementMode = MovementMode.Default;
+        agent.isStopped = true;
     }
     public void LookAtPosition(Vector3 position)
     {
-        this.transform.LookAt(position, Vector3.up);
+        position = new Vector3(position.x, this.transform.position.y, position.z);
+        this.transform.LookAt(position);
     }
     public void MoveToPoint(Vector3 position)
     {
+        agent.isStopped = false;
         agent.SetDestination(position);
     }
     public void MoveAlongPoints(Vector3[] points)
@@ -41,6 +38,7 @@ public class EntityController : MonoBehaviour
     }
     private IEnumerator MovePoints(Vector3[] points)
     {
+        agent.isStopped = false;
         foreach (Vector3 point in points)
         {
             agent.SetDestination(point);
