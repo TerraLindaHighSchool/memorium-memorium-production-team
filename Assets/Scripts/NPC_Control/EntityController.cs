@@ -42,7 +42,7 @@ public class EntityController : MonoBehaviour
         foreach (Vector3 point in points)
         {
             agent.SetDestination(point);
-            if (agent.remainingDistance <= 0)
+            if (agent.remainingDistance <= 0.1)
             {
                 yield return new WaitForSeconds(1);
             }
