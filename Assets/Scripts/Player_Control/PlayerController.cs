@@ -28,7 +28,7 @@ namespace Player_Control {
 		/// Currently also used by <c>CameraController</c> and <c>CursorController</c>, 
 		/// will hopefully be changed soon.
 		/// </summary>
-		public PlayerInputActions PlayerInputActions;
+		private PlayerInputActions _playerInputActions;
 
 		/// <summary>
 		/// Invoked after the player has moved.

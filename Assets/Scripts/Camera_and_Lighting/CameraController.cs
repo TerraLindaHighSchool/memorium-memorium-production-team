@@ -34,7 +34,7 @@ namespace Camera_and_Lighting {
 
 		///Gets the PlayerInputActions from the player and subscribes to the necessary events. 
 		private void Start() {
-			PlayerInputActions playerInputActions = player.PlayerInputActions;
+			PlayerInputActions playerInputActions = Pla
 
 			playerInputActions.Player.MouseDelta.performed += OnMouseDelta;
 
