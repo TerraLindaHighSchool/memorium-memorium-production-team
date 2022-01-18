@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/tree.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/tree.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneTransitionTarget.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneTransitionTarget.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/MapChildNodes/DialogueWithResponseNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/MapChildNodes/DialogueWithResponseNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/DialogueNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/DialogueNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/MoveNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/MoveNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/tree.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/tree.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +27,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/16da34e8af734c8482de12543c53f461118200/36/269ea75d/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/54/8dab8267/FlagsAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/12/24ab6572/WarningException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/PuzzlePedestal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/89/bd61cc14/Direction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Editor/BehaviorTreeView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/NodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/d2/7a68ac6b/Node.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c24f0c1857d4078b6d453f88e061a29dba00/76/8039126d/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/46/d897659c/GraphView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/992585620d64427198ddf3a0e146773313e400/44/5fe7b299/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/16da34e8af734c8482de12543c53f461118200/b8/b03bfb1d/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/09e01461845a4bcea0ee6891c577babe15a00/51/9450e653/Collider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="21I9lUCELfyAblIfupa1OMFKL9S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -61,6 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../memorium-testing/amogus.DotSettings" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -112,12 +110,9 @@
       <workItem from="1638828329160" duration="509000" />
       <workItem from="1638831463545" duration="645000" />
       <workItem from="1638894939598" duration="3477000" />
-      <workItem from="1639068230564" duration="3871000" />
-      <workItem from="1639074094742" duration="1779000" />
-      <workItem from="1641501799734" duration="17915000" />
-      <workItem from="1641573270773" duration="12351000" />
-      <workItem from="1641615715118" duration="2587000" />
-      <workItem from="1641832275605" duration="1997000" />
+      <workItem from="1641330660928" duration="3207000" />
+      <workItem from="1641359833690" duration="2133000" />
+      <workItem from="1641502389526" duration="1834000" />
     </task>
     <servers />
   </component>
@@ -134,7 +129,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
