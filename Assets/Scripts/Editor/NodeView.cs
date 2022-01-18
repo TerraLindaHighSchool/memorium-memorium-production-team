@@ -18,7 +18,6 @@ namespace Editor {
 		public T node;
 
 		public Port Input;
-		// public Port Output;
 
 		public NodeView(T node) {
 			this.node   = node;
@@ -108,20 +107,6 @@ namespace Editor {
 
 			return port;
 		}
-
-		/*
-		private void CreateOutputPorts() {
-			//right now no type, use this for any nodes with no output
-			if (false) {
-				//do nothing, this node has no outputs
-			} else { Output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, null); }
-
-			if (Output != null) {
-				Output.portName = "";
-				outputContainer.Add(Output);
-			}
-		}
-		*/
 
 		public override void SetPosition(Rect newPos) {
 			base.SetPosition(newPos);

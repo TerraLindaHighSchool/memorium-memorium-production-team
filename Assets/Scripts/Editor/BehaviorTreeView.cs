@@ -8,7 +8,6 @@ using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 namespace Editor {
@@ -55,8 +54,8 @@ namespace Editor {
 
 			foreach (BehaviorNode treeNode in Tree.nodes) {
 				//Create edges
-				List<BehaviorNode> children = Tree.GetChildren(treeNode);
-				for (int i = 0; i < children.Count; i++) {
+				BehaviorNode[] children = treeNode.Children();
+				for (int i = 0; i < children.Length; i++) {
 					BehaviorNode child = children[i];
 					if (child == null || child == treeNode) continue;
 
@@ -73,7 +72,7 @@ namespace Editor {
 				}
 			}
 
-			BehaviorTree.Save();
+			Tree.Save();
 		}
 
 		/// <summary>
@@ -122,7 +121,7 @@ namespace Editor {
 						Debug.LogError(
 							$"NodeView for {node} had less outputs than the node had children. Removing excess children.");
 						while (parentView.Outputs.Count < node.children.Count) {
-							tree.RemoveChild(node, node.children.Last().Value);
+							tree.RemoveChild(node, node.children.Last().value);
 							Debug.LogWarning(
 								$"Removed {node}\'s child while in the less outputs error fix. If this goes on for a while, something is going very wrong.");
 						}
@@ -130,7 +129,7 @@ namespace Editor {
 
 					string childKey = "";
 
-					Optional<string> possibleChildKey = FindKeyInDictionary(node.children, child);
+					Optional<string> possibleChildKey = MapChildNode.FindKeyForBehaviorNodeInChildren(node, child);
 					if (!possibleChildKey.Enabled) {
 						Debug.LogWarning($"Child {child} did not have a key in its parents dictionary.");
 					} else { childKey = possibleChildKey.Value; }
@@ -208,7 +207,7 @@ namespace Editor {
 				foreach (Edge edge in graphviewchange.edgesToCreate) { AssignChildrenFromEdge(edge); }
 			}
 
-			BehaviorTree.Save();
+			Tree.Save();
 
 			return graphviewchange;
 		}
@@ -261,17 +260,14 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
-							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
-							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
-							parentView.node.UpdateAmogus();
 							break;
 						}
 					}
@@ -289,18 +285,15 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 
 							break;
 						}
@@ -312,19 +305,16 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 
 							break;
 						}
@@ -342,20 +332,14 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
-							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
-							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
-							Debug.Log($"Removed child {childView.node} from {parentView.node}");
-							parentView.node.UpdateAmogus();
 							break;
 						}
 					}

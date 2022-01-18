@@ -4,7 +4,6 @@ using NPC_Control.Behavior_Tree.Nodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace NPC_Control.Behavior_Tree {
 	[CreateAssetMenu]
@@ -36,7 +35,7 @@ namespace NPC_Control.Behavior_Tree {
 
 			//AssetDatabase things
 			AssetDatabase.AddObjectToAsset(node, this);
-			AssetDatabase.SaveAssets();
+			Save();
 
 			return node;
 		}
@@ -55,20 +54,7 @@ namespace NPC_Control.Behavior_Tree {
 
 			//AssetDatabase things
 			AssetDatabase.RemoveObjectFromAsset(node);
-			AssetDatabase.SaveAssets();
-		}
-
-		public List<BehaviorNode> GetChildren(BehaviorNode node) {
-			List<BehaviorNode> returnList = new List<BehaviorNode>();
-
-			if (node is SingleChildNode singleChildNode) { returnList.Add(singleChildNode.child); } else if (
-				node is MultiChildNode multiChildNode) {
-				foreach (BehaviorNode child in multiChildNode.children) { returnList.Add(child); }
-			} else if (node is MapChildNode mapChildNode) {
-				foreach (KeyValuePair<string, BehaviorNode> kvp in mapChildNode.children) { returnList.Add(kvp.Value); }
-			}
-
-			return returnList;
+			Save();
 		}
 
 		public void AddChild(BehaviorNode parent, BehaviorNode child, string key = "") {
@@ -79,7 +65,6 @@ namespace NPC_Control.Behavior_Tree {
 					Debug.LogError($"Tried to add child {child} to {parent}, but no key was provided.");
 					return;
 				}
-				//mapChildNode.children.Add(key, child);
 				mapChildNode.AddChildToChildren(key, child);
 			}
 		}
@@ -92,12 +77,12 @@ namespace NPC_Control.Behavior_Tree {
 					Debug.LogError($"Tried to add child {child} to {parent}, but no key was provided.");
 					return;
 				}
-				//mapChildNode.children.Remove(key);
 				mapChildNode.RemoveChildFromChildren(key);
 			}
 		}
 
-		public static void Save() {
+		public void Save() {
+			EditorUtility.SetDirty(this);
 			AssetDatabase.SaveAssets();
 		}
 	}

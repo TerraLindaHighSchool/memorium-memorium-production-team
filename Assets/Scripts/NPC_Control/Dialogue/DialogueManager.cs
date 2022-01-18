@@ -6,7 +6,6 @@ using Other;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using PlayerInputManager = Player_Control.PlayerInputManager;
@@ -44,43 +43,20 @@ namespace NPC_Control.Dialogue {
 			if (_isDialogueShowing) {
 				_currentDialogueBox.Update();
 				_dialogueText.text = _currentDialogueBox.CurrentDisplayMessage;
-
-				if (_currentDialogueBox is ResponseDialogueBox responseDialogueBox) {
-					float maxWidth     = dialogueBoxPanel.flexibleWidth  - 64;
-					float maxHeight    = dialogueBoxPanel.flexibleHeight - 64;
-					float choiceBuffer = 16;
-					int   numOfChoices = responseDialogueBox.Choices.Length;
-
-					float perChoiceWidth = 32;
-					float perChoiceHeight = (maxHeight + choiceBuffer) / numOfChoices
-					                      - choiceBuffer;
-
-					for (int i = 0; i < numOfChoices; i++) {
-						string        choice             = responseDialogueBox.Choices[i];
-						GameObject    newButton          = Instantiate(_buttonPrefab, dialogueBoxPanel.transform);
-						RectTransform newButtonTransform = newButton.GetComponent<RectTransform>();
-						newButtonTransform.anchoredPosition =
-							new Vector2(maxWidth / 2 - perChoiceWidth, (perChoiceHeight + choiceBuffer) * numOfChoices);
-						newButton.GetComponentInChildren<TextMeshProUGUI>().text = choice;
-
-						newButton.GetComponent<Button>()
-						         .onClick.AddListener(delegate { OnChoiceButtonClicked(choice); });
-					}
-				}
 			}
 		}
 
 		private void OnAttemptNext(InputAction.CallbackContext context) {
 			if (_currentDialogueBox == null) return;
 
-			if (_currentDialogueBox.IsMessageFullyDisplayed) {
+			if (_currentDialogueBox.IsMessageFullyDisplayed && _currentDialogueNode is DialogueNode dialogueNode) {
 				dialogueBoxPanel.CrossFadeAlpha(0, 1.0f, false);
 				_currentDialogueBox = null;
 				_dialogueText.text  = "";
 
 				_isDialogueShowing = false;
 
-				if (_currentDialogueNode is DialogueNode dialogueNode) dialogueNode.OnDialogueComplete();
+				dialogueNode.OnDialogueComplete();
 			}
 		}
 
@@ -94,6 +70,8 @@ namespace NPC_Control.Dialogue {
 
 				_isDialogueShowing = false;
 
+				ClearDialogueChoices();
+
 				if (_currentDialogueNode is DialogueWithResponseNode dialogueWithResponseNode) {
 					dialogueWithResponseNode.OnDialogueComplete(key);
 				} else {
@@ -103,14 +81,25 @@ namespace NPC_Control.Dialogue {
 			}
 		}
 
+		private void ClearDialogueChoices() {
+			foreach (Transform child in dialogueBoxPanel.transform) {
+				if (child.GetComponent<Button>()) Destroy(child.gameObject);
+			}
+		}
+
 		/// <summary>
-		/// Shows a standard dialogue box, with just a continue arrow and the specified message.
+		/// Shows a dialogue box, either for standard dialogue or dialogue with choices.
 		/// </summary>
 		/// <param name="node">The node that launched this dialogue box.</param>
 		/// <param name="message">The text to be shown in the dialogue box.</param>
 		public void ShowDialogue(BehaviorNode node, string message) {
 			if (_isDialogueShowing) {
 				Debug.LogWarning($"Node {node} attempted to start dialogue while some was already going, ignoring...");
+				return;
+			}
+
+			if (message == null || message.Length <= 0) {
+				Debug.LogError($"Node {node} launched a dialogue box with no message. Please check your dialogue trees.");
 				return;
 			}
 
@@ -122,16 +111,45 @@ namespace NPC_Control.Dialogue {
 
 			switch (node) {
 				case DialogueNode dialogueNode:
-					_currentDialogueBox = new SimpleDialogueBox(message, charDisplayDelay);
+					_currentDialogueBox = new SimpleDialogueBox(message, 3);
 					break;
 				case DialogueWithResponseNode dialogueWithResponseNode:
 					_currentDialogueBox =
-						new ResponseDialogueBox(message, dialogueWithResponseNode.children.Keys.ToArray(),
-						                        charDisplayDelay);
+						new ResponseDialogueBox(message, dialogueWithResponseNode.GetChildrenKeys().ToArray(),
+						                        3);
 					break;
 			}
 
+			if (_currentDialogueBox is ResponseDialogueBox responseDialogueBox) {
+				CreateChoiceButtons(responseDialogueBox);
+			}
+
 			_isDialogueShowing = true;
+		}
+
+		private void CreateChoiceButtons(ResponseDialogueBox responseDialogueBox) {
+			float maxWidth     = dialogueBoxPanel.rectTransform.rect.width  - 64;
+			float maxHeight    = dialogueBoxPanel.rectTransform.rect.height - 64;
+			float choiceBuffer = 16;
+			int   numOfChoices = responseDialogueBox.Choices.Length;
+
+			float perChoiceWidth = 32;
+			float perChoiceHeight = (maxHeight + choiceBuffer) / numOfChoices
+			                      - choiceBuffer;
+
+			for (int i = 0; i < numOfChoices; i++) {
+				string choice = responseDialogueBox.Choices[i];
+				GameObject newButton = Instantiate(_buttonPrefab, dialogueBoxPanel.transform);
+				RectTransform newButtonTransform = newButton.GetComponent<RectTransform>();
+				Vector2 newButtonPos = new Vector2(maxWidth / 2 - perChoiceWidth,
+				                                   (perChoiceHeight + choiceBuffer) * i - maxHeight / 2 + 64);
+				newButtonTransform.anchoredPosition = newButtonPos;
+				newButtonTransform.rect.Set(newButtonPos.x, newButtonPos.y, perChoiceWidth, perChoiceHeight);
+				newButton.GetComponentInChildren<TextMeshProUGUI>().text = choice;
+
+				newButton.GetComponent<Button>()
+				         .onClick.AddListener(delegate { OnChoiceButtonClicked(choice); });
+			}
 		}
 	}
 }

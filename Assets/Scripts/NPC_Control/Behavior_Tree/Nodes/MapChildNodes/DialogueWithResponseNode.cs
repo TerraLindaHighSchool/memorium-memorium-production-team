@@ -1,4 +1,5 @@
 ﻿using NPC_Control.Dialogue;
+using Other;
 
 namespace NPC_Control.Behavior_Tree.Nodes.MapChildNodes {
 	public class DialogueWithResponseNode : MapChildNode {
@@ -9,6 +10,9 @@ namespace NPC_Control.Behavior_Tree.Nodes.MapChildNodes {
 			DialogueManager.Instance.ShowDialogue(this, message);
 		}
 
-		public void OnDialogueComplete(string selectedKey) { Complete(children[selectedKey]); }
+		public void OnDialogueComplete(string selectedKey) {
+			Optional<BehaviorNode> possibleSelectedNode = GetChildFromKey(selectedKey);
+			if (possibleSelectedNode.Enabled) { Complete(possibleSelectedNode.Value); }
+		}
 	}
 }

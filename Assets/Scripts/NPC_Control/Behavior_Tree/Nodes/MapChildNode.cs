@@ -1,48 +1,63 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using Other;
 using UnityEngine;
 
 namespace NPC_Control.Behavior_Tree.Nodes {
 	public abstract class MapChildNode : BehaviorNode {
-		//TODO: so, it turns out Unity doesn't actually serialize dictionaries after all. 
-		//TODO: scream into the endless void
-		public Dictionary<string, BehaviorNode> children;
+		[HideInInspector] public List<BehaviorNodeKVP> children;
 
-		public string[] amogus;
+		public override BehaviorNode[] Children() => GetChildrenValues().ToArray();
 
-		public override BehaviorNode[] Children() => children.Values.ToArray();
+		public MapChildNode() { children = new List<BehaviorNodeKVP>(); }
 
-		public MapChildNode() { children = new Dictionary<string, BehaviorNode>(); }
+		public List<string> GetChildrenKeys() {
+			List<string> keys = new List<string>();
+			foreach (BehaviorNodeKVP kvp in children) { keys.Add(kvp.key); }
+
+			return keys;
+		}
+
+		public List<BehaviorNode> GetChildrenValues() {
+			List<BehaviorNode> values = new List<BehaviorNode>();
+			foreach (BehaviorNodeKVP kvp in children) { values.Add(kvp.value); }
+
+			return values;
+		}
+
+		public Optional<BehaviorNode> GetChildFromKey(string key) {
+			foreach (BehaviorNodeKVP kvp in children) {
+				if (kvp.key.Equals(key)) return new Optional<BehaviorNode>(kvp.value, true);
+			}
+
+			return new Optional<BehaviorNode>(null, false);
+		}
 
 		public void AddChildToChildren(string key, BehaviorNode value) {
-			Debug.Log($"Adding {value} to {this}\'s children");
-			children.Add(key, value);
+			children.Add(new BehaviorNodeKVP {key = key, value = value});
 		}
 
 		public void RemoveChildFromChildren(string key) {
-			Debug.Log($"Removing key {key} from {this}\'s children");
-			children.Remove(key);
+			foreach (BehaviorNodeKVP kvp in children) {
+				if (key.Equals(kvp.key)) {
+					children.Remove(kvp);
+					return;
+				}
+			}
 		}
 
-		public void UpdateAmogus() {
-			string[] newAmogus = children.Keys.ToArray();
-			if (amogus != children.Keys.ToArray()) {
-				string inAmogusNotNew = "";
-				string inNewNotAmogus = "";
-				string inBoth         = "";
-
-				foreach (string s in newAmogus.Except(amogus)) { inNewNotAmogus += s; }
-
-				foreach (string s in amogus.Except(newAmogus)) { inAmogusNotNew += s; }
-
-				foreach (string s in amogus.Intersect(newAmogus)) { inBoth += s; }
-
-				if (inAmogusNotNew != "") Debug.Log($"Items to remove: {inAmogusNotNew}");
-				if (inNewNotAmogus != "") Debug.Log($"Items to add: {inNewNotAmogus}");
-				if (inBoth         != "") Debug.Log($"Items in both: {inBoth}");
+		public static Optional<string> FindKeyForBehaviorNodeInChildren(MapChildNode node, BehaviorNode child) {
+			foreach (BehaviorNodeKVP kvp in node.children) {
+				if (kvp.value.Equals(child)) { return new Optional<string>(kvp.key, true); }
 			}
 
-			amogus = newAmogus;
+			return new Optional<string>(null, false);
 		}
+	}
+
+	[Serializable]
+	public struct BehaviorNodeKVP {
+		public string       key;
+		public BehaviorNode value;
 	}
 }

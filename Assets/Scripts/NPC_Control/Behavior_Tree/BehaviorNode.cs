@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace NPC_Control.Behavior_Tree {
 	public abstract class BehaviorNode : ScriptableObject {
-		[HideInInspector] public string  guid;
+		[HideInInspector] public string guid;
 		[HideInInspector] public Vector2 position;
 
 		public event Action<BehaviorNode, BehaviorNode> OnCompleted;

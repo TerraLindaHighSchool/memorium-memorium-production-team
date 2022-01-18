@@ -64,12 +64,9 @@ namespace NPC_Control.Behavior_Tree {
 			if (currentNode != null) { currentNode.OnCompleted -= StepDialogue; }
 
 			if (newNode == null) {
-				Debug.Log($"{currentNode} had no children, exiting...");
 				DialogueActive = false;
 				return;
 			}
-
-			Debug.Log($"Moving from {currentNode} to {newNode}");
 
 			newNode.OnCompleted += StepDialogue;
 			newNode.Run(_npcDataHelper); //TODO: make NOT amogus
