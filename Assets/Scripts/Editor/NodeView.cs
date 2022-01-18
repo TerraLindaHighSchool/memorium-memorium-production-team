@@ -11,6 +11,8 @@ using UnityEngine.UIElements;
 namespace Editor {
 	[Serializable]
 	public abstract class NodeView<T> : Node where T : BehaviorNode {
+		public static Action SaveTree;
+		
 		public Action<NodeView<T>> OnNodeSelected;
 
 		public T node;

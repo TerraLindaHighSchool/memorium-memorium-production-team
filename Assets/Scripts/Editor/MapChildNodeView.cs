@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using NPC_Control.Behavior_Tree;
 using NPC_Control.Behavior_Tree.Nodes;
-using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -17,6 +16,12 @@ namespace Editor {
 		public Dictionary<string, Port> Outputs;
 
 		public MapChildNodeView(MapChildNode node) : base(node) {
+			foreach (KeyValuePair<string, BehaviorNode> kvp in node.children) {
+				Debug.Log($"Node {node} has child {kvp.Key}, {kvp.Value}");
+			}
+
+			node.UpdateAmogus();
+
 			CreateInputPort();
 			CreateOutputPorts();
 

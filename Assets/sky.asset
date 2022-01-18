@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5326565145523309873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 7103b4e6-a80d-4c3a-91ab-5f538fe8ed82
+  position: {x: 83, y: 386.52002}
+  amogus: []
+  message: aaaaaaab
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: sky
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 8562656656799048832}
+  nodes:
+  - {fileID: 8562656656799048832}
+  - {fileID: 2412586877056004501}
+  - {fileID: 9022365971849032838}
+  - {fileID: 1064658250705740923}
+  - {fileID: -5326565145523309873}
+  - {fileID: 1899462323181977099}
+--- !u!114 &1064658250705740923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1dc22eae-4e12-495f-99f2-13c4560124b4
+  position: {x: 371.09348, y: 276.79926}
+  child: {fileID: 0}
+  message: bruh 2
+--- !u!114 &1899462323181977099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c0d71076-fe02-4b17-b49e-cba7e5ea3b5a
+  position: {x: 426.2, y: 414.68}
+  child: {fileID: 0}
+  message: bbb
+--- !u!114 &2412586877056004501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 666496d2-9bd5-41a9-a6af-567c47275228
+  position: {x: 3, y: 174}
+  child: {fileID: 9022365971849032838}
+  message: bruh 1
+--- !u!114 &8562656656799048832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 0e889ac2-dbd8-4614-ba7e-cf5dee7c503d
+  position: {x: 0, y: 0}
+  child: {fileID: 2412586877056004501}
+--- !u!114 &9022365971849032838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 91ab0ee6-501e-4cb4-accb-2c0d425549ca
+  position: {x: 340, y: 134}
+  child: {fileID: 1064658250705740923}
+  message: This is an absolute Wyatt Dunn bruh moment.

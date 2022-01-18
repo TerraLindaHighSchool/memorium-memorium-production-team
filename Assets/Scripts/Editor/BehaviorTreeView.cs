@@ -8,12 +8,11 @@ using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 namespace Editor {
 	public class BehaviorTreeView : GraphView {
-		public Action<NodeView<BehaviorNode>> OnNodeSelected;
-
 		public Action RefreshEditorWindow;
 
 		public new class UxmlFactory : UxmlFactory<BehaviorTreeView, UxmlTraits> { }
@@ -41,22 +40,22 @@ namespace Editor {
 		}
 
 		public void PopulateView(BehaviorTree tree) {
-			this.Tree = tree;
+			Tree = tree;
 
 			graphViewChanged -= OnGraphViewChanged;
 			DeleteElements(graphElements.ToList());
 			graphViewChanged += OnGraphViewChanged;
 
-			if (!tree) return;
+			if (!Tree) return;
 
-			foreach (BehaviorNode node in tree.nodes) {
+			foreach (BehaviorNode node in Tree.nodes) {
 				//Creates node view
 				CreateNodeView(node);
 			}
 
-			foreach (BehaviorNode treeNode in tree.nodes) {
+			foreach (BehaviorNode treeNode in Tree.nodes) {
 				//Create edges
-				List<BehaviorNode> children = tree.GetChildren(treeNode);
+				List<BehaviorNode> children = Tree.GetChildren(treeNode);
 				for (int i = 0; i < children.Count; i++) {
 					BehaviorNode child = children[i];
 					if (child == null || child == treeNode) continue;
@@ -65,14 +64,16 @@ namespace Editor {
 					MultiChildNodeView  multiChildView  = (MultiChildNodeView) FindNodeView(child as MultiChildNode);
 					MapChildNodeView    mapChildView    = (MapChildNodeView) FindNodeView(child as MapChildNode);
 
-					if (singleChildView != null) { CreateEdge(tree, treeNode, child as SingleChildNode, i); } else if (
-						multiChildView  != null) { CreateEdge(tree, treeNode, child as MultiChildNode, i); } else if (
-						mapChildView    != null) { CreateEdge(tree, treeNode, child as MapChildNode, i); } else {
+					if (singleChildView != null) { CreateEdge(Tree, treeNode, child as SingleChildNode, i); } else if (
+						multiChildView  != null) { CreateEdge(Tree, treeNode, child as MultiChildNode, i); } else if (
+						mapChildView    != null) { CreateEdge(Tree, treeNode, child as MapChildNode, i); } else {
 						Debug.LogError(
 							$"When adding an edge to connect {treeNode} to {child}, the child had an unknown type.");
 					}
 				}
 			}
+
+			BehaviorTree.Save();
 		}
 
 		/// <summary>
@@ -127,17 +128,6 @@ namespace Editor {
 						}
 					}
 
-					/*
-					// search through to find the key of the child node in the dictionary
-					string childKey = "";
-					foreach (KeyValuePair<string, BehaviorNode> nodeKVP in node.children) {
-						if (nodeKVP.Value.Equals(child)) {
-							childKey = nodeKVP.Key;
-							break;
-						}
-						Debug.LogWarning($"Child {child} did not have a key in its parents dictionary.");
-					}
-					*/
 					string childKey = "";
 
 					Optional<string> possibleChildKey = FindKeyInDictionary(node.children, child);
@@ -145,14 +135,17 @@ namespace Editor {
 						Debug.LogWarning($"Child {child} did not have a key in its parents dictionary.");
 					} else { childKey = possibleChildKey.Value; }
 
+					bool foundPortMatch = false;
+
 					foreach (KeyValuePair<string, Port> portKVP in parentView.Outputs) {
 						if (portKVP.Key.Equals(childKey)) {
 							AddElement(portKVP.Value.ConnectTo(childView.Input));
+							foundPortMatch = true;
 							break;
 						}
-
-						Debug.LogError($"Could not connect child {child} to parent {node}");
 					}
+
+					if (!foundPortMatch) Debug.LogError($"Could not find a port on {node} for child key {childKey}");
 
 					break;
 				}
@@ -215,6 +208,8 @@ namespace Editor {
 				foreach (Edge edge in graphviewchange.edgesToCreate) { AssignChildrenFromEdge(edge); }
 			}
 
+			BehaviorTree.Save();
+
 			return graphviewchange;
 		}
 
@@ -266,14 +261,17 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
+							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
+							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.AddChild(parentView.node, childView.node, possiblePortKey.Value);
+							parentView.node.UpdateAmogus();
 							break;
 						}
 					}
@@ -291,14 +289,19 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+
 							break;
 						}
 					}
@@ -309,14 +312,20 @@ namespace Editor {
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+
 							break;
 						}
 					}
@@ -332,16 +341,21 @@ namespace Editor {
 
 					switch (edge.input.node) {
 						case SingleChildNodeView childView: {
-							if (Tree == null) Debug.Log("aaaaa");
 							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MultiChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+							parentView.node.UpdateAmogus();
 							break;
 						}
 						case MapChildNodeView childView: {
 							Tree.RemoveChild(parentView.node, childView.node, possiblePortKey.Value);
+							Debug.Log($"Removed child {childView.node} from {parentView.node}");
+							parentView.node.UpdateAmogus();
 							break;
 						}
 					}
@@ -365,6 +379,7 @@ namespace Editor {
 			BehaviorNode node = Tree.CreateNode(type);
 			if (node == null) return;
 			node.position = position;
+
 			CreateNodeView(node);
 		}
 

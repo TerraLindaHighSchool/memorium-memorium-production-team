@@ -4,6 +4,7 @@ using NPC_Control.Behavior_Tree.Nodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace NPC_Control.Behavior_Tree {
 	[CreateAssetMenu]
@@ -23,6 +24,8 @@ namespace NPC_Control.Behavior_Tree {
 				}
 
 				node = CreateInstance<RootNode>();
+				
+				node.position = Vector2.zero;
 
 				rootNode = (RootNode) node;
 			} else { node = (BehaviorNode) CreateInstance(type); }
@@ -76,7 +79,8 @@ namespace NPC_Control.Behavior_Tree {
 					Debug.LogError($"Tried to add child {child} to {parent}, but no key was provided.");
 					return;
 				}
-				mapChildNode.children.Add(key, child);
+				//mapChildNode.children.Add(key, child);
+				mapChildNode.AddChildToChildren(key, child);
 			}
 		}
 
@@ -88,8 +92,13 @@ namespace NPC_Control.Behavior_Tree {
 					Debug.LogError($"Tried to add child {child} to {parent}, but no key was provided.");
 					return;
 				}
-				mapChildNode.children.Remove(key);
+				//mapChildNode.children.Remove(key);
+				mapChildNode.RemoveChildFromChildren(key);
 			}
+		}
+
+		public static void Save() {
+			AssetDatabase.SaveAssets();
 		}
 	}
 }
