@@ -25,10 +25,8 @@ namespace Player_Control {
 
 		/// <summary>
 		/// <c>PlayerInputActions</c> object for receiving input events.
-		/// Currently also used by <c>CameraController</c> and <c>CursorController</c>, 
-		/// will hopefully be changed soon.
 		/// </summary>
-		public PlayerInputActions PlayerInputActions;
+		private PlayerInputActions _playerInputActions;
 
 		/// <summary>
 		/// Invoked after the player has moved.
@@ -56,6 +54,8 @@ namespace Player_Control {
 		///Gets a reference to the CharacterController and subscribes to necessary events. 
 		private void OnEnable() {
 			_characterController = GetComponent<CharacterController>();
+
+			PlayerInputActions _playerInputActions;
 
 			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 

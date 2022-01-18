@@ -19,9 +19,6 @@ namespace Camera_and_Lighting {
 		///The empty on the player that gets rotated to make the orbit camera.
 		[SerializeField] public Transform playerFollowCamTarget;
 
-		///A reference to the player, used primarily to get the PlayerInputActions object. 
-		[SerializeField] private PlayerController player;
-
 		///Keeps track of the mouse movement delta from frame to frame. 
 		private Vector2 _mouseDelta;
 
@@ -34,7 +31,7 @@ namespace Camera_and_Lighting {
 
 		///Gets the PlayerInputActions from the player and subscribes to the necessary events. 
 		private void Start() {
-			PlayerInputActions playerInputActions = player.PlayerInputActions;
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
 			playerInputActions.Player.MouseDelta.performed += OnMouseDelta;
 
