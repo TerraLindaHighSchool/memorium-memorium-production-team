@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NPC_Control.Behavior_Tree;
 using NPC_Control.Behavior_Tree.Nodes;
-using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -80,7 +78,7 @@ namespace Editor {
 			Outputs = new Dictionary<string, Port>();
 
 			if (node.children.Count <= 0) { outputContainer.Add(new VisualElement()); } else {
-				foreach (KeyValuePair<string, BehaviorNode> kvp in node.children) { AddOutputPort(kvp.Key); }
+				foreach (BehaviorNodeKVP kvp in node.children) { AddOutputPort(kvp.key); }
 			}
 		}
 	}

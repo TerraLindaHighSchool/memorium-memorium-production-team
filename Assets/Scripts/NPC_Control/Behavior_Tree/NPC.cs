@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NPC_Control.Dialogue;
 using UnityEngine;
 
 namespace NPC_Control.Behavior_Tree {
@@ -34,7 +35,7 @@ namespace NPC_Control.Behavior_Tree {
 		public bool DialogueActive { get; private set; }
 
 		private void OnEnable() {
-			_npcDataHelper = new NPCDataHelper(this, null, null, null); //TODO: NOT THIS
+			_npcDataHelper = new NPCDataHelper(this, null, DialogueManager.Instance, null); //TODO: NOT THIS
 			DialogueActive = false;
 		}
 
@@ -56,19 +57,19 @@ namespace NPC_Control.Behavior_Tree {
 			}
 
 			DialogueActive = true;
-			StepDialogue(tree.rootNode);
+			StepDialogue(null, tree.rootNode);
 		}
 
-		public void StepDialogue(BehaviorNode currentNode) {
-			if (currentNode == null) {
-				Debug.Log("Dialogue Node had no children, exiting...");
+		public void StepDialogue(BehaviorNode currentNode, BehaviorNode newNode) {
+			if (currentNode != null) { currentNode.OnCompleted -= StepDialogue; }
+
+			if (newNode == null) {
 				DialogueActive = false;
 				return;
 			}
 
-			currentNode.OnCompleted += StepDialogue;
-			currentNode.Run(_npcDataHelper); //TODO: make NOT amogus
-			currentNode.OnCompleted -= StepDialogue;
+			newNode.OnCompleted += StepDialogue;
+			newNode.Run(_npcDataHelper); //TODO: make NOT amogus
 		}
 	}
 }

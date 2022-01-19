@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Interactable
   - Collectable
+  - Canvas
+  - DialogueBox
   layers:
   - Default
   - TransparentFX
