@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public interface IGameContext {
-		public abstract CinemachineVirtualCamera VCam { get; }
+		void GCStart();
 
-		public abstract void GCStart();
-		
-		public abstract void GCUpdate(Vector2 mouseDelta, bool rcDown);
+		void GCUpdate(Vector2 mouseDelta, bool rcDown);
 
-		public event Action onExit;
+		float GetYRotForForwards();
+
+		Transform GetPlayerFollowCamTarget();
+
+		event Action onExit;
 	}
 }
