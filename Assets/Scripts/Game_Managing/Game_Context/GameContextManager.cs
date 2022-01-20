@@ -12,7 +12,9 @@ namespace Game_Managing.Game_Context {
 
 		public IGameContext ActiveContext {
 			get {
-				try { return _contextStack.Peek(); } catch (InvalidOperationException e) {
+				try {
+					return _contextStack.Peek();
+				} catch {
 					return OrbitCameraManager.Instance;
 				}
 			}
