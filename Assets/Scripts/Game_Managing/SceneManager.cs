@@ -16,20 +16,34 @@ namespace Game_Managing {
 			StainedGlassIsland = 0b_0010_0000,
 			Graveyard          = 0b_0100_0000,
 		}
-		
+
 		public static string GetPath(Scene scene) {
 			throw new NotImplementedException("FILL IN THE SWITCH STATEMENT STRINGS");
-			string sceneName =
-				scene switch {
-					Scene.MainMenu           => "",
-					Scene.TutorialIsland     => "",
-					Scene.FlowerIsland       => "",
-					Scene.FeatherIsland      => "",
-					Scene.LibraryIsland      => "",
-					Scene.StainedGlassIsland => "",
-					Scene.Graveyard          => "",
-					_                        => throw new ArgumentException("Invalid Scene ID")
-				};
+			string sceneName = "";
+			switch (scene) {
+				case Scene.MainMenu:
+					sceneName = "";
+					break;
+				case Scene.TutorialIsland:
+					sceneName = "";
+					break;
+				case Scene.FlowerIsland:
+					sceneName = "";
+					break;
+				case Scene.FeatherIsland:
+					sceneName = "";
+					break;
+				case Scene.LibraryIsland:
+					sceneName = "";
+					break;
+				case Scene.StainedGlassIsland:
+					sceneName = "";
+					break;
+				case Scene.Graveyard:
+					sceneName = "";
+					break;
+			}
+
 			return "Gameplay_Scenes" + sceneName;
 		}
 
@@ -38,6 +52,7 @@ namespace Game_Managing {
 			foreach (Scene e in Enum.GetValues(typeof(Scene))) {
 				if ((scene & e) == e) initialList.Add(GetPath(e));
 			}
+
 			return initialList.ToArray();
 		}
 
@@ -46,7 +61,7 @@ namespace Game_Managing {
 			int      index = Random.Range(0, paths.Length - 1);
 			UnityEngine.SceneManagement.SceneManager.LoadScene(paths[index]);
 		}
-		
+
 		public static AsyncOperation LoadAsync(Scene scene) {
 			string[] paths = GetPaths(scene);
 			int      index = Random.Range(0, paths.Length - 1);
