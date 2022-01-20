@@ -10,7 +10,7 @@ namespace Game_Managing.Game_Context {
 	public class GameContextManager : Singleton<GameContextManager> {
 		private Stack<IGameContext> _contextStack;
 
-		private IGameContext ActiveContext {
+		public IGameContext ActiveContext {
 			get {
 				try { return _contextStack.Peek(); } catch (InvalidOperationException e) {
 					return OrbitCameraManager.Instance;
@@ -20,8 +20,8 @@ namespace Game_Managing.Game_Context {
 
 		private bool _isRightMouseDown;
 
-		void EnterContext(IGameContext newContext) {
-			_contextStack.Peek().onExit -= ExitContext;
+		public void EnterContext(IGameContext newContext) {
+			ActiveContext.onExit -= ExitContext;
 			_contextStack.Push(newContext);
 			newContext.onExit += ExitContext;
 			newContext.GCStart();
@@ -38,8 +38,9 @@ namespace Game_Managing.Game_Context {
 
 			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
-			playerInputActions.Player.Orbit.started  += OnRightClickStart;
-			playerInputActions.Player.Orbit.canceled += OnRightClickStop;
+			playerInputActions.Player.MouseDelta.performed += OnMouseDelta;
+			playerInputActions.Player.Orbit.started        += OnRightClickStart;
+			playerInputActions.Player.Orbit.canceled       += OnRightClickStop;
 		}
 
 		private void OnMouseDelta(InputAction.CallbackContext context) =>

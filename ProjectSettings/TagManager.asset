@@ -8,6 +8,7 @@ TagManager:
   - Collectable
   - Canvas
   - DialogueBox
+  - FixedCamCollider
   layers:
   - Default
   - TransparentFX

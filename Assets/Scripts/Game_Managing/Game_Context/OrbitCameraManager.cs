@@ -11,9 +11,12 @@ namespace Game_Managing.Game_Context {
 
 		private Transform _playerFollowCamTarget;
 
-		public CinemachineVirtualCamera VCam { get; }
+		public float     GetYRotForForwards()       { return _playerFollowCamTarget.eulerAngles.y; }
+		public Transform GetPlayerFollowCamTarget() { return _playerFollowCamTarget; }
 
-		public void GCStart() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
+		private void Start() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
+
+		public void GCStart() { }
 
 		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
 			if (!rcDown) return;
