@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5033442937605098153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 46a055e1-53c4-4565-af66-681a08cbe718
+  position: {x: 569, y: -71}
+  child: {fileID: 0}
+  message: You picked A, congratulations!
+--- !u!114 &-3473673877679140964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8b550f4f-0b75-459d-a81b-9a3005796661
+  position: {x: 556, y: 279.12}
+  child: {fileID: 0}
+  message: You fucked up.
+--- !u!114 &-663782527666101800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 2e9ea0ee-2327-44a9-9de3-29c827833780
+  position: {x: 190.61382, y: -1.9767237}
+  children:
+  - key: a
+    value: {fileID: -5033442937605098153}
+  - key: b
+    value: {fileID: 5874979579205153587}
+  - key: c
+    value: {fileID: 2122518271898253648}
+  - key: Your Mom lmao
+    value: {fileID: -3473673877679140964}
+  message: Pick one :)
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: sky
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 8562656656799048832}
+  nodes:
+  - {fileID: 8562656656799048832}
+  - {fileID: -663782527666101800}
+  - {fileID: -5033442937605098153}
+  - {fileID: 5874979579205153587}
+  - {fileID: 2122518271898253648}
+  - {fileID: -3473673877679140964}
+--- !u!114 &2122518271898253648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 769cf3f0-516a-4993-9d91-ec6f2e86ce38
+  position: {x: 561, y: 164}
+  child: {fileID: 0}
+  message: You picked C, congratulations!
+--- !u!114 &5874979579205153587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a9c01537-7012-44c6-8d50-03655ca197cc
+  position: {x: 560, y: 47}
+  child: {fileID: 0}
+  message: You picked B, congratulations!
+--- !u!114 &8562656656799048832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 0e889ac2-dbd8-4614-ba7e-cf5dee7c503d
+  position: {x: 0, y: 0}
+  child: {fileID: -663782527666101800}
