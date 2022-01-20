@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/tree.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/tree.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/BehaviorTreeView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/MapChildNodes/DialogueWithResponseNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/MapChildNodes/DialogueWithResponseNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/DialogueNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/DialogueNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/MoveNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/MoveNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/tree.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/tree.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/Player VCAM.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/Player VCAM.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/PrototypeScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/PrototypeScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/tree.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/tree.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Editor/BehaviorTreeView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/NodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/d2/7a68ac6b/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c24f0c1857d4078b6d453f88e061a29dba00/76/8039126d/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -118,6 +117,8 @@
       <workItem from="1641573270773" duration="12351000" />
       <workItem from="1641615715118" duration="2587000" />
       <workItem from="1641832275605" duration="1997000" />
+      <workItem from="1642547940649" duration="329000" />
+      <workItem from="1642610346846" duration="7993000" />
     </task>
     <servers />
   </component>

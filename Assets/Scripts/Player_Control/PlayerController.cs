@@ -34,8 +34,8 @@ namespace Player_Control {
 		/// </summary>
 		public event Action Moved;
 
-		///Reference to the camera controller, used for getting the euler angles from it.
-		[SerializeField] private CameraController cameraController;
+		///Reference to the camera manager, used for getting the euler angles from it.
+		private CameraManager _cameraManager;
 
 		/// <summary>
 		/// Field for keeping track of player velocity between frames.
@@ -55,7 +55,7 @@ namespace Player_Control {
 		private void OnEnable() {
 			_characterController = GetComponent<CharacterController>();
 
-			PlayerInputActions _playerInputActions;
+			_cameraManager = CameraManager.Instance;
 
 			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
@@ -158,15 +158,15 @@ namespace Player_Control {
 				Vector3 eulers = transform.eulerAngles;
 
 				{
-					Vector3    storedCamTargetPos = cameraController.playerFollowCamTarget.position;
-					Quaternion storedCamTargetRot = cameraController.playerFollowCamTarget.rotation;
+					Vector3    storedCamTargetPos = _cameraManager.playerFollowCamTarget.position;
+					Quaternion storedCamTargetRot = _cameraManager.playerFollowCamTarget.rotation;
 
 					transform.SetPositionAndRotation(transform.position,
 					                                 Quaternion.Euler(
-						                                 new Vector3(eulers.x, cameraController.GetYRotForForwards(),
+						                                 new Vector3(eulers.x, _cameraManager.GetYRotForForwards(),
 						                                             eulers.z)));
 
-					cameraController.playerFollowCamTarget.SetPositionAndRotation(
+					_cameraManager.playerFollowCamTarget.SetPositionAndRotation(
 						storedCamTargetPos, storedCamTargetRot);
 				}
 
@@ -185,11 +185,11 @@ namespace Player_Control {
 				Quaternion motionRot = Quaternion.identity;
 				motionRot.SetLookRotation(dir);
 
-				Vector3    storedCamPos = cameraController.playerFollowCamTarget.position;
-				Quaternion storedCamRot = cameraController.playerFollowCamTarget.rotation;
+				Vector3    storedCamPos = _cameraManager.playerFollowCamTarget.position;
+				Quaternion storedCamRot = _cameraManager.playerFollowCamTarget.rotation;
 
 				transform.SetPositionAndRotation(transform.position, motionRot);
-				cameraController.playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
+				_cameraManager.playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
 
 				motion = transform.forward * (speed * Time.deltaTime);
 			}
