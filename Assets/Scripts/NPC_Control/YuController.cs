@@ -19,7 +19,7 @@ public class YuController : MonoBehaviour
         }
         else
         {
-            MoveAroundPlayer();
+            StartCoroutine(MoveAroundPlayer());
         }
     }
 
@@ -27,7 +27,7 @@ public class YuController : MonoBehaviour
     {
         this.transform.position = Vector3.Lerp(this.transform.position, Player.position, speed);
     }
-    private void MoveAroundPlayer()
+    IEnumerator MoveAroundPlayer()
     {
         float circle = 2 * Mathf.PI;
         
@@ -38,6 +38,9 @@ public class YuController : MonoBehaviour
             float z = Mathf.Sin(angle) * radius;
 
             Vector3 position = new Vector3(x, y, z);
+
+            this.transform.position = position;
+            yield return new WaitForSeconds(1);
         }
     }
 }
