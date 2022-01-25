@@ -60,7 +60,17 @@ namespace Puzzle_Control.LightPuzzleFlower
         /// </summary>
         private void CheckRotation()
         {
+            if (currentRotation == successfulRotation)
+            {
+                Debug.Log("LightPuzzleFlower completed!");
+                // disable interaction
+                GetComponent<Interactable>().isEnabled = false;
 
+                // TODO: maybe add a cool sound effect?
+
+                // complete the puzzle
+                Complete();
+            }
         }
 
         /// <summary>
@@ -96,15 +106,15 @@ namespace Puzzle_Control.LightPuzzleFlower
         {
             // TODO: check if player actually has a shard
 
-            // if we already have a shard, do rotation mode
-            // otherwise, check if the player has a shard
-            if (hasShard)
+            // if we don't have a shard, check if the player has one
+            // otherwise, rotate the flower
+            if (!hasShard)
             {
-                Rotate();
+                CheckShard();
             }
             else
             {
-                CheckShard();
+                Rotate();
             }
         }
     }
