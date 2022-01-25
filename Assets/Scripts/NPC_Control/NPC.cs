@@ -29,8 +29,7 @@ namespace NPC_Control {
 
 		[SerializeField] private BehaviorTree tree;
 
-		[SerializeField]
-		Dictionary<string, IEventReceiver[]> eventReceivers = new Dictionary<string, IEventReceiver[]>();
+		Dictionary<string, IEventReceiver[]> _eventReceivers = new Dictionary<string, IEventReceiver[]>();
 
 		private NPCDataHelper _npcDataHelper;
 
@@ -46,17 +45,22 @@ namespace NPC_Control {
 		private void OnDisable() { DialogueActive = false; }
 
 		private void InvokeEventReceivers(string eventKey) {
-			if (eventReceivers[eventKey] == null) {
+			if (_eventReceivers[eventKey] == null) {
 				Debug.LogWarning("event key on NPC component is null");
 				return;
 			}
 
-			foreach (var eventReceiver in eventReceivers[eventKey]) { eventReceiver.OnEventPublish(); }
+			foreach (var eventReceiver in _eventReceivers[eventKey]) { eventReceiver.OnEventPublish(); }
 		}
 
 		public void StartDialogue() {
 			if (tree.rootNode == null) {
 				Debug.LogWarning("Dialogue tree has no root node. Super Amongus.");
+				return;
+			}
+
+			if (DialogueActive) {
+				Debug.LogWarning($"NPC {this} tried to start dialogue while already in some.");
 				return;
 			}
 
@@ -70,14 +74,19 @@ namespace NPC_Control {
 			if (currentNode != null) { currentNode.OnCompleted -= StepDialogue; }
 
 			if (newNode == null) {
-				DialogueActive = false;
-				_dialogueContextController.GCExit();
-				_dialogueContextController = null;
+				StopDialogue();
 				return;
 			}
 
 			newNode.OnCompleted += StepDialogue;
+			newNode.OnError     += StopDialogue;
 			newNode.Run(_npcDataHelper); //TODO: make NOT amogus
+		}
+
+		private void StopDialogue() {
+			DialogueActive = false;
+			_dialogueContextController.GCExit();
+			_dialogueContextController = null;
 		}
 	}
 }
