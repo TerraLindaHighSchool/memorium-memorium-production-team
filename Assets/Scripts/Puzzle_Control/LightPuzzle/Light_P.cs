@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Light_P : MonoBehaviour
+namespace Puzzle_Control.Light_P
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Light_P : PuzzleController
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        /// <summary>
+        /// Puzzle controller for the Flower Light Puzzle
+        /// still in progress, summary will be updated later
+        //
+        /// planned to be used as a utility script, will handle the logic of the puzzle
+        /// </summary>
+        public override void StartPuzzle()
+        {
+            Debug.Log("Picked up first puzzle object");
+            Complete();
+            gameObject.SetActive(false);
+        }
     }
 }
