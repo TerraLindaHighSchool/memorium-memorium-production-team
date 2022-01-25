@@ -10,6 +10,8 @@ namespace Puzzle_Control.Light_P
     /// </summary>
     public class Light_P : PuzzleController
     {
+        private Dictionary<LightPuzzleFlower, bool> flowers = new Dictionary<LightPuzzleFlower, bool>();
+
         public override void StartPuzzle()
         {
             Debug.Log("Picked up first puzzle object");
