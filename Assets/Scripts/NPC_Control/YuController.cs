@@ -7,9 +7,9 @@ public class YuController : MonoBehaviour
     public Transform Player;
 
     [SerializeField] private float radius = 5;
-    [SerializeField] private int circle_steps = 10;
-    [SerializeField] private int y;
     [SerializeField] private float speed = 0.1f;
+
+    private bool canFloat = true;
 
     private void Update()
     {
@@ -19,28 +19,12 @@ public class YuController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(MoveAroundPlayer());
+            this.transform.position = Vector3.Lerp(this.transform.position + new Vector3(0,0,radius/2), Player.position, speed);
         }
     }
 
     private void MoveToPlayer()
     {
         this.transform.position = Vector3.Lerp(this.transform.position, Player.position, speed);
-    }
-    IEnumerator MoveAroundPlayer()
-    {
-        float circle = 2 * Mathf.PI;
-        
-        for (int i = 1; i <= circle_steps; i ++)
-        {
-            float angle = i * (circle / circle_steps);
-            float x = Mathf.Cos(angle) * radius;
-            float z = Mathf.Sin(angle) * radius;
-
-            Vector3 position = new Vector3(x, y, z);
-
-            this.transform.position = position;
-            yield return new WaitForSeconds(1);
-        }
     }
 }
