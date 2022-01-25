@@ -2,16 +2,16 @@ using UnityEngine;
 
 namespace Puzzle_Control.LightPuzzleFlower
 {
+    /// <summary>
+    /// Puzzle handling script for each flower.
+    /// Will first handle the flower receiving the shard,
+    /// then will handle rotation.
+    /// Will complete the individual puzzle once the flower is
+    /// rotated to the correct position.
+    /// </summary>
 	[RequireComponent(typeof(Interactable))]
     public class LightPuzzleFlower : PuzzleController
     {
-        /// <summary>
-        /// Puzzle handling script for each flower.
-        /// Will first handle the flower receiving the shard,
-        /// then will handle rotation.
-        /// Will complete the individual puzzle once the flower is
-        /// rotated to the correct position.
-        /// </summary>
 
         /// <summary>
         /// Controls whether flower can be rotated, as well as
