@@ -49,6 +49,8 @@ namespace Game_Managing.Game_Context {
 
 			dialogueCamPos -= backDir * 5;
 
+			dialogueCamPos.y = playerPos.y;
+
 			GameObject newCameraObject =
 				new GameObject($"{_currentDialogueNPC.name} Dialogue Camera") {transform = {position = dialogueCamPos}};
 			newCameraObject.transform.SetParent(_currentDialogueNPC.transform, true);

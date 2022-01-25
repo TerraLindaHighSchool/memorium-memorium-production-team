@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace NPC_Control {
 	[RequireComponent(typeof(EntityController))]
@@ -13,7 +15,11 @@ namespace NPC_Control {
 		[SerializeField] private float maxWait = 10;
 		[SerializeField] private float minWait = 2;
 
+		public NPC npc;
+
 		private bool canMove = true;
+
+		private void Awake() { npc = GetComponent<NPC>(); }
 
 		private void Start() { StartCoroutine(MoveToRandom()); }
 
@@ -26,7 +32,7 @@ namespace NPC_Control {
 
 		private IEnumerator MoveToRandom() {
 			while (canMove) {
-				entityController.MoveToPoint(GetRandomPoint());
+				if (!npc.DialogueActive) entityController.MoveToPoint(GetRandomPoint());
 				yield return new WaitForSeconds(Random.Range(minWait, maxWait));
 			}
 		}

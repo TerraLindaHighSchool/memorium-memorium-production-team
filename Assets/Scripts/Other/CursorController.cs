@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game_Managing.Game_Context;
 using Player_Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -142,7 +143,8 @@ namespace Other {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Interact.performed</c> event.</param>
 		private void TriggerInteract(InputAction.CallbackContext context) {
-			if (selectedInteractableObject) {
+			if (selectedInteractableObject
+			 && !(GameContextManager.Instance.ActiveContext is DialogueContextController)) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
 				ComputeInteractableOutlines();
 			}
