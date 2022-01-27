@@ -33,7 +33,7 @@ namespace Puzzle_Control.Light_P
             foreach (LightPuzzleFlower flower in flowerPuzzles)
             {
                 flowers.Add(flower, false);
-                flower.OnPuzzleComplete.AddListener(OnCompletion(i));
+                flower.NotifyPuzzleSet += OnCompletion(i);
             }
 
         }
