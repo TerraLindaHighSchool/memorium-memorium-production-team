@@ -13,6 +13,10 @@ namespace Puzzle_Control.Light_P
     /// </summary>
     public class Light_P : PuzzleController
     {
+        // copied from PuzzleSet.cs, unsure if it's necessary
+		//[SerializeField] private UnityEvent onPuzzleSetComplete;
+		[SerializeField] private LightPuzzleFlower[] flowerPuzzles;
+
         /// <summary>
         /// Dictionary of all the flowers in the puzzle
         /// as well as boolean values to keep track of whether
@@ -22,9 +26,31 @@ namespace Puzzle_Control.Light_P
 
         public override void StartPuzzle()
         {
-            Debug.Log("Picked up first puzzle object");
-            Complete();
-            gameObject.SetActive(false);
+            // for each flower in flowerPuzzles, add it to the flowers dictionary, set bool to false
+            // and subscribe to the OnComplete event
+            int i = 0;
+            flowers = new Dictionary<LightPuzzleFlower, bool>();
+            foreach (LightPuzzleFlower flower in flowerPuzzles)
+            {
+                flowers.Add(flower, false);
+                flower.OnPuzzleComplete.AddListener(OnCompletion(i));
+            }
+
+        }
+
+        /// <summary>
+        /// Event handler for when a flower is completed
+        /// </summary>
+        private void OnCompletion(int flowerIndex)
+        {
+            // set the flower's completion to true
+            flowers[flowerPuzzles[flowerIndex]] = true;
+
+            // if all flowers are complete, invoke the event
+            if (flowers.All(entry => entry.Value))
+            {
+                // onPuzzleSetComplete.Invoke();
+            }
         }
     }
 }
