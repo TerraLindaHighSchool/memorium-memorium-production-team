@@ -50,8 +50,8 @@ namespace Puzzle_Control.Light_P
             flowersComplete[guid] = true;
             if (flowersComplete.All(entry => entry.Value))
             {
-                // onPuzzleSetComplete.Invoke();
-            } 
+                onPuzzleSetComplete.Invoke();
+            }
         }
     }
 }
