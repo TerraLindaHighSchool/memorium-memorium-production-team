@@ -82,7 +82,7 @@ namespace Puzzle_Control.Light_P
             // add the rotation amount to the current rotation
             currentRotation += rotationAmount;
             // if current rotation is greater than 360, reset to 0
-            if (currentRotation => 360) { currentRotation = 0; }
+            if (currentRotation >= 360) { currentRotation = 0; }
 
             // TODO: add interaction with rendering script to display rotation of the flower
 
