@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Other;
 using UnityEngine;
 
-namespace Puzzle_Control.LightPuzzleFlower
+namespace Puzzle_Control.Light_P
 {
     /// <summary>
     /// Puzzle handling script for each flower.
