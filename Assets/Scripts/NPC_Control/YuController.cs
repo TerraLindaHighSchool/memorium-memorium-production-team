@@ -17,22 +17,22 @@ public class YuController : MonoBehaviour
 
     private void Update()
     {
-        
-        if (Vector3.Distance(Player.position, this.transform.position) >= radius / 2)
+        Vector3 position = new Vector3(Player.position.x, Player.position.y + yOffset, Player.position.z);
+        if (Vector3.Distance(position, this.transform.position) >= radius / 2)
         {
-            this.transform.position = MoveToPlayer();
+            this.transform.position = MoveToPlayer(position);
         }
         else
         {
-            this.transform.position = RotateAroundPlayer();
+            this.transform.position = RotateAroundPlayer(position);
         }
     }
 
-    private Vector3 MoveToPlayer()
+    private Vector3 MoveToPlayer(Vector3 pos)
     {
-        return Vector3.Lerp(this.transform.position, Player.position, speed);
+        return Vector3.Lerp(this.transform.position, pos, speed);
     }
-    private Vector3 RotateAroundPlayer()
+    private Vector3 RotateAroundPlayer(Vector3 pos)
     {
         degree++;
         float rad = degree * Mathf.Deg2Rad;
@@ -41,6 +41,6 @@ public class YuController : MonoBehaviour
         float y = (Mathf.Sin(rad) * sine_force);
         float z = Mathf.Sin(rad) * radius;
 
-        return Vector3.Lerp(this.transform.position, new Vector3(x, y, z) + Player.position, speed);
+        return Vector3.Lerp(this.transform.position, new Vector3(x, y, z) + pos, speed);
     }
 }
