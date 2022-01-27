@@ -22,35 +22,36 @@ namespace Puzzle_Control.Light_P
         /// as well as boolean values to keep track of whether
         /// they have been completed
         /// </summary>
-        private Dictionary<LightPuzzleFlower, bool> flowers;
+        private Dictionary<LightPuzzleFlower, string> flowers;
+        private Dictionary<string, bool> flowersComplete;
 
         public override void StartPuzzle()
         {
-            // for each flower in flowerPuzzles, add it to the flowers dictionary, set bool to false
-            // and subscribe to the OnComplete event
-            int i = 0;
-            flowers = new Dictionary<LightPuzzleFlower, bool>();
+            // for each flower in the puzzle, add it to the dictionary with its Guid as the key,
+            // add the guid to the dictionary with a value of false, and subscribe to the NotifyPuzzleSet event
+
+            flowers = new Dictionary<LightPuzzleFlower, string>();
+            flowersComplete = new Dictionary<string, bool>();
             foreach (LightPuzzleFlower flower in flowerPuzzles)
             {
-                flowers.Add(flower, false);
-                flower.NotifyPuzzleSet += OnCompletion(i);
+                flowers.Add(flower, flower.Guid);
+                flowersComplete.Add(flower.Guid, false);
+                flower.NotifyPuzzleSet += OnCompletion;
             }
+        
 
         }
 
         /// <summary>
         /// Event handler for when a flower is completed
         /// </summary>
-        private void OnCompletion(int flowerIndex)
+        private void OnCompletion(string guid)
         {
-            // set the flower's completion to true
-            flowers[flowerPuzzles[flowerIndex]] = true;
-
-            // if all flowers are complete, invoke the event
-            if (flowers.All(entry => entry.Value))
+            flowersComplete[guid] = true;
+            if (flowersComplete.All(entry => entry.Value))
             {
                 // onPuzzleSetComplete.Invoke();
-            }
+            } 
         }
     }
 }
