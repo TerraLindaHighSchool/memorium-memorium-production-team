@@ -143,8 +143,10 @@ namespace Other {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Interact.performed</c> event.</param>
 		private void TriggerInteract(InputAction.CallbackContext context) {
+			IGameContext activeContext = GameContextManager.Instance.ActiveContext;
 			if (selectedInteractableObject
-			 && !(GameContextManager.Instance.ActiveContext is DialogueContextController)) {
+			 && !(activeContext is DialogueContextController
+			   || activeContext is CutsceneContextController)) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
 				ComputeInteractableOutlines();
 			}

@@ -13,14 +13,14 @@ namespace Game_Managing.Game_Context {
 			Debug.Log("Exiting fixed cam");
 			if (!other.gameObject.CompareTag("Player")) return;
 			GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
-			onExit?.Invoke();
+			OnExit?.Invoke();
 		}
 		
 		public void OnPlayerEnter() { GameContextManager.Instance.EnterContext(this); }
 
 		public void OnPlayerExit() {
 			GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
-			onExit?.Invoke();
+			OnExit?.Invoke();
 		}
 
 		public void GCStart() { GetComponentInChildren<CinemachineVirtualCamera>().enabled = true; }
@@ -31,6 +31,6 @@ namespace Game_Managing.Game_Context {
 
 		public void GCUpdate(Vector2 mouseDelta, bool rcDown) { }
 
-		public event Action onExit;
+		public event Action OnExit;
 	}
 }
