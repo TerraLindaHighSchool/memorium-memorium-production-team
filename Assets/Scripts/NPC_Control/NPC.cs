@@ -10,18 +10,18 @@ namespace NPC_Control {
 		public class NPCDataHelper {
 			private readonly NPC _outerObj;
 
-			public readonly Behavior_Tree.EntityController entityController;
-			public readonly DialogueManager                dialogueManager;
-			public readonly CutsceneManager                cutsceneManager;
+			public readonly Behavior_Tree.EntityController EntityController;
+			public readonly DialogueManager                DialogueManager;
+			public readonly CutsceneManager                CutsceneManager;
 
 			public NPCDataHelper(NPC                            outerObj,
 			                     Behavior_Tree.EntityController entityController,
 			                     DialogueManager                dialogueManager,
 			                     CutsceneManager                cutsceneManager) {
 				this._outerObj        = outerObj;
-				this.entityController = entityController;
-				this.dialogueManager  = dialogueManager;
-				this.cutsceneManager  = cutsceneManager;
+				this.EntityController = entityController;
+				this.DialogueManager  = dialogueManager;
+				this.CutsceneManager  = cutsceneManager;
 			}
 
 			public void InvokeDialogueEvent(string eventKey) => _outerObj.InvokeEventReceivers(eventKey);
@@ -70,7 +70,7 @@ namespace NPC_Control {
 			StepDialogue(null, tree.rootNode);
 		}
 
-		public void StepDialogue(BehaviorNode currentNode, BehaviorNode newNode) {
+		private void StepDialogue(BehaviorNode currentNode, BehaviorNode newNode) {
 			if (currentNode != null) { currentNode.OnCompleted -= StepDialogue; }
 
 			if (newNode == null) {
@@ -80,7 +80,7 @@ namespace NPC_Control {
 
 			newNode.OnCompleted += StepDialogue;
 			newNode.OnError     += StopDialogue;
-			newNode.Run(_npcDataHelper); //TODO: make NOT amogus
+			newNode.Run(_npcDataHelper);
 		}
 
 		private void StopDialogue() {

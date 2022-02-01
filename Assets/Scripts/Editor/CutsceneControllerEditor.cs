@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using Game_Managing.Game_Context;
-using NPC_Control.Behavior_Tree;
+using Game_Managing.Game_Context.Cutscene;
+using Other;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -11,17 +11,14 @@ using UnityEngine.UIElements;
 namespace Editor {
 	[CustomEditor(typeof(CutsceneContextController))]
 	public class CutsceneControllerEditor : UnityEditor.Editor {
-		private CutsceneContextController _obj;
-
-		private VisualTreeAsset _eventTemplate;
+		private CutsceneContextController _cutscene;
 
 		private VisualElement _listView;
 
 		public override VisualElement CreateInspectorGUI() {
-			_obj = target as CutsceneContextController;
+			_cutscene = (CutsceneContextController) target;
 
-			_eventTemplate =
-				AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/Editor/TimedCutsceneEvent.uxml");
+			//_cutscene.Awake();
 
 			VisualElement rootElement = new VisualElement();
 
@@ -32,8 +29,8 @@ namespace Editor {
 			rootElement.styleSheets.Add(
 				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/CutsceneControllerEditor.uss"));
 
-			VisualElement buttonContainer = rootElement.ElementAt(0);
-			_listView        = rootElement.ElementAt(1);
+			VisualElement buttonContainer = rootElement.ElementAt(1);
+			_listView = rootElement.ElementAt(2);
 
 			Button addEventButton    = buttonContainer.ElementAt(1) as Button;
 			Button removeEventButton = buttonContainer.ElementAt(0) as Button;
@@ -41,33 +38,53 @@ namespace Editor {
 			addEventButton.clicked    += AddEvent;
 			removeEventButton.clicked += RemoveEvent;
 
-			if (_obj.events == null) _obj.events = new Dictionary<string, TimedCutsceneEvent>();
-			
-			foreach (KeyValuePair<string, TimedCutsceneEvent> kvp in _obj.events) {
-				_listView.Add(CreateEventElement(kvp.Value));
+			if (_cutscene.events == null) _cutscene.events = new List<TimedCutsceneEvent>();
+
+			foreach (TimedCutsceneEvent cutsceneEvent in _cutscene.events) {
+				_listView.Add(CreateEventElement(cutsceneEvent));
 			}
 
 			return rootElement;
 		}
 
 		private void AddEvent() {
-			VisualElement newEventElement = CreateEventElement(_obj.AddTimedEvent());
+			TimedCutsceneEvent newEvent        = _cutscene.AddTimedEvent();
+			VisualElement      newEventElement = CreateEventElement(newEvent);
 			_listView.Add(newEventElement);
 		}
 
 		private VisualElement CreateEventElement(TimedCutsceneEvent timedEvent) {
-			VisualElement      newEventElement = NodeView<BehaviorNode>.CreateUIElementInspector(timedEvent, null);
+			VisualElement newEventElement = UIElementsExtensions.CreateUIElementInspector(timedEvent);
 			newEventElement.viewDataKey = timedEvent.guid;
+			StyleColor  borderColor = Color.gray;
+			StyleFloat  borderWidth = 5f;
+			StyleLength marginWidth = 3f;
+
+			newEventElement.style.borderTopWidth    = borderWidth;
+			newEventElement.style.borderBottomWidth = borderWidth;
+			newEventElement.style.borderLeftWidth   = borderWidth;
+			newEventElement.style.borderRightWidth  = borderWidth;
+
+			newEventElement.style.borderTopColor    = borderColor;
+			newEventElement.style.borderBottomColor = borderColor;
+			newEventElement.style.borderLeftColor   = borderColor;
+			newEventElement.style.borderRightColor  = borderColor;
+
+			newEventElement.style.marginTop    = marginWidth;
+			newEventElement.style.marginBottom = marginWidth;
+			newEventElement.style.marginLeft   = marginWidth;
+			newEventElement.style.marginRight  = marginWidth;
+
 			return newEventElement;
 		}
 
 		private void RemoveEvent() {
-			if (_listView.childCount <= 0 || _obj.events.Count <= 0) return;
+			if (_listView.childCount <= 0 || _cutscene.events.Count <= 0) return;
 
 			VisualElement lastEventElement = _listView.Children().Last();
 			_listView.Remove(lastEventElement);
-			
-			_obj.RemoveTimedEvent();
+
+			_cutscene.RemoveTimedEvent();
 		}
 	}
 }

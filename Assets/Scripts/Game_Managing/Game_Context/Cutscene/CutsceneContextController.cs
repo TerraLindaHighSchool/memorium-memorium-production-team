@@ -2,15 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
+using Game_Managing.Pausing;
+using Other;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Game_Managing.Game_Context {
+namespace Game_Managing.Game_Context.Cutscene {
 	public class CutsceneContextController : MonoBehaviour, IGameContext {
-		public Dictionary<string, TimedCutsceneEvent> events;
+		public List<TimedCutsceneEvent> events;
 
-		[Min(1.0f)] public float time = 5.0f;
+		[Min(1.0f)] public float lengthTime = 5.0f;
+
+		public string key = "New Cutscene";
 
 		public bool usePath;
 
@@ -18,8 +21,6 @@ namespace Game_Managing.Game_Context {
 		private CinemachineTrackedDolly  _dolly;
 
 		private float _startTime;
-
-		private void OnEnable() { events = new Dictionary<string, TimedCutsceneEvent>(); }
 
 		public void StartCutscene() { GameContextManager.Instance.EnterContext(this); }
 
@@ -31,54 +32,65 @@ namespace Game_Managing.Game_Context {
 				_dolly.m_PathPosition = 0.0f;
 			}
 
+			foreach (TimedCutsceneEvent timedEvent in events) { timedEvent.hasFired = false; }
+
 			_vcam.enabled = true;
 
 			_startTime = Time.time;
+
+			PauseManager.Instance.Paused = new Optional<PauseManager.PauseType>(PauseManager.PauseType.Cutscene, true);
+		}
+
+		public void GCExit() {
+			_vcam.enabled = false;
+
+			PauseManager.Instance.Paused = new Optional<PauseManager.PauseType>(PauseManager.PauseType.Cutscene, false);
+
+			OnExit?.Invoke();
 		}
 
 		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
 			float timeSinceStarted = Time.time - _startTime;
 
-			if (timeSinceStarted <= time) {
+			if (timeSinceStarted <= lengthTime) {
 				//Scaled so there will always be a 1 second lag time at the end
 				//If the cutscene uses a path, then this will be after it finishes moving
-				float scaledTime = timeSinceStarted / (time - 1);
+				float scaledTime = timeSinceStarted / (lengthTime - 1);
+
+				foreach (TimedCutsceneEvent timedEvent in events) {
+					if (timedEvent.time <= timeSinceStarted && !timedEvent.hasFired) {
+						timedEvent.unityEvent?.Invoke();
+						timedEvent.hasFired = true;
+					}
+				}
 
 				if (usePath) _dolly.m_PathPosition = scaledTime;
-			} else {
-				_vcam.enabled = false;
-
-				OnExit?.Invoke();
-			}
+			} else { GCExit(); }
 		}
 
 		public TimedCutsceneEvent AddTimedEvent() {
-			if (events == null) events = new Dictionary<string, TimedCutsceneEvent>();
+			if (events == null) events = new List<TimedCutsceneEvent>();
 
 			TimedCutsceneEvent newEvent = ScriptableObject.CreateInstance<TimedCutsceneEvent>();
-			newEvent.guid = Guid.NewGuid().ToString();
 
-			events.Add(newEvent.guid, newEvent);
-			
+			events.Add(newEvent);
+
 			AssetDatabase.SaveAssets();
-			
-			Debug.Log($"{this} added a timed event {newEvent}");
+
 			return newEvent;
 		}
 
 		public void RemoveTimedEvent() {
 			if (events == null) {
-				events = new Dictionary<string, TimedCutsceneEvent>();
+				events = new List<TimedCutsceneEvent>();
 				return;
 			}
 
-			KeyValuePair<string, TimedCutsceneEvent> lastKVP = events.Last();
+			TimedCutsceneEvent lastEvent = events.Last();
 
-			events.Remove(events.Last().Key);
-			
+			events.Remove(lastEvent);
+
 			AssetDatabase.SaveAssets();
-			
-			Debug.Log($"{this} removed a timed event {lastKVP.Value}");
 		}
 
 		public float GetYRotForForwards() { throw new NotImplementedException(); }
@@ -86,14 +98,5 @@ namespace Game_Managing.Game_Context {
 		public Transform GetPlayerFollowCamTarget() { throw new NotImplementedException(); }
 
 		public event Action OnExit;
-	}
-
-	[Serializable]
-	public class TimedCutsceneEvent : ScriptableObject {
-		[HideInInspector] public string guid;
-
-		public string     label;
-		public float      time;
-		public UnityEvent unityEvent;
 	}
 }

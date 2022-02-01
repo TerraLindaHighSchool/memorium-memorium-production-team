@@ -16,6 +16,8 @@ namespace Game_Managing.Game_Context {
 		private void Start() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
 
 		public void GCStart() { }
+		
+		public void GCExit()  { throw new NotImplementedException(); }
 
 		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
 			if (!rcDown || mouseDelta == Vector2.zero) return;

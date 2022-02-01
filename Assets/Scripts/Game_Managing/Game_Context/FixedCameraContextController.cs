@@ -11,11 +11,9 @@ namespace Game_Managing.Game_Context {
 
 		private void OnCollisionExit(Collision other) {
 			Debug.Log("Exiting fixed cam");
-			if (!other.gameObject.CompareTag("Player")) return;
-			GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
-			OnExit?.Invoke();
+			if (other.gameObject.CompareTag("Player")) GCExit();
 		}
-		
+
 		public void OnPlayerEnter() { GameContextManager.Instance.EnterContext(this); }
 
 		public void OnPlayerExit() {
@@ -24,6 +22,11 @@ namespace Game_Managing.Game_Context {
 		}
 
 		public void GCStart() { GetComponentInChildren<CinemachineVirtualCamera>().enabled = true; }
+
+		public void GCExit() {
+			GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
+			OnExit?.Invoke();
+		}
 
 		public float GetYRotForForwards() { return transform.GetChild(0).eulerAngles.y; }
 
