@@ -48,7 +48,7 @@ namespace Game_Managing.Game_Context {
 			playerInputActions.Player.Orbit.canceled += OnRightClickStop;
 		}
 
-		private void Update() { ActiveContext.GCUpdate(); }
+		private void Update() { ActiveContext.GCUpdateDelta(Vector2.zero, false, false); }
 
 		private void OnMouseDelta(InputAction.CallbackContext context) =>
 			ActiveContext.GCUpdateDelta(context.ReadValue<Vector2>(), _isLeftClickDown, _isRightMouseDown);

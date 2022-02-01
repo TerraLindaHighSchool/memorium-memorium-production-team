@@ -98,7 +98,7 @@ namespace Puzzle_Control.Puzzle2D {
 		private void Exit(InputAction.CallbackContext context) { //note: context is just to make sure the method signature matches
 			isContextActive                                                      =  false;
 			PlayerInputManager.Instance.PlayerInputActions.Player.Jump.performed -= Exit;
-			onExit?.Invoke();
+			OnExit?.Invoke();
 		}
 
 		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) { }
@@ -142,6 +142,6 @@ namespace Puzzle_Control.Puzzle2D {
 		public float        GetYRotForForwards()       { throw new NotImplementedException(); }
 		
 		public Transform    GetPlayerFollowCamTarget() { throw new NotImplementedException(); }
-		public event Action onExit;
+		public event Action OnExit;
 	}
 }

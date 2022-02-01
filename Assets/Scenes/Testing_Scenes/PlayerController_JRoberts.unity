@@ -337,9 +337,9 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 1
+    FieldOfView: 50
     OrthographicSize: 10
-    NearClipPlane: 265.61023
+    NearClipPlane: 1.4947824
     FarClipPlane: 5000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -360,7 +360,7 @@ Transform:
   m_GameObject: {fileID: 592101439}
   m_LocalRotation: {x: -0.000000014901161, y: -0.00000008940697, z: 0.000000007450581,
     w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -266.61023}
+  m_LocalPosition: {x: 0.0000004172325, y: 0, z: -2.494782}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 932719015}
@@ -511,9 +511,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 265.61023
+  near clip plane: 1.4947824
   far clip plane: 5000
-  field of view: 1
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -539,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879682378}
   m_LocalRotation: {x: 0.18845382, y: 0.52830124, z: -0.14630552, w: 0.81484824}
-  m_LocalPosition: {x: -225.57173, y: 127.71643, z: -106.529945}
+  m_LocalPosition: {x: -17.660362, y: 9.101864, z: -9.42498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -719,7 +719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454486372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6079998, y: 0.08084304, z: 0}
+  m_LocalPosition: {x: 0.37199998, y: 0.04042152, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1788997130}
@@ -738,11 +738,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggable: 0
-  clickable: 0
+  clickable: 1
   onClick:
     m_PersistentCalls:
-      m_Calls: []
-  x: 0.576
+      m_Calls:
+      - m_Target: {fileID: 1788997129}
+        m_MethodName: temp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  x: 0.593
   y: 0.517
 --- !u!65 &1454486375
 BoxCollider:
@@ -889,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a0592545214bef845b0e5b0b9be385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 8
+  width: 4
   vcam: {fileID: 592101440}
 --- !u!4 &1788997130
 Transform:
@@ -899,7 +910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788997128}
   m_LocalRotation: {x: 0.18845384, y: 0.5283013, z: -0.14630552, w: 0.8148482}
-  m_LocalPosition: {x: -10.73, y: 4.62, z: -7.68}
+  m_LocalPosition: {x: -15.65, y: 7.95, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 592101441}
@@ -1026,12 +1037,12 @@ PrefabInstance:
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008373045
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000019766084
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
