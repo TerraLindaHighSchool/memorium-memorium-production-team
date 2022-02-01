@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NPC_Control.Behavior_Tree.Nodes;
+using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -62,7 +63,7 @@ namespace Editor {
 			VisualElement containerElement =
 				new VisualElement {style = {backgroundColor = new StyleColor(new Color(0.2f, 0.2f, 0.2f))}};
 
-			VisualElement nodeBody = CreateUIElementInspector(node, null);
+			VisualElement nodeBody = UIElementsExtensions.CreateUIElementInspector(node);
 			containerElement.Add(nodeBody);
 
 			extensionContainer.Add(containerElement);

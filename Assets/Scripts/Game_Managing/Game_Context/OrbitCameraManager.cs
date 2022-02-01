@@ -16,9 +16,11 @@ namespace Game_Managing.Game_Context {
 		private void Start() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
 
 		public void GCStart() { }
+		
+		public void GCExit()  { throw new NotImplementedException(); }
 
 		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
-			if (!rcDown) return;
+			if (!rcDown || mouseDelta == Vector2.zero) return;
 
 			mouseDelta   *= sensitivity * (1 + Time.deltaTime);
 			mouseDelta.y *= -1;
@@ -45,6 +47,6 @@ namespace Game_Managing.Game_Context {
 			                                              removeFollowTargetZComponent);
 		}
 
-		public event Action onExit;
+		public event Action OnExit;
 	}
 }

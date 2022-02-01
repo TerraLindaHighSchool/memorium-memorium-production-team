@@ -1,17 +1,18 @@
 using System;
-using Cinemachine;
 using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public interface IGameContext {
 		void GCStart();
 
-		void GCUpdate(Vector2 mouseDelta, bool rcDown);
+		void GCExit();
+
+		void GCUpdate(Vector2 mouseDelta = new Vector2(), bool rcDown = false);
 
 		float GetYRotForForwards();
 
 		Transform GetPlayerFollowCamTarget();
 
-		event Action onExit;
+		event Action OnExit;
 	}
 }
