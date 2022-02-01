@@ -13,7 +13,11 @@ namespace Game_Managing.Game_Context {
 
 		public IGameContext ActiveContext {
 			get {
-				try { return _contextStack.Peek(); } catch { return OrbitCameraManager.Instance; }
+				try {
+					return _contextStack.Peek();
+				} catch {
+					return OrbitCameraManager.Instance;
+				}
 			}
 		}
 
