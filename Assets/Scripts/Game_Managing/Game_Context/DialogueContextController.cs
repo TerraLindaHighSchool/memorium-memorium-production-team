@@ -75,8 +75,9 @@ namespace Game_Managing.Game_Context {
 			currentDialogueVCamComposer.m_AdjustmentMode = CinemachineGroupComposer.AdjustmentMode.ZoomOnly;
 		}
 
-		public void      GCUpdate(Vector2 mouseDelta, bool rcDown) { }
-		
+		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) { }
+		public void GCUpdatePos(Vector2   mousePos,   bool lcDown, bool rcDown) { }
+
 		// These two methods should never be called in a dialogue context
 		public float     GetYRotForForwards()       { throw new NotImplementedException(); }
 		public Transform GetPlayerFollowCamTarget() { throw new NotImplementedException(); }

@@ -6,7 +6,8 @@ namespace Game_Managing.Game_Context {
 	public interface IGameContext {
 		void GCStart();
 
-		void GCUpdate(Vector2 mouseDelta, bool rcDown);
+		void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown);
+		void GCUpdatePos(Vector2   mousePos,   bool lcDown, bool rcDown);
 
 		float GetYRotForForwards();
 

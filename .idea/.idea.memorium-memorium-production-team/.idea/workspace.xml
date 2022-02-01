@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/GameContext.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/GameContext/GameContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/GameContext/GameContext.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/GameContext/GameContextManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/GameContext/GameContextManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/PlayerController_JRoberts.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/PlayerController_JRoberts.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/DialogueContextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/DialogueContextController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/FixedCameraContextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/FixedCameraContextController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/GameContextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/GameContextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/IGameContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/IGameContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/OrbitCameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/OrbitCameraManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Puzzle2D/Pane2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Puzzle2D/Pane2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Puzzle2D/PuzzleObject2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Puzzle2D/PuzzleObject2D.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +32,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/16da34e8af734c8482de12543c53f461118200/86/5718d348/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Editor/BehaviorTreeView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.11/Runtime/Core/LensSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/d2/7a68ac6b/Node.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/16da34e8af734c8482de12543c53f461118200/36/cb21152e/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/PuzzlePedestal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/NodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/16da34e8af734c8482de12543c53f461118200/9a/9cc091ad/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/PlayerInput/PlayerInputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" root0="FORCE_HIGHLIGHTING" />
@@ -118,6 +123,12 @@
       <workItem from="1641832275605" duration="1997000" />
       <workItem from="1642541209314" duration="2291000" />
       <workItem from="1642642848755" duration="4371000" />
+      <workItem from="1643144938526" duration="3479000" />
+      <workItem from="1643156075624" duration="740000" />
+      <workItem from="1643316954020" duration="3766000" />
+      <workItem from="1643646827531" duration="4535000" />
+      <workItem from="1643739169571" duration="10000" />
+      <workItem from="1643739222138" duration="6859000" />
     </task>
     <servers />
   </component>
