@@ -19,14 +19,14 @@ namespace Game_Managing {
 		}
 
 		public static string GetPath(Scene scene) {
-			throw new NotImplementedException("FILL IN THE SWITCH STATEMENT STRINGS");
+			//throw new NotImplementedException("FILL IN THE SWITCH STATEMENT STRINGS");
 			string sceneName = "";
 			switch (scene) {
 				case Scene.MainMenu:
 					sceneName = "";
 					break;
 				case Scene.TutorialIsland:
-					sceneName = "";
+					sceneName = "Tutorial Island";
 					break;
 				case Scene.FlowerIsland:
 					sceneName = "";
@@ -45,7 +45,7 @@ namespace Game_Managing {
 					break;
 			}
 
-			return "Gameplay_Scenes" + sceneName;
+			return "Assets/Gameplay_Scenes/" + sceneName;
 		}
 
 		public static string[] GetPaths(Scene scene) {

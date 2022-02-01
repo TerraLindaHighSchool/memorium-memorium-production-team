@@ -1,5 +1,6 @@
 ﻿using System;
 using Game_Managing.Game_Context;
+using NPC_Control.Dialogue;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -42,11 +43,21 @@ namespace Player_Control {
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
+		/// <summary>
+		/// The Game Context Manager, for checking what context the game is in.
+		/// </summary>
 		private GameContextManager _gameContextManager;
+
+		/// <summary>
+		/// Not actually used, only here to force a dialogue manager into existence by referencing <c>.Instance</c>
+		/// </summary>
+		private DialogueManager _unusedDialogueManager;
 
 		///Gets a reference to the CharacterController and subscribes to necessary events. 
 		private void OnEnable() {
 			_gameContextManager = GameContextManager.Instance;
+
+			_unusedDialogueManager = DialogueManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
 
