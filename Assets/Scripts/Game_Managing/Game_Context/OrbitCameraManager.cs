@@ -10,6 +10,7 @@ namespace Game_Managing.Game_Context {
 
 		private Transform _playerFollowCamTarget;
 
+		public void      GCUpdatePos(Vector2   mousePos,   bool lcDown, bool rcDown) { }
 		public float     GetYRotForForwards()       { return _playerFollowCamTarget.eulerAngles.y; }
 		public Transform GetPlayerFollowCamTarget() { return _playerFollowCamTarget; }
 
@@ -19,7 +20,7 @@ namespace Game_Managing.Game_Context {
 		
 		public void GCExit()  { throw new NotImplementedException(); }
 
-		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
+		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) {
 			if (!rcDown || mouseDelta == Vector2.zero) return;
 
 			mouseDelta   *= sensitivity * (1 + Time.deltaTime);
@@ -41,8 +42,7 @@ namespace Game_Managing.Game_Context {
 			Vector3 playerFollowTargetEulers = _playerFollowCamTarget.eulerAngles;
 
 			Quaternion removeFollowTargetZComponent =
-				Quaternion.Euler(new Vector3(playerFollowTargetEulers.x, playerFollowTargetEulers.y,
-				                             0));
+				Quaternion.Euler(new Vector3(playerFollowTargetEulers.x, playerFollowTargetEulers.y,0));
 			_playerFollowCamTarget.SetPositionAndRotation(_playerFollowCamTarget.position,
 			                                              removeFollowTargetZComponent);
 		}
