@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class YuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform Player;
+
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private float speed = 0.1f;
+
+    private void Update()
     {
-        
+        MoveAroundPlayer();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoveAroundPlayer()
     {
-        
+        this.transform.position = Vector3.Lerp(this.transform.position + offset, Player.position, speed);
     }
 }

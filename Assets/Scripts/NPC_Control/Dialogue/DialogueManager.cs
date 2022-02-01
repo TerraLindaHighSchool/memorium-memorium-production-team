@@ -50,35 +50,34 @@ namespace NPC_Control.Dialogue {
 		private void OnAttemptNext(InputAction.CallbackContext context) {
 			if (_currentDialogueBox == null) return;
 
-			if (_currentDialogueBox.IsMessageFullyDisplayed && _currentDialogueNode is DialogueNode dialogueNode) {
-				dialogueBoxPanel.CrossFadeAlpha(0, 1.0f, false);
-				_currentDialogueBox = null;
-				_dialogueText.text  = "";
-
-				_isDialogueShowing = false;
-
-				dialogueNode.OnDialogueComplete();
-			}
+			if (_currentDialogueBox.IsMessageFullyDisplayed && _currentDialogueNode is DialogueNode) { EndDialogue(); }
 		}
 
 		private void OnChoiceButtonClicked(string key) {
 			if (_currentDialogueBox == null) return;
 
-			if (_currentDialogueBox.IsMessageFullyDisplayed) {
-				dialogueBoxPanel.CrossFadeAlpha(0, 1.0f, false);
-				_currentDialogueBox = null;
-				_dialogueText.text  = "";
+			if (_currentDialogueBox.IsMessageFullyDisplayed && _currentDialogueNode is DialogueWithResponseNode) {
+				EndDialogue(key);
+			}
+		}
 
-				_isDialogueShowing = false;
+		private void EndDialogue(string key = "", bool isError = false) {
+			dialogueBoxPanel.CrossFadeAlpha(0, 1.0f, false);
+			_currentDialogueBox = null;
+			_dialogueText.text  = "";
 
+			_isDialogueShowing = false;
+
+			if (isError) {
+				_currentDialogueNode.Error("Attempted dialogue start when dialogue is already showing");
+				return;
+			}
+
+			if (_currentDialogueNode is DialogueNode dialogueNode && key == "") {
+				dialogueNode.OnDialogueComplete();
+			} else if (_currentDialogueNode is DialogueWithResponseNode dialogueWithResponseNode && key != "") {
 				ClearDialogueChoices();
-
-				if (_currentDialogueNode is DialogueWithResponseNode dialogueWithResponseNode) {
-					dialogueWithResponseNode.OnDialogueComplete(key);
-				} else {
-					Debug.LogError(
-						$"A button was clicked for the dialogue spawned from {_currentDialogueNode}, but it is not a DialogueWithResponseNode.");
-				}
+				dialogueWithResponseNode.OnDialogueComplete(key);
 			}
 		}
 
@@ -95,12 +94,13 @@ namespace NPC_Control.Dialogue {
 		/// <param name="message">The text to be shown in the dialogue box.</param>
 		public void ShowDialogue(BehaviorNode node, string message) {
 			if (_isDialogueShowing) {
-				Debug.LogWarning($"Node {node} attempted to start dialogue while some was already going, ignoring...");
+				EndDialogue("", true);
 				return;
 			}
 
 			if (message == null || message.Length <= 0) {
-				Debug.LogError($"Node {node} launched a dialogue box with no message. Please check your dialogue trees.");
+				Debug.LogError(
+					$"Node {node} launched a dialogue box with no message. Please check your dialogue trees.");
 				return;
 			}
 

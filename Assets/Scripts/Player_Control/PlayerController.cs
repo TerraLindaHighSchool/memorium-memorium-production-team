@@ -9,7 +9,6 @@ namespace Player_Control {
 	/// Handles player movement, and for the moment handles all input in the game with <c>PlayerInputActions</c>. 
 	/// </summary>
 	[RequireComponent(typeof(CharacterController))]
-	[RequireComponent(typeof(PlayerInput))]
 	public class PlayerController : MonoBehaviour {
 		///Player speed multiplier. 
 		public float speed = 10f;
