@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene/TimedCutsceneEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene/TimedCutsceneEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/CutsceneNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/Behavior_Tree/Nodes/SingleChildNodes/CutsceneNode.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/UIElementsExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/UIElementsExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TestCutsceneNPC.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TestCutsceneNPC.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Object_Control/DummyInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Object_Control/DummyInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/UnityDebugging_JRoberts.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/UnityDebugging_JRoberts.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/CutsceneControllerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/CutsceneControllerEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/CutsceneControllerEditor.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/CutsceneControllerEditor.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MapChildNodeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/MapChildNodeView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/NodeView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/NodeView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/CutsceneContextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene/CutsceneContextController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/CutsceneContextController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene/CutsceneContextController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/FixedCameraContextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/FixedCameraContextController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/IGameContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/IGameContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/OrbitCameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/OrbitCameraManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC_Control/NPC.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Other/Interactable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +45,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/PlayerInput/PlayerInputManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.11/Runtime/Core/CinemachineBlenderSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/PuzzlePedestal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Editor/BehaviorTreeView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerInputActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/Prototype_Puzzle/FirstPuzzle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera_and_Lighting/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/NodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/d2/7a68ac6b/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../memorium-testing/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e28ee5c78b9f44f8afaf12b17b4bc1ac793800/fb/86b0efa8/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="21I9lUCELfyAblIfupa1OMFKL9S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -46,11 +69,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34971997" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../memorium-testing/amogus.DotSettings" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -102,6 +128,19 @@
       <workItem from="1638828329160" duration="509000" />
       <workItem from="1638831463545" duration="645000" />
       <workItem from="1638894939598" duration="3477000" />
+      <workItem from="1639068230564" duration="3871000" />
+      <workItem from="1639074094742" duration="1779000" />
+      <workItem from="1641501799734" duration="17915000" />
+      <workItem from="1641573270773" duration="12351000" />
+      <workItem from="1641615715118" duration="2587000" />
+      <workItem from="1641832275605" duration="1997000" />
+      <workItem from="1642541209314" duration="2291000" />
+      <workItem from="1642642848755" duration="4371000" />
+      <workItem from="1643059846402" duration="1210000" />
+      <workItem from="1643129175278" duration="4369000" />
+      <workItem from="1643318470016" duration="16198000" />
+      <workItem from="1643646694785" duration="6869000" />
+      <workItem from="1643733467124" duration="1094000" />
     </task>
     <servers />
   </component>
