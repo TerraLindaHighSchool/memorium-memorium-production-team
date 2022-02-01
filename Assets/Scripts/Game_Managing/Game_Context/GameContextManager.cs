@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Cinemachine;
 using Other;
 using Player_Control;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInputManager = Player_Control.PlayerInputManager;
@@ -23,16 +24,16 @@ namespace Game_Managing.Game_Context {
 		private bool _isRightMouseDown;
 
 		public void EnterContext(IGameContext newContext) {
-			ActiveContext.onExit -= ExitContext;
+			ActiveContext.OnExit -= ExitContext;
 			_contextStack.Push(newContext);
-			newContext.onExit += ExitContext;
+			newContext.OnExit += ExitContext;
 			newContext.GCStart();
 		}
 
 		private void ExitContext() {
-			ActiveContext.onExit -= ExitContext;
+			ActiveContext.OnExit -= ExitContext;
 			_contextStack.Pop();
-			ActiveContext.onExit += ExitContext;
+			ActiveContext.OnExit += ExitContext;
 		}
 
 		private void Start() {
@@ -44,6 +45,8 @@ namespace Game_Managing.Game_Context {
 			playerInputActions.Player.Orbit.started        += OnRightClickStart;
 			playerInputActions.Player.Orbit.canceled       += OnRightClickStop;
 		}
+
+		private void Update() { ActiveContext.GCUpdate(); }
 
 		private void OnMouseDelta(InputAction.CallbackContext context) =>
 			ActiveContext.GCUpdate(context.ReadValue<Vector2>(), _isRightMouseDown);
