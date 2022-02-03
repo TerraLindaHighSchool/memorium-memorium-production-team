@@ -2,6 +2,8 @@ using Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game_Managing.Game_Context;
+using NPC_Control.Dialogue;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -68,8 +70,6 @@ namespace Game_Managing {
 			string[] paths = GetPaths(scene);
 			int      index = Random.Range(0, paths.Length - 1);
 			UnityEngine.SceneManagement.SceneManager.LoadScene(paths[index]);
-			foreach (IInterSceneRefresher refresher in Object.FindObjectsOfType<MonoBehaviour>()
-			                                                 .OfType<IInterSceneRefresher>()) { refresher.Refresh(); }
 		}
 
 		public static AsyncOperation LoadAsync(Scene scene) {

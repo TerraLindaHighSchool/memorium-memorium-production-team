@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using NPC_Control.Dialogue;
 using UnityEngine;
 
 namespace Game_Managing {

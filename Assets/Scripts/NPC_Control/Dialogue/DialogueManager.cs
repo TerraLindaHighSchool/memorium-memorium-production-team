@@ -26,7 +26,7 @@ namespace NPC_Control.Dialogue {
 
 		private bool _isDialogueShowing;
 
-		private void Awake() {
+		public void Awake() {
 			dialogueBoxPanel = GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<Image>();
 			_buttonPrefab =
 				AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Interface/UI/Button.prefab");
@@ -41,6 +41,8 @@ namespace NPC_Control.Dialogue {
 		}
 
 		private void FixedUpdate() {
+			if (!dialogueBoxPanel) Awake();
+			
 			if (_isDialogueShowing) {
 				_currentDialogueBox.Update();
 				_dialogueText.text = _currentDialogueBox.CurrentDisplayMessage;

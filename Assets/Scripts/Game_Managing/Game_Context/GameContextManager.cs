@@ -31,7 +31,7 @@ namespace Game_Managing.Game_Context {
 			ActiveContext.OnExit += ExitContext;
 		}
 
-		private void Start() {
+		public void Start() {
 			_contextStack = new Stack<IGameContext>();
 
 			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;

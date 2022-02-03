@@ -13,7 +13,7 @@ namespace Other {
 	/// Manages placing the cursor in the scene, interactable highlighting,
 	/// and interactions. 
 	/// </summary>
-	public class CursorController : MonoBehaviour, IInterSceneRefresher {
+	public class CursorController : MonoBehaviour {
 		///The GameObject of whatever interactable is currently selected. 
 		public GameObject selectedInteractableObject;
 
@@ -180,10 +180,6 @@ namespace Other {
 		private void OnHighlightStop() {
 			selectedInteractableObject = null;
 			ComputeInteractableOutlines();
-		}
-
-		public void Refresh() {
-			_mainCamera = Camera.main;
 		}
 	}
 }
