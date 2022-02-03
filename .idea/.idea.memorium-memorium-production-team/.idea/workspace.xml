@@ -5,21 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5b3dc5-147c-440b-8057-b47e20935bc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Tutorial Island.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Tutorial Island/NavMesh.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Tutorial Island/NavMesh.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Flower Island.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Flower Island.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/IInterSceneRefresher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Other/IInterSceneRefresher.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.memorium-memorium-production-team/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main Camera Blends.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main Camera Blends.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character/Grass Bird.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character/Grass Bird.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Tutorial Island.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay_Scenes/Tutorial Island.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/UnityDebugging_JRoberts.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing_Scenes/UnityDebugging_JRoberts.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene/CutsceneContextController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/Cutscene/CutsceneContextController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/GameContextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/GameContextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/OrbitCameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/Game_Context/OrbitCameraManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneTransitionTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game_Managing/SceneTransitionTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Other/CursorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Other/UIElementsExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/UIElementsExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Other/UIElementsExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/UIElementsExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player_Control/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TestCutsceneNPC.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TestCutsceneNPC.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/sky.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/sky.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/PuzzleSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle_Control/PuzzleSet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

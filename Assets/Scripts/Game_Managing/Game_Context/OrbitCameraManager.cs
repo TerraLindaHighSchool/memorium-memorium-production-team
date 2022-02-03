@@ -10,14 +10,13 @@ namespace Game_Managing.Game_Context {
 
 		private Transform _playerFollowCamTarget;
 
-		public float     GetYRotForForwards()       { return _playerFollowCamTarget.eulerAngles.y; }
+		public float GetYRotForForwards() { return _playerFollowCamTarget.eulerAngles.y; }
+
 		public Transform GetPlayerFollowCamTarget() { return _playerFollowCamTarget; }
 
-		private void Start() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
+		public void GCStart() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
 
-		public void GCStart() { }
-		
-		public void GCExit()  { throw new NotImplementedException(); }
+		public void GCExit() { }
 
 		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
 			if (!rcDown || mouseDelta == Vector2.zero) return;

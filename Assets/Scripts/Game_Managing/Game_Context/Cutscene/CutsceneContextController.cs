@@ -4,7 +4,6 @@ using System.Linq;
 using Cinemachine;
 using Game_Managing.Pausing;
 using Other;
-using UnityEditor;
 using UnityEngine;
 
 namespace Game_Managing.Game_Context.Cutscene {
@@ -75,8 +74,6 @@ namespace Game_Managing.Game_Context.Cutscene {
 
 			events.Add(newEvent);
 
-			AssetDatabase.SaveAssets();
-
 			return newEvent;
 		}
 
@@ -89,8 +86,6 @@ namespace Game_Managing.Game_Context.Cutscene {
 			TimedCutsceneEvent lastEvent = events.Last();
 
 			events.Remove(lastEvent);
-
-			AssetDatabase.SaveAssets();
 		}
 
 		public float GetYRotForForwards() { throw new NotImplementedException(); }

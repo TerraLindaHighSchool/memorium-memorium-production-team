@@ -1,6 +1,7 @@
 ﻿using System;
 using Game_Managing.Game_Context;
 using NPC_Control.Dialogue;
+using Other;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -73,6 +74,21 @@ namespace Player_Control {
 			playerInputActions.Player.D.canceled += OnDCancelled;
 
 			playerInputActions.Player.Jump.performed += OnJump;
+		}
+
+		private void OnDisable() {
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+
+			playerInputActions.Player.W.started  -= OnWStarted;
+			playerInputActions.Player.W.canceled -= OnWCancelled;
+			playerInputActions.Player.A.started  -= OnAStarted;
+			playerInputActions.Player.A.canceled -= OnACancelled;
+			playerInputActions.Player.S.started  -= OnSStarted;
+			playerInputActions.Player.S.canceled -= OnSCancelled;
+			playerInputActions.Player.D.started  -= OnDStarted;
+			playerInputActions.Player.D.canceled -= OnDCancelled;
+
+			playerInputActions.Player.Jump.performed -= OnJump;
 		}
 
 		/// <summary>

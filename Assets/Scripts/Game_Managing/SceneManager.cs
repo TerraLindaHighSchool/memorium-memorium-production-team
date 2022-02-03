@@ -1,7 +1,9 @@
 using Other;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace Game_Managing {
@@ -29,7 +31,7 @@ namespace Game_Managing {
 					sceneName = "Tutorial Island";
 					break;
 				case Scene.FlowerIsland:
-					sceneName = "";
+					sceneName = "Flower Island";
 					break;
 				case Scene.FeatherIsland:
 					sceneName = "";
@@ -45,14 +47,19 @@ namespace Game_Managing {
 					break;
 			}
 
-			return "Assets/Gameplay_Scenes/" + sceneName;
+			return "Scenes/Gameplay_Scenes/" + sceneName;
 		}
 
 		public static string[] GetPaths(Scene scene) {
 			List<string> initialList = new List<string>();
 			foreach (Scene e in Enum.GetValues(typeof(Scene))) {
-				if ((scene & e) == e) initialList.Add(GetPath(e));
+				if ((scene & e) == e) {
+					string a = GetPath(e);
+					initialList.Add(a);
+				}
 			}
+
+			initialList.RemoveAt(0);
 
 			return initialList.ToArray();
 		}
@@ -61,6 +68,8 @@ namespace Game_Managing {
 			string[] paths = GetPaths(scene);
 			int      index = Random.Range(0, paths.Length - 1);
 			UnityEngine.SceneManagement.SceneManager.LoadScene(paths[index]);
+			foreach (IInterSceneRefresher refresher in Object.FindObjectsOfType<MonoBehaviour>()
+			                                                 .OfType<IInterSceneRefresher>()) { refresher.Refresh(); }
 		}
 
 		public static AsyncOperation LoadAsync(Scene scene) {

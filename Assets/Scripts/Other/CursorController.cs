@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game_Managing.Game_Context;
 using Game_Managing.Game_Context.Cutscene;
 using Player_Control;
@@ -12,7 +13,7 @@ namespace Other {
 	/// Manages placing the cursor in the scene, interactable highlighting,
 	/// and interactions. 
 	/// </summary>
-	public class CursorController : MonoBehaviour {
+	public class CursorController : MonoBehaviour, IInterSceneRefresher {
 		///The GameObject of whatever interactable is currently selected. 
 		public GameObject selectedInteractableObject;
 
@@ -63,6 +64,16 @@ namespace Other {
 
 			playerInputActions.Player.Interact.performed += TriggerInteract;
 			playerInputActions.Player.MousePos.performed += OnMousePos;
+		}
+
+		private void OnDisable() {
+			player.Moved -= CheckInteractactables;
+			player.Moved -= SetCursorPos;
+			
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+
+			playerInputActions.Player.Interact.performed -= TriggerInteract;
+			playerInputActions.Player.MousePos.performed -= OnMousePos;
 		}
 
 		/// <summary>
@@ -169,6 +180,10 @@ namespace Other {
 		private void OnHighlightStop() {
 			selectedInteractableObject = null;
 			ComputeInteractableOutlines();
+		}
+
+		public void Refresh() {
+			_mainCamera = Camera.main;
 		}
 	}
 }
