@@ -14,7 +14,7 @@ namespace Game_Managing.Game_Context {
 		public float     GetYRotForForwards()       { return _playerFollowCamTarget.eulerAngles.y; }
 		public Transform GetPlayerFollowCamTarget() { return _playerFollowCamTarget; }
 
-		private void Start() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
+		public void GCStart() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
 
 		public void GCStart() { }
 		

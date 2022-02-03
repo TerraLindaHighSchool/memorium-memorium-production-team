@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Cinemachine;
 using Other;
 using Player_Control;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInputManager = Player_Control.PlayerInputManager;
@@ -46,6 +44,8 @@ namespace Game_Managing.Game_Context {
 
 			playerInputActions.Player.Orbit.started  += OnRightClickStart;
 			playerInputActions.Player.Orbit.canceled += OnRightClickStop;
+      
+			ActiveContext.GCStart();
 		}
 
 		private void Update() { ActiveContext.GCUpdateDelta(Vector2.zero, false, false); }
