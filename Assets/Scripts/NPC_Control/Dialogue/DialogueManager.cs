@@ -1,11 +1,8 @@
-using System.Linq;
-using Game_Managing.Game_Context;
 using NPC_Control.Behavior_Tree;
 using NPC_Control.Behavior_Tree.Nodes.MapChildNodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
 using Other;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -28,10 +25,9 @@ namespace NPC_Control.Dialogue {
 
 		public void Awake() {
 			dialogueBoxPanel = GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<Image>();
-			_buttonPrefab =
-				AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Interface/UI/Button.prefab");
-			_dialogueText = dialogueBoxPanel.GetComponentInChildren<TextMeshProUGUI>();
-			_playerInput  = PlayerInputManager.Instance;
+			_buttonPrefab    = Resources.Load<GameObject>("Prefabs/Interface/UI/Button.prefab");
+			_dialogueText    = dialogueBoxPanel.GetComponentInChildren<TextMeshProUGUI>();
+			_playerInput     = PlayerInputManager.Instance;
 
 			_playerInput.PlayerInputActions.Player.Interact.performed += OnAttemptNext;
 			_playerInput.PlayerInputActions.Player.Jump.performed     += OnAttemptNext;
@@ -42,7 +38,7 @@ namespace NPC_Control.Dialogue {
 
 		private void FixedUpdate() {
 			if (!dialogueBoxPanel) Awake();
-			
+
 			if (_isDialogueShowing) {
 				_currentDialogueBox.Update();
 				_dialogueText.text = _currentDialogueBox.CurrentDisplayMessage;
