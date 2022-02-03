@@ -40,6 +40,8 @@ namespace Game_Managing.Game_Context.Cutscene {
 			PauseManager.Instance.Paused = new Optional<PauseManager.PauseType>(PauseManager.PauseType.Cutscene, true);
 		}
 
+		public void GCUpdatePos(Vector2   mousePos,   bool lcDown, bool rcDown) { }
+
 		public void GCExit() {
 			_vcam.enabled = false;
 
@@ -48,7 +50,7 @@ namespace Game_Managing.Game_Context.Cutscene {
 			OnExit?.Invoke();
 		}
 
-		public void GCUpdate(Vector2 mouseDelta, bool rcDown) {
+		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) {
 			float timeSinceStarted = Time.time - _startTime;
 
 			if (timeSinceStarted <= lengthTime) {

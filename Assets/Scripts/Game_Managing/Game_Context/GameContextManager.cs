@@ -44,7 +44,7 @@ namespace Game_Managing.Game_Context {
 
 			playerInputActions.Player.Orbit.started  += OnRightClickStart;
 			playerInputActions.Player.Orbit.canceled += OnRightClickStop;
-
+      
 			ActiveContext.GCStart();
 		}
 
