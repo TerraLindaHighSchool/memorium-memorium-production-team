@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Game_Managing.Game_Context;
+using Game_Managing.Game_Context.Cutscene;
 using Player_Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -142,7 +144,10 @@ namespace Other {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Interact.performed</c> event.</param>
 		private void TriggerInteract(InputAction.CallbackContext context) {
-			if (selectedInteractableObject) {
+			IGameContext activeContext = GameContextManager.Instance.ActiveContext;
+			if (selectedInteractableObject
+			 && !(activeContext is DialogueContextController
+			   || activeContext is CutsceneContextController)) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
 				ComputeInteractableOutlines();
 			}

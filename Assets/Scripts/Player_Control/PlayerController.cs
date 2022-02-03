@@ -1,5 +1,5 @@
 ﻿using System;
-using Camera_and_Lighting;
+using Game_Managing.Game_Context;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +9,6 @@ namespace Player_Control {
 	/// Handles player movement, and for the moment handles all input in the game with <c>PlayerInputActions</c>. 
 	/// </summary>
 	[RequireComponent(typeof(CharacterController))]
-	[RequireComponent(typeof(PlayerInput))]
 	public class PlayerController : MonoBehaviour {
 		///Player speed multiplier. 
 		public float speed = 10f;
@@ -24,18 +23,10 @@ namespace Player_Control {
 		public float interactDistance = 5f;
 
 		/// <summary>
-		/// <c>PlayerInputActions</c> object for receiving input events.
-		/// </summary>
-		private PlayerInputActions _playerInputActions;
-
-		/// <summary>
 		/// Invoked after the player has moved.
 		/// Used for recalculating interactable outlines.
 		/// </summary>
 		public event Action Moved;
-
-		///Reference to the camera controller, used for getting the euler angles from it.
-		[SerializeField] private CameraController cameraController;
 
 		/// <summary>
 		/// Field for keeping track of player velocity between frames.
@@ -51,22 +42,26 @@ namespace Player_Control {
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
+		private GameContextManager _gameContextManager;
+
 		///Gets a reference to the CharacterController and subscribes to necessary events. 
 		private void OnEnable() {
+			_gameContextManager = GameContextManager.Instance;
+
 			_characterController = GetComponent<CharacterController>();
 
-			_playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
-			_playerInputActions.Player.W.started  += OnWStarted;
-			_playerInputActions.Player.W.canceled += OnWCancelled;
-			_playerInputActions.Player.A.started  += OnAStarted;
-			_playerInputActions.Player.A.canceled += OnACancelled;
-			_playerInputActions.Player.S.started  += OnSStarted;
-			_playerInputActions.Player.S.canceled += OnSCancelled;
-			_playerInputActions.Player.D.started  += OnDStarted;
-			_playerInputActions.Player.D.canceled += OnDCancelled;
+			playerInputActions.Player.W.started  += OnWStarted;
+			playerInputActions.Player.W.canceled += OnWCancelled;
+			playerInputActions.Player.A.started  += OnAStarted;
+			playerInputActions.Player.A.canceled += OnACancelled;
+			playerInputActions.Player.S.started  += OnSStarted;
+			playerInputActions.Player.S.canceled += OnSCancelled;
+			playerInputActions.Player.D.started  += OnDStarted;
+			playerInputActions.Player.D.canceled += OnDCancelled;
 
-			_playerInputActions.Player.Jump.performed += OnJump;
+			playerInputActions.Player.Jump.performed += OnJump;
 		}
 
 		/// <summary>
@@ -83,7 +78,9 @@ namespace Player_Control {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Jump.performed</c> event.</param>
 		private void OnJump(InputAction.CallbackContext context) {
-			if (_characterController.isGrounded) { _velocity.y += jump; }
+			if (_characterController.isGrounded
+			 && (_gameContextManager.ActiveContext is OrbitCameraManager
+			  || _gameContextManager.ActiveContext is FixedCameraContextController)) { _velocity.y += jump; }
 		}
 
 		/// <summary>
@@ -134,12 +131,41 @@ namespace Player_Control {
 		/// <param name="context">The Action CallbackContext, passed in from the <c>D.cancelled</c> event.</param>
 		private void OnDCancelled(InputAction.CallbackContext context) { _wasd[3] = false; }
 
+		private void OnTriggerEnter(Collider other) {
+			if (other.gameObject.CompareTag("FixedCamCollider"))
+				other.GetComponent<FixedCameraContextController>().OnPlayerEnter();
+		}
+
+		private void OnTriggerExit(Collider other) {
+			if (other.gameObject.CompareTag("FixedCamCollider")) {
+				other.GetComponent<FixedCameraContextController>()
+				     .GetPlayerFollowCamTarget()
+				     .SetPositionAndRotation(
+					      other.GetComponent<FixedCameraContextController>().GetPlayerFollowCamTarget().position,
+					      Quaternion.Euler(
+						      other.GetComponent<FixedCameraContextController>()
+						           .GetPlayerFollowCamTarget()
+						           .eulerAngles.x,
+						      other.GetComponent<FixedCameraContextController>()
+						           .GetPlayerFollowCamTarget()
+						           .eulerAngles.y
+						    + 180,
+						      other.GetComponent<FixedCameraContextController>()
+						           .GetPlayerFollowCamTarget()
+						           .eulerAngles.z));
+				other.GetComponent<FixedCameraContextController>().OnPlayerExit();
+			}
+		}
+
 		/// <summary>
 		/// Moves and rotates the player based on whichever movement keys are pressed.
 		/// Called each frame in <c>Update</c>.
 		/// </summary>
 		private void Move() {
 			Vector3 motion = new Vector3();
+
+			IGameContext activeContext         = _gameContextManager.ActiveContext;
+			Transform    playerFollowCamTarget = activeContext.GetPlayerFollowCamTarget();
 
 			//if counteracting keys are pressed, set both to false
 			if (_wasd[0] && _wasd[2]) {
@@ -156,15 +182,15 @@ namespace Player_Control {
 				Vector3 eulers = transform.eulerAngles;
 
 				{
-					Vector3    storedCamTargetPos = cameraController.playerFollowCamTarget.position;
-					Quaternion storedCamTargetRot = cameraController.playerFollowCamTarget.rotation;
+					Vector3    storedCamTargetPos = playerFollowCamTarget.position;
+					Quaternion storedCamTargetRot = playerFollowCamTarget.rotation;
 
 					transform.SetPositionAndRotation(transform.position,
 					                                 Quaternion.Euler(
-						                                 new Vector3(eulers.x, cameraController.GetYRotForForwards(),
+						                                 new Vector3(eulers.x, activeContext.GetYRotForForwards(),
 						                                             eulers.z)));
 
-					cameraController.playerFollowCamTarget.SetPositionAndRotation(
+					playerFollowCamTarget.SetPositionAndRotation(
 						storedCamTargetPos, storedCamTargetRot);
 				}
 
@@ -183,11 +209,11 @@ namespace Player_Control {
 				Quaternion motionRot = Quaternion.identity;
 				motionRot.SetLookRotation(dir);
 
-				Vector3    storedCamPos = cameraController.playerFollowCamTarget.position;
-				Quaternion storedCamRot = cameraController.playerFollowCamTarget.rotation;
+				Vector3    storedCamPos = playerFollowCamTarget.position;
+				Quaternion storedCamRot = playerFollowCamTarget.rotation;
 
 				transform.SetPositionAndRotation(transform.position, motionRot);
-				cameraController.playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
+				playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
 
 				motion = transform.forward * (speed * Time.deltaTime);
 			}
@@ -207,6 +233,10 @@ namespace Player_Control {
 		/// <summary>
 		/// Calls <c>Move()</c> each frame.
 		/// </summary>
-		private void Update() { Move(); }
+		private void Update() {
+			if (_gameContextManager.ActiveContext is OrbitCameraManager
+			 || _gameContextManager.ActiveContext is FixedCameraContextController)
+				Move();
+		}
 	}
 }

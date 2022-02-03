@@ -6,9 +6,16 @@ namespace NPC_Control.Behavior_Tree {
 		[HideInInspector] public string  guid;
 		[HideInInspector] public Vector2 position;
 
-		public event Action<BehaviorNode> OnCompleted;
+		public event Action<BehaviorNode, BehaviorNode> OnCompleted;
 
-		protected void Complete(BehaviorNode successor) { OnCompleted?.Invoke(successor); }
+		public event Action OnError;
+
+		protected void Complete(BehaviorNode successor) { OnCompleted?.Invoke(this, successor); }
+
+		public void Error(string e) {
+			Debug.LogWarning($"Node {this} exited with error: {e}");
+			OnError?.Invoke();
+		}
 
 		public abstract void Run(NPC.NPCDataHelper npcDataHelper);
 
@@ -17,9 +24,6 @@ namespace NPC_Control.Behavior_Tree {
 
 	[Serializable]
 	public class EntityController { }
-
-	[Serializable]
-	public class DialogueManager { }
 
 	[Serializable]
 	public class CutsceneManager { }
