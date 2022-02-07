@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using Game_Managing.Game_Context;
-using Player_Control;
-using UnityEditor;
+#if UNITY_EDITOR
+	using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInputManager = Player_Control.PlayerInputManager;
@@ -28,7 +29,7 @@ namespace Puzzle_Control.Puzzle2D {
 		private Vector3 BottomLeft  => transform.TransformPoint(new Vector3(-HalfWidth, -HalfHeight, 0));
 		private Vector3 BottomRight => transform.TransformPoint(new Vector3(HalfWidth, -HalfHeight, 0));
 
-
+		#if UNITY_EDITOR
 		private void OnDrawGizmos() {
 			int     thickness = 5;
 			Vector3 vcamPos   = VCam.transform.position;
@@ -48,6 +49,7 @@ namespace Puzzle_Control.Puzzle2D {
 			Gizmos.DrawSphere(pos, 0.1f);
 			Gizmos.DrawRay(pos, transform.forward);
 		}
+		#endif
 
 		private void Start() {
 			elements = GetComponentsInChildren<PuzzleObject2D>().ToList();

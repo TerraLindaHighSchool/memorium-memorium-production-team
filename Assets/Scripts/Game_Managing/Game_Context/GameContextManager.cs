@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Cinemachine;
 using Other;
 using Player_Control;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInputManager = Player_Control.PlayerInputManager;
