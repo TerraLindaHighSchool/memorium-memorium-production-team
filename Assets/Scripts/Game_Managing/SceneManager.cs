@@ -1,11 +1,7 @@
-using Other;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Game_Managing.Game_Context;
-using NPC_Control.Dialogue;
 using UnityEngine;
-using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace Game_Managing {
@@ -22,41 +18,48 @@ namespace Game_Managing {
 			Graveyard          = 0b_0100_0000,
 		}
 
-		public static string GetPath(Scene scene) {
-			//throw new NotImplementedException("FILL IN THE SWITCH STATEMENT STRINGS");
-			string sceneName = "";
+		public struct SceneData {
+			public string  Path;
+			public Vector3 DefaultRespawnPoint;
+		}
+
+		public static SceneData GetSceneData(Scene scene) {
+			SceneData data = new SceneData {Path = "Scenes/Gameplay_Scenes/"};
 			switch (scene) {
 				case Scene.MainMenu:
-					sceneName = "";
+					data.Path += "";
 					break;
 				case Scene.TutorialIsland:
-					sceneName = "Tutorial Island";
+					data.Path                += "Tutorial Island";
+					data.DefaultRespawnPoint =  new Vector3(15, 15, -12);
 					break;
 				case Scene.FlowerIsland:
-					sceneName = "Flower Island";
+					data.Path                += "Flower Island";
+					data.DefaultRespawnPoint =  new Vector3(-415, 422, -57);
 					break;
 				case Scene.FeatherIsland:
-					sceneName = "";
+					data.Path += "";
 					break;
 				case Scene.LibraryIsland:
-					sceneName = "";
+					data.Path += "";
 					break;
 				case Scene.StainedGlassIsland:
-					sceneName = "";
+					data.Path                += "Stained Glass Island";
+					data.DefaultRespawnPoint =  new Vector3(59, 53, 52);
 					break;
 				case Scene.Graveyard:
-					sceneName = "";
+					data.Path += "";
 					break;
 			}
 
-			return "Scenes/Gameplay_Scenes/" + sceneName;
+			return data;
 		}
 
-		public static string[] GetPaths(Scene scene) {
-			List<string> initialList = new List<string>();
+		public static SceneData[] GetSceneDatas(Scene scene) {
+			List<SceneData> initialList = new List<SceneData>();
 			foreach (Scene e in Enum.GetValues(typeof(Scene))) {
 				if ((scene & e) == e) {
-					string a = GetPath(e);
+					SceneData a = GetSceneData(e);
 					initialList.Add(a);
 				}
 			}
@@ -67,15 +70,19 @@ namespace Game_Managing {
 		}
 
 		public static void Load(Scene scene) {
-			string[] paths = GetPaths(scene);
-			int      index = Random.Range(0, paths.Length - 1);
-			UnityEngine.SceneManagement.SceneManager.LoadScene(paths[index]);
+			SceneData[] sceneDatas    = GetSceneDatas(scene);
+			int         index         = Random.Range(0, sceneDatas.Length - 1);
+			SceneData   selectedScene = sceneDatas[index];
+			RespawnManager.Instance.SetRespawnPoint(selectedScene.DefaultRespawnPoint);
+			UnityEngine.SceneManagement.SceneManager.LoadScene(selectedScene.Path);
 		}
 
 		public static AsyncOperation LoadAsync(Scene scene) {
-			string[] paths = GetPaths(scene);
-			int      index = Random.Range(0, paths.Length - 1);
-			return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(paths[index]);
+			SceneData[] sceneDatas    = GetSceneDatas(scene);
+			int         index         = Random.Range(0, sceneDatas.Length - 1);
+			SceneData   selectedScene = sceneDatas[index];
+			RespawnManager.Instance.SetRespawnPoint(selectedScene.DefaultRespawnPoint);
+			return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(selectedScene.Path);
 		}
 	}
 }

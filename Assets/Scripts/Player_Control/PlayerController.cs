@@ -54,11 +54,17 @@ namespace Player_Control {
 		/// </summary>
 		private DialogueManager _unusedDialogueManager;
 
+		/// <summary>
+		/// Not actually used, only here to force a respawn manager into existence by referencing <c>.Instance</c>
+		/// </summary>
+		private RespawnManager _unusedRespawnManager;
+
 		///Gets a reference to the CharacterController and subscribes to necessary events. 
 		private void OnEnable() {
 			_gameContextManager = GameContextManager.Instance;
 
 			_unusedDialogueManager = DialogueManager.Instance;
+			_unusedRespawnManager  = RespawnManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
 

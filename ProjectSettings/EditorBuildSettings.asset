@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay_Scenes/Flower Island.unity
     guid: 9e45500bb3361413e8a71535acc81fe4
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scenes/Stained Glass Island.unity
+    guid: 66819c5d1e3ef476d90d96993f4f9534
   m_configObjects: {}
