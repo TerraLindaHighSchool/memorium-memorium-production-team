@@ -4,6 +4,9 @@ using System.Linq;
 using Cinemachine;
 using Game_Managing.Pausing;
 using Other;
+#if UNITY_EDITOR
+	using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Game_Managing.Game_Context.Cutscene {
