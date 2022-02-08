@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game_Managing.Game_Context;
 using Game_Managing.Game_Context.Cutscene;
 using Player_Control;
@@ -63,6 +64,16 @@ namespace Other {
 
 			playerInputActions.Player.Interact.performed += TriggerInteract;
 			playerInputActions.Player.MousePos.performed += OnMousePos;
+		}
+
+		private void OnDisable() {
+			player.Moved -= CheckInteractactables;
+			player.Moved -= SetCursorPos;
+			
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+
+			playerInputActions.Player.Interact.performed -= TriggerInteract;
+			playerInputActions.Player.MousePos.performed -= OnMousePos;
 		}
 
 		/// <summary>

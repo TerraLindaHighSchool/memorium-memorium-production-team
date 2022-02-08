@@ -439,7 +439,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321264989}
-  m_LocalRotation: {x: 0.22975293, y: 0.000000016746094, z: -0.0000000039532173, w: 0.973249}
+  m_LocalRotation: {x: 0.22975293, y: -0.00000001674609, z: 0.0000000039532164, w: 0.973249}
   m_LocalPosition: {x: 0, y: 3.1230001, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -520,12 +520,12 @@ PrefabInstance:
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016746094
+      value: -0.00000001674609
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000039532173
+      value: 0.0000000039532164
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90d4c4efa534cd588bc99e7dc389166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 11400000, guid: 68ed684b126a64d51a091c652f878a3a, type: 2}
+  tree: {fileID: 0}
 --- !u!1 &753788119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: 3542690244566178493, guid: ecc6ed2fc29d0479bb2023c4f2c07413,
         type: 3}
       propertyPath: lengthTime
-      value: 5.172414
+      value: 19.137932
       objectReference: {fileID: 0}
     - target: {fileID: 3542690244908982789, guid: ecc6ed2fc29d0479bb2023c4f2c07413,
         type: 3}

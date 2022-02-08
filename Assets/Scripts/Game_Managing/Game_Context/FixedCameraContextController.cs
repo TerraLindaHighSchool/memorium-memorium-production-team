@@ -5,12 +5,10 @@ using UnityEngine;
 namespace Game_Managing.Game_Context {
 	public class FixedCameraContextController : MonoBehaviour, IGameContext {
 		private void OnCollisionEnter(Collision other) {
-			Debug.Log("Entering fixed cam");
 			if (other.gameObject.CompareTag("Player")) GameContextManager.Instance.EnterContext(this);
 		}
 
 		private void OnCollisionExit(Collision other) {
-			Debug.Log("Exiting fixed cam");
 			if (other.gameObject.CompareTag("Player")) GCExit();
 		}
 

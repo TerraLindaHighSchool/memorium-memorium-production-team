@@ -1,6 +1,6 @@
-using Other;
 using System;
 using System.Collections.Generic;
+using Game_Managing.Game_Context;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,55 +18,71 @@ namespace Game_Managing {
 			Graveyard          = 0b_0100_0000,
 		}
 
-		public static string GetPath(Scene scene) {
-			throw new NotImplementedException("FILL IN THE SWITCH STATEMENT STRINGS");
-			string sceneName = "";
-			switch (scene) {
-				case Scene.MainMenu:
-					sceneName = "";
-					break;
-				case Scene.TutorialIsland:
-					sceneName = "";
-					break;
-				case Scene.FlowerIsland:
-					sceneName = "";
-					break;
-				case Scene.FeatherIsland:
-					sceneName = "";
-					break;
-				case Scene.LibraryIsland:
-					sceneName = "";
-					break;
-				case Scene.StainedGlassIsland:
-					sceneName = "";
-					break;
-				case Scene.Graveyard:
-					sceneName = "";
-					break;
-			}
-
-			return "Gameplay_Scenes" + sceneName;
+		public struct SceneData {
+			public string  Path;
+			public Vector3 DefaultRespawnPoint;
 		}
 
-		public static string[] GetPaths(Scene scene) {
-			List<string> initialList = new List<string>();
-			foreach (Scene e in Enum.GetValues(typeof(Scene))) {
-				if ((scene & e) == e) initialList.Add(GetPath(e));
+		public static SceneData GetSceneData(Scene scene) {
+			SceneData data = new SceneData {Path = "Scenes/Gameplay_Scenes/"};
+			switch (scene) {
+				case Scene.MainMenu:
+					data.Path += "";
+					break;
+				case Scene.TutorialIsland:
+					data.Path                += "Tutorial Island";
+					data.DefaultRespawnPoint =  new Vector3(15, 15, -12);
+					break;
+				case Scene.FlowerIsland:
+					data.Path                += "Flower Island";
+					data.DefaultRespawnPoint =  new Vector3(-415, 422, -57);
+					break;
+				case Scene.FeatherIsland:
+					data.Path += "";
+					break;
+				case Scene.LibraryIsland:
+					data.Path += "";
+					break;
+				case Scene.StainedGlassIsland:
+					data.Path                += "Stained Glass Island";
+					data.DefaultRespawnPoint =  new Vector3(59, 53, 52);
+					break;
+				case Scene.Graveyard:
+					data.Path += "";
+					break;
 			}
+
+			return data;
+		}
+
+		public static SceneData[] GetSceneDatas(Scene scene) {
+			List<SceneData> initialList = new List<SceneData>();
+			foreach (Scene e in Enum.GetValues(typeof(Scene))) {
+				if ((scene & e) == e) {
+					SceneData a = GetSceneData(e);
+					initialList.Add(a);
+				}
+			}
+
+			initialList.RemoveAt(0);
 
 			return initialList.ToArray();
 		}
 
 		public static void Load(Scene scene) {
-			string[] paths = GetPaths(scene);
-			int      index = Random.Range(0, paths.Length - 1);
-			UnityEngine.SceneManagement.SceneManager.LoadScene(paths[index]);
+			SceneData[] sceneDatas    = GetSceneDatas(scene);
+			int         index         = Random.Range(0, sceneDatas.Length - 1);
+			SceneData   selectedScene = sceneDatas[index];
+			RespawnManager.Instance.SetRespawnPoint(selectedScene.DefaultRespawnPoint);
+			UnityEngine.SceneManagement.SceneManager.LoadScene(selectedScene.Path);
 		}
 
 		public static AsyncOperation LoadAsync(Scene scene) {
-			string[] paths = GetPaths(scene);
-			int      index = Random.Range(0, paths.Length - 1);
-			return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(paths[index]);
+			SceneData[] sceneDatas    = GetSceneDatas(scene);
+			int         index         = Random.Range(0, sceneDatas.Length - 1);
+			SceneData   selectedScene = sceneDatas[index];
+			RespawnManager.Instance.SetRespawnPoint(selectedScene.DefaultRespawnPoint);
+			return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(selectedScene.Path);
 		}
 	}
 }

@@ -31,7 +31,7 @@ namespace Game_Managing.Game_Context {
 			ActiveContext.OnExit += ExitContext;
 		}
 
-		private void Start() {
+		public void Start() {
 			_contextStack = new Stack<IGameContext>();
 
 			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
@@ -44,6 +44,8 @@ namespace Game_Managing.Game_Context {
 
 			playerInputActions.Player.Orbit.started  += OnRightClickStart;
 			playerInputActions.Player.Orbit.canceled += OnRightClickStop;
+      
+			ActiveContext.GCStart();
 		}
 
 		private void Update() { ActiveContext.GCUpdateDelta(Vector2.zero, false, false); }
