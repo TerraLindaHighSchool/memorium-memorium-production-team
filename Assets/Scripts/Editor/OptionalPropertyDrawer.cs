@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Editor {
+	
+	/**
+	 * <summary> A WIP implementation of a custom property drawer for an Optional&lt;T&gt; that doesn't work at all.
+	 * This will likely be abandoned, in favor of defining instances for concrete Optionals. </summary>
+	 */
 	[CustomPropertyDrawer(typeof(Optional<int>))]
 	public class OptionalPropertyDrawer : PropertyDrawer {
 		public override VisualElement CreatePropertyGUI(SerializedProperty property)
