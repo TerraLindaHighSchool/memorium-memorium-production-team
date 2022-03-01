@@ -13,24 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: 06a8efc0-edeb-4730-b6d5-5b7233c64007
-  position: {x: 0, y: 0}
-  child: {fileID: 6505239160403929698}
---- !u!114 &-927331518766530338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guid: df15b804-9a34-445a-9898-ad73aeb40a22
-  position: {x: 468, y: -11}
-  child: {fileID: 0}
-  message: EGG SALAD
+  position: {x: -35, y: -24}
+  child: {fileID: 2268179140584911683}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,9 +30,24 @@ MonoBehaviour:
   rootNode: {fileID: -2590427470148085619}
   nodes:
   - {fileID: -2590427470148085619}
-  - {fileID: 6505239160403929698}
-  - {fileID: -927331518766530338}
---- !u!114 &6505239160403929698
+  - {fileID: 2268179140584911683}
+  - {fileID: 2029742284716858346}
+--- !u!114 &2029742284716858346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f0db6c73e4d5204a51162504dca9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 0065a684-b16b-4281-9feb-563edcbe178c
+  position: {x: 574.7999, y: -24}
+  children: []
+--- !u!114 &2268179140584911683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guid: 6b2f83f0-5d1c-41f6-a4d8-6ca414dc4631
-  position: {x: 158, y: -7}
-  child: {fileID: -927331518766530338}
-  message: HI YO MOMMA
+  guid: 566f94fd-9a66-4ff1-bdf8-ffbb4e4a6f7b
+  position: {x: 105, y: -35}
+  child: {fileID: 2029742284716858346}
+  message: FHAHFAKGU.FAKUG.FAG.YJA.J
