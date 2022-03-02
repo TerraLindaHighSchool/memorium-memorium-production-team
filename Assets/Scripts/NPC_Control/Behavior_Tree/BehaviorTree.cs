@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using NPC_Control.Behavior_Tree.Nodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace NPC_Control.Behavior_Tree {
 	[CreateAssetMenu]
@@ -33,9 +35,10 @@ namespace NPC_Control.Behavior_Tree {
 
 			nodes.Add(node);
 
-			//AssetDatabase things
+			#if UNITY_EDITOR
 			AssetDatabase.AddObjectToAsset(node, this);
 			Save();
+			#endif
 
 			return node;
 		}
@@ -52,9 +55,10 @@ namespace NPC_Control.Behavior_Tree {
 
 			nodes.Remove(node);
 
-			//AssetDatabase things
+			#if UNITY_EDITOR
 			AssetDatabase.RemoveObjectFromAsset(node);
 			Save();
+			#endif
 		}
 
 		public void AddChild(BehaviorNode parent, BehaviorNode child, string key = "") {
@@ -80,10 +84,12 @@ namespace NPC_Control.Behavior_Tree {
 				mapChildNode.RemoveChildFromChildren(key);
 			}
 		}
-
+		
+		#if UNITY_EDITOR
 		public void Save() {
 			EditorUtility.SetDirty(this);
 			AssetDatabase.SaveAssets();
 		}
+		#endif
 	}
 }

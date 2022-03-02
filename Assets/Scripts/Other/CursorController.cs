@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Game_Managing.Game_Context;
+using Game_Managing.Game_Context.Cutscene;
 using Player_Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -61,6 +64,16 @@ namespace Other {
 
 			playerInputActions.Player.Interact.performed += TriggerInteract;
 			playerInputActions.Player.MousePos.performed += OnMousePos;
+		}
+
+		private void OnDisable() {
+			player.Moved -= CheckInteractactables;
+			player.Moved -= SetCursorPos;
+			
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+
+			playerInputActions.Player.Interact.performed -= TriggerInteract;
+			playerInputActions.Player.MousePos.performed -= OnMousePos;
 		}
 
 		/// <summary>
@@ -142,7 +155,10 @@ namespace Other {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Interact.performed</c> event.</param>
 		private void TriggerInteract(InputAction.CallbackContext context) {
-			if (selectedInteractableObject) {
+			IGameContext activeContext = GameContextManager.Instance.ActiveContext;
+			if (selectedInteractableObject
+			 && !(activeContext is DialogueContextController
+			   || activeContext is CutsceneContextController)) {
 				selectedInteractableObject.GetComponent<Interactable>().onInteractEvent.Invoke();
 				ComputeInteractableOutlines();
 			}

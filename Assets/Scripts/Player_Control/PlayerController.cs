@@ -1,5 +1,7 @@
 ﻿using System;
 using Game_Managing.Game_Context;
+using NPC_Control.Dialogue;
+using Other;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +11,6 @@ namespace Player_Control {
 	/// Handles player movement, and for the moment handles all input in the game with <c>PlayerInputActions</c>. 
 	/// </summary>
 	[RequireComponent(typeof(CharacterController))]
-	[RequireComponent(typeof(PlayerInput))]
 	public class PlayerController : MonoBehaviour {
 		///Player speed multiplier. 
 		public float speed = 10f;
@@ -43,11 +44,27 @@ namespace Player_Control {
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
+		/// <summary>
+		/// The Game Context Manager, for checking what context the game is in.
+		/// </summary>
 		private GameContextManager _gameContextManager;
+
+		/// <summary>
+		/// Not actually used, only here to force a dialogue manager into existence by referencing <c>.Instance</c>
+		/// </summary>
+		private DialogueManager _unusedDialogueManager;
+
+		/// <summary>
+		/// Not actually used, only here to force a respawn manager into existence by referencing <c>.Instance</c>
+		/// </summary>
+		private RespawnManager _unusedRespawnManager;
 
 		///Gets a reference to the CharacterController and subscribes to necessary events. 
 		private void OnEnable() {
 			_gameContextManager = GameContextManager.Instance;
+
+			_unusedDialogueManager = DialogueManager.Instance;
+			_unusedRespawnManager  = RespawnManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
 
@@ -63,6 +80,21 @@ namespace Player_Control {
 			playerInputActions.Player.D.canceled += OnDCancelled;
 
 			playerInputActions.Player.Jump.performed += OnJump;
+		}
+
+		private void OnDisable() {
+			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
+
+			playerInputActions.Player.W.started  -= OnWStarted;
+			playerInputActions.Player.W.canceled -= OnWCancelled;
+			playerInputActions.Player.A.started  -= OnAStarted;
+			playerInputActions.Player.A.canceled -= OnACancelled;
+			playerInputActions.Player.S.started  -= OnSStarted;
+			playerInputActions.Player.S.canceled -= OnSCancelled;
+			playerInputActions.Player.D.started  -= OnDStarted;
+			playerInputActions.Player.D.canceled -= OnDCancelled;
+
+			playerInputActions.Player.Jump.performed -= OnJump;
 		}
 
 		/// <summary>

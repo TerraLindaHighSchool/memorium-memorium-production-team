@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="PropertyContainer">
+        <Style src="CutsceneControllerEditor.uss" />
+        <ui:TextField picking-mode="Ignore" label="Key" value="filler text" text="filler text" name="KeyField" binding-path="key" />
+        <ui:VisualElement name="LengthSliderContainer" style="flex-direction: row;">
+            <ui:Slider picking-mode="Ignore" label="Cutscene Length" value="5" high-value="60" name="TotalLengthSlider" binding-path="lengthTime" style="flex-grow: 0; width: 75%;" />
+            <ui:Label text="Label" binding-path="lengthTime" name="TotalLengthLabel" style="flex-grow: 0.3;" />
+        </ui:VisualElement>
+        <ui:Toggle label="Use Path" name="UsePathToggle" binding-path="usePath" />
+    </ui:VisualElement>
+    <ui:VisualElement name="ButtonContainer" style="flex-direction: row-reverse;">
+        <Style src="CutsceneControllerEditor.uss" />
+        <ui:Button text="-" name="RemoveButton" />
+        <ui:Button text="+" name="AddButton" />
+    </ui:VisualElement>
+    <ui:ListView focusable="true" style="flex-grow: 1; flex-shrink: 0.5; min-height: 200px; border-left-color: rgb(77, 77, 77); border-right-color: rgb(77, 77, 77); border-top-color: rgb(77, 77, 77); border-bottom-color: rgb(77, 77, 77); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px;">
+        <Style src="CutsceneControllerEditor.uss" />
+    </ui:ListView>
+</ui:UXML>
