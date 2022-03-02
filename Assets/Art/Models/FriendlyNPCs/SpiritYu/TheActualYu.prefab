@@ -101,7 +101,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6799823816549860223}
-  - component: {fileID: 4306585988431993585}
   m_Layer: 0
   m_Name: Hair2.L
   m_TagString: Untagged
@@ -124,28 +123,6 @@ Transform:
   m_Father: {fileID: 8843145504178147053}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4306585988431993585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170316399834855454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc75979e5ee559c4892a69c88c83b071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 5461518701802622197}
-  boneAxis: {x: -1, y: 0, z: 0}
-  radius: 0.05
-  isUseEachBoneForceSettings: 0
-  stiffnessForce: 0.01
-  dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
-  colliders: []
-  debug: 1
-  threshold: 0.01
 --- !u!1 &242006010101265258
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +194,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 64503509576744272}
-  - component: {fileID: 7541408269132059597}
   m_Layer: 0
   m_Name: HairRoot.R
   m_TagString: Untagged
@@ -240,37 +216,6 @@ Transform:
   m_Father: {fileID: 5541598505057595122}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7541408269132059597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480601202059548767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37794bb1d6395734d947cb9782855c09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dynamicRatio: 1
-  stiffnessForce: 0
-  stiffnessCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  dragForce: 0
-  dragCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  springBones:
-  - {fileID: 5766632255377776722}
-  - {fileID: 5696182323199461112}
-  - {fileID: 5137682138366809764}
 --- !u!1 &1946831996783118952
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +260,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5461518701802622197}
-  - component: {fileID: 5026215985516180185}
   m_Layer: 0
   m_Name: Hair3.L
   m_TagString: Untagged
@@ -338,28 +282,6 @@ Transform:
   m_Father: {fileID: 6799823816549860223}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5026215985516180185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2855674782504421457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc75979e5ee559c4892a69c88c83b071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 3987586108414339084}
-  boneAxis: {x: -1, y: 0, z: 0}
-  radius: 0.05
-  isUseEachBoneForceSettings: 0
-  stiffnessForce: 0.01
-  dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
-  colliders: []
-  debug: 1
-  threshold: 0.01
 --- !u!1 &4985036340765776446
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +322,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8843145504178147053}
-  - component: {fileID: 8260311651355140844}
   m_Layer: 0
   m_Name: Hair1.L
   m_TagString: Untagged
@@ -423,28 +344,6 @@ Transform:
   m_Father: {fileID: 8238229145443774680}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8260311651355140844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5891341261679092838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc75979e5ee559c4892a69c88c83b071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 6799823816549860223}
-  boneAxis: {x: -1, y: 0, z: 0}
-  radius: 0.05
-  isUseEachBoneForceSettings: 0
-  stiffnessForce: 0.01
-  dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
-  colliders: []
-  debug: 1
-  threshold: 0.01
 --- !u!1 &5993378512369646964
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250895449714393419}
-  - component: {fileID: 5766632255377776722}
   m_Layer: 0
   m_Name: Hair1.R
   m_TagString: Untagged
@@ -477,28 +375,6 @@ Transform:
   m_Father: {fileID: 64503509576744272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5766632255377776722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993378512369646964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc75979e5ee559c4892a69c88c83b071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 6310398528910405863}
-  boneAxis: {x: -1, y: 0, z: 0}
-  radius: 0.05
-  isUseEachBoneForceSettings: 0
-  stiffnessForce: 0.01
-  dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
-  colliders: []
-  debug: 1
-  threshold: 0.01
 --- !u!1 &6106989576599569798
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +446,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6310398528910405863}
-  - component: {fileID: 5696182323199461112}
   m_Layer: 0
   m_Name: Hair2.R
   m_TagString: Untagged
@@ -593,28 +468,6 @@ Transform:
   m_Father: {fileID: 250895449714393419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5696182323199461112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6700989328124464456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc75979e5ee559c4892a69c88c83b071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 2370644150589741278}
-  boneAxis: {x: -1, y: 0, z: 0}
-  radius: 0.05
-  isUseEachBoneForceSettings: 0
-  stiffnessForce: 0.01
-  dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
-  colliders: []
-  debug: 1
-  threshold: 0.01
 --- !u!1 &6874588014786799044
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +477,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8238229145443774680}
-  - component: {fileID: 5494769969385459989}
   m_Layer: 0
   m_Name: HairRoot.L
   m_TagString: Untagged
@@ -647,37 +499,6 @@ Transform:
   m_Father: {fileID: 5541598505057595122}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5494769969385459989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6874588014786799044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37794bb1d6395734d947cb9782855c09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dynamicRatio: 1
-  stiffnessForce: 0
-  stiffnessCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  dragForce: 0
-  dragCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  springBones:
-  - {fileID: 8260311651355140844}
-  - {fileID: 4306585988431993585}
-  - {fileID: 5026215985516180185}
 --- !u!1 &7010388110714784309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +821,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2370644150589741278}
-  - component: {fileID: 5137682138366809764}
   m_Layer: 0
   m_Name: Hair3.R
   m_TagString: Untagged
@@ -1023,25 +843,3 @@ Transform:
   m_Father: {fileID: 6310398528910405863}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5137682138366809764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8464670236682914271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc75979e5ee559c4892a69c88c83b071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 4154549919339822451}
-  boneAxis: {x: -1, y: 0, z: 0}
-  radius: 0.05
-  isUseEachBoneForceSettings: 0
-  stiffnessForce: 0.01
-  dragForce: 0.4
-  springForce: {x: 0, y: -0.0001, z: 0}
-  colliders: []
-  debug: 1
-  threshold: 0.01
