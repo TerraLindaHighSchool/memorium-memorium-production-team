@@ -161,6 +161,7 @@ MonoBehaviour:
   lockOnYAxis: 1
   maxWait: 10
   minWait: 2
+  npc: {fileID: 0}
 --- !u!114 &143771393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints: []
-  HeadPos: {x: 0, y: 0, z: 0}
-  WaitTime: 0
+  movementMode: 0
+  headPos: {x: 0, y: 0, z: 0}
+  waitTime: 0
   agent: {fileID: 143771398}
 --- !u!136 &143771394
 CapsuleCollider:
@@ -720,6 +722,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 191462260, guid: dd3290159ed8ae547882d1b04f15f477, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119826396425698675, guid: dd3290159ed8ae547882d1b04f15f477,
+        type: 3}
+      propertyPath: npc
+      value: 
+      objectReference: {fileID: 1833677105}
     - target: {fileID: 119826396425698675, guid: dd3290159ed8ae547882d1b04f15f477,
         type: 3}
       propertyPath: Player
@@ -789,6 +800,18 @@ PrefabInstance:
     - {fileID: 7265708416481404670, guid: dd3290159ed8ae547882d1b04f15f477, type: 3}
     - {fileID: 6934129602015606328, guid: dd3290159ed8ae547882d1b04f15f477, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd3290159ed8ae547882d1b04f15f477, type: 3}
+--- !u!114 &1833677105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 191462260, guid: dd3290159ed8ae547882d1b04f15f477,
+    type: 3}
+  m_PrefabInstance: {fileID: 1648499528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90d4c4efa534cd588bc99e7dc389166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2806350778374859977
 PrefabInstance:
   m_ObjectHideFlags: 0
