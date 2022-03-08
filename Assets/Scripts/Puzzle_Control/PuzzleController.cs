@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Puzzle_Control {
 	/// <summary>
@@ -37,7 +38,7 @@ namespace Puzzle_Control {
 		/// <summary>
 		/// a unity event that is called when this puzzle is completed.
 		/// </summary>
-		[SerializeField] UnityEvent OnPuzzleComplete;
+		[SerializeField] UnityEvent onPuzzleComplete;
 
 		/// <summary>
 		/// a c# event that is used to notify containing puzzle sets of this puzzle's completion (puzzle set
@@ -59,7 +60,7 @@ namespace Puzzle_Control {
 		/// call this to complete the puzzle and end puzzle context.
 		/// </summary>
 		protected void Complete() {
-			OnPuzzleComplete.Invoke();
+			onPuzzleComplete.Invoke();
 			NotifyPuzzleSet?.Invoke(Guid);
 		}
 
