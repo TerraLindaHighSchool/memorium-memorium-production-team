@@ -247,7 +247,7 @@ namespace Player_Control {
 				transform.SetPositionAndRotation(transform.position, motionRot);
 				playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
 
-				motion = transform.forward * (speed * Time.deltaTime);
+				motion = transform.right * (speed * Time.deltaTime);
 			}
 
 			_velocity.x = motion.x;
