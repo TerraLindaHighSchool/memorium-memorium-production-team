@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7534542196344614559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: d7d5cea2-cdc9-402c-807a-792bf583bd31
+  position: {x: 857.2561, y: 11.500008}
+  children:
+  - key: Yes
+    value: {fileID: 6344846119592740607}
+  - key: No
+    value: {fileID: -6985273859317447343}
+  message: sus?
+--- !u!114 &-6985273859317447343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f2e6a4eb-6eb7-42fb-8f3e-f1e274c2a50d
+  position: {x: 1246.0596, y: -34.385}
+  child: {fileID: 0}
+  message: No sussy :)
+--- !u!114 &-3107258778009130194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 338db641-10f1-49f7-a09e-c148eaa57da5
+  position: {x: 0, y: 0}
+  child: {fileID: -534698937985977197}
+--- !u!114 &-534698937985977197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 48d3a44e-d888-47cb-82cb-020f86ca4305
+  position: {x: 200.20004, y: 0.9999963}
+  child: {fileID: 1513548634168465609}
+  message: hi there
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: test_tree
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -3107258778009130194}
+  nodes:
+  - {fileID: -3107258778009130194}
+  - {fileID: -534698937985977197}
+  - {fileID: 1513548634168465609}
+  - {fileID: -7534542196344614559}
+  - {fileID: -6985273859317447343}
+  - {fileID: 6344846119592740607}
+--- !u!114 &1513548634168465609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 4e24abe1-3398-42d8-b821-7b60871c12ca
+  position: {x: 542.11, y: 4.5999937}
+  child: {fileID: -7534542196344614559}
+  message: Yo mama
+--- !u!114 &6344846119592740607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 66aae35b-e78a-4ceb-8ed4-6391c8f19474
+  position: {x: 1247.3225, y: 100.3225}
+  child: {fileID: 0}
+  message: 'You are sussy!?!? :flooshed:'
