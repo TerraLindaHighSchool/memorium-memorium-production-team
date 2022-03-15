@@ -10,6 +10,7 @@ namespace Player_Control {
 	/// Handles player movement, and for the moment handles all input in the game with <c>PlayerInputActions</c>. 
 	/// </summary>
 	[RequireComponent(typeof(CharacterController))]
+	[RequireComponent(typeof(Animator))]
 	public class PlayerController : MonoBehaviour {
 		///Player speed multiplier. 
 		public float speed = 10f;
@@ -35,6 +36,9 @@ namespace Player_Control {
 		/// </summary>
 		private Vector3 _velocity;
 
+		///Boolean to keep track of whether the player was grounded last frame
+		private bool _wasGroundedLastFrame;
+
 		/// <summary>
 		/// Array of booleans for keeping track if <c>W, A, S, D</c> are pressed. 
 		/// </summary>
@@ -42,6 +46,9 @@ namespace Player_Control {
 
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
+
+		///Animator for controlling player animations
+		private Animator _animator;
 
 		/// <summary>
 		/// The Game Context Manager, for checking what context the game is in.
@@ -66,6 +73,7 @@ namespace Player_Control {
 			_unusedRespawnManager  = RespawnManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
+			_animator            = GetComponent<Animator>();
 
 			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
@@ -112,7 +120,11 @@ namespace Player_Control {
 		private void OnJump(InputAction.CallbackContext context) {
 			if (_characterController.isGrounded
 			 && (_gameContextManager.ActiveContext is OrbitCameraManager
-			  || _gameContextManager.ActiveContext is FixedCameraContextController)) { _velocity.y += jump; }
+			  || _gameContextManager.ActiveContext is FixedCameraContextController)) {
+				_velocity.y += jump;
+				_animator.ResetTrigger("OnLand");
+				_animator.SetTrigger("OnJump");
+			}
 		}
 
 		/// <summary>
@@ -259,7 +271,15 @@ namespace Player_Control {
 
 			if (_characterController.isGrounded) _velocity.y = 0;
 
+			if (_characterController.isGrounded && !_wasGroundedLastFrame) {
+				_animator.ResetTrigger("OnJump");
+				_animator.SetTrigger("OnLand");
+				Debug.Log("Player landed");
+			}
+
 			Moved?.Invoke();
+
+			_wasGroundedLastFrame = _characterController.isGrounded;
 		}
 
 		/// <summary>

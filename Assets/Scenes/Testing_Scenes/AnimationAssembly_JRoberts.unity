@@ -204,17 +204,17 @@ PrefabInstance:
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22975294
+      value: 0.22975291
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000040340455
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -9.523127e-10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5544332767713270439, guid: 29101deebcf2840ff8d973265a9fb78c,
         type: 3}
@@ -419,7 +419,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605587634}
-  m_LocalRotation: {x: 0.22975294, y: 0.0000000040340455, z: -9.523127e-10, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0, z: 0, w: 0.973249}
   m_LocalPosition: {x: 0, y: 2.484, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jump: 0.2
-  gravity: 0.7
+  gravity: 0.5
   interactDistance: 5
 --- !u!95 &919132149490114011
 Animator:
