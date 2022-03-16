@@ -274,7 +274,6 @@ namespace Player_Control {
 			if (_characterController.isGrounded && !_wasGroundedLastFrame) {
 				_animator.ResetTrigger("OnJump");
 				_animator.SetTrigger("OnLand");
-				Debug.Log("Player landed");
 			}
 
 			Moved?.Invoke();
