@@ -47,13 +47,15 @@ namespace Player_Control {
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
-		///Animator for controlling player animations
-		private Animator _animator;
-
 		/// <summary>
 		/// The Game Context Manager, for checking what context the game is in.
 		/// </summary>
 		private GameContextManager _gameContextManager;
+
+		/// <summary>
+		/// The Animation Manager, for setting animations.
+		/// </summary>
+		private AnimationManager _animationManager;
 
 		/// <summary>
 		/// Not actually used, only here to force a dialogue manager into existence by referencing <c>.Instance</c>
@@ -68,12 +70,12 @@ namespace Player_Control {
 		///Gets a reference to the CharacterController and subscribes to necessary events. 
 		private void OnEnable() {
 			_gameContextManager = GameContextManager.Instance;
+			_animationManager   = AnimationManager.Instance;
 
 			_unusedDialogueManager = DialogueManager.Instance;
 			_unusedRespawnManager  = RespawnManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
-			_animator            = GetComponent<Animator>();
 
 			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
@@ -122,8 +124,7 @@ namespace Player_Control {
 			 && (_gameContextManager.ActiveContext is OrbitCameraManager
 			  || _gameContextManager.ActiveContext is FixedCameraContextController)) {
 				_velocity.y += jump;
-				_animator.ResetTrigger("OnLand");
-				_animator.SetTrigger("OnJump");
+				_animationManager.SetPlayerOnLand(false);
 			}
 		}
 
@@ -269,12 +270,12 @@ namespace Player_Control {
 
 			_characterController.Move(_velocity);
 
-			if (_characterController.isGrounded) _velocity.y = 0;
+			if (_characterController.isGrounded) {
+				_velocity.y = 0;
+				_animationManager.SetPlayerInAir(false);
+			} else { _animationManager.SetPlayerInAir(true); }
 
-			if (_characterController.isGrounded && !_wasGroundedLastFrame) {
-				_animator.ResetTrigger("OnJump");
-				_animator.SetTrigger("OnLand");
-			}
+			if (_characterController.isGrounded && !_wasGroundedLastFrame) { _animationManager.SetPlayerOnLand(true); }
 
 			Moved?.Invoke();
 
