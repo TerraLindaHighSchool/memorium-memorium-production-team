@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 2982709656252789285}
   - component: {fileID: 3372968311774305240}
   - component: {fileID: 119826396425698675}
-  - component: {fileID: 191462260}
   m_Layer: 0
   m_Name: Yu
   m_TagString: Untagged
@@ -93,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b480f5a2626249747b9f4295df83f4d4, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,21 +156,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc0b0f11eeb24540b2294753fe76046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  radius: 10
-  sine_force: 1
-  speed: 0.01
-  yOffset: 2
---- !u!114 &191462260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6557763273860930575}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90d4c4efa534cd588bc99e7dc389166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tree: {fileID: 11400000, guid: c9028fdaa42b60b4e9f83e5d60df8b43, type: 2}
