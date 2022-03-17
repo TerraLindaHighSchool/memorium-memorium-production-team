@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: c401b604dc7624005a288b1fd09059b4
+guid: 11fd88c4509d74cb89cfc096899bc8c2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -7292391843476892669
-    second: animation
+      74: 402645760687603235
+    second: AmaraRunning
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: animation
-      takeName: animation
+      name: AmaraRunning
+      takeName: AmaraRunning
       internalID: 0
       firstFrame: 0
-      lastFrame: 321
+      lastFrame: 266
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

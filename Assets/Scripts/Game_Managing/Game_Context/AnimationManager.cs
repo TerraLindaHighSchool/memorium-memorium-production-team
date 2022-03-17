@@ -18,6 +18,8 @@ namespace Game_Managing.Game_Context {
 		}
 
 		public void SetPlayerInAir(bool value) { _playerAnimator.SetBool("IsInAir", value); }
+		
+		public void SetPlayerRunning(bool value) { _playerAnimator.SetBool("IsRunning", value); }
 
 		public void EnterDialogueWithPlayer(NPC otherNPC) {
 			_playerAnimator.SetBool("IsInDialogue", true);

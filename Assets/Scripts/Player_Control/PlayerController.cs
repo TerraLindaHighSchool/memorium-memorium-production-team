@@ -273,6 +273,10 @@ namespace Player_Control {
 				playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
 
 				motion = transform.right * (speed * Time.deltaTime);
+				
+				_animationManager.SetPlayerRunning(true);
+			} else {
+				_animationManager.SetPlayerRunning(false);
 			}
 
 			_velocity.x = motion.x;
