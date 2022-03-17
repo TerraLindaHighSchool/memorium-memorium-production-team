@@ -1,12 +1,17 @@
 using NPC_Control;
 using Other;
+using Player_Control;
 using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public class AnimationManager : Singleton<AnimationManager> {
-		private Animator _playerAnimator;
+		private PlayerController _playerController;
+		private Animator         _playerAnimator;
 
-		private void OnEnable() { _playerAnimator = GameObject.FindWithTag("Player").GetComponent<Animator>(); }
+		private void OnEnable() {
+			_playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+			_playerAnimator   = _playerController.GetComponent<Animator>();
+		}
 
 		public void SetPlayerOnLand(bool value) {
 			if (value) { _playerAnimator.SetTrigger("OnLand"); } else { _playerAnimator.ResetTrigger("OnLand"); }
@@ -16,6 +21,7 @@ namespace Game_Managing.Game_Context {
 
 		public void EnterDialogueWithPlayer(NPC otherNPC) {
 			_playerAnimator.SetBool("IsInDialogue", true);
+			_playerController.FaceTowards(otherNPC.transform.position);
 
 			//TODO: Add animators to NPCs so this will actually work
 			//otherNPC.GetComponent<Animator>()?.SetBool("IsInDialogue", true);

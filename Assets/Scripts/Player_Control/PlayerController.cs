@@ -116,6 +116,18 @@ namespace Player_Control {
 		}
 
 		/// <summary>
+		/// Rotates the player to face towards a certain point, i.e. an NPC for dialogue.
+		/// </summary>
+		/// <param name="point">The point to face towards.</param>
+		public void FaceTowards(Vector3 point) {
+			Vector3 heightNormalizedPoint = new Vector3(point.x, transform.position.y, point.z);
+			
+			transform.LookAt(heightNormalizedPoint);
+			
+			transform.Rotate(transform.up, -90f);
+		}
+
+		/// <summary>
 		/// If the player is on the ground, adds the jump force to the vertical velocity. 
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Jump.performed</c> event.</param>
