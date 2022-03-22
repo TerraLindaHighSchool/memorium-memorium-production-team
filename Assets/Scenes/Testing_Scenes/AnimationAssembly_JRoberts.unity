@@ -847,6 +847,34 @@ PrefabInstance:
       objectReference: {fileID: 919132149490114010}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f55b5809d105b768ec523337460f79, type: 3}
+--- !u!114 &1773072731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec4b0da95d2f403ab5de3551f77cf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 4a5cb2e8-0e02-4dbc-9bb5-5131027b9e1d
+  key: OnDeath
+  event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4210124893899852899}
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1996049759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3367,6 +3395,8 @@ GameObject:
   - component: {fileID: 4210124893899852896}
   - component: {fileID: 4210124893899852895}
   - component: {fileID: 4210124893899852894}
+  - component: {fileID: 4210124893899852898}
+  - component: {fileID: 4210124893899852899}
   m_Layer: 8
   m_Name: Tristia
   m_TagString: Interactable
@@ -3444,8 +3474,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90d4c4efa534cd588bc99e7dc389166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tree: {fileID: 11400000, guid: 97762c33861d7f84bba2923c9f6810e6, type: 2}
-  eventReceivers: []
+  tree: {fileID: 11400000, guid: ba6344e30f1734c6fbc79f09af3679ba, type: 2}
+  eventReceivers:
+  - {fileID: 1773072731}
+--- !u!95 &4210124893899852898
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210124893899852893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c07606fa67f4e459d88cb927e97b4fb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4210124893899852899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210124893899852893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1350f5d8e70824a619688daf7585cf8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4281182193653601267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,7 +5782,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1976799459468813334, guid: 550fc52b072673e428c5932868bb6e54, type: 3}
+  - {fileID: 2100000, guid: d98e63c3f2e174c53b6cbb27fa345770, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

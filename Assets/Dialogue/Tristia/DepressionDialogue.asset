@@ -1,0 +1,398 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8921163200211604543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e15fdd716047c883bd5b6ad602893c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: aca546cd-3fa3-49ba-9a1b-c43a0483d567
+  position: {x: -401.318, y: -308.2139}
+  child: {fileID: 0}
+  key: Death
+--- !u!114 &-8553006590844842060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 17e57d73-91d6-406a-80f7-76c2e3c51468
+  position: {x: 228.4902, y: -20.988075}
+  children:
+  - key: No
+    value: {fileID: -57196564151167685}
+  - key: Yes
+    value: {fileID: 8985806631841365347}
+  message: Really are you sure?
+--- !u!114 &-8509709965615921251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1506d135-d681-44b5-82f6-3a68e9d34bb7
+  position: {x: -673.82635, y: -81.82286}
+  children:
+  - key: That sucks.
+    value: {fileID: -4806753508147568015}
+  - key: Can I help?
+    value: {fileID: -7072424855522584043}
+  - key: Can you be more specific?
+    value: {fileID: -7072424855522584043}
+  message: Everything
+--- !u!114 &-7072424855522584043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8438914f-b241-4fa1-9a80-731ecd8b8057
+  position: {x: -320.82623, y: -30.822838}
+  children:
+  - key: You're right.
+    value: {fileID: -57196564151167685}
+  - key: I have the time.
+    value: {fileID: -8553006590844842060}
+  message: It's a very long story. You don't want to hear it.
+--- !u!114 &-5543528433437986110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c9e1772f-c4f3-4e5e-9b4c-b71811a63c76
+  position: {x: -1550, y: 1.0800171}
+  children:
+  - key: Okay Then.
+    value: {fileID: -57196564151167685}
+  - key: What's wrong?
+    value: {fileID: -8509709965615921251}
+  - key: What??
+    value: {fileID: 7432792321007448665}
+  message: Hello there. Kind of you to visit me in my garden. The tears of my despair
+    water the flowers of my innocence.
+--- !u!114 &-4806753508147568015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 566e65e8-b897-48b1-bcae-52af07858031
+  position: {x: -1470.7367, y: -303.47366}
+  child: {fileID: -4037342563236926985}
+  message: Well if you can't help me, no one can.
+--- !u!114 &-4788199787731874116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 20c830e6-83ee-4de0-9800-53e25bd936f4
+  position: {x: -882.53, y: -189.35501}
+  child: {fileID: -4037342563236926985}
+  message: How could you be so cruel, these flowers are my life.
+--- !u!114 &-4037342563236926985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 981a4331-dc56-4399-9766-21ef49d1ba60
+  position: {x: -723.566, y: 456.7371}
+  child: {fileID: 0}
+  message: End Depression Dialogue
+--- !u!114 &-1210866071503286485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c4fd689b-c7ad-45f2-b453-20b395d3ae8b
+  position: {x: -127.753456, y: -319.68787}
+  child: {fileID: 0}
+  message: Let me know when you do.
+--- !u!114 &-57196564151167685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 640ca920-59c8-4305-ae64-ac5f6a0d8240
+  position: {x: -1535, y: -157.91998}
+  child: {fileID: -4037342563236926985}
+  message: You don't care. Good. Neiher do I, It seems we've reached an Impasse.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: DepressionDialogue
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 7037616545002656237}
+  nodes:
+  - {fileID: 7037616545002656237}
+  - {fileID: -5543528433437986110}
+  - {fileID: -57196564151167685}
+  - {fileID: -8509709965615921251}
+  - {fileID: 7432792321007448665}
+  - {fileID: -4806753508147568015}
+  - {fileID: -7072424855522584043}
+  - {fileID: 349196007737347789}
+  - {fileID: 2875308779219527558}
+  - {fileID: -8921163200211604543}
+  - {fileID: -4788199787731874116}
+  - {fileID: 8527658194526839513}
+  - {fileID: -8553006590844842060}
+  - {fileID: 8985806631841365347}
+  - {fileID: 7383286436061137965}
+  - {fileID: 3365981909583282712}
+  - {fileID: -1210866071503286485}
+  - {fileID: 5074871368840885999}
+  - {fileID: -4037342563236926985}
+  - {fileID: 7271683016126271598}
+--- !u!114 &349196007737347789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6718345f-7745-419a-aa67-c19a71167306
+  position: {x: -325.8263, y: 119.177155}
+  children:
+  - key: Thats unfortunate.
+    value: {fileID: -57196564151167685}
+  - key: I think they're pretty.
+    value: {fileID: 2875308779219527558}
+  - key: No wonder, they're ugly.
+    value: {fileID: -4788199787731874116}
+  message: They used to bring me joy, but all their colours seem dull now.
+--- !u!114 &2875308779219527558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 961d6966-6e54-4553-97f2-ca9fef251e91
+  position: {x: -929.24695, y: -307.6572}
+  child: {fileID: -8921163200211604543}
+  message: Not as pretty as your corpse. It would be good fertilizer.
+--- !u!114 &3365981909583282712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: fcabc64f-9f0b-4da2-95bb-5e764139a0e2
+  position: {x: 227.9205, y: -321.7713}
+  child: {fileID: -4037342563236926985}
+  message: Good for you.
+--- !u!114 &5074871368840885999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 85323d81-b3ef-433e-8024-789b316845d6
+  position: {x: 232.6939, y: -161.69939}
+  children:
+  - key: I don't have the time.
+    value: {fileID: -57196564151167685}
+  - key: Everyone deserves chances
+    value: {fileID: 8985806631841365347}
+  message: You can try, but it will take a while.
+--- !u!114 &7037616545002656237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f3e9ae82-7720-4014-8db6-df0bc49a274d
+  position: {x: -1664, y: -5.919983}
+  child: {fileID: -5543528433437986110}
+--- !u!114 &7271683016126271598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 472308b3-f357-4c41-8a28-4f17d56bf085
+  position: {x: -207.7091, y: 354.72913}
+  child: {fileID: 0}
+  message: Wacky node
+--- !u!114 &7383286436061137965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 0c3a3c62-bb8e-4fe0-86aa-ba467eca8fb6
+  position: {x: 1117.5997, y: 6.083495}
+  child: {fileID: 0}
+  eventKey: OnDeath
+--- !u!114 &7432792321007448665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: fa327725-98c8-4149-ab51-0a5b635cf917
+  position: {x: -668.8263, y: 75.17714}
+  children:
+  - key: Are you okay?
+    value: {fileID: -7072424855522584043}
+  - key: Your flowers?
+    value: {fileID: 349196007737347789}
+  - key: Neither do I.
+    value: {fileID: 8527658194526839513}
+  message: I don't know. I never do.
+--- !u!114 &8527658194526839513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f1c0e82b-a259-4695-9e61-f35e7c13f792
+  position: {x: -323.20874, y: -197.74036}
+  children:
+  - key: I don't remember.
+    value: {fileID: -1210866071503286485}
+  - key: I'm not lost.
+    value: {fileID: 3365981909583282712}
+  - key: We can get through this.
+    value: {fileID: 5074871368840885999}
+  message: It seems we've both lost ourselves to our minds.
+--- !u!114 &8985806631841365347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 53712340-5aba-41d1-8302-7b67567fffa8
+  position: {x: 578, y: 4.640085}
+  child: {fileID: 7383286436061137965}
+  message: You're the first person to give me a chance. Thank you.

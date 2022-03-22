@@ -31,19 +31,23 @@ namespace Game_Managing.Game_Context {
 			grassBird.GetComponent<Animator>().SetTrigger("OnKick");
 		}
 
+		public void NPCOnDeath(NPC npc) {
+			npc.GetComponent<Animator>().SetTrigger("OnDeath");
+		}
+
 		public void EnterDialogueWithPlayer(NPC otherNPC) {
 			_playerAnimator.SetBool("IsInDialogue", true);
 			_playerController.FaceTowards(otherNPC.transform.position);
 
 			//TODO: Add animators to NPCs so this will actually work
-			//otherNPC.GetComponent<Animator>()?.SetBool("IsInDialogue", true);
+			otherNPC.GetComponent<Animator>()?.SetBool("IsInDialogue", true);
 		}
 
 		public void ExitDialogueWithPlayer(NPC otherNPC) {
 			_playerAnimator.SetBool("IsInDialogue", false);
 
 			//TODO: Add animators to NPCs so this will actually work
-			//otherNPC.GetComponent<Animator>()?.SetBool("IsInDialogue", false);
+			otherNPC.GetComponent<Animator>()?.SetBool("IsInDialogue", false);
 		}
 
 		public void SetAnimatorRunning(Animator animator, bool value) {
