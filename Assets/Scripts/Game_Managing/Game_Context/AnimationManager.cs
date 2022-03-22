@@ -35,5 +35,9 @@ namespace Game_Managing.Game_Context {
 			//TODO: Add animators to NPCs so this will actually work
 			//otherNPC.GetComponent<Animator>()?.SetBool("IsInDialogue", false);
 		}
+
+		public void SetAnimatorRunning(Animator animator, bool value) {
+			animator.SetBool("IsRunning", value);
+		}
 	}
 }

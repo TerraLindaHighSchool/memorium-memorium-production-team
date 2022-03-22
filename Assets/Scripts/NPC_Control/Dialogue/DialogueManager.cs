@@ -25,10 +25,10 @@ namespace NPC_Control.Dialogue {
 
 		public void Awake() {
 			dialogueBoxPanel = GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<Image>();
-			_buttonPrefab    = Resources.Load<GameObject>("Prefabs/Interface/UI/Button.prefab");
+			_buttonPrefab    = Resources.Load<GameObject>("Prefabs/Interface/UI/Button");
 			_dialogueText    = dialogueBoxPanel.GetComponentInChildren<TextMeshProUGUI>();
 			_playerInput     = PlayerInputManager.Instance;
-
+			
 			_playerInput.PlayerInputActions.Player.Interact.performed += OnAttemptNext;
 			_playerInput.PlayerInputActions.Player.Jump.performed     += OnAttemptNext;
 

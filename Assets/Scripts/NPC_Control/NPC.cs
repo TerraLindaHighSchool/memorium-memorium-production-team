@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Game_Managing.Game_Context;
 using NPC_Control.Behavior_Tree;
 using NPC_Control.Dialogue;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace NPC_Control {
 	[RequireComponent(typeof(Behavior_Tree.EntityController))]
@@ -29,7 +33,8 @@ namespace NPC_Control {
 
 		[SerializeField] private BehaviorTree tree;
 
-		Dictionary<string, IEventReceiver[]> _eventReceivers = new Dictionary<string, IEventReceiver[]>();
+		//public Dictionary<string, EventReceiver> EventReceivers = new Dictionary<string, EventReceiver>();
+		public List<EventReceiver> eventReceivers = new List<EventReceiver>();
 
 		private NPCDataHelper _npcDataHelper;
 
@@ -45,12 +50,49 @@ namespace NPC_Control {
 		private void OnDisable() { DialogueActive = false; }
 
 		private void InvokeEventReceivers(string eventKey) {
-			if (_eventReceivers[eventKey] == null) {
-				Debug.LogWarning("event key on NPC component is null");
+			EventReceiver selectedEventReceiver = null;
+
+			foreach (EventReceiver eventReceiver in eventReceivers) {
+				if (eventReceiver.key == eventKey) {
+					selectedEventReceiver = eventReceiver;
+					break;
+				}
+			}
+
+			if (!selectedEventReceiver) {
+				Debug.LogWarning($"{this} doesn't have an event with key {eventKey}, ignoring...");
 				return;
 			}
 
-			foreach (var eventReceiver in _eventReceivers[eventKey]) { eventReceiver.OnEventPublish(); }
+			selectedEventReceiver.@event?.Invoke();
+		}
+
+		public EventReceiver AddEventReceiver() {
+			EventReceiver newEventReceiver = ScriptableObject.CreateInstance<EventReceiver>();
+
+			#if UNITY_EDITOR
+			Undo.RecordObject(this, "Added event receiver");
+			#endif
+
+			eventReceivers.Add(newEventReceiver);
+
+			return newEventReceiver;
+		}
+
+		public void RemoveEventReceiver() {
+			#if UNITY_EDITOR
+			Undo.RecordObject(this, "Removed event receiver");
+			#endif
+
+			eventReceivers.Remove(eventReceivers.Last());
+		}
+
+		public void DebugEventReceivers() {
+			Debug.Log($"{this} has {eventReceivers.Count} event receivers");
+
+			foreach (EventReceiver eventReceiver in eventReceivers) {
+				Debug.Log($"Event receiver with key {eventReceiver.key}");
+			}
 		}
 
 		public void StartDialogue() {

@@ -1,10 +1,7 @@
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Game_Managing.Game_Context.Cutscene;
-using Other;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,8 +14,6 @@ namespace Editor {
 
 		public override VisualElement CreateInspectorGUI() {
 			_cutscene = (CutsceneContextController) target;
-
-			//_cutscene.Awake();
 
 			VisualElement rootElement = new VisualElement();
 
@@ -52,6 +47,15 @@ namespace Editor {
 			VisualElement      newEventElement = CreateEventElement(newEvent);
 			_listView.Add(newEventElement);
 		}
+		
+		private void RemoveEvent() {
+			if (_listView.childCount <= 0 || _cutscene.events.Count <= 0) return;
+
+			VisualElement lastEventElement = _listView.Children().Last();
+			_listView.Remove(lastEventElement);
+
+			_cutscene.RemoveTimedEvent();
+		}
 
 		private VisualElement CreateEventElement(TimedCutsceneEvent timedEvent) {
 			VisualElement newEventElement = UIElementsExtensions.CreateUIElementInspector(timedEvent);
@@ -76,15 +80,6 @@ namespace Editor {
 			newEventElement.style.marginRight  = marginWidth;
 
 			return newEventElement;
-		}
-
-		private void RemoveEvent() {
-			if (_listView.childCount <= 0 || _cutscene.events.Count <= 0) return;
-
-			VisualElement lastEventElement = _listView.Children().Last();
-			_listView.Remove(lastEventElement);
-
-			_cutscene.RemoveTimedEvent();
 		}
 	}
 }
