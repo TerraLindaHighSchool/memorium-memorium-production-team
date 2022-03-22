@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using Game_Managing.Game_Context;
-#if UNITY_EDITOR
+#if UNITy_EDITOR
 	using UnityEditor;
 #endif
 using UnityEngine;
@@ -12,7 +12,7 @@ using PlayerInputManager = Player_Control.PlayerInputManager;
 
 namespace Puzzle_Control.Puzzle2D {
 	[ExecuteInEditMode]
-	public class Pane2D : MonoBehaviour, IGameContext {
+	public class Pane2D : MonoBehaviour, IGameContext, PuzzleController {
 		[SerializeField] private float                    width;
 		private                  float                    height => width / VCam.m_Lens.Aspect;
 		[SerializeField] private CinemachineVirtualCamera vcam;
@@ -29,7 +29,7 @@ namespace Puzzle_Control.Puzzle2D {
 		private Vector3 BottomLeft  => transform.TransformPoint(new Vector3(-HalfWidth, -HalfHeight, 0));
 		private Vector3 BottomRight => transform.TransformPoint(new Vector3(HalfWidth, -HalfHeight, 0));
 
-		#if UNITY_EDITOR
+		#if UNITy_EDITOR
 		private void OnDrawGizmos() {
 			int     thickness = 5;
 			Vector3 vcamPos   = VCam.transform.position;
@@ -80,7 +80,7 @@ namespace Puzzle_Control.Puzzle2D {
 		}
 
 		private void UpdateElementTransform(PuzzleObject2D elem) {
-			Vector3 localPos = PaneToLocalSpace(new Vector2(elem.X, elem.Y));
+			Vector3 localPos = PaneToLocalSpace(new Vector2(elem.x, elem.y));
 			localPos.z = dragTarget == elem ? -0.2f : 0.0f;
 
 			elem.transform.localPosition = localPos;
@@ -106,21 +106,38 @@ namespace Puzzle_Control.Puzzle2D {
 		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) { }
 
 		public void GCUpdatePos(Vector2 mousePos, bool lcDown, bool rcDown) {
-			if (rcDown && !lcDownLastFrame) HandleClick(mousePos);
+			if (lcDown && !lcDownLastFrame) HandleClick(mousePos);
 			
-			lcDownLastFrame = rcDown;
+			lcDownLastFrame = lcDown;
 		}
 
 		public void HandleClick(Vector2 mousePos) {
 			Vector3        target    = transform.TransformPoint(PaneToLocalSpace(PaneFromScreenSpace(mousePos)));
 			PuzzleObject2D targetObj = GetObjForPoint(target);
-			if (targetObj.Clickable) targetObj.onClick?.Invoke();
+			if (targetObj != null) {
+				if (targetObj.Clickable) targetObj.onClick?.Invoke();
+				if (targetObj = dragTarget) {
+					foreach (var el in elements) {
+						if (el is DragTarget drag_el) {
+							var pos  = new Vector2(el.x, el.y);
+							var dist = (pos - target).magnitude;
+							if (dist < drag_el.fuzz) {
+								el.x = 
+							}
+						}
+					}
+					dragTarget = null;
+				} else {
+					
+				}
+
+			}
 		}
 
 		private static Vector2 PaneFromScreenSpace(Vector2 mousePos) =>
 			new Vector2(
 				mousePos.x / Screen.width,
-				mousePos.x / Screen.height
+				mousePos.y / Screen.height
 			);
 
 		private static bool IsPointInside(Collider c, Vector3 point) => c.ClosestPoint(point) == point;
@@ -141,9 +158,10 @@ namespace Puzzle_Control.Puzzle2D {
 			);
 		
 
-		public float        GetYRotForForwards()       { throw new NotImplementedException(); }
+		public float        GetyRotForForwards()       { throw new NotImplementedException(); }
 		
 		public Transform    GetPlayerFollowCamTarget() { throw new NotImplementedException(); }
+		
 		public event Action OnExit;
 	}
 }
