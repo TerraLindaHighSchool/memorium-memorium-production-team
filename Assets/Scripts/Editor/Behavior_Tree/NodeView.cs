@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+using Editor.Other;
 using NPC_Control.Behavior_Tree;
-using Other;
-using UnityEditor;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor {
+namespace Editor.Behavior_Tree {
 	[Serializable]
 	public abstract class NodeView<T> : Node where T : BehaviorNode {
 		public static Action SaveTree;

@@ -1,9 +1,7 @@
-using System;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Editor {
+namespace Editor.Behavior_Tree {
 	public class AddOutputMenu : EditorWindow {
 		private string _newOutputKey = "New Output Port Key";
 

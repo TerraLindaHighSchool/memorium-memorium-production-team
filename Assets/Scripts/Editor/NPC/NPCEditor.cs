@@ -1,30 +1,29 @@
-using System.Collections.Generic;
 using System.Linq;
-using NPC_Control;
+using Editor.Other;
 using NPC_Control.Behavior_Tree;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor {
-	[CustomEditor(typeof(NPC))]
+namespace Editor.NPC {
+	[CustomEditor(typeof(NPC_Control.NPC))]
 	public class NPCEditor : UnityEditor.Editor {
-		private NPC _npc;
+		private NPC_Control.NPC _npc;
 
 		private VisualElement _listView;
 
 		public override VisualElement CreateInspectorGUI() {
-			_npc = (NPC) target;
+			_npc = (NPC_Control.NPC) target;
 
 			VisualElement rootElement = new VisualElement();
 
 			VisualTreeAsset visualTree =
-				AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/Editor/NPCEditor.uxml");
+				AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/Editor/NPC/NPCEditor.uxml");
 			visualTree.CloneTree(rootElement);
 
 			rootElement.styleSheets.Add(
-				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/NPCEditor.uss"));
+				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/NPC/NPCEditor.uss"));
 
 			VisualElement propertyContainer = rootElement.ElementAt(0);
 			ObjectField   treeObjectField   = propertyContainer.ElementAt(0) as ObjectField;
@@ -40,9 +39,6 @@ namespace Editor {
 
 			addEventReceiverButton.clicked    += AddEventReceiver;
 			removeEventReceiverButton.clicked += RemoveEventReceiver;
-			
-			Button debugButton = buttonContainer.ElementAt(2) as Button;
-			debugButton.clicked += _npc.DebugEventReceivers;
 			
 			foreach (EventReceiver eventReceiver in _npc.eventReceivers) {
 				_listView.Add(CreateEventReceiverElement(eventReceiver));

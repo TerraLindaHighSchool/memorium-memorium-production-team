@@ -50,21 +50,9 @@ namespace NPC_Control {
 		private void OnDisable() { DialogueActive = false; }
 
 		private void InvokeEventReceivers(string eventKey) {
-			EventReceiver selectedEventReceiver = null;
-
 			foreach (EventReceiver eventReceiver in eventReceivers) {
-				if (eventReceiver.key == eventKey) {
-					selectedEventReceiver = eventReceiver;
-					break;
-				}
+				if (eventReceiver.key == eventKey) { eventReceiver.@event?.Invoke(); }
 			}
-
-			if (!selectedEventReceiver) {
-				Debug.LogWarning($"{this} doesn't have an event with key {eventKey}, ignoring...");
-				return;
-			}
-
-			selectedEventReceiver.@event?.Invoke();
 		}
 
 		public EventReceiver AddEventReceiver() {
@@ -85,14 +73,6 @@ namespace NPC_Control {
 			#endif
 
 			eventReceivers.Remove(eventReceivers.Last());
-		}
-
-		public void DebugEventReceivers() {
-			Debug.Log($"{this} has {eventReceivers.Count} event receivers");
-
-			foreach (EventReceiver eventReceiver in eventReceivers) {
-				Debug.Log($"Event receiver with key {eventReceiver.key}");
-			}
 		}
 
 		public void StartDialogue() {

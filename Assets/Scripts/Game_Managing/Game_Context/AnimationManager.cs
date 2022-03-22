@@ -21,6 +21,16 @@ namespace Game_Managing.Game_Context {
 		
 		public void SetPlayerRunning(bool value) { _playerAnimator.SetBool("IsRunning", value); }
 
+		public void PetGrassBird(GrassBirdController grassBird) {
+			grassBird.GetComponent<Animator>().ResetTrigger("OnKick");
+			grassBird.GetComponent<Animator>().SetTrigger("OnPet");
+		}
+
+		public void KickGrassBird(GrassBirdController grassBird) {
+			grassBird.GetComponent<Animator>().ResetTrigger("OnPet");
+			grassBird.GetComponent<Animator>().SetTrigger("OnKick");
+		}
+
 		public void EnterDialogueWithPlayer(NPC otherNPC) {
 			_playerAnimator.SetBool("IsInDialogue", true);
 			_playerController.FaceTowards(otherNPC.transform.position);

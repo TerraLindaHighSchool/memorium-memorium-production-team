@@ -28,7 +28,7 @@ namespace NPC_Control.Dialogue {
 			_buttonPrefab    = Resources.Load<GameObject>("Prefabs/Interface/UI/Button");
 			_dialogueText    = dialogueBoxPanel.GetComponentInChildren<TextMeshProUGUI>();
 			_playerInput     = PlayerInputManager.Instance;
-			
+
 			_playerInput.PlayerInputActions.Player.Interact.performed += OnAttemptNext;
 			_playerInput.PlayerInputActions.Player.Jump.performed     += OnAttemptNext;
 
@@ -104,23 +104,17 @@ namespace NPC_Control.Dialogue {
 
 			dialogueBoxPanel.CrossFadeAlpha(1, 1.0f, false);
 			_currentDialogueNode = node;
-			int charDisplaySpeed = message.Length >= 600 ? 100 : message.Length / 6;
-			int charDisplayDelay = 100 / charDisplaySpeed;
-			// _currentDialogueBox = new SimpleDialogueBox(message, charDisplayDelay);
 
 			switch (node) {
-				case DialogueNode dialogueNode:
+				case DialogueNode _:
 					_currentDialogueBox = new SimpleDialogueBox(message, 3);
 					break;
 				case DialogueWithResponseNode dialogueWithResponseNode:
 					_currentDialogueBox =
 						new ResponseDialogueBox(message, dialogueWithResponseNode.GetChildrenKeys().ToArray(),
 						                        3);
+					CreateChoiceButtons(_currentDialogueBox as ResponseDialogueBox);
 					break;
-			}
-
-			if (_currentDialogueBox is ResponseDialogueBox responseDialogueBox) {
-				CreateChoiceButtons(responseDialogueBox);
 			}
 
 			_isDialogueShowing = true;

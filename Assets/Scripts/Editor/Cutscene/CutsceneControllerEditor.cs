@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Editor.Other;
 using Game_Managing.Game_Context.Cutscene;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor {
+namespace Editor.Cutscene {
 	[CustomEditor(typeof(CutsceneContextController))]
 	public class CutsceneControllerEditor : UnityEditor.Editor {
 		private CutsceneContextController _cutscene;

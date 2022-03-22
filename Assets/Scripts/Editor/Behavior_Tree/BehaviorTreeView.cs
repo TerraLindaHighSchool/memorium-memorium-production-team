@@ -10,7 +10,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor {
+namespace Editor.Behavior_Tree {
 	public class BehaviorTreeView : GraphView {
 		public Action RefreshEditorWindow;
 
@@ -27,7 +27,7 @@ namespace Editor {
 			this.AddManipulator(new RectangleSelector());
 
 			StyleSheet styleSheet =
-				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/BehaviorTreeEditor.uss");
+				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/Behavior_Tree/BehaviorTreeEditor.uss");
 			styleSheets.Add(styleSheet);
 
 			MultiChildNodeView.OnDisconnectChild += RemoveChildrenFromEdge;
@@ -136,9 +136,9 @@ namespace Editor {
 
 					bool foundPortMatch = false;
 
-					foreach (KeyValuePair<string, Port> portKVP in parentView.Outputs) {
-						if (portKVP.Key.Equals(childKey)) {
-							AddElement(portKVP.Value.ConnectTo(childView.Input));
+					foreach (KeyValuePair<string, Port> portKvp in parentView.Outputs) {
+						if (portKvp.Key.Equals(childKey)) {
+							AddElement(portKvp.Value.ConnectTo(childView.Input));
 							foundPortMatch = true;
 							break;
 						}

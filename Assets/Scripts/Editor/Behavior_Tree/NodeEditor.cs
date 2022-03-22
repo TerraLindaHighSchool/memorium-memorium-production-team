@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine.UIElements;
 
-namespace Editor {
+namespace Editor.Behavior_Tree {
     [CustomEditor(typeof(BehaviorNode))]
     public class NodeEditor : UnityEditor.Editor
     {

@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Editor.Other;
 using NPC_Control.Behavior_Tree.Nodes;
-using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor {
+namespace Editor.Behavior_Tree {
 	public sealed class MapChildNodeView : NodeView<MapChildNode> {
 		public static Action<Edge> OnDisconnectChild;
 		public static Action       RegenerateEditor;

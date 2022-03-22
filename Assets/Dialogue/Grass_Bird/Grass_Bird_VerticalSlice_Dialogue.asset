@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: abc49723-c3c9-4026-ad0d-3421f745f010
-  position: {x: 464, y: -107}
+  position: {x: 465, y: -102}
   child: {fileID: -1956218653402186122}
   message: Amara pet the grass bird
 --- !u!114 &-1956218653402186122
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: 2588f831-e767-40ea-a308-1ca25e8c2c7d
-  position: {x: 827.0798, y: -108}
+  position: {x: 844.95996, y: -107.44}
   child: {fileID: 0}
-  eventKey: 
+  eventKey: OnPet
 --- !u!114 &-1111080759430470829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: 5ee89c8f-164d-4f75-b00c-dc603cf94b38
-  position: {x: 111.63985, y: -77}
+  position: {x: 112, y: -57.240005}
   children:
   - key: Pet
     value: {fileID: -5346976481786861772}
@@ -102,7 +102,7 @@ MonoBehaviour:
   guid: f179bc77-086a-48d0-b48b-d2af4ae14da3
   position: {x: 832.35986, y: 66}
   child: {fileID: 0}
-  eventKey: 
+  eventKey: OnKick
 --- !u!114 &839737018068489177
 MonoBehaviour:
   m_ObjectHideFlags: 0

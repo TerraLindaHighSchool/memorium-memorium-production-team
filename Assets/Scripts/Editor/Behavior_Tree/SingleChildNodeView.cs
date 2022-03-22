@@ -2,7 +2,7 @@ using NPC_Control.Behavior_Tree.Nodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
 using UnityEditor.Experimental.GraphView;
 
-namespace Editor {
+namespace Editor.Behavior_Tree {
 	public sealed class SingleChildNodeView : NodeView<SingleChildNode> {
 		public Port Output;
 

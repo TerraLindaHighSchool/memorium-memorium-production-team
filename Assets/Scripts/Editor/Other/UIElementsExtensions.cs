@@ -6,7 +6,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor {
+namespace Editor.Other {
 	public static class UIElementsExtensions {
 		//https://forum.unity.com/threads/uielements-and-scriptableobjects-in-editorwindow.729113/
 		private static FieldInfo[] GetVisibleSerializedFields(Type T) {
