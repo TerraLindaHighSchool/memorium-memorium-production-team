@@ -1,17 +1,47 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Game_Managing.Game_Context;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace NPC_Control {
 	[RequireComponent(typeof(NavMeshAgent))]
+	[RequireComponent(typeof(Animator))]
 	public class EntityController : MonoBehaviour {
-		[SerializeField] private Vector3[]    patrolPoints;
+		[SerializeField] private Vector3[] patrolPoints;
+
+		public float isMovingThreshold = 0.5f;
 
 		public MovementMode movementMode;
 
 		public Vector3      headPos;
 		public float        waitTime;
 		public NavMeshAgent agent;
+
+		private AnimationManager _animationManager;
+		private Animator         _animator;
+
+		private bool _isAnimationPlaying;
+
+		private void OnEnable() {
+			_animationManager = AnimationManager.Instance;
+			_animator         = GetComponent<Animator>();
+		}
+
+		private void Update() {
+			if (agent.velocity.magnitude < isMovingThreshold && _isAnimationPlaying) {
+				_animationManager.SetAnimatorRunning(_animator, false);
+				_isAnimationPlaying = false;
+			} else if (agent.velocity.magnitude >= isMovingThreshold && !_isAnimationPlaying) {
+				_animationManager.SetAnimatorRunning(_animator, true);
+				_isAnimationPlaying = true;
+			}
+
+			if (_isAnimationPlaying) {
+				transform.LookAt(agent.destination, transform.up);
+				transform.Rotate(transform.up, 90f);
+			}
+		}
 
 		public void StartPatrol() {
 			movementMode = MovementMode.Patrol;

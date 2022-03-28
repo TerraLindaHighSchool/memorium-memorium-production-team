@@ -5,7 +5,7 @@ using Cinemachine;
 using Game_Managing.Pausing;
 using Other;
 #if UNITY_EDITOR
-	using UnityEditor;
+using UnityEditor;
 #endif
 using UnityEngine;
 
@@ -43,7 +43,7 @@ namespace Game_Managing.Game_Context.Cutscene {
 			PauseManager.Instance.Paused = new Optional<PauseManager.PauseType>(PauseManager.PauseType.Cutscene, true);
 		}
 
-		public void GCUpdatePos(Vector2   mousePos,   bool lcDown, bool rcDown) { }
+		public void GCUpdatePos(Vector2 mousePos, bool lcDown, bool rcDown) { }
 
 		public void GCExit() {
 			_vcam.enabled = false;
@@ -63,7 +63,7 @@ namespace Game_Managing.Game_Context.Cutscene {
 
 				foreach (TimedCutsceneEvent timedEvent in events) {
 					if (timedEvent.time <= timeSinceStarted && !timedEvent.hasFired) {
-						timedEvent.unityEvent?.Invoke();
+						timedEvent.@event?.Invoke();
 						timedEvent.hasFired = true;
 					}
 				}
@@ -76,6 +76,10 @@ namespace Game_Managing.Game_Context.Cutscene {
 			if (events == null) events = new List<TimedCutsceneEvent>();
 
 			TimedCutsceneEvent newEvent = ScriptableObject.CreateInstance<TimedCutsceneEvent>();
+			
+			#if UNITY_EDITOR
+			Undo.RecordObject(this, "Added timed cutscene event");
+			#endif
 
 			events.Add(newEvent);
 
@@ -89,6 +93,10 @@ namespace Game_Managing.Game_Context.Cutscene {
 			}
 
 			TimedCutsceneEvent lastEvent = events.Last();
+			
+			#if UNITY_EDITOR
+			Undo.RecordObject(this, "Removed timed cutscene event");
+			#endif
 
 			events.Remove(lastEvent);
 		}
