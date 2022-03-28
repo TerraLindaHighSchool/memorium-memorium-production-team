@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Game_Managing.Game_Context.Cutscene {
 	[Serializable]
@@ -9,15 +10,15 @@ namespace Game_Managing.Game_Context.Cutscene {
 		
 		[HideInInspector] public bool hasFired;
 
-		public string     label;
-		public float      time;
-		public UnityEvent unityEvent;
+		public                                      string     label;
+		public                                      float      time;
+		[FormerlySerializedAs("unityEvent")] public UnityEvent @event;
 
 		public TimedCutsceneEvent() {
 			guid       = Guid.NewGuid().ToString();
 			label      = "New Cutscene Event";
 			time       = 0.0f;
-			unityEvent = new UnityEvent();
+			@event = new UnityEvent();
 			hasFired   = false;
 		}
 	}
