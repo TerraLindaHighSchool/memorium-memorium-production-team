@@ -8,6 +8,7 @@ using Other;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 namespace Editor.Behavior_Tree {
@@ -32,15 +33,16 @@ namespace Editor.Behavior_Tree {
 
 			MultiChildNodeView.OnDisconnectChild += RemoveChildrenFromEdge;
 			MapChildNodeView.OnDisconnectChild   += RemoveChildrenFromEdge;
+			
+			
+			RegisterCallback<PointerDownEvent>(pointerEvt => { Debug.Log(pointerEvt.localPosition); }, TrickleDown.TrickleDown);
 		}
 
 		private NodeView<T> FindNodeView<T>(T node) where T : BehaviorNode {
 			return GetNodeByGuid(node?.guid) as NodeView<T>;
 		}
 
-		public void PopulateView(BehaviorTree tree) {
-			Tree = tree;
-
+		public void PopulateView() {
 			graphViewChanged -= OnGraphViewChanged;
 			DeleteElements(graphElements.ToList());
 			graphViewChanged += OnGraphViewChanged;

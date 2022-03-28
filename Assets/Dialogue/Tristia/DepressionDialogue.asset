@@ -214,7 +214,6 @@ MonoBehaviour:
   - {fileID: -1210866071503286485}
   - {fileID: 5074871368840885999}
   - {fileID: -4037342563236926985}
-  - {fileID: 7271683016126271598}
 --- !u!114 &349196007737347789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,22 +303,6 @@ MonoBehaviour:
   guid: f3e9ae82-7720-4014-8db6-df0bc49a274d
   position: {x: -1664, y: -5.919983}
   child: {fileID: -5543528433437986110}
---- !u!114 &7271683016126271598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guid: 472308b3-f357-4c41-8a28-4f17d56bf085
-  position: {x: -207.7091, y: 354.72913}
-  child: {fileID: 0}
-  message: Wacky node
 --- !u!114 &7383286436061137965
 MonoBehaviour:
   m_ObjectHideFlags: 0

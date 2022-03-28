@@ -28,9 +28,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: abc49723-c3c9-4026-ad0d-3421f745f010
-  position: {x: 465, y: -102}
+  position: {x: 441, y: -104}
   child: {fileID: -1956218653402186122}
-  message: Amara pet the grass bird
+  message: Amara pet the grass bird :)
 --- !u!114 &-1956218653402186122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: 7bce20bf-33b0-45f8-9872-1cce2ee74a18
-  position: {x: 446.59998, y: 65}
+  position: {x: 432, y: 65}
   child: {fileID: 438657250926958897}
   message: Amara kick the grass bird :(

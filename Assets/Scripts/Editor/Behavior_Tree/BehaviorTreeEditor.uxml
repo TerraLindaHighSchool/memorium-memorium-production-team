@@ -2,7 +2,7 @@
     <ui:VisualElement name="background" style="flex-grow: 1; align-items: center; flex-direction: row; justify-content: flex-end;">
         <Style src="BehaviorTreeEditor.uss" />
         <ui:VisualElement name="main-panel" style="flex-grow: 1; height: 100%; background-color: rgba(0, 54, 255, 0); width: 0;">
-            <ui:Label text="Node View" name="main-panel-label" style="background-color: rgb(37, 37, 37);" />
+            <ui:Label text="File Name" name="main-panel-label" style="background-color: rgb(37, 37, 37);" />
             <Editor.Behavior_Tree.BehaviorTreeView focusable="true" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>

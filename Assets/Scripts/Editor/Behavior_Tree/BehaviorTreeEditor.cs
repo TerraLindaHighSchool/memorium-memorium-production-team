@@ -8,11 +8,14 @@ namespace Editor.Behavior_Tree {
 	public class BehaviorTreeEditor : EditorWindow {
 		private BehaviorTreeView _treeView;
 
+		private Label _fileNameLabel;
+
 		[MenuItem("Window/BehaviorTreeEditor")]
 		public static void OpenWindow() {
 			BehaviorTreeEditor wnd = GetWindow<BehaviorTreeEditor>();
 			wnd.titleContent = new GUIContent("BehaviorTreeEditor");
 			wnd.Show();
+			wnd.OnSelectionChange();
 		}
 
 		[OnOpenAsset]
@@ -43,6 +46,8 @@ namespace Editor.Behavior_Tree {
 
 			_treeView = root.Q<BehaviorTreeView>();
 
+			_fileNameLabel = _treeView.parent.ElementAt(0) as Label;
+
 			_treeView.RefreshEditorWindow       += Repaint;
 			MultiChildNodeView.RegenerateEditor += OnSelectionChange;
 			MapChildNodeView.RegenerateEditor   += OnSelectionChange;
@@ -52,8 +57,15 @@ namespace Editor.Behavior_Tree {
 
 		private void OnSelectionChange() {
 			Repaint();
-			BehaviorTree tree = Selection.activeObject as BehaviorTree;
-			_treeView.PopulateView(tree);
+
+			Object selectedObj = Selection.activeObject;
+
+			if (selectedObj is BehaviorTree tree) {
+				_treeView.Tree      = tree;
+				_fileNameLabel.text = selectedObj.name;
+			} else if (!_treeView.Tree) { _fileNameLabel.text = "No BehaviorTree selected"; }
+
+			_treeView.PopulateView();
 		}
 	}
 }
