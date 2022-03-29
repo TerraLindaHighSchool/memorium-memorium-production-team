@@ -13,16 +13,16 @@ namespace Player_Control {
 	[RequireComponent(typeof(Animator))]
 	public class PlayerController : MonoBehaviour {
 		///Player speed multiplier. 
-		public float speed = 10f;
+		public float speed;
 
 		///Player jump height multiplier.
-		public float jump = 1f;
+		public float jump;
 
 		///Player gravity multiplier.
-		public float gravity = 1f;
+		public float gravity;
 
 		///Player maximum interaction distance.
-		public float interactDistance = 5f;
+		public float interactDistance;
 
 		/// <summary>
 		/// Invoked after the player has moved.
