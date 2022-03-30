@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public class OrbitCameraManager : Singleton<OrbitCameraManager>, IGameContext {
-		[SerializeField] private float sensitivity = 0.7f;
+		[SerializeField] private float sensitivity = 0.1f;
 
 		[SerializeField] private int cameraYBound = 60;
 
