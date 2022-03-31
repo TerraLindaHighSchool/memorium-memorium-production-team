@@ -11,7 +11,7 @@ namespace NPC_Control {
 
         [SerializeField] private float radius = 5;
         [SerializeField] private float sine_force = 1;
-        [SerializeField] private float speed = 1.0f;
+        [SerializeField] private float speed = 0.01f;
         [SerializeField] private float yOffset = 10;
 
         private int degree = 0;
@@ -36,7 +36,7 @@ namespace NPC_Control {
 
         private Vector3 MoveToPlayer(Vector3 pos)
         {
-            return Vector3.Lerp(this.transform.position, pos, speed * Time.deltaTime);
+            return Vector3.Lerp(this.transform.position, pos, speed);
         }
         private Vector3 RotateAroundPlayer(Vector3 pos)
         {

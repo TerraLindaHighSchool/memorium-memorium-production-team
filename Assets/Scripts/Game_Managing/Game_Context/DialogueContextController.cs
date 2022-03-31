@@ -13,9 +13,13 @@ namespace Game_Managing.Game_Context {
 
 		private Transform _playerFollowCamTarget;
 
+		private AnimationManager _animationManager;
+
 		public DialogueContextController(NPC npc) { _currentDialogueNPC = npc; }
 
 		public void GCStart() {
+			_animationManager = AnimationManager.Instance;
+			
 			_playerFollowCamTarget = GameObject.Find("LookAtTarget").transform;
 
 			_currentDialogueNPCChildren = new List<GameObject>();
@@ -75,6 +79,8 @@ namespace Game_Managing.Game_Context {
 			currentDialogueVCamComposer.m_MinimumFOV     = 60;
 			currentDialogueVCamComposer.m_MaximumFOV     = 60;
 			currentDialogueVCamComposer.m_AdjustmentMode = CinemachineGroupComposer.AdjustmentMode.ZoomOnly;
+			
+			_animationManager.EnterDialogueWithPlayer(_currentDialogueNPC);
 		}
 
 		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) { }
@@ -85,6 +91,8 @@ namespace Game_Managing.Game_Context {
 		public Transform GetPlayerFollowCamTarget() { throw new NotImplementedException(); }
 
 		public void GCExit() {
+			_animationManager.ExitDialogueWithPlayer(_currentDialogueNPC);
+			
 			_currentDialogueNPC = null;
 
 			foreach (GameObject obj in _currentDialogueNPCChildren) Object.Destroy(obj);

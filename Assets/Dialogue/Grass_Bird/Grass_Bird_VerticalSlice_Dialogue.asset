@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5841153077550649451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: ae55447c-71e4-49df-a532-3115b82f9d6f
+  position: {x: -78.51999, y: -67.72}
+  child: {fileID: -1111080759430470829}
+--- !u!114 &-5346976481786861772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: abc49723-c3c9-4026-ad0d-3421f745f010
+  position: {x: 441, y: -104}
+  child: {fileID: -1956218653402186122}
+  message: Amara pet the grass bird :)
+--- !u!114 &-1956218653402186122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 2588f831-e767-40ea-a308-1ca25e8c2c7d
+  position: {x: 844.95996, y: -107.44}
+  child: {fileID: 0}
+  eventKey: OnPet
+--- !u!114 &-1111080759430470829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 5ee89c8f-164d-4f75-b00c-dc603cf94b38
+  position: {x: 112, y: -57.240005}
+  children:
+  - key: Pet
+    value: {fileID: -5346976481786861772}
+  - key: Kick
+    value: {fileID: 839737018068489177}
+  message: '*squawk squawk*'
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Grass_Bird_VerticalSlice_Dialogue
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -5841153077550649451}
+  nodes:
+  - {fileID: -5841153077550649451}
+  - {fileID: -1111080759430470829}
+  - {fileID: -5346976481786861772}
+  - {fileID: 839737018068489177}
+  - {fileID: -1956218653402186122}
+  - {fileID: 438657250926958897}
+--- !u!114 &438657250926958897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f179bc77-086a-48d0-b48b-d2af4ae14da3
+  position: {x: 832.35986, y: 66}
+  child: {fileID: 0}
+  eventKey: OnKick
+--- !u!114 &839737018068489177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 7bce20bf-33b0-45f8-9872-1cce2ee74a18
+  position: {x: 432, y: 65}
+  child: {fileID: 438657250926958897}
+  message: Amara kick the grass bird :(
