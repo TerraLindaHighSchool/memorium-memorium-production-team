@@ -18,8 +18,7 @@ namespace NPC_Control {
 
         private bool canFloat = true;
 
-    [SerializeField] private Vector3 offset;
-    [SerializeField] private float speed = 0.1f;
+        [SerializeField] private Vector3 offset;
 
         private Vector3 MoveToPlayer(Vector3 pos)
         {
@@ -34,8 +33,11 @@ namespace NPC_Control {
             float y = (Mathf.Sin(rad) * sine_force);
             float z = Mathf.Sin(rad) * radius;
 
-    private void MoveAroundPlayer()
-    {
-        this.transform.position = Vector3.Lerp(this.transform.position + offset, Player.position, speed);
+	    return new Vector3(x, y, z) + pos;
+	}
+        private void MoveAroundPlayer()
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position + offset, Player.position, speed);
+        }
     }
 }
