@@ -48,7 +48,7 @@ namespace Player_Control {
 		private bool _isCoyoteTime;
 
 		//Number of frames CoyoteTime works
-		private int _coyoteTimer;
+		private int _coyoteTimer = 20;
 
 		///Boolean to track whether or not the player has jumped
 		public bool hasJumped;
@@ -337,7 +337,7 @@ namespace Player_Control {
 				}
 			}
 
-			if(_timeFalling>= _coyoteTimer)
+			if(_timeFalling >= _coyoteTimer)
 			{
 				_isCoyoteTime = false;
 			}
@@ -356,7 +356,6 @@ namespace Player_Control {
 
 		/// <summary>
 		/// Calls <c>Move()</c> each frame.
-		/// Calls <c>CoyoteTime()</c> each frame.
 		/// </summary>
 		private void Update() {
 			if (_gameContextManager.ActiveContext is OrbitCameraManager
@@ -365,6 +364,7 @@ namespace Player_Control {
 
 		}
 
+		/// Calls <c>CoyoteTime()</c> at a fixed framerate.
 		private void FixedUpdate()
 		{
 			CoyoteTime();
