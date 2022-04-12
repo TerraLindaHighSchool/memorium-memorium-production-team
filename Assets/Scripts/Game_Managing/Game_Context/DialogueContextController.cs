@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cinemachine;
 using NPC_Control;
+using Player_Control;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
