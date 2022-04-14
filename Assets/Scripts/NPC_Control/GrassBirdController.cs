@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Game_Managing.Game_Context;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,6 +22,16 @@ namespace NPC_Control {
 		private void Awake() { npc = GetComponent<NPC>(); }
 
 		private void Start() { StartCoroutine(MoveToRandom()); }
+
+		public void OnPet() {
+			Debug.Log($"{this} was pet");
+			AnimationManager.Instance.PetGrassBird(this);
+		}
+
+		public void OnKick() {
+			Debug.Log($"{this} was kicked");
+			AnimationManager.Instance.KickGrassBird(this);
+		}
 
 		private Vector3 GetRandomPoint() {
 			float x = Random.Range(-boxSize.x, boxSize.x);
