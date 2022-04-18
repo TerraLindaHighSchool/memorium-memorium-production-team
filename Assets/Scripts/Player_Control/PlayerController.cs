@@ -54,6 +54,8 @@ namespace Player_Control {
 		/// </summary>
 		private bool preventForwardBackwardMotion = false;
 
+		private bool needsToJump = false;
+
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
