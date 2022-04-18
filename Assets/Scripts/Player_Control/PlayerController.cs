@@ -15,16 +15,16 @@ namespace Player_Control {
 	[RequireComponent(typeof(Animator))]
 	public class PlayerController : MonoBehaviour {
 		///Player speed multiplier. 
-		public float speed = 10f;
+		public float speed;
 
 		///Player jump height multiplier.
-		public float jump = 1f;
+		public float jump;
 
 		///Player gravity multiplier.
-		public float gravity = 1f;
+		public float gravity;
 
 		///Player maximum interaction distance.
-		public float interactDistance = 5f;
+		public float interactDistance;
 
 		/// <summary>
 		/// Invoked after the player has moved.
@@ -46,10 +46,18 @@ namespace Player_Control {
 		/// </summary>
 		private readonly bool[] _wasd = new bool[4];
 
-		private bool _isWalking;
 		private bool _isRunning;
+		/// <summary>
+		/// Boolean for preventing conflicts when the player presses <c>A</c> and <c>D</c> at the same time
+		/// </summary>
+		private bool preventHorizontalMotion = false;
 
-		/// CharacterController component for moving the player. 
+		/// <summary>
+		/// Boolean for preventing conflicts when the player presses <c>W</c> and <c>S</c> at the same time
+		/// </summary>
+		private bool preventForwardBackwardMotion = false;
+
+		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
 		/// <summary>
@@ -340,13 +348,15 @@ namespace Player_Control {
 
 			//if counteracting keys are pressed, set both to false
 			if (_wasd[0] && _wasd[2]) {
-				_wasd[0] = false;
-				_wasd[2] = false;
+				preventHorizontalMotion = true;
+			} else {
+				preventHorizontalMotion = false;
 			}
 
 			if (_wasd[1] && _wasd[3]) {
-				_wasd[1] = false;
-				_wasd[3] = false;
+				preventForwardBackwardMotion = true;
+			} else {
+				preventForwardBackwardMotion = false;
 			}
 
 			if (_wasd[0] || _wasd[1] || _wasd[2] || _wasd[3]) {
@@ -367,13 +377,15 @@ namespace Player_Control {
 
 				Vector3 dir = new Vector3();
 
-				if (_wasd[0]) { dir += transform.forward; }
+				if (!preventForwardBackwardMotion) {
+					if (_wasd[0]) { dir += transform.forward; }
+					if (_wasd[2]) { dir += -transform.forward; }
+				}
 
-				if (_wasd[1]) { dir += -transform.right; }
-
-				if (_wasd[2]) { dir += -transform.forward; }
-
-				if (_wasd[3]) { dir += transform.right; }
+				if (!preventHorizontalMotion) {
+					if (_wasd[1]) { dir += -transform.right; }
+					if (_wasd[3]) { dir += transform.right; }
+				}
 
 				dir.Normalize();
 
