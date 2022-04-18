@@ -18,7 +18,17 @@ ModelImporter:
   - first:
       74: 1442708123716537878
     second: HitReact
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: 842c4531fc77afb45aaae56150d3a10a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: a7a0025d747bac0469fef85d11029034, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
