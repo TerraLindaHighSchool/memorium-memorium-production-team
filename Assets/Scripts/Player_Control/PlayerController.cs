@@ -31,6 +31,11 @@ namespace Player_Control {
 		public event Action Moved;
 
 		/// <summary>
+		/// Player mesh for rotation.
+		/// </summary>
+		public Transform meshTransform;
+
+		/// <summary>
 		/// Field for keeping track of player velocity between frames.
 		/// Currently vertical velocity is tracked, but horizontal velocity is just set by WASD. 
 		/// </summary>
@@ -142,7 +147,9 @@ namespace Player_Control {
 		public void FaceTowards(Vector3 point) {
 			Vector3 heightNormalizedPoint = new Vector3(point.x, transform.position.y, point.z);
 			
-			transform.LookAt(heightNormalizedPoint);
+			// transform.LookAt(heightNormalizedPoint);
+			// lerp towards the point
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(heightNormalizedPoint - transform.position), 0.1f);
 			
 			transform.Rotate(transform.up, -90f);
 		}
@@ -266,9 +273,9 @@ namespace Player_Control {
 					Quaternion storedCamTargetRot = playerFollowCamTarget.rotation;
 
 					transform.SetPositionAndRotation(transform.position,
-					                                 Quaternion.Euler(
-						                                 new Vector3(eulers.x, activeContext.GetYRotForForwards(),
-						                                             eulers.z)));
+					                                Quaternion.Euler(
+					                                 new Vector3(eulers.x, activeContext.GetYRotForForwards(),
+					                                             eulers.z)));
 
 					playerFollowCamTarget.SetPositionAndRotation(
 						storedCamTargetPos, storedCamTargetRot);
@@ -289,7 +296,13 @@ namespace Player_Control {
 				dir.Normalize();
 
 				Quaternion motionRot = Quaternion.identity;
+
+				// make rotation changes smoother by adding half the rotation change to the current rotation
 				motionRot.SetLookRotation(dir);
+				motionRot.eulerAngles = new Vector3(
+					motionRot.eulerAngles.x + (transform.eulerAngles.x - motionRot.eulerAngles.x) / 2,
+					motionRot.eulerAngles.y + (transform.eulerAngles.y - motionRot.eulerAngles.y) / 2,
+					motionRot.eulerAngles.z + (transform.eulerAngles.z - motionRot.eulerAngles.z) / 2);
 
 				Vector3    storedCamPos = playerFollowCamTarget.position;
 				Quaternion storedCamRot = playerFollowCamTarget.rotation;
