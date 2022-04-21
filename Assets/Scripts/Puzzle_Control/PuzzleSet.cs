@@ -34,7 +34,7 @@ namespace Puzzle_Control {
 		}
 
 		/// <summary>
-		/// Unsubscribes from PuzzleControllre event publishers when this component is destroyed
+		/// Unsubscribes from PuzzleController event publishers when this component is destroyed
 		/// </summary>
 		private void OnDestroy() {
 			foreach (PuzzleController puzzle in puzzleComponents) {
