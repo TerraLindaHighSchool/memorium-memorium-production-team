@@ -51,7 +51,7 @@
             {
                 v2f o;
 				UNITY_SETUP_INSTANCE_ID(v);
-				UNITY_TRANSFER_INSTANCE_ID(v, o);
+				//UNITY_TRANSFER_INSTANCE_ID(v, o);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 ///remove if preformance hit is real bad <
                 o.uv = v.uv.xy;
