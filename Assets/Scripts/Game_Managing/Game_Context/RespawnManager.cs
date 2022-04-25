@@ -1,16 +1,17 @@
 using Other;
+using Player_Control;
 using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public class RespawnManager : Singleton<RespawnManager> {
-		public Vector3 RespawnPoint { get; private set; }
+		private Vector3 _respawnPoint;
 
 		public float respawnHeightThreshold = -20.0f;
 
 		private GameObject _player;
 
 		public void SetRespawnPoint(Vector3 newPoint) {
-			RespawnPoint = newPoint;
+			_respawnPoint = newPoint;
 			_player      = GameObject.FindWithTag("Player");
 		}
 
@@ -24,6 +25,9 @@ namespace Game_Managing.Game_Context {
 			if (_player.transform.position.y <= respawnHeightThreshold) Respawn();
 		}
 
-		public void Respawn() { _player.transform.position = RespawnPoint; }
+		private void Respawn() {
+			_player.transform.position = _respawnPoint;
+			_player.GetComponent<PlayerController>().OnDeath();
+		}
 	}
 }
