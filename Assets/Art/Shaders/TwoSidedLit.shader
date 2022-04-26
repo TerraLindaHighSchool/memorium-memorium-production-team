@@ -50,7 +50,10 @@
             o.Alpha = c.a;
 			
 			if (IN.facing < 0.5)
-                o.Normal *= -1.0;
+			{
+                o.Albedo /= 3;
+				o.Normal *= -1.0;
+			}
         }
         ENDCG
     }
