@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8907296651186832991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a6b91177-7b02-4411-989a-3361b3feec08
+  position: {x: 6434.3066, y: 223.71596}
+  child: {fileID: 0}
+  message: Not quite. Go check the puzzles again.
 --- !u!114 &-8794837498262748786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +137,22 @@ MonoBehaviour:
     value: {fileID: -8601980064168502135}
   message: Well, I understand you want that shard, but really? Yourself? I don't
     deal with those kinds of goods. How about you give me your tie instead.
+--- !u!114 &-5871069891127231553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 09df85ba-b97c-4492-945e-d5fe88af9d06
+  position: {x: 6495.525, y: 48}
+  child: {fileID: 0}
+  message: Perfect! Now here is your shard.
 --- !u!114 &-5744911303364148116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +204,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: cf4eb0e9-105c-472f-abab-1df686a0983b
   position: {x: 5927.042, y: -5.0000052}
-  children: []
+  children:
+  - key: Jazzy and Eagle.
+    value: {fileID: -8907296651186832991}
+  - key: Leaf and Jump.
+    value: {fileID: -8907296651186832991}
+  - key: Petal and Wind.
+    value: {fileID: -8907296651186832991}
+  - key: Flower and Fight.
+    value: {fileID: -8907296651186832991}
+  - key: Soil and Mist.
+    value: {fileID: -8907296651186832991}
+  - key: Press and Breath.
+    value: {fileID: -8907296651186832991}
+  - key: Seed and Fall.
+    value: {fileID: -8907296651186832991}
+  - key: Bloom and Float.
+    value: {fileID: -5871069891127231553}
   message: You do? Well then do tell, what are they?
 --- !u!114 &-4559681225249222229
 MonoBehaviour:
@@ -367,6 +415,8 @@ MonoBehaviour:
   - {fileID: -8601980064168502135}
   - {fileID: 6926538591811397848}
   - {fileID: -4786929771983384644}
+  - {fileID: -8907296651186832991}
+  - {fileID: -5871069891127231553}
 --- !u!114 &1398006052222925681
 MonoBehaviour:
   m_ObjectHideFlags: 0
