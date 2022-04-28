@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="PropertyContainer">
+        <Style src="CutsceneControllerEditor.uss" />
+        <uie:ObjectField label="Dialogue Tree" name="tree_field" binding-path="tree" allow-scene-objects="false" />
+    </ui:VisualElement>
+    <ui:VisualElement name="EventReceivers" style="flex-grow: 1;">
+        <Style src="CutsceneControllerEditor.uss" />
+        <ui:Label text="Event Receivers" name="EventReceiversLabel" />
+        <ui:VisualElement name="ButtonContainer" style="flex-direction: row-reverse;">
+            <ui:Button text="-" name="RemoveButton" />
+            <ui:Button text="+" name="AddButton" />
+        </ui:VisualElement>
+        <ui:ListView focusable="true" style="flex-grow: 1; flex-shrink: 0.5; min-height: 200px; border-left-color: rgb(77, 77, 77); border-right-color: rgb(77, 77, 77); border-top-color: rgb(77, 77, 77); border-bottom-color: rgb(77, 77, 77); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px;" />
+    </ui:VisualElement>
+</ui:UXML>
