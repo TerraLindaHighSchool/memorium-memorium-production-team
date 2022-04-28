@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 566e65e8-b897-48b1-bcae-52af07858031
   position: {x: -1470.7367, y: -303.47366}
-  child: {fileID: 0}
+  child: {fileID: -4037342563236926985}
   message: Well if you can't help me, no one can.
 --- !u!114 &-4788199787731874116
 MonoBehaviour:
@@ -131,8 +131,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 20c830e6-83ee-4de0-9800-53e25bd936f4
   position: {x: -882.53, y: -189.35501}
-  child: {fileID: 0}
+  child: {fileID: -4037342563236926985}
   message: How could you be so cruel, these flowers are my life.
+--- !u!114 &-4037342563236926985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 981a4331-dc56-4399-9766-21ef49d1ba60
+  position: {x: -723.566, y: 456.7371}
+  child: {fileID: 0}
+  message: End Depression Dialogue
 --- !u!114 &-1210866071503286485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 640ca920-59c8-4305-ae64-ac5f6a0d8240
   position: {x: -1535, y: -157.91998}
-  child: {fileID: 0}
+  child: {fileID: -4037342563236926985}
   message: You don't care. Good. Neiher do I, It seems we've reached an Impasse.
 --- !u!114 &11400000
 MonoBehaviour:
@@ -197,6 +213,7 @@ MonoBehaviour:
   - {fileID: 3365981909583282712}
   - {fileID: -1210866071503286485}
   - {fileID: 5074871368840885999}
+  - {fileID: -4037342563236926985}
 --- !u!114 &349196007737347789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: fcabc64f-9f0b-4da2-95bb-5e764139a0e2
   position: {x: 227.9205, y: -321.7713}
-  child: {fileID: 0}
+  child: {fileID: -4037342563236926985}
   message: Good for you.
 --- !u!114 &5074871368840885999
 MonoBehaviour:
@@ -301,7 +318,7 @@ MonoBehaviour:
   guid: 0c3a3c62-bb8e-4fe0-86aa-ba467eca8fb6
   position: {x: 1117.5997, y: 6.083495}
   child: {fileID: 0}
-  eventKey: END
+  eventKey: OnDeath
 --- !u!114 &7432792321007448665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guid: 53712340-5aba-41d1-8302-7b67567fffa8
-  position: {x: 578.4501, y: -5.750005}
+  position: {x: 578, y: 4.640085}
   child: {fileID: 7383286436061137965}
-  message: You're the first person to give me a chance. THank you.
+  message: You're the first person to give me a chance. Thank you.
