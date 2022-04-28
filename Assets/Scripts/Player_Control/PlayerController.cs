@@ -402,7 +402,7 @@ namespace Player_Control {
 				dir.Normalize();
 
 				Quaternion desiredRotation = Quaternion.identity;
-				desiredRotation.SetLookRotation(dir);
+				if (dir != Vector3.zero) desiredRotation.SetLookRotation(dir);
 
 				Vector3    storedCamPos = playerFollowCamTarget.position;
 				Quaternion storedCamRot = playerFollowCamTarget.rotation;
