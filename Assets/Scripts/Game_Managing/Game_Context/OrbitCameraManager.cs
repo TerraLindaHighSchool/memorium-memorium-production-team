@@ -1,14 +1,17 @@
 using System;
+using Cinemachine;
 using Other;
 using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public class OrbitCameraManager : Singleton<OrbitCameraManager>, IGameContext {
-		[SerializeField] private float sensitivity = 2f;
+		[SerializeField] private float sensitivity = 1f;
 
 		[SerializeField] private int cameraYBound = 60;
 
 		[SerializeField] private Transform playerFollowCamTarget;
+
+		private CinemachineVirtualCamera _vcam;
 
 		public void  GCUpdatePos(Vector2 mousePos, bool lcDown, bool rcDown) { }
 		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y - 90f; }
@@ -18,13 +21,18 @@ namespace Game_Managing.Game_Context {
 			return playerFollowCamTarget;
 		}
 
-		public void GCStart() { playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
+		public void GCStart() {
+			playerFollowCamTarget = GameObject.Find("LookAtTarget").transform;
+			_vcam                 = GameObject.Find("Player VCAM").GetComponent<CinemachineVirtualCamera>();
+		}
 
 		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) {
 			if (!rcDown || mouseDelta == Vector2.zero) return;
 
 			mouseDelta   *= sensitivity * (1 + Time.deltaTime);
 			mouseDelta.y *= -1;
+
+			Vector3 followTargetStartPos = playerFollowCamTarget.position;
 
 			Transform playerTransform = playerFollowCamTarget.parent;
 
@@ -39,8 +47,8 @@ namespace Game_Managing.Game_Context {
 				playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
 			}
 
+			//Remove z component rotation
 			Vector3 playerFollowTargetEulers = playerFollowCamTarget.eulerAngles;
-
 			Quaternion removeFollowTargetZComponent =
 				Quaternion.Euler(new Vector3(playerFollowTargetEulers.x, playerFollowTargetEulers.y, 0));
 			playerFollowCamTarget.SetPositionAndRotation(playerFollowCamTarget.position,

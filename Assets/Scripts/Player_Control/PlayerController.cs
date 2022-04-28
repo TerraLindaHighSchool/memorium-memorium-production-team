@@ -59,6 +59,16 @@ namespace Player_Control {
 		/// </summary>
 		private bool _preventForwardBackwardMotion;
 
+		/// <summary>
+		/// Frames after leaving the ground left until the player can no longer jump.
+		/// </summary>
+		private int timeLeftToJump = 1;
+
+		/// <summary>
+		/// How many frames to give the player to jump after leaving the ground.
+		/// </summary>
+		private const int timeToJump = 10;
+
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
 
@@ -238,9 +248,10 @@ namespace Player_Control {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Jump.performed</c> event.</param>
 		private void OnJump(InputAction.CallbackContext context) {
-			if (_characterController.isGrounded
+			if (timeLeftToJump > 0
 			 && (_gameContextManager.ActiveContext is OrbitCameraManager
 			  || _gameContextManager.ActiveContext is FixedCameraContextController)) {
+				timeLeftToJump = 0;
 				_velocity.y += jump;
 				_animationManager.SetPlayerOnLand(false);
 
@@ -390,7 +401,7 @@ namespace Player_Control {
 				dir.Normalize();
 
 				Quaternion desiredRotation = Quaternion.identity;
-				desiredRotation.SetLookRotation(dir);
+				if (dir != Vector3.zero) desiredRotation.SetLookRotation(dir);
 
 				Vector3    storedCamPos = playerFollowCamTarget.position;
 				Quaternion storedCamRot = playerFollowCamTarget.rotation;
@@ -423,15 +434,20 @@ namespace Player_Control {
 			_characterController.Move(_velocity);
 
 			if (_characterController.isGrounded) {
+				timeLeftToJump = timeToJump;
 				_velocity.y = 0;
 				_animationManager.SetPlayerInAir(false);
-			} else { _animationManager.SetPlayerInAir(true); }
+			} else { 
+				_animationManager.SetPlayerInAir(true);
+				timeLeftToJump = timeLeftToJump == 0 ? 0 : timeLeftToJump - 1;
+			}
 
 			if (_characterController.isGrounded && !_wasGroundedLastFrame) { _animationManager.SetPlayerOnLand(true); }
 
 			Moved?.Invoke();
 
 			_wasGroundedLastFrame = _characterController.isGrounded;
+			
 		}
 
 		/// <summary>
