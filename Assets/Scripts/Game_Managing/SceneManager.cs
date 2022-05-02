@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using Game_Managing.Game_Context;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -74,6 +75,7 @@ namespace Game_Managing {
 			int         index         = Random.Range(0, sceneDatas.Length - 1);
 			SceneData   selectedScene = sceneDatas[index];
 			RespawnManager.Instance.SetRespawnPoint(selectedScene.DefaultRespawnPoint);
+			MusicManager.Instance.SetCurrentScene(scene);
 			UnityEngine.SceneManagement.SceneManager.LoadScene(selectedScene.Path);
 		}
 
