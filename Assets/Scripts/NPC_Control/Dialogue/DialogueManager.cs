@@ -2,6 +2,7 @@ using NPC_Control.Behavior_Tree;
 using NPC_Control.Behavior_Tree.Nodes.MapChildNodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
 using Other;
+using Player_Control;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -55,6 +56,7 @@ namespace NPC_Control.Dialogue {
 			if (_currentDialogueBox == null) return;
 
 			if (_currentDialogueBox.IsMessageFullyDisplayed && _currentDialogueNode is DialogueWithResponseNode) {
+				GameObject.Find("Player").GetComponent<PlayerController>().OnDialogueOption();
 				EndDialogue(key);
 			}
 		}

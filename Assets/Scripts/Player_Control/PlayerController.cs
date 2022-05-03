@@ -1,8 +1,10 @@
 ﻿using System;
+using Audio;
 using Game_Managing.Game_Context;
 using NPC_Control.Dialogue;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Player_Control {
 	/// <summary>
@@ -58,8 +60,49 @@ namespace Player_Control {
 		/// </summary>
 		private readonly bool[] _wasd = new bool[4];
 
+		private bool _isWalking;
+		private bool _isRunning;
+
+		/// <summary>
+		/// Boolean for preventing conflicts when the player presses <c>A</c> and <c>D</c> at the same time
+		/// </summary>
+		private bool _preventHorizontalMotion;
+
+		/// <summary>
+		/// Boolean for preventing conflicts when the player presses <c>W</c> and <c>S</c> at the same time
+		/// </summary>
+		private bool _preventForwardBackwardMotion;
+
+		/// <summary>
+		/// Frames after leaving the ground left until the player can no longer jump.
+		/// </summary>
+		private int timeLeftToJump = 1;
+
+		/// <summary>
+		/// How many frames to give the player to jump after leaving the ground.
+		/// </summary>
+		private const int timeToJump = 10;
+
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
+
+		/// <summary>
+		/// Audio source for playing player sounds.
+		/// </summary>
+		private AudioSource _audioSource;
+
+		// Defining all player audio clips
+		private static AudioClip _whistleSound;
+		private static AudioClip _stepCloudSound;
+		private static AudioClip _stepGlassSound;
+		private static AudioClip _jumpCloudSound;
+		private static AudioClip _jumpGlassSound;
+		private static AudioClip _pickupSound;
+		private static AudioClip _talk1Sound;
+		private static AudioClip _talk2Sound;
+		private static AudioClip _talk3Sound;
+		private static AudioClip _hitReactSound;
+		private static AudioClip _deathSound;
 
 		/// <summary>
 		/// The Game Context Manager, for checking what context the game is in.
@@ -81,15 +124,23 @@ namespace Player_Control {
 		/// </summary>
 		private RespawnManager _unusedRespawnManager;
 
-		///Gets a reference to the CharacterController and subscribes to necessary events. 
+		/// <summary>
+		/// Not actually used, only here to force a music manager into existence by referencing <c>.Instance</c>
+		/// </summary>
+		private MusicManager _unusedMusicManager;
+
 		private void OnEnable() {
 			_gameContextManager = GameContextManager.Instance;
 			_animationManager   = AnimationManager.Instance;
 
 			_unusedDialogueManager = DialogueManager.Instance;
 			_unusedRespawnManager  = RespawnManager.Instance;
+			_unusedMusicManager    = MusicManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
+			_audioSource         = GetComponent<AudioSource>();
+
+			AssignAudioClips();
 
 			PlayerInputActions playerInputActions = PlayerInputManager.Instance.PlayerInputActions;
 
@@ -135,10 +186,75 @@ namespace Player_Control {
 		/// <param name="point">The point to face towards.</param>
 		public void FaceTowards(Vector3 point) {
 			Vector3 heightNormalizedPoint = new Vector3(point.x, transform.position.y, point.z);
-			
+
 			transform.LookAt(heightNormalizedPoint);
-			
+
 			transform.Rotate(transform.up, -90f);
+		}
+
+		private void AssignAudioClips() {
+			_deathSound     = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Death");
+			_hitReactSound  = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Hit_React");
+			_jumpCloudSound = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Jump_Cloud");
+			_jumpGlassSound = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Jump_Glass");
+			_pickupSound    = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Pickup");
+			_stepCloudSound = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Step_Cloud");
+			_stepGlassSound = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Step_Glass");
+			_whistleSound   = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Whistle");
+			_talk1Sound     = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/AmaraTalk_1");
+			_talk2Sound     = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/AmaraTalk_2");
+			_talk3Sound     = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/AmaraTalk_3");
+		}
+
+		/// <summary>
+		/// Called internally or externally, whenever the player dies
+		/// </summary>
+		public void OnDeath() {
+			_audioSource.Stop();
+			_audioSource.clip = _deathSound;
+			_audioSource.Play();
+		}
+
+		/// <summary>
+		/// Called externally by a DialogueContextController, when the player enters dialogue.
+		/// </summary>
+		public void OnDialogueOption() {
+			//Change this based on the number of AmaraTalk sounds available
+			int numOfDialogueSounds = 3;
+
+			switch (Random.Range(1, numOfDialogueSounds)) {
+				case 1:
+					_audioSource.PlayOneShot(_talk1Sound);
+					break;
+				case 2:
+					_audioSource.PlayOneShot(_talk2Sound);
+					break;
+				case 3:
+					_audioSource.PlayOneShot(_talk3Sound);
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Called by an animation event, plays the Amara whistling sound.
+		/// </summary>
+		public void PlayWhistleSound() { _audioSource.PlayOneShot(_whistleSound); }
+
+		/// <summary>
+		/// Called by an animation event, plays the relevant Amara step sound based on the current surface.
+		/// </summary>
+		public void PlayStepSound() {
+			//TODO: implement walking vs. running functionality
+			if (!_audioSource.isPlaying && _isRunning) {
+				switch (GetCurrentSurface()) {
+					case FloorSurface.Cloud:
+						_audioSource.PlayOneShot(_stepCloudSound);
+						break;
+					case FloorSurface.Glass:
+						_audioSource.PlayOneShot(_stepGlassSound);
+						break;
+				}
+			}
 		}
 
 		/// <summary>
@@ -146,12 +262,21 @@ namespace Player_Control {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Jump.performed</c> event.</param>
 		private void OnJump(InputAction.CallbackContext context) {
-			if ((_characterController.isGrounded || _isCoyoteTime)
+			if (timeLeftToJump > 0
 			 && (_gameContextManager.ActiveContext is OrbitCameraManager
 			  || _gameContextManager.ActiveContext is FixedCameraContextController)) {
+				timeLeftToJump = 0;
 				_velocity.y += jump;
 				_animationManager.SetPlayerOnLand(false);
-				hasJumped = true;
+
+				switch (GetCurrentSurface()) {
+					case FloorSurface.Cloud:
+						_audioSource.PlayOneShot(_jumpCloudSound);
+						break;
+					case FloorSurface.Glass:
+						_audioSource.PlayOneShot(_jumpGlassSound);
+						break;
+				}
 			}
 		}
 
@@ -230,6 +355,15 @@ namespace Player_Control {
 		}
 
 		/// <summary>
+		/// Method for getting the surface the player is currently on. Used for playing correct sounds on moving, jumping, etc.
+		/// </summary>
+		/// <returns>Currently only Cloud, as surfaces are not yet fully implemented.</returns>
+		private FloorSurface GetCurrentSurface() {
+			//TODO: implement proper surfaces
+			return FloorSurface.Cloud;
+		}
+
+		/// <summary>
 		/// Moves and rotates the player based on whichever movement keys are pressed.
 		/// Called each frame in <c>Update</c>.
 		/// </summary>
@@ -240,27 +374,25 @@ namespace Player_Control {
 			Transform    playerFollowCamTarget = activeContext.GetPlayerFollowCamTarget();
 
 			//if counteracting keys are pressed, set both to false
-			if (_wasd[0] && _wasd[2]) {
-				_wasd[0] = false;
-				_wasd[2] = false;
-			}
+			if (_wasd[0] && _wasd[2]) { _preventHorizontalMotion = true; } else { _preventHorizontalMotion = false; }
 
-			if (_wasd[1] && _wasd[3]) {
-				_wasd[1] = false;
-				_wasd[3] = false;
+			if (_wasd[1] && _wasd[3]) { _preventForwardBackwardMotion = true; } else {
+				_preventForwardBackwardMotion = false;
 			}
 
 			if (_wasd[0] || _wasd[1] || _wasd[2] || _wasd[3]) {
-				Vector3 eulers = transform.eulerAngles;
+				Vector3    eulers          = transform.eulerAngles;
+				Quaternion startOfFrameRot = transform.rotation;
 
 				{
 					Vector3    storedCamTargetPos = playerFollowCamTarget.position;
 					Quaternion storedCamTargetRot = playerFollowCamTarget.rotation;
-
+					
 					transform.SetPositionAndRotation(transform.position,
 					                                 Quaternion.Euler(
 						                                 new Vector3(eulers.x, activeContext.GetYRotForForwards(),
 						                                             eulers.z)));
+						                                             
 
 					playerFollowCamTarget.SetPositionAndRotation(
 						storedCamTargetPos, storedCamTargetRot);
@@ -268,30 +400,44 @@ namespace Player_Control {
 
 				Vector3 dir = new Vector3();
 
-				if (_wasd[0]) { dir += transform.forward; }
+				if (!_preventForwardBackwardMotion) {
+					if (_wasd[0]) { dir += transform.forward; }
 
-				if (_wasd[1]) { dir += -transform.right; }
+					if (_wasd[2]) { dir += -transform.forward; }
+				}
 
-				if (_wasd[2]) { dir += -transform.forward; }
+				if (!_preventHorizontalMotion) {
+					if (_wasd[1]) { dir += -transform.right; }
 
-				if (_wasd[3]) { dir += transform.right; }
+					if (_wasd[3]) { dir += transform.right; }
+				}
 
 				dir.Normalize();
 
-				Quaternion motionRot = Quaternion.identity;
-				motionRot.SetLookRotation(dir);
+				Quaternion desiredRotation = Quaternion.identity;
+				desiredRotation.SetLookRotation(dir);
 
 				Vector3    storedCamPos = playerFollowCamTarget.position;
 				Quaternion storedCamRot = playerFollowCamTarget.rotation;
+				
+				const float interpolationRate  = 0.3f;
 
-				transform.SetPositionAndRotation(transform.position, motionRot);
+				Quaternion interpolatedRot = Quaternion.Slerp(startOfFrameRot, desiredRotation, interpolationRate);
+
+				transform.SetPositionAndRotation(transform.position, interpolatedRot);
 				playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
 
 				motion = transform.right * (speed * Time.deltaTime);
-				
+
 				_animationManager.SetPlayerRunning(true);
+
+				//TODO: implement walking vs. running functionality
+				_isWalking = false;
+				_isRunning = true;
 			} else {
 				_animationManager.SetPlayerRunning(false);
+				_isWalking = false;
+				_isRunning = false;
 			}
 
 			_velocity.x = motion.x;
@@ -302,22 +448,20 @@ namespace Player_Control {
 			_characterController.Move(_velocity);
 
 			if (_characterController.isGrounded) {
+				timeLeftToJump = timeToJump;
 				_velocity.y = 0;
 				_animationManager.SetPlayerInAir(false);
-			} else 
-				{ 
-					if(_timeFalling >= _minTimeFalling)
-					{
-						_animationManager.SetPlayerInAir(true);
-					}
-						 
-				}
+			} else { 
+				_animationManager.SetPlayerInAir(true);
+				timeLeftToJump = timeLeftToJump == 0 ? 0 : timeLeftToJump - 1;
+			}
 
 			if (_characterController.isGrounded && !_wasGroundedLastFrame) { _animationManager.SetPlayerOnLand(true); }
 
 			Moved?.Invoke();
 
 			_wasGroundedLastFrame = _characterController.isGrounded;
+			
 		}
 
 		/// <summary>
@@ -368,6 +512,11 @@ namespace Player_Control {
 		private void FixedUpdate()
 		{
 			CoyoteTime();
+		}
+
+		public enum FloorSurface {
+			Cloud,
+			Glass
 		}
 	}
 }

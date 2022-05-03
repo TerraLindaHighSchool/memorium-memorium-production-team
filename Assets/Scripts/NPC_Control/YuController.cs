@@ -18,6 +18,7 @@ namespace NPC_Control {
 
         private bool canFloat = true;
 
+        [SerializeField] private Vector3 offset;
         private void Update()
         {
             if (canFloat == true && npc.DialogueActive == false)
@@ -48,6 +49,6 @@ namespace NPC_Control {
             float z = Mathf.Sin(rad) * radius;
 
             return Vector3.Lerp(this.transform.position, new Vector3(x, y, z) + pos, speed);
-        }
+	}
     }
 }
