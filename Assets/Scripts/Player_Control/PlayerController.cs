@@ -42,6 +42,20 @@ namespace Player_Control {
 		///Boolean to keep track of whether the player was grounded last frame
 		private bool _wasGroundedLastFrame;
 
+		///float to keep track of how long the player has been falling
+		private float _timeFalling;
+
+		private int _minTimeFalling = 20;
+		
+		//Boolean to keep track of whether or not you can jump
+		private bool _isCoyoteTime;
+
+		//Number of frames CoyoteTime works
+		private int _coyoteTimer = 20;
+
+		///Boolean to track whether or not the player has jumped
+		public bool hasJumped;
+
 		/// <summary>
 		/// Array of booleans for keeping track if <c>W, A, S, D</c> are pressed. 
 		/// </summary>
@@ -452,12 +466,53 @@ namespace Player_Control {
 		}
 
 		/// <summary>
+		/// Checks how long the player has been falling and resets whenever the player touches the ground
+		/// </summary>
+		private void CoyoteTime()
+		{
+			if(!_wasGroundedLastFrame)
+			{ 
+				_timeFalling++; 
+			}
+			else {
+				_timeFalling = 0;
+				if(_wasGroundedLastFrame & _timeFalling == 0)
+				{
+					hasJumped = false;
+				}
+			}
+
+			if(_timeFalling >= _coyoteTimer)
+			{
+				_isCoyoteTime = false;
+			}
+			else
+			{
+				if(!hasJumped)
+				{
+					_isCoyoteTime = true;
+				}
+				else
+				{
+					_isCoyoteTime = false;
+				}
+			}
+		}
+
+		/// <summary>
 		/// Calls <c>Move()</c> each frame.
 		/// </summary>
 		private void Update() {
 			if (_gameContextManager.ActiveContext is OrbitCameraManager
 			 || _gameContextManager.ActiveContext is FixedCameraContextController)
 				Move();
+
+		}
+
+		/// Calls <c>CoyoteTime()</c> at a fixed framerate.
+		private void FixedUpdate()
+		{
+			CoyoteTime();
 		}
 
 		public enum FloorSurface {

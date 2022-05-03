@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4316106071047062481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e413e547-24ea-4249-aab3-c8a3c59fad42
+  position: {x: 0, y: 0}
+  child: {fileID: 7952134431354455347}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Encounter bargain demon
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -4316106071047062481}
+  nodes:
+  - {fileID: -4316106071047062481}
+  - {fileID: 7952134431354455347}
+  - {fileID: 1628463644417405010}
+  - {fileID: 1032757012371752967}
+  - {fileID: 2284061710658277195}
+  - {fileID: 3622764630655855837}
+--- !u!114 &1032757012371752967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 73a93bcc-4d63-4a29-b3fd-39b0dbf2fdcc
+  position: {x: 1831.1423, y: -32.729492}
+  child: {fileID: 0}
+  message: Let's see what he's got for us!
+--- !u!114 &1628463644417405010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e1dd54dd-6be2-423e-9a0f-ca7838320154
+  position: {x: 1015.57446, y: -32.181698}
+  child: {fileID: 1032757012371752967}
+  message: Maybe you're right... judging trustworthiness isn't really my specialty.
+    It IS why I ended up in that cage...
+--- !u!114 &2284061710658277195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 4df46750-e305-49f9-b61f-1cbead1142da
+  position: {x: 1015.23, y: 108.520004}
+  child: {fileID: 3622764630655855837}
+  message: I don't know, it just seems weird he's selling things when there's no
+    one else around...
+--- !u!114 &3622764630655855837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: ff42616d-6a5b-48ca-b108-591acacf8ce4
+  position: {x: 1735.7225, y: 112.64034}
+  child: {fileID: 0}
+  message: Oh, don't listen to me. Maybe the grassbirds are his customers.
+--- !u!114 &7952134431354455347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1c7bb952-cc56-467e-a5eb-ca85a9bdcceb
+  position: {x: 170, y: 5}
+  children:
+  - key: Seems nice enough to me.
+    value: {fileID: 1628463644417405010}
+  - key: What makes you say that?
+    value: {fileID: 2284061710658277195}
+  message: What luck! This guy might have something that  could help us. Although
+    he seems a little...shady.
