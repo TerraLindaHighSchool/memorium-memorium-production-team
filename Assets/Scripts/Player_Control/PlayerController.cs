@@ -1,5 +1,6 @@
 ﻿using System;
 using Audio;
+using Game_Managing;
 using Game_Managing.Game_Context;
 using NPC_Control.Dialogue;
 using UnityEngine;
@@ -41,21 +42,47 @@ namespace Player_Control {
 		///Boolean to keep track of whether the player was grounded last frame
 		private bool _wasGroundedLastFrame;
 
+		///float to keep track of how long the player has been falling
+		private float _timeFalling;
+
+		private int _minTimeFalling = 20;
+		
+		//Boolean to keep track of whether or not you can jump
+		private bool _isCoyoteTime;
+
+		//Number of frames CoyoteTime works
+		private int _coyoteTimer = 20;
+
+		///Boolean to track whether or not the player has jumped
+		public bool hasJumped;
+
 		/// <summary>
 		/// Array of booleans for keeping track if <c>W, A, S, D</c> are pressed. 
 		/// </summary>
 		private readonly bool[] _wasd = new bool[4];
 
+		private bool _isWalking;
 		private bool _isRunning;
+
 		/// <summary>
 		/// Boolean for preventing conflicts when the player presses <c>A</c> and <c>D</c> at the same time
 		/// </summary>
-		private bool preventHorizontalMotion = false;
+		private bool _preventHorizontalMotion;
 
 		/// <summary>
 		/// Boolean for preventing conflicts when the player presses <c>W</c> and <c>S</c> at the same time
 		/// </summary>
-		private bool preventForwardBackwardMotion = false;
+		private bool _preventForwardBackwardMotion;
+
+		/// <summary>
+		/// Frames after leaving the ground left until the player can no longer jump.
+		/// </summary>
+		private int timeLeftToJump = 1;
+
+		/// <summary>
+		/// How many frames to give the player to jump after leaving the ground.
+		/// </summary>
+		private const int timeToJump = 10;
 
 		///CharacterController component for moving the player. 
 		private CharacterController _characterController;
@@ -236,9 +263,10 @@ namespace Player_Control {
 		/// </summary>
 		/// <param name="context">The Action CallbackContext, passed in from the <c>Jump.performed</c> event.</param>
 		private void OnJump(InputAction.CallbackContext context) {
-			if (_characterController.isGrounded
+			if (timeLeftToJump > 0
 			 && (_gameContextManager.ActiveContext is OrbitCameraManager
 			  || _gameContextManager.ActiveContext is FixedCameraContextController)) {
+				timeLeftToJump = 0;
 				_velocity.y += jump;
 				_animationManager.SetPlayerOnLand(false);
 
@@ -347,29 +375,25 @@ namespace Player_Control {
 			Transform    playerFollowCamTarget = activeContext.GetPlayerFollowCamTarget();
 
 			//if counteracting keys are pressed, set both to false
-			if (_wasd[0] && _wasd[2]) {
-				preventHorizontalMotion = true;
-			} else {
-				preventHorizontalMotion = false;
-			}
+			if (_wasd[0] && _wasd[2]) { _preventHorizontalMotion = true; } else { _preventHorizontalMotion = false; }
 
-			if (_wasd[1] && _wasd[3]) {
-				preventForwardBackwardMotion = true;
-			} else {
-				preventForwardBackwardMotion = false;
+			if (_wasd[1] && _wasd[3]) { _preventForwardBackwardMotion = true; } else {
+				_preventForwardBackwardMotion = false;
 			}
 
 			if (_wasd[0] || _wasd[1] || _wasd[2] || _wasd[3]) {
-				Vector3 eulers = transform.eulerAngles;
+				Vector3    eulers          = transform.eulerAngles;
+				Quaternion startOfFrameRot = transform.rotation;
 
 				{
 					Vector3    storedCamTargetPos = playerFollowCamTarget.position;
 					Quaternion storedCamTargetRot = playerFollowCamTarget.rotation;
-
+					
 					transform.SetPositionAndRotation(transform.position,
 					                                 Quaternion.Euler(
 						                                 new Vector3(eulers.x, activeContext.GetYRotForForwards(),
 						                                             eulers.z)));
+						                                             
 
 					playerFollowCamTarget.SetPositionAndRotation(
 						storedCamTargetPos, storedCamTargetRot);
@@ -377,25 +401,31 @@ namespace Player_Control {
 
 				Vector3 dir = new Vector3();
 
-				if (!preventForwardBackwardMotion) {
+				if (!_preventForwardBackwardMotion) {
 					if (_wasd[0]) { dir += transform.forward; }
+
 					if (_wasd[2]) { dir += -transform.forward; }
 				}
 
-				if (!preventHorizontalMotion) {
+				if (!_preventHorizontalMotion) {
 					if (_wasd[1]) { dir += -transform.right; }
+
 					if (_wasd[3]) { dir += transform.right; }
 				}
 
 				dir.Normalize();
 
-				Quaternion motionRot = Quaternion.identity;
-				motionRot.SetLookRotation(dir);
+				Quaternion desiredRotation = Quaternion.identity;
+				if (dir != Vector3.zero) desiredRotation.SetLookRotation(dir);
 
 				Vector3    storedCamPos = playerFollowCamTarget.position;
 				Quaternion storedCamRot = playerFollowCamTarget.rotation;
+				
+				const float interpolationRate  = 0.3f;
 
-				transform.SetPositionAndRotation(transform.position, motionRot);
+				Quaternion interpolatedRot = Quaternion.Slerp(startOfFrameRot, desiredRotation, interpolationRate);
+
+				transform.SetPositionAndRotation(transform.position, interpolatedRot);
 				playerFollowCamTarget.SetPositionAndRotation(storedCamPos, storedCamRot);
 
 				motion = transform.right * (speed * Time.deltaTime);
@@ -407,7 +437,7 @@ namespace Player_Control {
 				_isRunning = true;
 			} else {
 				_animationManager.SetPlayerRunning(false);
-				_isRunning = false;
+				_isWalking = false;
 				_isRunning = false;
 			}
 
@@ -419,15 +449,54 @@ namespace Player_Control {
 			_characterController.Move(_velocity);
 
 			if (_characterController.isGrounded) {
+				timeLeftToJump = timeToJump;
 				_velocity.y = 0;
 				_animationManager.SetPlayerInAir(false);
-			} else { _animationManager.SetPlayerInAir(true); }
+			} else { 
+				_animationManager.SetPlayerInAir(true);
+				timeLeftToJump = timeLeftToJump == 0 ? 0 : timeLeftToJump - 1;
+			}
 
 			if (_characterController.isGrounded && !_wasGroundedLastFrame) { _animationManager.SetPlayerOnLand(true); }
 
 			Moved?.Invoke();
 
 			_wasGroundedLastFrame = _characterController.isGrounded;
+			
+		}
+
+		/// <summary>
+		/// Checks how long the player has been falling and resets whenever the player touches the ground
+		/// </summary>
+		private void CoyoteTime()
+		{
+			if(!_wasGroundedLastFrame)
+			{ 
+				_timeFalling++; 
+			}
+			else {
+				_timeFalling = 0;
+				if(_wasGroundedLastFrame & _timeFalling == 0)
+				{
+					hasJumped = false;
+				}
+			}
+
+			if(_timeFalling >= _coyoteTimer)
+			{
+				_isCoyoteTime = false;
+			}
+			else
+			{
+				if(!hasJumped)
+				{
+					_isCoyoteTime = true;
+				}
+				else
+				{
+					_isCoyoteTime = false;
+				}
+			}
 		}
 
 		/// <summary>
@@ -437,6 +506,13 @@ namespace Player_Control {
 			if (_gameContextManager.ActiveContext is OrbitCameraManager
 			 || _gameContextManager.ActiveContext is FixedCameraContextController)
 				Move();
+
+		}
+
+		/// Calls <c>CoyoteTime()</c> at a fixed framerate.
+		private void FixedUpdate()
+		{
+			CoyoteTime();
 		}
 
 		public enum FloorSurface {

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Art/Materials/FeatherIslandColors.meta
-guid: 129ef2cb0a13e9f48924153feb6090f8
-=======
-guid: c74d3647bf67ea24799065180ff05540
->>>>>>> Develop:Assets/Art/Materials/Environment.meta
+guid: 26a663bef6a043d4999b8a86ca7d65c4
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
