@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7451273686701934881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 37b83857-6d0e-4cca-9f9d-f3d0fad1196c
+  position: {x: 2326.8008, y: 123.5139}
+  child: {fileID: 0}
+  message: Good luck!
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Yu First meet
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 7709580515167816523}
+  nodes:
+  - {fileID: 7709580515167816523}
+  - {fileID: 239466710226312694}
+  - {fileID: 2148591595174149042}
+  - {fileID: 5052045350071184306}
+  - {fileID: -7451273686701934881}
+--- !u!114 &239466710226312694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1536d6bd-38af-4019-aefd-9560eb52d8f3
+  position: {x: 264.36252, y: 122.89499}
+  children:
+  - key: Boo!
+    value: {fileID: 2148591595174149042}
+  message: Hello?  Is anyone there? Somebody? Anybody? Please someone save me!
+--- !u!114 &2148591595174149042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 10e4c488-b9fa-4117-8373-d639d02f131c
+  position: {x: 955.903, y: 125.63749}
+  children:
+  - key: How do I do that?
+    value: {fileID: 5052045350071184306}
+  message: You know, you would make a pretty bad ghost. Anyways, get me out of here!
+--- !u!114 &5052045350071184306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 82cd9ad1-ffdf-4c3e-89ca-b2e5e19d768d
+  position: {x: 1656.0221, y: 125.020966}
+  children:
+  - key: Okay thanks!
+    value: {fileID: -7451273686701934881}
+  message: You need to find two key fragments, they should be somewhere on the island.
+--- !u!114 &7709580515167816523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 2a332926-bd55-4405-b4d2-5e3831c355dc
+  position: {x: 97.24, y: 131.08002}
+  child: {fileID: 239466710226312694}
