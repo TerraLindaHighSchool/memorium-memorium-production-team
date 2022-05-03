@@ -7,6 +7,7 @@ namespace Game_Managing.Game_Context {
 	public class AnimationManager : Singleton<AnimationManager> {
 		private PlayerController _playerController;
 		private Animator         _playerAnimator;
+		public float _runMultiplier;
 
 		private void OnEnable() {
 			_playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
