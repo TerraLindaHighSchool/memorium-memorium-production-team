@@ -15,10 +15,12 @@ namespace Game_Managing.Game_Context {
 			}
 		}
 
-		private bool _isLeftClickDown  = false;
-		private bool _isRightMouseDown = false;
+		private bool _isLeftClickDown;
+		private bool _isRightMouseDown;
 
 		public void EnterContext(IGameContext newContext) {
+			Debug.Log($"Entering context {newContext}");
+			
 			ActiveContext.OnExit -= ExitContext;
 			_contextStack.Push(newContext);
 			newContext.OnExit += ExitContext;
@@ -26,6 +28,8 @@ namespace Game_Managing.Game_Context {
 		}
 
 		private void ExitContext() {
+			Debug.Log($"Exiting context {_contextStack.Peek()}");
+
 			ActiveContext.OnExit -= ExitContext;
 			_contextStack.Pop();
 			ActiveContext.OnExit += ExitContext;
