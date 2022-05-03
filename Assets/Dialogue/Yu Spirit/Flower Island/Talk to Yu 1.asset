@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Talk to Yu 1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 3708198748587081117}
+  nodes:
+  - {fileID: 3708198748587081117}
+  - {fileID: 8660141180981342911}
+--- !u!114 &3708198748587081117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9baaa0b0-2236-495b-ada8-8770ba4008db
+  position: {x: 0, y: 0}
+  child: {fileID: 8660141180981342911}
+--- !u!114 &8660141180981342911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8de97d2b-4a79-4ac1-9384-9c4ad03bece3
+  position: {x: 160.02249, y: 0.0000008411407}
+  child: {fileID: 0}
+  message: I had a friend who I used to make flower bouquets with...

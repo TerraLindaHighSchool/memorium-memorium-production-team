@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Arrive after getting the shards
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1609158285652695549}
+  nodes:
+  - {fileID: 1609158285652695549}
+  - {fileID: 4092233539779449263}
+--- !u!114 &1609158285652695549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 398b8ad3-bbea-4fa7-9355-624ee3064e29
+  position: {x: 107.88, y: 211.48001}
+  child: {fileID: 4092233539779449263}
+--- !u!114 &4092233539779449263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 47a961bf-4903-4560-9aef-c2e109e85403
+  position: {x: 278, y: 209}
+  child: {fileID: 0}
+  message: We have those shards... I wonder if they're the key to unlocking the gate?

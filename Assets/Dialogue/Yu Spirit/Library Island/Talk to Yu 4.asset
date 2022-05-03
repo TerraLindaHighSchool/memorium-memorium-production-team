@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5183830318368290707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c774fb20-427e-4037-b180-797ab2ccde89
+  position: {x: 0, y: 0}
+  child: {fileID: 6694814650471533321}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Talk to Yu 4
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -5183830318368290707}
+  nodes:
+  - {fileID: -5183830318368290707}
+  - {fileID: 6694814650471533321}
+--- !u!114 &6694814650471533321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 743dff34-eb56-4941-9699-0dff41163559
+  position: {x: 258.7489, y: 13.999991}
+  child: {fileID: 0}
+  message: Oh, there's a book on crabs! But the crab has a monocle? And a suit...?
+    How strange.

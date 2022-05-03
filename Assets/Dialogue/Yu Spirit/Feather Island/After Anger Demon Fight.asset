@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8154172145187095762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1eb495e4-7651-4207-9500-3dd0e5ad51f8
+  position: {x: 3042, y: 1}
+  child: {fileID: 0}
+  message: Now that sounds like a plan.
+--- !u!114 &-5081772789055403175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 55863ffc-4761-4559-92d6-411313c8be10
+  position: {x: 2384.4573, y: -4.604399}
+  child: {fileID: -8154172145187095762}
+  message: 'Yeah. Let''s get out of here! I''ve had enough of these feathers. And
+    angry cows. '
+--- !u!114 &-3969974626918379917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 3c06e91e-7088-434e-ad0f-45e58a53cf28
+  position: {x: 1099.5259, y: -10.250995}
+  child: {fileID: 837508421541455474}
+  message: '*Notices the shard* It seems like he had a glass shard in him. No wonder
+    he was so angry.'
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: After Anger Demon Fight
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1722498895938473573}
+  nodes:
+  - {fileID: 1722498895938473573}
+  - {fileID: 953701078301278924}
+  - {fileID: 1179026051066360177}
+  - {fileID: -3969974626918379917}
+  - {fileID: 837508421541455474}
+  - {fileID: -5081772789055403175}
+  - {fileID: -8154172145187095762}
+--- !u!114 &837508421541455474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e73f0715-8a0b-465d-89d3-d5ca4b4adf65
+  position: {x: 1820.2521, y: -3.08199}
+  child: {fileID: -5081772789055403175}
+  message: Well, hopefully he's feeling better now. Wherever he is.
+--- !u!114 &953701078301278924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 446e8217-4892-4604-a3a6-e58294df950f
+  position: {x: 150, y: -16}
+  child: {fileID: 1179026051066360177}
+  message: What a rude dude! All you were trying to do was help him out. Are you
+    ok?
+--- !u!114 &1179026051066360177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: faf6708b-6c21-48a8-a166-5f627e633e5a
+  position: {x: 789.83295, y: -12.0835085}
+  child: {fileID: -3969974626918379917}
+  message: Yeah. That was awful!
+--- !u!114 &1722498895938473573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 5ea98eb0-72f1-4e42-92ea-f4ed4aafb674
+  position: {x: 0, y: 0}
+  child: {fileID: 953701078301278924}
