@@ -1,0 +1,279 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9105975849413567200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 3ac3a555-4096-438f-9dcb-7224bc1deecc
+  position: {x: 1905.0001, y: -116}
+  child: {fileID: -5261115051717376622}
+  message: But then how am I here?
+--- !u!114 &-8772883342164881117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c5f72f50-3acb-46a0-a1a2-12b7193e863f
+  position: {x: 3235.68, y: -104}
+  child: {fileID: 6392453118238015939}
+  message: ...That's unfortunate. I had hoped your journey would be enough for you.
+--- !u!114 &-7992546070089514650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: d12c3f43-f429-42b5-ac43-641556f53d6b
+  position: {x: 323, y: 62}
+  children:
+  - key: You're scary...
+    value: {fileID: 3377313733651741755}
+  - key: I don't understand...
+    value: {fileID: 9198522819450371686}
+  - key: How do you know me?
+    value: {fileID: -3318941219737024765}
+  message: 'All know of me. Some I have yet to meet, and many I have already met.
+    Including you. '
+--- !u!114 &-5823892906046546542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1f564fd0-90bb-4399-8cf2-21b993ef4b26
+  position: {x: -52.999996, y: -114}
+  child: {fileID: -7992546070089514650}
+  message: What are you talking about? Who are you?
+--- !u!114 &-5261115051717376622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9e890a72-ede5-4b56-9e3d-cb96d20dc7ca
+  position: {x: 2046, y: 108.999985}
+  child: {fileID: -3875599142795929136}
+  message: You could not accept your death, and tried to escape from the land of
+    the dead.
+--- !u!114 &-3875599142795929136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9a5fa581-a063-4362-8670-cf21eebdf7eb
+  position: {x: 2468.4854, y: -104.49792}
+  child: {fileID: 3884450340021090409}
+  message: But instead you fell here, into this land between the two. You must come
+    back.
+--- !u!114 &-3318941219737024765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e13b5b6e-2c49-40bd-9b12-ea6514fe55b2
+  position: {x: 1710, y: 32}
+  child: {fileID: -9105975849413567200}
+  message: You died.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: BeforeFight
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 2466842553299584129}
+  nodes:
+  - {fileID: 2466842553299584129}
+  - {fileID: 900151930271495422}
+  - {fileID: -5823892906046546542}
+  - {fileID: -7992546070089514650}
+  - {fileID: 3377313733651741755}
+  - {fileID: -3318941219737024765}
+  - {fileID: 9198522819450371686}
+  - {fileID: -5261115051717376622}
+  - {fileID: 9195183860064007541}
+  - {fileID: 6952547145163585693}
+  - {fileID: -9105975849413567200}
+  - {fileID: 6392453118238015939}
+  - {fileID: -3875599142795929136}
+  - {fileID: 3884450340021090409}
+  - {fileID: -8772883342164881117}
+--- !u!114 &900151930271495422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f6ed1b43-faf6-4996-9af0-f5cf3a619331
+  position: {x: -216, y: 55}
+  child: {fileID: -5823892906046546542}
+  message: It is time.
+--- !u!114 &2466842553299584129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a8f96bdf-734a-4b30-9a0d-c6535738e404
+  position: {x: -491.36, y: 64}
+  child: {fileID: 900151930271495422}
+--- !u!114 &3377313733651741755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 04064771-6086-472f-adcf-5b27b3067abb
+  position: {x: 740.00006, y: -204}
+  child: {fileID: 6952547145163585693}
+  message: There is nothing to fret about. All things must accept an end.
+--- !u!114 &3884450340021090409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6c4e98fd-3c9c-408b-83d7-633d9dfd0b57
+  position: {x: 2950.5176, y: 99.940895}
+  child: {fileID: -8772883342164881117}
+  message: 'Why should I? I like being here. '
+--- !u!114 &6392453118238015939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c489e8ad-765a-49ac-8360-f5837e35f39b
+  position: {x: 3659.3503, y: 70.50001}
+  child: {fileID: 0}
+  message: You will return, one way or another.
+--- !u!114 &6952547145163585693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1fc53df4-98bd-4ce8-9ca4-b3ab80b5f73f
+  position: {x: 1255, y: -51}
+  child: {fileID: -3318941219737024765}
+  message: What do you mean, what end?
+--- !u!114 &9195183860064007541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 54e1432a-410e-4fd8-94a9-89561d162f7e
+  position: {x: 1295, y: 142}
+  child: {fileID: -3318941219737024765}
+  message: What do you mean, what truth?
+--- !u!114 &9198522819450371686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 207a39c7-abfa-429f-9e13-09b0f7b08643
+  position: {x: 836.00006, y: 328}
+  child: {fileID: 9195183860064007541}
+  message: Our meeting is for you to realize that you must accept the truth.

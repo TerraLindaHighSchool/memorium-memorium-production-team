@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8987446425882230900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: fa6ce0bb-6b9a-40cd-86cb-9f80bb0122c1
+  position: {x: -147.2001, y: -68}
+  child: {fileID: 271481531792814726}
+--- !u!114 &-8348467327458213719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 785f6148-9a71-458a-8535-5e22487f1249
+  position: {x: 682.44336, y: -43.159}
+  child: {fileID: -412547220851735418}
+  message: I know it's hard to accept, little star. You shone brightly, but even
+    the brightest stars reach the end of their lives.
+--- !u!114 &-8112499902691690104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9bc1a432-2257-40eb-9b26-fc242c31a018
+  position: {x: 1607.427, y: -49.554714}
+  child: {fileID: -1878478545274729622}
+  message: She does?
+--- !u!114 &-7919190453799983836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e15fdd716047c883bd5b6ad602893c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8a288769-e2eb-48cc-ba6f-278dbb65918c
+  position: {x: 618.6365, y: 170.15947}
+  child: {fileID: -8348467327458213719}
+  key: 
+--- !u!114 &-2244559216932046218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f5a8af7a-c218-4859-9c98-41c7ef425e52
+  position: {x: -147.2001, y: -68}
+  child: {fileID: 0}
+  message: 
+--- !u!114 &-1878478545274729622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6d831b90-fc1b-47cd-a57a-ab7252dde300
+  position: {x: 1915.6926, y: 64.87506}
+  child: {fileID: 4866346786098727768}
+  message: The best course for you both is to accept your death. Only then will you
+    have peace.
+--- !u!114 &-412547220851735418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9675c55d-73d4-4879-93f9-8d85d7e92550
+  position: {x: 962.15, y: 166.74246}
+  child: {fileID: 717214089557733859}
+  message: Yu called me little star.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: AfterFight
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -8987446425882230900}
+  nodes:
+  - {fileID: -8987446425882230900}
+  - {fileID: 271481531792814726}
+  - {fileID: -7919190453799983836}
+  - {fileID: -8348467327458213719}
+  - {fileID: -412547220851735418}
+  - {fileID: 717214089557733859}
+  - {fileID: -8112499902691690104}
+  - {fileID: -1878478545274729622}
+  - {fileID: -2244559216932046218}
+  - {fileID: 4866346786098727768}
+  - {fileID: 1904090617604237510}
+--- !u!114 &271481531792814726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 5bb8ef84-388d-430d-a167-d359a522002f
+  position: {x: -202.63597, y: 84.97726}
+  child: {fileID: -7919190453799983836}
+  message: Your determination is admirable, but you must let go. The world will continue
+    on, as it always will.
+--- !u!114 &717214089557733859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 3f5f34c6-bcae-44f0-87c8-e18e6216f603
+  position: {x: 1340.4087, y: 261.24976}
+  child: {fileID: -8112499902691690104}
+  message: You miss her. Her journey is not yet over. She grieves for you.
+--- !u!114 &1904090617604237510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 69b16e1b-8104-437a-a6ce-19351a50ef8b
+  position: {x: 3026.8467, y: 228.29506}
+  child: {fileID: 0}
+  message: Wise Choice.
+--- !u!114 &4866346786098727768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 7205196a-7449-4a5a-9563-0ccc719a34f1
+  position: {x: 2742.6763, y: 40.927383}
+  child: {fileID: 1904090617604237510}
+  message: Ok. For Yu.
