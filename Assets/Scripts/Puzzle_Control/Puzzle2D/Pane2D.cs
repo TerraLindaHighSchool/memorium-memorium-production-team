@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using Game_Managing.Game_Context;
-#if UNITy_EDITOR
+using UnityEditor;
+#if UNITY_EDITOR
 	using UnityEditor;
 #endif
 using UnityEngine;
@@ -12,15 +13,16 @@ using PlayerInputManager = Player_Control.PlayerInputManager;
 
 namespace Puzzle_Control.Puzzle2D {
 	[ExecuteInEditMode]
-	public class Pane2D : MonoBehaviour, IGameContext, PuzzleController {
-		[SerializeField] private float                    width;
-		private                  float                    height => width / VCam.m_Lens.Aspect;
-		[SerializeField] private CinemachineVirtualCamera vcam;
-		public                   CinemachineVirtualCamera VCam => vcam;
-		private                  List<PuzzleObject2D>     elements = new List<PuzzleObject2D>();
-		private                  PuzzleObject2D           dragTarget;
-		private                  bool                     isContextActive = false;
-		private                  bool                     lcDownLastFrame = false;
+	public class Pane2D : PuzzleController, IGameContext {
+		[SerializeField] private float                        width;
+		private                  float                        height => width / VCam.m_Lens.Aspect;
+		[SerializeField] private CinemachineVirtualCamera     vcam;
+		public                   CinemachineVirtualCamera     VCam => vcam;
+		private                  List<PuzzleObject2D>         elements = new List<PuzzleObject2D>();
+		private                  PuzzleObject2D               dragObj;
+		private                  Dictionary<DragTarget, bool> completion = new Dictionary<DragTarget, bool>();
+		private                  bool                         isContextActive;
+		private                  bool                         lcDownLastFrame;
 
 		private float   HalfWidth   => width  / 2;
 		private float   HalfHeight  => height / 2;
@@ -29,7 +31,7 @@ namespace Puzzle_Control.Puzzle2D {
 		private Vector3 BottomLeft  => transform.TransformPoint(new Vector3(-HalfWidth, -HalfHeight, 0));
 		private Vector3 BottomRight => transform.TransformPoint(new Vector3(HalfWidth, -HalfHeight, 0));
 
-		#if UNITy_EDITOR
+		#if UNITY_EDITOR
 		private void OnDrawGizmos() {
 			int     thickness = 5;
 			Vector3 vcamPos   = VCam.transform.position;
@@ -62,9 +64,12 @@ namespace Puzzle_Control.Puzzle2D {
 
 		private void OnTransformChildrenChanged() {
 			elements = GetComponentsInChildren<PuzzleObject2D>().ToList();
-			/*foreach (PuzzleObject2D elem in elements) {
-				elem.onElemUpdate += OnElementUpdate;
-			}*/
+			completion.Clear();
+			foreach (PuzzleObject2D elem in elements) {
+				if (elem is DragTarget dragEl) {
+					completion.Add(dragEl, false);
+				}
+			}
 		}
 
 		private void OnValidate() { UpdateCamTransform(); }
@@ -81,7 +86,7 @@ namespace Puzzle_Control.Puzzle2D {
 
 		private void UpdateElementTransform(PuzzleObject2D elem) {
 			Vector3 localPos = PaneToLocalSpace(new Vector2(elem.x, elem.y));
-			localPos.z = dragTarget == elem ? -0.2f : 0.0f;
+			localPos.z = dragObj == elem ? -0.2f : 0.0f;
 
 			elem.transform.localPosition = localPos;
 		}
@@ -111,26 +116,35 @@ namespace Puzzle_Control.Puzzle2D {
 			lcDownLastFrame = lcDown;
 		}
 
+		public float GetYRotForForwards() { throw new NotImplementedException(); }
+
 		public void HandleClick(Vector2 mousePos) {
-			Vector3        target    = transform.TransformPoint(PaneToLocalSpace(PaneFromScreenSpace(mousePos)));
-			PuzzleObject2D targetObj = GetObjForPoint(target);
+			Vector2        paneMousePos = PaneFromScreenSpace(mousePos);
+			Vector3        target       = transform.TransformPoint(PaneToLocalSpace(paneMousePos));
+			PuzzleObject2D targetObj    = GetObjForPoint(target);
 			if (targetObj != null) {
 				if (targetObj.Clickable) targetObj.onClick?.Invoke();
-				if (targetObj = dragTarget) {
-					foreach (var el in elements) {
-						if (el is DragTarget drag_el) {
-							var pos  = new Vector2(el.x, el.y);
-							var dist = (pos - target).magnitude;
-							if (dist < drag_el.fuzz) {
-								el.x = 
+
+				if (targetObj.Draggable) {
+					if (targetObj == dragObj) {
+						foreach (var el in elements) {
+							if (el is DragTarget drag_el) {
+								var pos  = new Vector2(drag_el.x, drag_el.y);
+								var dist = (pos - paneMousePos).magnitude;
+								if (dist < drag_el.fuzz && targetObj == drag_el.Target) {
+									targetObj.x = drag_el.x;
+									targetObj.y = drag_el.y;
+									
+									completion.Add(drag_el, true);
+								}
 							}
 						}
+						dragObj = null;
+					} else {
+						//todo: make it so you can't pick up placed objects once they're on target
+						dragObj = targetObj;
 					}
-					dragTarget = null;
-				} else {
-					
 				}
-
 			}
 		}
 
@@ -157,11 +171,9 @@ namespace Puzzle_Control.Puzzle2D {
 				paneLoc.y * height - HalfHeight
 			);
 		
-
-		public float        GetyRotForForwards()       { throw new NotImplementedException(); }
-		
-		public Transform    GetPlayerFollowCamTarget() { throw new NotImplementedException(); }
+		public Transform GetPlayerFollowCamTarget() { throw new NotImplementedException(); }
 		
 		public event Action OnExit;
+		public override void StartPuzzle() { throw new NotImplementedException(); }
 	}
 }
