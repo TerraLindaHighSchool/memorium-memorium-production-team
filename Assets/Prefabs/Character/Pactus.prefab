@@ -1707,7 +1707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: 5411aca44bff83847a2cda7dfbca85fc, type: 2}
-  eventReceivers: []
+  eventReceivers:
+  - {fileID: 0}
 --- !u!114 &1091690274558062353
 MonoBehaviour:
   m_ObjectHideFlags: 0
