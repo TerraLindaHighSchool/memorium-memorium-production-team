@@ -1,7 +1,9 @@
-﻿using Other;
+﻿using Game_Managing;
+using Other;
+using Puzzle_Control;
 using UnityEngine;
 
-namespace Puzzle_Control.FlowerGateController
+namespace Object_Control
 {
 	[RequireComponent(typeof(Interactable))]
 	public class FlowerGateController : PuzzleController
@@ -27,6 +29,8 @@ namespace Puzzle_Control.FlowerGateController
 			this.gameObject.SetActive(false);
 
 			interact.SetIsEnabled(false);
+
+			SaveManager.Instance.flowerGate = true;
 		}
 
 		public void add_collected_shard()
