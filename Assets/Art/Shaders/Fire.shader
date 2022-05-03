@@ -21,18 +21,21 @@
             #pragma fragment frag
             // make fog work
             #pragma multi_compile_fog
+			#pragma multi_compile_instancing
 
             #include "UnityCG.cginc"
 
             struct appdata
             {
                 float4 vertex : POSITION;
+				UNITY_VERTEX_INPUT_INSTANCE_ID
                 float2 uv : TEXCOORD0;
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
+				UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
@@ -47,6 +50,8 @@
             v2f vert (appdata v)
             {
                 v2f o;
+				UNITY_SETUP_INSTANCE_ID(v);
+				//UNITY_TRANSFER_INSTANCE_ID(v, o);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 ///remove if preformance hit is real bad <
                 o.uv = v.uv.xy;
@@ -66,8 +71,8 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float4 alphaTex = tex2D(_AlphaTex, i.uv);
-                float4 noiseValue = tex2D(_NoiseTex, i.uv - float2(0, _Time.x * 10)) - 0.5;
+				float4 alphaTex = tex2D(_AlphaTex, i.uv);
+                float4 noiseValue = tex2D(_NoiseTex, i.uv - float2(0, (_Time.x) * 10)) - 0.3;
                 float d = floor(length((float2(i.uv.x, 1 - (pow(1 - i.uv.y, 2) + noiseValue.y)) * 2 - 1) * _CullingMult / float2(0.5, 0.7)));
 				float4 noiseTwo = (1 - (noiseValue * i.uv.y * 3));//* _Color;
                 fixed4 col = (floor(noiseTwo * (1 - i.uv.y) + 0.2) + floor(noiseTwo * (1 - i.uv.y) + 0.4) + floor(noiseTwo * (1 - i.uv.y) + 1)) * _Color;

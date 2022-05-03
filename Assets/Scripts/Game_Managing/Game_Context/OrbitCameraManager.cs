@@ -1,26 +1,30 @@
 using System;
+using Cinemachine;
 using Other;
 using UnityEngine;
 
 namespace Game_Managing.Game_Context {
 	public class OrbitCameraManager : Singleton<OrbitCameraManager>, IGameContext {
-		[SerializeField] private float sensitivity = 0.7f;
+		[SerializeField] private float sensitivity = 1f;
 
 		[SerializeField] private int cameraYBound = 60;
 
-		[SerializeField] private Transform _playerFollowCamTarget;
+		[SerializeField] private Transform playerFollowCamTarget;
+
+		private CinemachineVirtualCamera _vcam;
 
 		public void  GCUpdatePos(Vector2 mousePos, bool lcDown, bool rcDown) { }
-		public float GetYRotForForwards() { return _playerFollowCamTarget.eulerAngles.y; }
+		public float GetYRotForForwards() { return playerFollowCamTarget.eulerAngles.y - 90f; }
 
 		public Transform GetPlayerFollowCamTarget() {
-			if (!_playerFollowCamTarget) _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform;
-			return _playerFollowCamTarget;
+			if (!playerFollowCamTarget) playerFollowCamTarget = GameObject.Find("LookAtTarget").transform;
+			return playerFollowCamTarget;
 		}
 
-		public void GCStart() { _playerFollowCamTarget = GameObject.Find("LookAtTarget").transform; }
-
-		public void GCExit() { throw new NotImplementedException(); }
+		public void GCStart() {
+			playerFollowCamTarget = GameObject.Find("LookAtTarget").transform;
+			_vcam                 = GameObject.Find("Player VCAM").GetComponent<CinemachineVirtualCamera>();
+		}
 
 		public void GCUpdateDelta(Vector2 mouseDelta, bool lcDown, bool rcDown) {
 			if (!rcDown || mouseDelta == Vector2.zero) return;
@@ -28,25 +32,27 @@ namespace Game_Managing.Game_Context {
 			mouseDelta   *= sensitivity * (1 + Time.deltaTime);
 			mouseDelta.y *= -1;
 
-			Transform playerTransform = _playerFollowCamTarget.parent;
+			Vector3 followTargetStartPos = playerFollowCamTarget.position;
+
+			Transform playerTransform = playerFollowCamTarget.parent;
 
 			//Rotate around up axis by mouse x delta
-			_playerFollowCamTarget.Rotate(playerTransform.up, mouseDelta.x);
+			playerFollowCamTarget.Rotate(playerTransform.up, mouseDelta.x);
 
 			//Clamp rotation around sideways axis
-			float attemptedNewCameraX = _playerFollowCamTarget.eulerAngles.x + mouseDelta.y;
+			float attemptedNewCameraX = playerFollowCamTarget.eulerAngles.x + mouseDelta.y;
 			if (attemptedNewCameraX <= cameraYBound) {
-				_playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
+				playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
 			} else if (attemptedNewCameraX >= 360 - cameraYBound) {
-				_playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
+				playerFollowCamTarget.Rotate(Vector3.right, mouseDelta.y);
 			}
 
-			Vector3 playerFollowTargetEulers = _playerFollowCamTarget.eulerAngles;
-
+			//Remove z component rotation
+			Vector3 playerFollowTargetEulers = playerFollowCamTarget.eulerAngles;
 			Quaternion removeFollowTargetZComponent =
 				Quaternion.Euler(new Vector3(playerFollowTargetEulers.x, playerFollowTargetEulers.y, 0));
-			_playerFollowCamTarget.SetPositionAndRotation(_playerFollowCamTarget.position,
-			                                              removeFollowTargetZComponent);
+			playerFollowCamTarget.SetPositionAndRotation(playerFollowCamTarget.position,
+			                                             removeFollowTargetZComponent);
 		}
 
 		public event Action OnExit;

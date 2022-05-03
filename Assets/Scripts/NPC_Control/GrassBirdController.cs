@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Game_Managing.Game_Context;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,9 +19,43 @@ namespace NPC_Control {
 
 		private bool canMove = true;
 
-		private void Awake() { npc = GetComponent<NPC>(); }
+		private AudioSource _audioSource;
+
+		// Grass Bird Audio clips
+		private static AudioClip _idleSound;
+		private static AudioClip _footstepSound;
+		private static AudioClip _talk1Sound;
+		private static AudioClip _talk2Sound;
+		private static AudioClip _petSound;
+		private static AudioClip _kickedSound;
+
+		private void Awake() {
+			npc          = GetComponent<NPC>();
+			_audioSource = GetComponent<AudioSource>();
+
+			AssignAudioClips();
+		}
 
 		private void Start() { StartCoroutine(MoveToRandom()); }
+
+		public void OnPet() {
+			Debug.Log($"{this} was pet");
+			AnimationManager.Instance.PetGrassBird(this);
+		}
+
+		public void OnKick() {
+			Debug.Log($"{this} was kicked");
+			AnimationManager.Instance.KickGrassBird(this);
+		}
+
+		private void AssignAudioClips() {
+			_idleSound     = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdIdle");
+			_footstepSound = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/Grassbird_Footstep");
+			_talk1Sound    = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdConversation");
+			_talk2Sound    = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdConversation_2");
+			_petSound      = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdFidgetPet");
+			_kickedSound   = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdKicked");
+		}
 
 		private Vector3 GetRandomPoint() {
 			float x = Random.Range(-boxSize.x, boxSize.x);

@@ -2,6 +2,7 @@ using NPC_Control.Behavior_Tree;
 using NPC_Control.Behavior_Tree.Nodes.MapChildNodes;
 using NPC_Control.Behavior_Tree.Nodes.SingleChildNodes;
 using Other;
+using Player_Control;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,7 +26,7 @@ namespace NPC_Control.Dialogue {
 
 		public void Awake() {
 			dialogueBoxPanel = GameObject.FindGameObjectWithTag("DialogueBox").GetComponent<Image>();
-			_buttonPrefab    = Resources.Load<GameObject>("Prefabs/Interface/UI/Button.prefab");
+			_buttonPrefab    = Resources.Load<GameObject>("Prefabs/Interface/UI/Button");
 			_dialogueText    = dialogueBoxPanel.GetComponentInChildren<TextMeshProUGUI>();
 			_playerInput     = PlayerInputManager.Instance;
 
@@ -55,6 +56,7 @@ namespace NPC_Control.Dialogue {
 			if (_currentDialogueBox == null) return;
 
 			if (_currentDialogueBox.IsMessageFullyDisplayed && _currentDialogueNode is DialogueWithResponseNode) {
+				GameObject.Find("Player").GetComponent<PlayerController>().OnDialogueOption();
 				EndDialogue(key);
 			}
 		}
@@ -104,23 +106,17 @@ namespace NPC_Control.Dialogue {
 
 			dialogueBoxPanel.CrossFadeAlpha(1, 1.0f, false);
 			_currentDialogueNode = node;
-			int charDisplaySpeed = message.Length >= 600 ? 100 : message.Length / 6;
-			int charDisplayDelay = 100 / charDisplaySpeed;
-			// _currentDialogueBox = new SimpleDialogueBox(message, charDisplayDelay);
 
 			switch (node) {
-				case DialogueNode dialogueNode:
+				case DialogueNode _:
 					_currentDialogueBox = new SimpleDialogueBox(message, 3);
 					break;
 				case DialogueWithResponseNode dialogueWithResponseNode:
 					_currentDialogueBox =
 						new ResponseDialogueBox(message, dialogueWithResponseNode.GetChildrenKeys().ToArray(),
 						                        3);
+					CreateChoiceButtons(_currentDialogueBox as ResponseDialogueBox);
 					break;
-			}
-
-			if (_currentDialogueBox is ResponseDialogueBox responseDialogueBox) {
-				CreateChoiceButtons(responseDialogueBox);
 			}
 
 			_isDialogueShowing = true;
