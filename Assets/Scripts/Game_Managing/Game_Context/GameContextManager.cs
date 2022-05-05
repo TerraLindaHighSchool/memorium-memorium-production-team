@@ -15,8 +15,8 @@ namespace Game_Managing.Game_Context {
 			}
 		}
 
-		private bool _isLeftClickDown;
-		private bool _isRightMouseDown;
+		private bool _isLeftClickDown  = false;
+		private bool _isRightMouseDown = false;
 
 		public void EnterContext(IGameContext newContext) {
 			ActiveContext.OnExit -= ExitContext;

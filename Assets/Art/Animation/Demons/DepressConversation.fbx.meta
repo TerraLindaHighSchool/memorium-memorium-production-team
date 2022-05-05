@@ -60,7 +60,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: NewEvent
+        functionName: PlayTalk1Sound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
