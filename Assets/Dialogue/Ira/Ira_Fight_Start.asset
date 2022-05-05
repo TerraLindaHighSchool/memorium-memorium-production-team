@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2488163473968136023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9654715f-96da-4e9f-b546-9a626cb42dfc
+  position: {x: -139, y: 62.000015}
+  child: {fileID: 151669850677829002}
+  message: Come at me then!
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Ira_Fight_Start
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1995833685107640284}
+  nodes:
+  - {fileID: 1995833685107640284}
+  - {fileID: 1854089699782672322}
+  - {fileID: 3603076030530093988}
+  - {fileID: -2488163473968136023}
+  - {fileID: 151669850677829002}
+  - {fileID: 2571218514994722250}
+--- !u!114 &151669850677829002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: aea43cbe-f40d-45e9-9c90-4f0deb1977f9
+  position: {x: 199, y: 61}
+  child: {fileID: 0}
+  eventKey: START_ANGER_FIGHT
+--- !u!114 &1854089699782672322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 7bc6437f-fe03-4517-ba09-5624fe710483
+  position: {x: -508.36496, y: 12.300078}
+  children:
+  - key: no
+    value: {fileID: 3603076030530093988}
+  - key: yes
+    value: {fileID: -2488163473968136023}
+  message: ARE YOU HERE TO FIGHT?!
+--- !u!114 &1995833685107640284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 056e5f78-24ea-4d7d-8d56-0ad0d964e203
+  position: {x: -654.365, y: 13.300102}
+  child: {fileID: 1854089699782672322}
+--- !u!114 &2571218514994722250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: de17b97f-411f-4449-9351-58149a347005
+  position: {x: 218, y: -97}
+  children:
+  - key: That's unfortunate
+    value: {fileID: 151669850677829002}
+  message: I'll kill you!
+--- !u!114 &3603076030530093988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1d6089cf-ac0b-4cab-b4fe-0bd189513936
+  position: {x: -141, y: -99.28}
+  children:
+  - key: I'm not scared of you.
+    value: {fileID: 151669850677829002}
+  - key: Why are you mad?
+    value: {fileID: 2571218514994722250}
+  message: Okay, scaredy cat.
