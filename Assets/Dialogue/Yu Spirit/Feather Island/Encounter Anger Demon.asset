@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5981348618555835757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 07d1dec2-5305-4b0b-b2b1-33fce91cef0c
+  position: {x: 734.45966, y: -67.99998}
+  child: {fileID: 2590598239536798686}
+  message: Good luck! You might remember something by doing this!
+--- !u!114 &-4639860840345215723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 607d8a31-9e2d-4b47-a8c6-0c5a77b797e2
+  position: {x: 150.22534, y: -13.191414}
+  children:
+  - key: I guess I could try...
+    value: {fileID: -5981348618555835757}
+  - key: No way! He's scary!
+    value: {fileID: -191474225306809683}
+  message: Oh, he's mad! Maybe we should try and help calm him down?
+--- !u!114 &-191474225306809683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 227c93dd-eb12-474e-aba7-f36854b06aca
+  position: {x: 730.02, y: 117.10738}
+  child: {fileID: 0}
+  message: He does look pretty scary... you never know though, maybe he's nice when
+    you get to know him?
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Encounter Anger Demon
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 6879779373255792248}
+  nodes:
+  - {fileID: 6879779373255792248}
+  - {fileID: -4639860840345215723}
+  - {fileID: -5981348618555835757}
+  - {fileID: 2590598239536798686}
+  - {fileID: 7682494192749845721}
+  - {fileID: -191474225306809683}
+--- !u!114 &2590598239536798686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 2a50f231-3a9e-431f-badb-d2221d598c76
+  position: {x: 1267.6941, y: -103.88733}
+  child: {fileID: 7682494192749845721}
+  message: Hopefully he's just being dramatic.
+--- !u!114 &6879779373255792248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6c37ae1b-eef6-4d17-86fd-92d373b96627
+  position: {x: 0, y: 0}
+  child: {fileID: -4639860840345215723}
+--- !u!114 &7682494192749845721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 04fe4485-65d9-46ab-bf5d-43c260f644da
+  position: {x: 1679.4608, y: -115.33101}
+  child: {fileID: 0}
+  message: You got this!

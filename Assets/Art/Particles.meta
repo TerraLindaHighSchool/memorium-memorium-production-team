@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Animation/Demons/Denial.meta
+guid: d05e23f59a688da4aaf360856fc21a6b
+========
 guid: c8525abf92da7214db6bbcb3b5e62f63
+>>>>>>>> Develop:Assets/Art/Particles.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

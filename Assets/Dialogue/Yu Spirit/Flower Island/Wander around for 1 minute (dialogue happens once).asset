@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Wander around for 1 minute (dialogue happens once)
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 5808448839100473806}
+  nodes:
+  - {fileID: 5808448839100473806}
+  - {fileID: 8964082300893601129}
+  - {fileID: 2845270699433241061}
+  - {fileID: 8349911040356096064}
+  - {fileID: 3179116165753235327}
+--- !u!114 &2845270699433241061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: ecdcbf2a-8d19-4988-9144-5ea3db48904f
+  position: {x: 544, y: -61.6775}
+  children:
+  - key: Fine! I'm lost!
+    value: {fileID: 8349911040356096064}
+  - key: I said, we're not lost.
+    value: {fileID: 3179116165753235327}
+  message: You sure? We have been running in circles for a while.
+--- !u!114 &3179116165753235327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: cbb7e63d-0387-4f94-aad3-92f5a9fa10d1
+  position: {x: 1136.8069, y: -31.56787}
+  child: {fileID: 0}
+  message: If you say so.
+--- !u!114 &5808448839100473806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 0890fe9c-3459-4637-943a-6ff185fec5be
+  position: {x: 0, y: 0}
+  child: {fileID: 8964082300893601129}
+--- !u!114 &8349911040356096064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: af79259f-a5a3-4cee-9450-6cb37d51d363
+  position: {x: 545.68, y: 119.19251}
+  children: []
+  message: I guess we could try going to one of those other islands.
+--- !u!114 &8964082300893601129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 62f2d2f4-1619-4635-9a96-84fd3ca9fa0d
+  position: {x: 152.08751, y: -6.083506}
+  children:
+  - key: How do we open the gate?
+    value: {fileID: 8349911040356096064}
+  - key: We're not lost.
+    value: {fileID: 2845270699433241061}
+  message: I think we're lost...
