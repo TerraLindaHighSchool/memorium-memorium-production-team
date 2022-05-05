@@ -131,11 +131,16 @@ namespace Puzzle_Control.Puzzle2D {
 							if (el is DragTarget drag_el) {
 								var pos  = new Vector2(drag_el.x, drag_el.y);
 								var dist = (pos - paneMousePos).magnitude;
+								
 								if (dist < drag_el.fuzz && targetObj == drag_el.Target) {
 									targetObj.x = drag_el.x;
 									targetObj.y = drag_el.y;
 									
 									completion.Add(drag_el, true);
+									if (completion.Values.All(cond => cond)) {
+										Complete();
+										return;
+									}
 								}
 							}
 						}
