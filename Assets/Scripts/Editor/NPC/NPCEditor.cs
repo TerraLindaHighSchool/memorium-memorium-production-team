@@ -40,8 +40,6 @@ namespace Editor.NPC {
 			addEventReceiverButton.clicked    += AddEventReceiver;
 			removeEventReceiverButton.clicked += RemoveEventReceiver;
 			
-			_npc.EventReceiversSanityCheck();
- 
 			foreach (EventReceiver eventReceiver in _npc.eventReceivers) {
 				_listView.Add(CreateEventReceiverElement(eventReceiver));
 			}
