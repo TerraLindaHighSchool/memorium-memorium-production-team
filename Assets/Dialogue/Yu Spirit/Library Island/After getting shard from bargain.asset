@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8997508142340993458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: b62b8ea8-ba9d-4594-8381-c3c4816d5d41
+  position: {x: 880.2704, y: -109.43737}
+  child: {fileID: -452859262938788109}
+  message: A little... it's very confusing.
+--- !u!114 &-8212090483322817184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 050fb955-c8e8-46e1-af96-bb308bbc26d4
+  position: {x: 0, y: 0}
+  child: {fileID: 5924698941296187448}
+--- !u!114 &-5931387613502904108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 65f040d7-9ecf-4383-8e9d-99dbccafb1c1
+  position: {x: 2019.7928, y: -103.459816}
+  child: {fileID: 6007594723841301310}
+  message: I guess that makes sense.
+--- !u!114 &-3105121866788773371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 627df8e4-cf67-4efb-96d1-afe2214b43e9
+  position: {x: 525.7674, y: 27.373749}
+  child: {fileID: -8997508142340993458}
+  message: Is your memory coming back at all?
+--- !u!114 &-452859262938788109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 93ca6bf1-4bf0-4857-a76e-4b26d0f1ea37
+  position: {x: 1167.2485, y: 27.312115}
+  child: {fileID: -5931387613502904108}
+  message: Each one grants you a little bit of your memory... then if we find them
+    all, you should remember who you were!
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: After getting shard from bargain
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -8212090483322817184}
+  nodes:
+  - {fileID: -8212090483322817184}
+  - {fileID: 5924698941296187448}
+  - {fileID: -3105121866788773371}
+  - {fileID: -8997508142340993458}
+  - {fileID: -452859262938788109}
+  - {fileID: -5931387613502904108}
+  - {fileID: 6007594723841301310}
+--- !u!114 &5924698941296187448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: ed3095d0-0406-4eda-9cc5-1175d29f49a3
+  position: {x: 89.29025, y: -138.08351}
+  child: {fileID: -3105121866788773371}
+  message: 'That was clever of you! Seems he was a respectable seller after all. '
+--- !u!114 &6007594723841301310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a81e7f30-9647-4385-9be7-2c1adb3017ef
+  position: {x: 2347.4697, y: 33.460606}
+  child: {fileID: 0}
+  message: Come on, let's go find the rest!

@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7181993913703081503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 5d2a195a-fb7a-4314-b75d-0d43284a4157
+  position: {x: 1057.85, y: 57.75}
+  child: {fileID: -6363034056380574181}
+  message: It's okay, I know it's hard to admit it.
+--- !u!114 &-6363034056380574181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: d3bac995-7594-4c53-9c45-b9c945eb1f8c
+  position: {x: 1584.1045, y: 7.4158688}
+  children:
+  - key: I've lost my memory...
+    value: {fileID: 3050792074904142993}
+  message: So, who are you?
+--- !u!114 &-3592852975171036966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c5a44390-2a79-4c34-89b7-9c2b2a7a644d
+  position: {x: 121.93638, y: -3.0417614}
+  child: {fileID: 957986168046674823}
+  message: Thank you so much!
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: After Getting Key
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 8319326539120262692}
+  nodes:
+  - {fileID: 8319326539120262692}
+  - {fileID: -3592852975171036966}
+  - {fileID: 957986168046674823}
+  - {fileID: 254558367856913885}
+  - {fileID: -7181993913703081503}
+  - {fileID: -6363034056380574181}
+  - {fileID: 3050792074904142993}
+--- !u!114 &254558367856913885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 84194c8b-aa74-4f88-8b5d-c5df879f4252
+  position: {x: 1057.799, y: -47.223164}
+  child: {fileID: -6363034056380574181}
+  message: Then let me help you out! It's the least I could do.
+--- !u!114 &957986168046674823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a1222754-7851-499b-95b9-a60ccb978a59
+  position: {x: 430.18488, y: -0.99998856}
+  children:
+  - key: Yes
+    value: {fileID: 254558367856913885}
+  - key: No
+    value: {fileID: -7181993913703081503}
+  message: Was it hard for you to gather those key fragments in the dark?
+--- !u!114 &3050792074904142993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c737bc57-e9b9-46f0-87ea-1e1564f28f18
+  position: {x: 1923, y: 7}
+  child: {fileID: 0}
+  message: "Don't be afraid of the shadows little Star! I\u2019ll guide the way until
+    you find your light."
+--- !u!114 &8319326539120262692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 3e9b63f9-2fb4-4614-b792-6df3ace7f698
+  position: {x: 0, y: 0}
+  child: {fileID: -3592852975171036966}

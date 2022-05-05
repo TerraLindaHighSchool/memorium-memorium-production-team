@@ -1,0 +1,668 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8907296651186832991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a6b91177-7b02-4411-989a-3361b3feec08
+  position: {x: 6434.3066, y: 223.71596}
+  child: {fileID: 0}
+  message: Not quite. Go check the puzzles again.
+--- !u!114 &-8794837498262748786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: bda77843-75c4-42dc-9007-f5c91eca7dbd
+  position: {x: 2421.2463, y: 469.78415}
+  children:
+  - key: I won't get it then
+    value: {fileID: 6247179730794610551}
+  - key: But I want the book!
+    value: {fileID: 4470340305060942044}
+  message: I don't recomend getting a book then.
+--- !u!114 &-8601980064168502135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8072d5d6-3696-4da1-9aad-b692f11a6735
+  position: {x: 4932.801, y: -60}
+  children:
+  - key: Okay.
+    value: {fileID: 6926538591811397848}
+  - key: I have the passwords.
+    value: {fileID: -4786929771983384644}
+  message: Yes, your time. Do some puzzles and give me the correct password. Then
+    you'll get your shard.
+--- !u!114 &-8202623230797507076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: b19e4597-97cc-44b4-a844-610ff9cd34f2
+  position: {x: 3023.6802, y: 6.880066}
+  child: {fileID: 0}
+  message: Then why did you ask about the shard!
+--- !u!114 &-7852361161697537205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 737ea0e8-305b-4687-b752-ab9b39e071d4
+  position: {x: 1856, y: 114.999985}
+  children:
+  - key: A shard?
+    value: {fileID: 6475720612177844364}
+  - key: Books?
+    value: {fileID: -3441313445767419970}
+  - key: A bird?
+    value: {fileID: -5744911303364148116}
+  message: I have a few things, a shard, a book or two, a bird.
+--- !u!114 &-7392312382305690858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 824165e3-e0f8-402f-82a9-3b8987bbd50d
+  position: {x: 312.51242, y: -12.243039}
+  children:
+  - key: I'm looking for a shard
+    value: {fileID: -2993647531133412497}
+  - key: I don't know.
+    value: {fileID: 1398006052222925681}
+  - key: I'm looking for my memory
+    value: {fileID: 8197917414815157704}
+  message: Oh, hello there. I wasn't expecting any patrons today. What brings you
+    here?
+--- !u!114 &-7226688132504261708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c4aa8aa5-df0d-4ebb-b168-1cc3b99864fc
+  position: {x: 3837.02, y: -53.475597}
+  children:
+  - key: My time?
+    value: {fileID: -8601980064168502135}
+  message: Well, I understand you want that shard, but really? Yourself? I don't
+    deal with those kinds of goods. How about you give me your tie instead.
+--- !u!114 &-5871069891127231553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 09df85ba-b97c-4492-945e-d5fe88af9d06
+  position: {x: 6495.525, y: 48}
+  child: {fileID: 0}
+  message: Perfect! Now here is your shard.
+--- !u!114 &-5744911303364148116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6639e2af-730e-4dde-b385-0f84048b56b1
+  position: {x: 1792.0437, y: 324.51392}
+  children:
+  - key: Can I have it?
+    value: {fileID: -2236591675036186531}
+  - key: Can I get something else?
+    value: {fileID: -2250418069185731893}
+  message: Yes, one of the ones who walk outside. I belive they're made of grass.
+--- !u!114 &-5687220969829340782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 4f77335f-a12a-4794-a339-f124040becaf
+  position: {x: 1870, y: -130}
+  child: {fileID: 0}
+  message: It all depends on what intrests you. If you're going to be so stubborn
+    then come back later.
+--- !u!114 &-4786929771983384644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: cf4eb0e9-105c-472f-abab-1df686a0983b
+  position: {x: 5927.042, y: -5.0000052}
+  children:
+  - key: Jazzy and Eagle.
+    value: {fileID: -8907296651186832991}
+  - key: Leaf and Jump.
+    value: {fileID: -8907296651186832991}
+  - key: Petal and Wind.
+    value: {fileID: -8907296651186832991}
+  - key: Flower and Fight.
+    value: {fileID: -8907296651186832991}
+  - key: Soil and Mist.
+    value: {fileID: -8907296651186832991}
+  - key: Press and Breath.
+    value: {fileID: -8907296651186832991}
+  - key: Seed and Fall.
+    value: {fileID: -8907296651186832991}
+  - key: Bloom and Float.
+    value: {fileID: -5871069891127231553}
+  message: You do? Well then do tell, what are they?
+--- !u!114 &-4559681225249222229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 76caddbd-5e5c-4d27-9ca5-004615f89b24
+  position: {x: 3676.8235, y: 153.89862}
+  child: {fileID: 0}
+  message: 'Now,now, how would your friend feel about that? Besides I don''t like
+    those kinds of goods. '
+--- !u!114 &-3441313445767419970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 799324d7-2b39-48e0-ae39-a44e68aa0d9b
+  position: {x: 2457.833, y: 206.68588}
+  children:
+  - key: I can.
+    value: {fileID: 7143926487004255569}
+  - key: I can't.
+    value: {fileID: -8794837498262748786}
+  message: Yes books. You can read can't you?
+--- !u!114 &-2993647531133412497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9c57ce09-4883-4b98-b62b-ca2ce8a1596e
+  position: {x: 1176.2275, y: 243.19026}
+  children:
+  - key: I don't belive you.
+    value: {fileID: -530399390972935683}
+  - key: I need it!
+    value: {fileID: 7412762591992509017}
+  - key: Really! Can I have it!
+    value: {fileID: 3928259422938336651}
+  message: A shard you say? I might just have something like that.
+--- !u!114 &-2250418069185731893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6f919628-026e-4256-bf94-07cc54b8e7ba
+  position: {x: 2092, y: 747}
+  children:
+  - key: A shard.
+    value: {fileID: 6475720612177844364}
+  - key: A book.
+    value: {fileID: -3441313445767419970}
+  message: Yes. What do you want?
+--- !u!114 &-2236591675036186531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 5932e7b7-e579-49cf-818d-cb10047ec6c9
+  position: {x: 1904.9979, y: 495.62424}
+  children:
+  - key: Nothing.
+    value: {fileID: -216300967002420952}
+  - key: My spirit friend Yu.
+    value: {fileID: -4559681225249222229}
+  - key: Myself.
+    value: {fileID: 4739916805775361572}
+  message: For a price, yes. What can you trade?
+--- !u!114 &-530399390972935683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a977417f-9036-430e-9e9f-303610556b8e
+  position: {x: 1147.4502, y: 447.55005}
+  child: {fileID: 0}
+  message: Oh, I guess you aren't looking that hard for it then.
+--- !u!114 &-239958983879248939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 71a74dc6-9ea2-4343-95d0-ff53c8d05ef3
+  position: {x: 3933.8457, y: 600.20703}
+  child: {fileID: 0}
+  message: Then don't try to buy a book!
+--- !u!114 &-216300967002420952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: d00a5d2b-c5d9-4cb8-be04-9a9719b753ee
+  position: {x: 2460.5178, y: 667.6651}
+  child: {fileID: 0}
+  message: Then you shouldn't try to buy a bird!
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Pactus Dialouge
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 1983251409711762816}
+  nodes:
+  - {fileID: 1983251409711762816}
+  - {fileID: -7392312382305690858}
+  - {fileID: -2993647531133412497}
+  - {fileID: 1398006052222925681}
+  - {fileID: 8197917414815157704}
+  - {fileID: -5687220969829340782}
+  - {fileID: -7852361161697537205}
+  - {fileID: 6475720612177844364}
+  - {fileID: -8202623230797507076}
+  - {fileID: 2483723048084052863}
+  - {fileID: 5812610030652601336}
+  - {fileID: -4559681225249222229}
+  - {fileID: -7226688132504261708}
+  - {fileID: -3441313445767419970}
+  - {fileID: 7143926487004255569}
+  - {fileID: 4470340305060942044}
+  - {fileID: 4739916805775361572}
+  - {fileID: -239958983879248939}
+  - {fileID: 6247179730794610551}
+  - {fileID: -8794837498262748786}
+  - {fileID: -5744911303364148116}
+  - {fileID: -2236591675036186531}
+  - {fileID: -216300967002420952}
+  - {fileID: -2250418069185731893}
+  - {fileID: -530399390972935683}
+  - {fileID: 7412762591992509017}
+  - {fileID: 3928259422938336651}
+  - {fileID: -8601980064168502135}
+  - {fileID: 6926538591811397848}
+  - {fileID: -4786929771983384644}
+  - {fileID: -8907296651186832991}
+  - {fileID: -5871069891127231553}
+--- !u!114 &1398006052222925681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: b1acb080-198e-490f-a371-6a4a474cbe35
+  position: {x: 1099.5035, y: -269.87943}
+  child: {fileID: 0}
+  message: Well then how about you come back when you do know.
+--- !u!114 &1983251409711762816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e0928857-5f4f-4c05-ab24-404739ea18d6
+  position: {x: 121.124916, y: -27.96592}
+  child: {fileID: -7392312382305690858}
+--- !u!114 &2483723048084052863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 38405951-0941-4397-9d39-75c89019facd
+  position: {x: 3034, y: 146.00002}
+  children:
+  - key: Nothing
+    value: {fileID: 5812610030652601336}
+  - key: My spirit friend Yu.
+    value: {fileID: -4559681225249222229}
+  - key: Myself
+    value: {fileID: -7226688132504261708}
+  message: Well, what will you use to purchase it?
+--- !u!114 &3928259422938336651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 12f48988-c740-461f-8154-4869a6dfc42e
+  position: {x: 1370.0802, y: 882.07996}
+  children:
+  - key: Nothing.
+    value: {fileID: 5812610030652601336}
+  - key: My spirit friend Yu.
+    value: {fileID: -4559681225249222229}
+  - key: Myself.
+    value: {fileID: -7226688132504261708}
+  message: No you can't just have it. You need to trade for it. I am running a business
+    after all. What do you have to trade?
+--- !u!114 &4470340305060942044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e3a7000c-48fb-4202-a087-283f29de5c96
+  position: {x: 3317.286, y: 427.37308}
+  children:
+  - key: My spirit friend Yu.
+    value: {fileID: -4559681225249222229}
+  - key: Myself.
+    value: {fileID: 4739916805775361572}
+  - key: No.
+    value: {fileID: -239958983879248939}
+  message: Well, do you have anything to trade or pay with?
+--- !u!114 &4739916805775361572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9e5a33cc-28e2-46c0-b753-82d7dad2120b
+  position: {x: 3868.1567, y: 451.03995}
+  child: {fileID: 0}
+  message: I don't run that type of buisness. Come back when you can pay my prices.
+--- !u!114 &5812610030652601336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: ba1cc344-69cc-48c7-b96b-8ef2f64b325f
+  position: {x: 3492.8745, y: 272.30005}
+  child: {fileID: 0}
+  message: Come back when you have something of value.
+--- !u!114 &6247179730794610551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 6668031f-5d80-432b-b184-56b96d05b97c
+  position: {x: 2971.6355, y: 609.63055}
+  children:
+  - key: How about a shard?
+    value: {fileID: 6475720612177844364}
+  message: Do you want something else then?
+--- !u!114 &6475720612177844364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 3a88a18d-1d16-48ad-8679-c40d52373583
+  position: {x: 2406.7197, y: 56.00006}
+  children:
+  - key: No
+    value: {fileID: -8202623230797507076}
+  - key: Yes
+    value: {fileID: 2483723048084052863}
+  message: Yes, a fragment of something. Does it catch your eye?
+--- !u!114 &6926538591811397848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e0f15170-545e-4029-a0aa-6c1452dc5d51
+  position: {x: 5707.861, y: -135.79558}
+  child: {fileID: 0}
+  message: Then best be on yur way. The sooner you solve those puzzles the sooner
+    yu can get your shard.
+--- !u!114 &7143926487004255569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: f5deded6-3a2a-4515-8b0d-f850a1670fc4
+  position: {x: 2899.45, y: 388.9202}
+  children:
+  - key: Yes.
+    value: {fileID: 4470340305060942044}
+  - key: No.
+    value: {fileID: 6247179730794610551}
+  message: Do you want the book then?
+--- !u!114 &7412762591992509017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 036e3f9a-1b75-4266-aeec-ef3bacd99894
+  position: {x: 1220.0994, y: 669.4503}
+  children:
+  - key: Myself.
+    value: {fileID: -7226688132504261708}
+  - key: Nothing, really.
+    value: {fileID: 5812610030652601336}
+  - key: My spirit friend Yu.
+    value: {fileID: -4559681225249222229}
+  message: Oh, you do? Well it's a very special item to me and has a very high price.
+    What do you have to offer in return?
+--- !u!114 &8197917414815157704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a240c27f-72a8-4d3b-9ad3-19e2b1243e80
+  position: {x: 1047.04, y: 24}
+  children:
+  - key: Maybe you don't.
+    value: {fileID: -5687220969829340782}
+  - key: What do you have?
+    value: {fileID: -7852361161697537205}
+  message: That's unfortunate. I don't have that in my wares. Maybe I have something
+    else that might intrest you.

@@ -14,19 +14,7 @@ namespace NPC_Control {
 		public class NPCDataHelper {
 			private readonly NPC _outerObj;
 
-			public readonly Behavior_Tree.EntityController EntityController;
-			public readonly DialogueManager                DialogueManager;
-			public readonly CutsceneManager                CutsceneManager;
-
-			public NPCDataHelper(NPC                            outerObj,
-			                     Behavior_Tree.EntityController entityController,
-			                     DialogueManager                dialogueManager,
-			                     CutsceneManager                cutsceneManager) {
-				this._outerObj        = outerObj;
-				this.EntityController = entityController;
-				this.DialogueManager  = dialogueManager;
-				this.CutsceneManager  = cutsceneManager;
-			}
+			public NPCDataHelper(NPC outerObj) { _outerObj = outerObj; }
 
 			public void InvokeDialogueEvent(string eventKey) => _outerObj.InvokeEventReceivers(eventKey);
 		}
@@ -43,13 +31,15 @@ namespace NPC_Control {
 		public bool DialogueActive { get; private set; }
 
 		private void OnEnable() {
-			_npcDataHelper = new NPCDataHelper(this, null, DialogueManager.Instance, null); //TODO: NOT THIS
+			_npcDataHelper = new NPCDataHelper(this);
 			DialogueActive = false;
 		}
 
 		private void OnDisable() { DialogueActive = false; }
 
 		private void InvokeEventReceivers(string eventKey) {
+			EventReceiversSanityCheck();
+
 			foreach (EventReceiver eventReceiver in eventReceivers) {
 				if (eventReceiver.key == eventKey) { eventReceiver.@event?.Invoke(); }
 			}
@@ -63,6 +53,8 @@ namespace NPC_Control {
 			#endif
 
 			eventReceivers.Add(newEventReceiver);
+			
+			EventReceiversSanityCheck();
 
 			return newEventReceiver;
 		}
@@ -73,6 +65,23 @@ namespace NPC_Control {
 			#endif
 
 			eventReceivers.Remove(eventReceivers.Last());
+			
+			EventReceiversSanityCheck();
+		}
+
+		public void EventReceiversSanityCheck() {
+			List<EventReceiver> receiversToRemove = new List<EventReceiver>();
+
+			foreach (EventReceiver eventReceiver in eventReceivers) {
+				if (eventReceiver == null) receiversToRemove.Add(eventReceiver);
+			}
+
+			if (receiversToRemove.Count > 0) {
+				foreach (EventReceiver eventReceiver in receiversToRemove) {
+					Debug.LogWarning($"{gameObject.name} had a null event receiver! Removing...");
+					eventReceivers.Remove(eventReceiver);
+				}
+			}
 		}
 
 		public void StartDialogue() {
