@@ -41,12 +41,19 @@ namespace NPC_Control {
 		public void OnPet() {
 			Debug.Log($"{this} was pet");
 			AnimationManager.Instance.PetGrassBird(this);
+			_audioSource.PlayOneShot(_petSound);
 		}
 
 		public void OnKick() {
 			Debug.Log($"{this} was kicked");
 			AnimationManager.Instance.KickGrassBird(this);
-		}
+			_audioSource.PlayOneShot(_kickedSound);
+        }
+
+		public void PlayStepSound()
+        {
+			_audioSource.PlayOneShot(_footstepSound);
+        }
 
 		private void AssignAudioClips() {
 			_idleSound     = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdIdle");
@@ -70,5 +77,7 @@ namespace NPC_Control {
 				yield return new WaitForSeconds(Random.Range(minWait, maxWait));
 			}
 		}
+
+		public void PlayIdleSound() { _audioSource.PlayOneShot(_idleSound); }
 	}
 }
