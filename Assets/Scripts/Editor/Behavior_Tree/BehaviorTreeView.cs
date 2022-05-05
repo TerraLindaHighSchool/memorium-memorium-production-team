@@ -35,7 +35,7 @@ namespace Editor.Behavior_Tree {
 			MapChildNodeView.OnDisconnectChild   += RemoveChildrenFromEdge;
 			
 			
-			RegisterCallback<PointerDownEvent>(pointerEvt => { Debug.Log(pointerEvt.localPosition); }, TrickleDown.TrickleDown);
+			//RegisterCallback<PointerDownEvent>(pointerEvt => { Debug.Log(pointerEvt.localPosition); }, TrickleDown.TrickleDown);
 		}
 
 		private NodeView<T> FindNodeView<T>(T node) where T : BehaviorNode {
