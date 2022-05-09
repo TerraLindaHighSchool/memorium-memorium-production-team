@@ -9,8 +9,8 @@ namespace NPC_Control.Behavior_Tree.Nodes.SingleChildNodes {
 		public override void Run(NPC.NPCDataHelper npcDataHelper) {
 			foreach (CutsceneContextController cutscene in FindObjectsOfType<CutsceneContextController>()) {
 				if (cutscene.key.Equals(key)) {
-					GameContextManager.Instance.EnterContext(cutscene);
 					cutscene.OnExit += () => Complete(child);
+					GameContextManager.Instance.EnterContext(cutscene);
 					return;
 				}
 				
