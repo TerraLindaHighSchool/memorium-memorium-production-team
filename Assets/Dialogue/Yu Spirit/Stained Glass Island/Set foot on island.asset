@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7082391320012973412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 5cdecc82-9415-4f55-b2b6-19c2489f4b59
+  position: {x: 480.70004, y: -31.050003}
+  child: {fileID: -6132702026927846571}
+  message: ...What's that supposed to mean?
+--- !u!114 &-6132702026927846571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 00000d5f-2501-4040-8ef8-efb6f6378f2e
+  position: {x: 830.0539, y: 99.18746}
+  child: {fileID: -4046321628460876870}
+  message: I have a feeling you'll be needing my help with what comes next. Can I
+    see the shards?
+--- !u!114 &-4046321628460876870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 1b8f5341-b0a0-405d-8b5b-f111007d6a69
+  position: {x: 1540.6996, y: -28.158989}
+  child: {fileID: 1638720469657511984}
+  message: Wait, what are you doing?
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Set foot on island
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 8248526204573678302}
+  nodes:
+  - {fileID: 8248526204573678302}
+  - {fileID: 1753123282514256721}
+  - {fileID: -7082391320012973412}
+  - {fileID: -6132702026927846571}
+  - {fileID: -4046321628460876870}
+  - {fileID: 1638720469657511984}
+  - {fileID: 192382832083390252}
+--- !u!114 &192382832083390252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e15fdd716047c883bd5b6ad602893c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: bb892f67-010c-4a16-b991-64b1bc062311
+  position: {x: 2418.1274, y: 87.805}
+  child: {fileID: 0}
+  key: 
+--- !u!114 &1638720469657511984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 82db4be0-6b5a-4ef6-b9c7-7418ff8aa6da
+  position: {x: 1924.328, y: 102.93239}
+  child: {fileID: 192382832083390252}
+  message: I'm not much use to you in this form, but...
+--- !u!114 &1753123282514256721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 189616be-6f32-403f-a242-64bb5ade9e1d
+  position: {x: 83.79999, y: 80.74999}
+  child: {fileID: -7082391320012973412}
+  message: This place seems... serene. Almost final.
+--- !u!114 &8248526204573678302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 2907f9b9-13e3-48d8-837a-a80d9b60e350
+  position: {x: 0, y: 0}
+  child: {fileID: 1753123282514256721}

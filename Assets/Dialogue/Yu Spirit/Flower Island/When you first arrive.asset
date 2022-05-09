@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7009621630020536005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 61f07a0a-b197-4c14-8669-abda04948913
+  position: {x: 0, y: 0}
+  child: {fileID: 6220777940539975803}
+--- !u!114 &-6560041725669933120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 51bbfe57-ec7c-4fa0-b5ce-afe8063f4990
+  position: {x: 417, y: 2}
+  child: {fileID: -5214926499431667568}
+  message: I'm fine... wish I could float like you, though.
+--- !u!114 &-5214926499431667568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: d21aff61-d9a5-4f92-abe3-e77a76ef01cf
+  position: {x: 894.3226, y: 8.3550005}
+  child: {fileID: -2207260213265243516}
+  message: Whew! I was worried, that was a really long fall.
+--- !u!114 &-4385952828728040230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: aaed2fdf-1da4-4005-b88f-fb20464547f1
+  position: {x: 1851.1301, y: 14.645015}
+  child: {fileID: 5038130820603861727}
+  message: Well, at least it's better than that dreary island that we were just on!
+--- !u!114 &-2207260213265243516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 9380ee6b-c352-4e16-a5d1-3a1cae32ca0d
+  position: {x: 1405.5669, y: 11.527523}
+  child: {fileID: -4385952828728040230}
+  message: Although, I'm not sure where we've landed.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: When you first arrive
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -7009621630020536005}
+  nodes:
+  - {fileID: -7009621630020536005}
+  - {fileID: 6220777940539975803}
+  - {fileID: -6560041725669933120}
+  - {fileID: -5214926499431667568}
+  - {fileID: -2207260213265243516}
+  - {fileID: -4385952828728040230}
+  - {fileID: 5038130820603861727}
+--- !u!114 &5038130820603861727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a85588bc-2290-4cde-a140-a2f61d20582b
+  position: {x: 2463.848, y: 17.24251}
+  child: {fileID: 0}
+  message: Let's explore! We might find something here that will help you remember
+    who you are!
+--- !u!114 &6220777940539975803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: dbd3f5fc-692c-4947-b08a-9ae4d9d094f8
+  position: {x: 115, y: -3}
+  child: {fileID: -6560041725669933120}
+  message: Are you okay!?
