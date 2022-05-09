@@ -1,4 +1,5 @@
-﻿using Game_Managing.Game_Context;
+﻿using Game_Managing;
+using Game_Managing.Game_Context;
 using UnityEngine;
 
 namespace NPC_Control.Demons {
@@ -11,6 +12,7 @@ namespace NPC_Control.Demons {
 		private static AudioClip _talk2;
 
 		public void OnDeath() {
+			SaveManager.Instance.flowerShard = true;
 			AnimationManager.Instance.NPCOnDeath(GetComponent<NPC>());
 		}
 
