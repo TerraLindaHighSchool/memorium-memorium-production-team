@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay_Scenes/Stained Glass Island.unity
     guid: 66819c5d1e3ef476d90d96993f4f9534
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scenes/Graveyard.unity
+    guid: a1d921d76e16d734e8b88993d938cdc1
   m_configObjects: {}

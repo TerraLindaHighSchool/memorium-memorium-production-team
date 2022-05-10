@@ -25,7 +25,7 @@ namespace Game_Managing.Game_Context {
 			if (_player.transform.position.y <= respawnHeightThreshold) Respawn();
 		}
 
-		private void Respawn() {
+		public void Respawn() {
 			_player.transform.position = _respawnPoint;
 			_player.GetComponent<PlayerController>().OnDeath();
 		}
