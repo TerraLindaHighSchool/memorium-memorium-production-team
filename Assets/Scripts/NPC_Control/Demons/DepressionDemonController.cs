@@ -12,7 +12,6 @@ namespace NPC_Control.Demons {
 		private static AudioClip _talk2;
 
 		public void OnDeath() {
-			SaveManager.Instance.flowerShard = true;
 			AnimationManager.Instance.NPCOnDeath(GetComponent<NPC>());
 		}
 
