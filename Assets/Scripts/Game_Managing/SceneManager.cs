@@ -36,7 +36,7 @@ namespace Game_Managing {
 					break;
 				case Scene.FlowerIsland:
 					data.Path                += "Flower Island";
-					data.DefaultRespawnPoint =  new Vector3(-415, 422, -57);
+					data.DefaultRespawnPoint =  new Vector3(16, 17, -12);
 					break;
 				case Scene.FeatherIsland:
 					data.Path += "";
@@ -46,7 +46,7 @@ namespace Game_Managing {
 					break;
 				case Scene.StainedGlassIsland:
 					data.Path                += "Stained Glass Island";
-					data.DefaultRespawnPoint =  new Vector3(59, 53, 52);
+					data.DefaultRespawnPoint =  new Vector3(59, 56, 49);
 					break;
 				case Scene.Graveyard:
 					data.Path += "";
