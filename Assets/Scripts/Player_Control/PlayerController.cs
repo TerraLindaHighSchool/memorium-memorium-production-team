@@ -101,15 +101,12 @@ namespace Player_Control {
 		/// </summary>
 		private AnimationManager _animationManager;
 
+		private RespawnManager _respawnManager;
+
 		/// <summary>
 		/// Not actually used, only here to force a dialogue manager into existence by referencing <c>.Instance</c>
 		/// </summary>
 		private DialogueManager _unusedDialogueManager;
-
-		/// <summary>
-		/// Not actually used, only here to force a respawn manager into existence by referencing <c>.Instance</c>
-		/// </summary>
-		private RespawnManager _unusedRespawnManager;
 
 		/// <summary>
 		/// Not actually used, only here to force a music manager into existence by referencing <c>.Instance</c>
@@ -119,9 +116,9 @@ namespace Player_Control {
 		private void OnEnable() {
 			_gameContextManager = GameContextManager.Instance;
 			_animationManager   = AnimationManager.Instance;
+			_respawnManager     = RespawnManager.Instance;
 
 			_unusedDialogueManager = DialogueManager.Instance;
-			_unusedRespawnManager  = RespawnManager.Instance;
 			_unusedMusicManager    = MusicManager.Instance;
 
 			_characterController = GetComponent<CharacterController>();
@@ -178,6 +175,8 @@ namespace Player_Control {
 
 			transform.Rotate(transform.up, -90f);
 		}
+
+		public void Respawn() { _respawnManager.Respawn(); }
 
 		private void AssignAudioClips() {
 			_deathSound     = Resources.Load<AudioClip>("Audio/Sounds/Character/Amara/Amara_Death");
@@ -252,8 +251,8 @@ namespace Player_Control {
 			if (timeLeftToJump > 0
 			 && (_gameContextManager.ActiveContext is OrbitCameraManager
 			  || _gameContextManager.ActiveContext is FixedCameraContextController)) {
-				timeLeftToJump = 0;
-				_velocity.y += jump;
+				timeLeftToJump =  0;
+				_velocity.y    += jump;
 				_animationManager.SetPlayerOnLand(false);
 
 				switch (GetCurrentSurface()) {
@@ -374,12 +373,12 @@ namespace Player_Control {
 				{
 					Vector3    storedCamTargetPos = playerFollowCamTarget.position;
 					Quaternion storedCamTargetRot = playerFollowCamTarget.rotation;
-					
+
 					transform.SetPositionAndRotation(transform.position,
 					                                 Quaternion.Euler(
 						                                 new Vector3(eulers.x, activeContext.GetYRotForForwards(),
 						                                             eulers.z)));
-						                                             
+
 
 					playerFollowCamTarget.SetPositionAndRotation(
 						storedCamTargetPos, storedCamTargetRot);
@@ -406,8 +405,8 @@ namespace Player_Control {
 
 				Vector3    storedCamPos = playerFollowCamTarget.position;
 				Quaternion storedCamRot = playerFollowCamTarget.rotation;
-				
-				const float interpolationRate  = 0.3f;
+
+				const float interpolationRate = 0.3f;
 
 				Quaternion interpolatedRot = Quaternion.Slerp(startOfFrameRot, desiredRotation, interpolationRate);
 
@@ -436,9 +435,9 @@ namespace Player_Control {
 
 			if (_characterController.isGrounded) {
 				timeLeftToJump = timeToJump;
-				_velocity.y = 0;
+				_velocity.y    = 0;
 				_animationManager.SetPlayerInAir(false);
-			} else { 
+			} else {
 				_animationManager.SetPlayerInAir(true);
 				timeLeftToJump = timeLeftToJump == 0 ? 0 : timeLeftToJump - 1;
 			}
@@ -448,7 +447,6 @@ namespace Player_Control {
 			Moved?.Invoke();
 
 			_wasGroundedLastFrame = _characterController.isGrounded;
-			
 		}
 
 		/// <summary>
