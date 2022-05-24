@@ -50,8 +50,6 @@ public class CloudController : MonoBehaviour
 			{
 				Debug.Log("Hit an anger demon!");
 				hit.collider.gameObject.GetComponent<AngerDemonController>().TouchRain();
-			} else {
-				Debug.Log("Hit something else!");
 			}
 
 		}
