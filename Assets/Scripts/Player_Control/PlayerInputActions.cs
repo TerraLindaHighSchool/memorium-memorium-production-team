@@ -75,15 +75,6 @@ namespace Player_Control
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""c62d6cea-4d41-4d23-87e6-9bda89be0d6a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MousePos"",
                     ""type"": ""Value"",
                     ""id"": ""e2bf14b5-30a6-479f-a217-19963f90b69e"",
@@ -261,17 +252,6 @@ namespace Player_Control
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6eeddfa0-4f13-4298-8485-e4582117c4cb"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -935,8 +915,6 @@ namespace Player_Control
             m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-	    // niko's hacked together handheld weapon
-	    m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1005,8 +983,6 @@ namespace Player_Control
         private readonly InputAction m_Player_MouseDelta;
         private readonly InputAction m_Player_Orbit;
         private readonly InputAction m_Player_Interact;
-        private readonly InputAction m_Player_Fire;
-
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -1016,7 +992,6 @@ namespace Player_Control
             public InputAction @S => m_Wrapper.m_Player_S;
             public InputAction @D => m_Wrapper.m_Player_D;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
-            public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
             public InputAction @MouseDelta => m_Wrapper.m_Player_MouseDelta;
             public InputAction @Orbit => m_Wrapper.m_Player_Orbit;
@@ -1045,9 +1020,6 @@ namespace Player_Control
                     @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-		    @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-		    @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-		    @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                     @MousePos.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                     @MousePos.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                     @MousePos.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
@@ -1079,9 +1051,6 @@ namespace Player_Control
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
-		    @Fire.started += instance.OnFire;
-		    @Fire.performed += instance.OnFire;
-		    @Fire.canceled += instance.OnFire;
                     @MousePos.started += instance.OnMousePos;
                     @MousePos.performed += instance.OnMousePos;
                     @MousePos.canceled += instance.OnMousePos;
@@ -1255,7 +1224,6 @@ namespace Player_Control
             void OnS(InputAction.CallbackContext context);
             void OnD(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
-	    void OnFire(InputAction.CallbackContext context);
             void OnMousePos(InputAction.CallbackContext context);
             void OnMouseDelta(InputAction.CallbackContext context);
             void OnOrbit(InputAction.CallbackContext context);
