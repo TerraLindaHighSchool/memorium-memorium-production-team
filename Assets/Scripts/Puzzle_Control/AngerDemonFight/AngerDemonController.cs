@@ -14,8 +14,38 @@ public class AngerDemonController : MonoBehaviour
 	/// </summary>
 	public double cooldownAmount = 2.0f;
 
+	/// <summary>
+	/// Stores amount of times hit
+	/// </summary>
+	public int hitCount = 0;
 
 	/// <summary>
-	/// 
+	/// Called when raincloud is above
+	/// </summary>
+	public static void TouchRain() {
+		// check if we're still in cooldown
+		if (cooldownTime > 0.0f) {
+			return;
+		}
+		// set cooldown
+		cooldownTime = cooldownAmount;
+		// increment hit count
+		hitCount++;
+
+		// if we've been hit enough times, destroy ourselves
+		if (hitCount >= 3) {
+			// todo: make this animated
+			Destroy(GameObject.Find("AngerDemon"));
+		}
+	}
+
+	// <summary>
+	// We use update to manage cooldown time (if we're in cooldown, subtract time from cooldown)
+	// </summary>
+	void Update() {
+		if (cooldownTime > 0.0f) {
+			cooldownTime -= Time.deltaTime;
+		}
+	}
 
 }
