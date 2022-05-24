@@ -1115,7 +1115,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b145427ed972e9042b968a73db48c18f, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1707,8 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: 5411aca44bff83847a2cda7dfbca85fc, type: 2}
-  eventReceivers:
-  - {fileID: 0}
+  eventReceivers: []
 --- !u!114 &1091690274558062353
 MonoBehaviour:
   m_ObjectHideFlags: 0
