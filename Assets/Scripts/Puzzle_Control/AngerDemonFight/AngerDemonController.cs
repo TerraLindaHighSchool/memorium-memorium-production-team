@@ -36,7 +36,8 @@ public class AngerDemonController : MonoBehaviour
 		// if we've been hit enough times, destroy ourselves
 		if (hitCount >= 3) {
 			// todo: make this animated
-			Destroy(GameObject.Find("AngerDemon"));
+			Debug.Log("Anger demon destroyed");
+			Destroy(GameObject.Find("Anger"));
 		}
 	}
 
