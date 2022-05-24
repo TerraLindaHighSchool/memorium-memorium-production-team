@@ -48,7 +48,10 @@ public class CloudController : MonoBehaviour
 
 			if (hit.collider.gameObject.GetComponent<AngerDemonController>() != null)
 			{
+				Console.WriteLine("Hit an anger demon!");
 				hit.collider.gameObject.GetComponent<AngerDemonController>().TouchRain();
+			} else {
+				Console.WriteLine("Hit something else!");
 			}
 
 		}

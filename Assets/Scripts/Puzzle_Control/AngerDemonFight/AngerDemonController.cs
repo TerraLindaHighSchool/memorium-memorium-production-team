@@ -23,6 +23,7 @@ public class AngerDemonController : MonoBehaviour
 	/// Called when raincloud is above
 	/// </summary>
 	public void TouchRain() {
+		Console.Log("Rain touched");
 		// check if we're still in cooldown
 		if (cooldownTime > 0.0f) {
 			return;
