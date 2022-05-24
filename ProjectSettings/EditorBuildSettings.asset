@@ -8,13 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Gameplay_Scenes/PrototypeScene.unity
     guid: 0e2a02f3d48064cd0b65b20950c4ce8b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Gameplay_Scenes/Tutorial Island.unity
     guid: e30f8ef772fb592429e712c0c4657441
   - enabled: 1
-    path: Assets/Scenes/Testing_Scenes/Flower Island Carter.unity
+    path: Assets/Scenes/Gameplay_Scenes/Flower Island.unity
     guid: 9e45500bb3361413e8a71535acc81fe4
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scenes/Library Island.unity
+    guid: b33f2aec42b71a94786a07a33465085e
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scenes/Feather Island.unity
+    guid: 96df6bac94806aa41afdcfdb82f943d1
   - enabled: 1
     path: Assets/Scenes/Gameplay_Scenes/Stained Glass Island.unity
     guid: 66819c5d1e3ef476d90d96993f4f9534
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_Scenes/Graveyard.unity
+    guid: a1d921d76e16d734e8b88993d938cdc1
   m_configObjects: {}
