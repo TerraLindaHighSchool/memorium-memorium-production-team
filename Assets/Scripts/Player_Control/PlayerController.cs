@@ -42,6 +42,9 @@ namespace Player_Control {
 		///Boolean to keep track of whether the player was grounded last frame
 		private bool _wasGroundedLastFrame;
 
+		private int _timeFalling;
+
+		private int _minTimeFalling = 30;
 		/// <summary>
 		/// Array of booleans for keeping track if <c>W, A, S, D</c> are pressed. 
 		/// </summary>
@@ -437,8 +440,13 @@ namespace Player_Control {
 				timeLeftToJump = timeToJump;
 				_velocity.y    = 0;
 				_animationManager.SetPlayerInAir(false);
+				_timeFalling = 0;
 			} else {
-				_animationManager.SetPlayerInAir(true);
+				_timeFalling++;
+				if (_timeFalling >= _minTimeFalling)
+				{
+					_animationManager.SetPlayerInAir(true);
+				}
 				timeLeftToJump = timeLeftToJump == 0 ? 0 : timeLeftToJump - 1;
 			}
 
