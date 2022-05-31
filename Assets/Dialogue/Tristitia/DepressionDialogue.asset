@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: aca546cd-3fa3-49ba-9a1b-c43a0483d567
   position: {x: -401.318, y: -308.2139}
-  child: {fileID: 0}
+  child: {fileID: -562707774331755932}
   key: Death
 --- !u!114 &-8553006590844842060
 MonoBehaviour:
@@ -165,6 +165,22 @@ MonoBehaviour:
   position: {x: -127.753456, y: -319.68787}
   child: {fileID: 0}
   message: Let me know when you do.
+--- !u!114 &-562707774331755932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 8c3dec23-dd4c-4bfa-8e4c-b031c6c309a6
+  position: {x: -221.38249, y: -431.9675}
+  child: {fileID: 0}
+  eventKey: PlayerDeath
 --- !u!114 &-57196564151167685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +230,7 @@ MonoBehaviour:
   - {fileID: -1210866071503286485}
   - {fileID: 5074871368840885999}
   - {fileID: -4037342563236926985}
+  - {fileID: -562707774331755932}
 --- !u!114 &349196007737347789
 MonoBehaviour:
   m_ObjectHideFlags: 0

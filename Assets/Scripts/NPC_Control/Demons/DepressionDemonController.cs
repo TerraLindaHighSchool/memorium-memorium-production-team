@@ -1,5 +1,5 @@
-﻿using Game_Managing;
-using Game_Managing.Game_Context;
+﻿using Game_Managing.Game_Context;
+using Other;
 using UnityEngine;
 
 namespace NPC_Control.Demons {
@@ -12,43 +12,31 @@ namespace NPC_Control.Demons {
 		private static AudioClip _talk2;
 
 		public void OnDeath() {
-			SaveManager.Instance.flowerShard = true;
 			AnimationManager.Instance.NPCOnDeath(GetComponent<NPC>());
+			GetComponent<Interactable>().isEnabled = false;
 		}
 
-		private void Awake()
-		{
+		public void FinishDeath() { Destroy(gameObject); }
+
+		private void Awake() {
 			_audioSource = GetComponent<AudioSource>();
 
 			AssignAudioClips();
 		}
 
-		private void AssignAudioClips()
-		{
+		private void AssignAudioClips() {
 			_fidgetSound = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/Tristitia_Fidget");
-			_idleSound = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/Tristitia_Idle");
-			_talk1 = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/TristitiaTalk_1");
-			_talk2 = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/TristitiaTalk_2");
+			_idleSound   = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/Tristitia_Idle");
+			_talk1       = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/TristitiaTalk_1");
+			_talk2       = Resources.Load<AudioClip>("Audio/Sounds/Character/Tristitia/TristitiaTalk_2");
 		}
 
-		public void PlayFidgetSound()
-		{
-			_audioSource.PlayOneShot(_fidgetSound);
-		}
+		public void PlayFidgetSound() { _audioSource.PlayOneShot(_fidgetSound); }
 
-		public void PlayIdleSound()
-		{
-			_audioSource.PlayOneShot(_idleSound);
-		}
+		public void PlayIdleSound() { _audioSource.PlayOneShot(_idleSound); }
 
-		public void PlayTalk1Sound()
-		{
-			_audioSource.PlayOneShot(_talk1);
-		}
+		public void PlayTalk1Sound() { _audioSource.PlayOneShot(_talk1); }
 
-		public void PlayTalk2Sound()
-		{
-			_audioSource.PlayOneShot(_talk2);
-		}
+		public void PlayTalk2Sound() { _audioSource.PlayOneShot(_talk2); }
 	}
 }
