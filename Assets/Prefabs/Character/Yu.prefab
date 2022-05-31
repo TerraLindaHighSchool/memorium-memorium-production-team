@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3601304610316387487
 Transform:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   radius: 5
   sine_force: 1
   speed: 0.01
-  yOffset: 0
+  yOffset: 1
   offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1311205156058211428
 MonoBehaviour:
@@ -122,7 +122,7 @@ Animator:
   m_GameObject: {fileID: 6557763273860930575}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d84dc1ab054a4fc4f9ec6f18d777fd4d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7a908bca30a144a4d93b4c8226d57cd0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
