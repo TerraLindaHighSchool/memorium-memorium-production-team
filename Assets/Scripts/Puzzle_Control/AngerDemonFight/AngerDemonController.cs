@@ -20,6 +20,11 @@ public class AngerDemonController : MonoBehaviour
 	public int hitCount = 0;
 
 	/// <summary>
+	/// List of objects to activate when demon dies
+	/// </summary>
+	public GameObject[] deathObjects;
+
+	/// <summary>
 	/// Called when raincloud is above
 	/// </summary>
 	public void TouchRain() {
@@ -36,8 +41,27 @@ public class AngerDemonController : MonoBehaviour
 		// if we've been hit enough times, destroy ourselves
 		if (hitCount >= 3) {
 			// todo: make this animated
-			Debug.Log("Anger demon destroyed");
-			Destroy(GameObject.Find("Anger"));
+			Death();
+		}
+	}
+
+
+	void Death() {
+		Debug.Log("Anger demon destroyed");
+		// activate death objects
+		foreach (GameObject obj in deathObjects) {
+			obj.SetActive(true);
+		}
+		SaveManager.Instance.featherShard = true;
+		Destroy(GameObject.Find("Anger"));
+	}
+
+	/// <summary>
+	/// We use start to make sure that all death objects are inactive
+	/// </summary>
+	void Start() {
+		foreach (GameObject obj in deathObjects) {
+			obj.SetActive(false);
 		}
 	}
 
