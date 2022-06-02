@@ -52,7 +52,8 @@ namespace Game_Managing {
 					data.DefaultRespawnPoint =  new Vector3(59, 56, 49);
 					break;
 				case Scene.Graveyard:
-					data.Path += "";
+					data.Path                += "Graveyard";
+					data.DefaultRespawnPoint =  new Vector3(93, 0, 12);
 					break;
 			}
 
