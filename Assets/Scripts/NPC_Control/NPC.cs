@@ -86,9 +86,7 @@ namespace NPC_Control {
 				if (!eventReceiver) receiversToRemove.Add(eventReceiver);
 			}
 
-			foreach (EventReceiver receiverToRemove in receiversToRemove) {
-				eventReceivers.Remove(receiverToRemove);
-			}
+			foreach (EventReceiver receiverToRemove in receiversToRemove) { eventReceivers.Remove(receiverToRemove); }
 		}
 
 		public void StartDialogue() {
