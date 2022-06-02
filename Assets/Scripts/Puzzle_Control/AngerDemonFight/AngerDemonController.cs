@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game_Managing;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
