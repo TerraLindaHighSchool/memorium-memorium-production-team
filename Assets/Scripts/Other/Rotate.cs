@@ -7,9 +7,9 @@ public class Rotate : MonoBehaviour
     [SerializeField] private int speed; ///rotation speed
 	
 	
-	///rotates object, used for keys
+	///rotates object, used for key
     void Update()
     {
-        transform.eulerAngles += new Vector3(speed, 0, 0);
+        transform.Rotate(0, speed, 0);
     }
 }
