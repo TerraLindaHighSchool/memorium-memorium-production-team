@@ -460,7 +460,7 @@ namespace Player_Control {
 		/// <summary>
 		/// Calls <c>Move()</c> each frame.
 		/// </summary>
-		private void Update() {
+		private void FixedUpdate() {
 			if (_gameContextManager.ActiveContext is OrbitCameraManager
 			 || _gameContextManager.ActiveContext is FixedCameraContextController)
 				Move();

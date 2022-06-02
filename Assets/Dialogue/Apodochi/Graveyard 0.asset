@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4408711297171807958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e17fe6be-3045-41a8-a11b-75adb85b3bfb
+  position: {x: 231.17299, y: -48.668003}
+  children:
+  - key: She does?
+    value: {fileID: -4112402821599309294}
+  message: You miss her. Her journey is not yet over. She grieves for you.
+--- !u!114 &-4112402821599309294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: bc85038b-3a2d-43c1-8884-41b89c0743e1
+  position: {x: 890.0228, y: -17.589401}
+  children:
+  - key: Ok. For Yu.
+    value: {fileID: -4102819624347961968}
+  message: The best course for you both is to accept your death. Only then will you
+    have peace.
+--- !u!114 &-4102819624347961968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 4b9bbfa4-1642-4b58-8c07-df8f6f3d505d
+  position: {x: 1456.401, y: 140.71509}
+  child: {fileID: 8624805399904789607}
+  message: Wise choice.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Graveyard 0
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 2145726340021217661}
+  nodes:
+  - {fileID: 2145726340021217661}
+  - {fileID: 8601268750509420871}
+  - {fileID: -4408711297171807958}
+  - {fileID: -4112402821599309294}
+  - {fileID: -4102819624347961968}
+  - {fileID: 8624805399904789607}
+--- !u!114 &2145726340021217661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 20baa4cc-1ed8-46dd-9fdf-209711e84930
+  position: {x: 0, y: 0}
+  child: {fileID: 8601268750509420871}
+--- !u!114 &8601268750509420871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a57fae82-7108-4e99-9296-b01646da42de
+  position: {x: -92.000015, y: 199.81313}
+  children:
+  - key: Yu called me little star.
+    value: {fileID: -4408711297171807958}
+  message: I know it's hard to accept, little star. You shone brightly, but even
+    the brightest stars reach the end of their lives.
+--- !u!114 &8624805399904789607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 92b5fe33-658f-4e92-abd4-68e7b2be4fb1
+  position: {x: 1616.96, y: -64}
+  child: {fileID: 0}
+  eventKey: StartTransform
