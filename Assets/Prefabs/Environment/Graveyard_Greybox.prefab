@@ -3567,7 +3567,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 1ce3f5d811bb0d541960e8caf0581460, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -8020,6 +8020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920461902215147}
+  - component: {fileID: 701963140495996169}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (6)
   m_TagString: Untagged
@@ -8043,6 +8044,20 @@ Transform:
   m_Father: {fileID: 4426920462505210386}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &701963140495996169
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920461902215146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920461904734135
 GameObject:
   m_ObjectHideFlags: 0
@@ -15393,6 +15408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920462105090069}
+  - component: {fileID: 158578412113356482}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (3)
   m_TagString: Untagged
@@ -15416,6 +15432,20 @@ Transform:
   m_Father: {fileID: 4426920462505210386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &158578412113356482
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920462105090068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920462106123758
 GameObject:
   m_ObjectHideFlags: 0
@@ -16009,6 +16039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920462120835069}
+  - component: {fileID: 5537227492995547953}
   m_Layer: 0
   m_Name: StretchWall (3)
   m_TagString: Untagged
@@ -16034,6 +16065,20 @@ Transform:
   m_Father: {fileID: 4426920462236574505}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!64 &5537227492995547953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920462120835068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4426920462122961913
 GameObject:
   m_ObjectHideFlags: 0
@@ -19008,6 +19053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920462196368385}
+  - component: {fileID: 2524745639899600394}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (5)
   m_TagString: Untagged
@@ -19031,6 +19077,20 @@ Transform:
   m_Father: {fileID: 4426920463328028315}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2524745639899600394
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920462196368384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920462197791678
 GameObject:
   m_ObjectHideFlags: 0
@@ -30068,6 +30128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920462505210386}
+  - component: {fileID: 8651441047548249766}
   m_Layer: 0
   m_Name: StretchWall (2)
   m_TagString: Untagged
@@ -30093,6 +30154,20 @@ Transform:
   m_Father: {fileID: 4426920462236574505}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!64 &8651441047548249766
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920462505210397}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4426920462506316164
 GameObject:
   m_ObjectHideFlags: 0
@@ -37991,6 +38066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920462710207184}
+  - component: {fileID: 4797682123491067668}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (4)
   m_TagString: Untagged
@@ -38014,6 +38090,20 @@ Transform:
   m_Father: {fileID: 4426920463328028315}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &4797682123491067668
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920462710207187}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920462710449806
 GameObject:
   m_ObjectHideFlags: 0
@@ -54877,6 +54967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463114455998}
+  - component: {fileID: 4312512374303134476}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (4)
   m_TagString: Untagged
@@ -54900,6 +54991,20 @@ Transform:
   m_Father: {fileID: 4426920462505210386}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &4312512374303134476
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463114455993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463114542414
 GameObject:
   m_ObjectHideFlags: 0
@@ -58071,6 +58176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463199901878}
+  - component: {fileID: 201913996216460575}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (6)
   m_TagString: Untagged
@@ -58094,6 +58200,20 @@ Transform:
   m_Father: {fileID: 4426920463328028315}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &201913996216460575
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463199901873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463200690005
 GameObject:
   m_ObjectHideFlags: 0
@@ -59774,6 +59894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463251105873}
+  - component: {fileID: 3268687069802248053}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (6)
   m_TagString: Untagged
@@ -59797,6 +59918,20 @@ Transform:
   m_Father: {fileID: 4426920462120835069}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &3268687069802248053
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463251105872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463251190247
 GameObject:
   m_ObjectHideFlags: 0
@@ -62669,6 +62804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463308850359}
+  - component: {fileID: 1213161201307179460}
   m_Layer: 0
   m_Name: graveyardgate (1)
   m_TagString: Untagged
@@ -62718,6 +62854,20 @@ Transform:
   m_Father: {fileID: 4426920463519414186}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1213161201307179460
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463308850358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4777969045601013103, guid: 570161cebb5e20f4c9cfde16756b1875, type: 3}
 --- !u!1 &4426920463312093682
 GameObject:
   m_ObjectHideFlags: 0
@@ -63429,6 +63579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463328028315}
+  - component: {fileID: 820362412028767691}
   m_Layer: 0
   m_Name: StretchWall
   m_TagString: Untagged
@@ -63454,6 +63605,20 @@ Transform:
   m_Father: {fileID: 4426920462236574505}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &820362412028767691
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463328028314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4426920463328261076
 GameObject:
   m_ObjectHideFlags: 0
@@ -66463,6 +66628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463385573634}
+  - component: {fileID: 2855949805782655223}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (3)
   m_TagString: Untagged
@@ -66486,6 +66652,20 @@ Transform:
   m_Father: {fileID: 4426920462120835069}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2855949805782655223
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463385573645}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463385667669
 GameObject:
   m_ObjectHideFlags: 0
@@ -66832,6 +67012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463395504305}
+  - component: {fileID: 5074149843164645276}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (5)
   m_TagString: Untagged
@@ -66855,6 +67036,20 @@ Transform:
   m_Father: {fileID: 4426920462505210386}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &5074149843164645276
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463395504304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463395908647
 GameObject:
   m_ObjectHideFlags: 0
@@ -68782,6 +68977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463450804257}
+  - component: {fileID: 5669369667843998899}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (6)
   m_TagString: Untagged
@@ -68805,6 +69001,20 @@ Transform:
   m_Father: {fileID: 4426920463519414186}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &5669369667843998899
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463450804256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4426920463451974071
 GameObject:
   m_ObjectHideFlags: 0
@@ -69509,6 +69719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463469693288}
+  - component: {fileID: 3443823058604988977}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (3)
   m_TagString: Untagged
@@ -69532,6 +69743,20 @@ Transform:
   m_Father: {fileID: 4426920463328028315}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &3443823058604988977
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463469693291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463470896555
 GameObject:
   m_ObjectHideFlags: 0
@@ -70892,6 +71117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463511751509}
+  - component: {fileID: 840052730688025230}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (4)
   m_TagString: Untagged
@@ -70915,6 +71141,20 @@ Transform:
   m_Father: {fileID: 4426920462120835069}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &840052730688025230
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463511751508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463513991123
 GameObject:
   m_ObjectHideFlags: 0
@@ -71417,6 +71657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463519414186}
+  - component: {fileID: 6762188170769730855}
   m_Layer: 0
   m_Name: StretchWall (1)
   m_TagString: Untagged
@@ -71443,6 +71684,20 @@ Transform:
   m_Father: {fileID: 4426920462236574505}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &6762188170769730855
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463519414197}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4426920463520230643
 GameObject:
   m_ObjectHideFlags: 0
@@ -73384,6 +73639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463569341351}
+  - component: {fileID: 5201395844598780636}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (5)
   m_TagString: Untagged
@@ -73407,6 +73663,20 @@ Transform:
   m_Father: {fileID: 4426920462120835069}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &5201395844598780636
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463569341350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463569801874
 GameObject:
   m_ObjectHideFlags: 0
@@ -78817,6 +79087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463696119949}
+  - component: {fileID: 4810474201763839110}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (4)
   m_TagString: Untagged
@@ -78840,6 +79111,20 @@ Transform:
   m_Father: {fileID: 4426920463519414186}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &4810474201763839110
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463696119948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463697146635
 GameObject:
   m_ObjectHideFlags: 0
@@ -79335,6 +79620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463712597793}
+  - component: {fileID: 2813777317245326316}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (3)
   m_TagString: Untagged
@@ -79358,6 +79644,20 @@ Transform:
   m_Father: {fileID: 4426920463519414186}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2813777317245326316
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463712597792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463713223313
 GameObject:
   m_ObjectHideFlags: 0
@@ -83491,6 +83791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426920463811705736}
+  - component: {fileID: 7945416615206243975}
   m_Layer: 0
   m_Name: graveyardouterwall 1 (5)
   m_TagString: Untagged
@@ -83514,6 +83815,20 @@ Transform:
   m_Father: {fileID: 4426920463519414186}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &7945416615206243975
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426920463811705739}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6178932083768876681, guid: 70b549d847ad7f4479bc0552e9602a0a, type: 3}
 --- !u!1 &4426920463813747842
 GameObject:
   m_ObjectHideFlags: 0
