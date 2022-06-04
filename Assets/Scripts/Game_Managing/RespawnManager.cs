@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game_Managing {
 	public class RespawnManager : Singleton<RespawnManager> {
-		private Vector3 _respawnPoint;
+		public Vector3 _respawnPoint;
 
 		public float respawnHeightThreshold = -20.0f;
 

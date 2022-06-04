@@ -38,15 +38,9 @@ namespace NPC_Control {
 
 		private void Start() { StartCoroutine(MoveToRandom()); }
 
-		public void OnPet() {
-			Debug.Log($"{this} was pet");
-			AnimationManager.Instance.PetGrassBird(this);
-		}
+		public void OnPet() { AnimationManager.Instance.PetGrassBird(this); }
 
-		public void OnKick() {
-			Debug.Log($"{this} was kicked");
-			AnimationManager.Instance.KickGrassBird(this);
-		}
+		public void OnKick() { AnimationManager.Instance.KickGrassBird(this); }
 
 		private void AssignAudioClips() {
 			_idleSound     = Resources.Load<AudioClip>("Audio/Sounds/Character/GrassBird/GrassBirdIdle");

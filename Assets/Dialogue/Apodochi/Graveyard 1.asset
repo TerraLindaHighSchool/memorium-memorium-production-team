@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8914871351098380362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26142c5285e6213acb55aa8091bde834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: e8510633-f6f7-4838-911c-a0e9d3d58873
+  position: {x: 156, y: -3}
+  child: {fileID: -6654647514159920404}
+  message: Amara, by letting go of your denial and grief over your death, and accepting
+    it as a natural part of the cycle of life you have helped others to accept death
+    as well.
+--- !u!114 &-7812065393278635439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4886ef5c88a1c0e8594fcfcfce8dadb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: c26e16a3-e40d-46db-8f0c-dddee713f038
+  position: {x: 579.3916, y: 330.9165}
+  children:
+  - key: I understand.
+    value: {fileID: 7467543696552702165}
+  message: It is time to go. Before you return to the light, little star, there is
+    one who is waiting for you.
+--- !u!114 &-6654647514159920404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: bdd4901c-3f89-44ad-9da9-d3d34ba0f67c
+  position: {x: 912.3869, y: 164.92126}
+  child: {fileID: -7812065393278635439}
+  eventKey: GiveShard
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e4ea364671dd8e3a270d82017ae8cf, type: 3}
+  m_Name: Graveyard 1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 5660027456943647174}
+  nodes:
+  - {fileID: 5660027456943647174}
+  - {fileID: -8914871351098380362}
+  - {fileID: -6654647514159920404}
+  - {fileID: -7812065393278635439}
+  - {fileID: 7467543696552702165}
+--- !u!114 &5660027456943647174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2314f5e1f0d81ffd695e7c3115fbb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 2cd928bd-f981-4ebb-8c25-132cab484a77
+  position: {x: 0, y: 0}
+  child: {fileID: -8914871351098380362}
+--- !u!114 &7467543696552702165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f0733612402c3d29308be4e40a386a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: 96b9d4a2-3442-473c-ad02-aaf85c042bb4
+  position: {x: 1252.0624, y: 517.40985}
+  child: {fileID: 0}
+  message: waaa

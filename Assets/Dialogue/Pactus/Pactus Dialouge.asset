@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guid: 09df85ba-b97c-4492-945e-d5fe88af9d06
   position: {x: 6495.525, y: 48}
-  child: {fileID: 0}
+  child: {fileID: 7160100607902655966}
   message: Perfect! Now here is your shard.
 --- !u!114 &-5744911303364148116
 MonoBehaviour:
@@ -417,6 +417,7 @@ MonoBehaviour:
   - {fileID: -4786929771983384644}
   - {fileID: -8907296651186832991}
   - {fileID: -5871069891127231553}
+  - {fileID: 7160100607902655966}
 --- !u!114 &1398006052222925681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +623,22 @@ MonoBehaviour:
   - key: No.
     value: {fileID: 6247179730794610551}
   message: Do you want the book then?
+--- !u!114 &7160100607902655966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7876c1bf2e914c029b8cdc5297e09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guid: a8b47825-9db7-4963-a611-7abe8a6b3e03
+  position: {x: 6982.113, y: 64.8025}
+  child: {fileID: 0}
+  eventKey: 'Give Bargain Shard :hot_face:'
 --- !u!114 &7412762591992509017
 MonoBehaviour:
   m_ObjectHideFlags: 0

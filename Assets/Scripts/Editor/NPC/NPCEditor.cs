@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Editor.Other;
 using NPC_Control.Behavior_Tree;
@@ -63,7 +64,15 @@ namespace Editor.NPC {
 		}
 
 		private VisualElement CreateEventReceiverElement(EventReceiver eventReceiver) {
-			VisualElement newEventReceiverElement = UIElementsExtensions.CreateUIElementInspector(eventReceiver);
+			VisualElement newEventReceiverElement = new VisualElement();
+
+			try {
+				newEventReceiverElement = UIElementsExtensions.CreateUIElementInspector(eventReceiver);
+			} catch (ArgumentException e) {
+				Debug.LogWarning($"NPC {_npc.name} had an invalid event receiver, removing invalid receivers...");
+				_npc.CheckEventReceivers();
+			}
+			
 			newEventReceiverElement.viewDataKey = eventReceiver.guid;
 			StyleColor  borderColor = Color.gray;
 			StyleFloat  borderWidth = 5f;

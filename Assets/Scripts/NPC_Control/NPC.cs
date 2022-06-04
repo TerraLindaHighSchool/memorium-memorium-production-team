@@ -75,6 +75,20 @@ namespace NPC_Control {
 			eventReceivers.Remove(eventReceivers.Last());
 		}
 
+		public void CheckEventReceivers() {
+			#if UNITY_EDITOR
+			Undo.RecordObject(this, "Sanity check removed event receivers");
+			#endif
+
+			List<EventReceiver> receiversToRemove = new List<EventReceiver>();
+
+			foreach (EventReceiver eventReceiver in eventReceivers) {
+				if (!eventReceiver) receiversToRemove.Add(eventReceiver);
+			}
+
+			foreach (EventReceiver receiverToRemove in receiversToRemove) { eventReceivers.Remove(receiverToRemove); }
+		}
+
 		public void StartDialogue() {
 			if (tree.rootNode == null) {
 				Debug.LogWarning("Dialogue tree has no root node. Super Amongus.");

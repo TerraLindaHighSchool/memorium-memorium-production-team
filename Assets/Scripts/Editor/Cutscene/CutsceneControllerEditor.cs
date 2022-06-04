@@ -19,11 +19,11 @@ namespace Editor.Cutscene {
 			VisualElement rootElement = new VisualElement();
 
 			VisualTreeAsset visualTree =
-				AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/Editor/CutsceneControllerEditor.uxml");
+				AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/Editor/Cutscene/CutsceneControllerEditor.uxml");
 			visualTree.CloneTree(rootElement);
 
 			rootElement.styleSheets.Add(
-				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/CutsceneControllerEditor.uss"));
+				AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/Editor/Cutscene/CutsceneControllerEditor.uss"));
 
 			VisualElement buttonContainer = rootElement.ElementAt(1);
 			_listView = rootElement.ElementAt(2);
