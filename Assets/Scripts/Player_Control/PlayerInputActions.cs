@@ -75,15 +75,6 @@ namespace Player_Control
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""c62d6cea-4d41-4d23-87e6-9bda89be0d6a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MousePos"",
                     ""type"": ""Value"",
                     ""id"": ""e2bf14b5-30a6-479f-a217-19963f90b69e"",
@@ -114,6 +105,15 @@ namespace Player_Control
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""c8496fc3-ac1e-41ac-95c1-bdfcff1cbdb2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""df6534b6-a5a5-49dd-9a43-e94ada289752"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -266,17 +266,6 @@ namespace Player_Control
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6eeddfa0-4f13-4298-8485-e4582117c4cb"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""fdd73f12-4432-4322-9432-828c4e391702"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -327,6 +316,17 @@ namespace Player_Control
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5aef99c-e7e2-4f52-b162-d49caf6a3cbe"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -923,6 +923,7 @@ namespace Player_Control
             m_Player_MouseDelta = m_Player.FindAction("MouseDelta", throwIfNotFound: true);
             m_Player_Orbit = m_Player.FindAction("Orbit", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+            m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -935,8 +936,6 @@ namespace Player_Control
             m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-	    // niko's hacked together handheld weapon
-	    m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1006,7 +1005,6 @@ namespace Player_Control
         private readonly InputAction m_Player_Orbit;
         private readonly InputAction m_Player_Interact;
         private readonly InputAction m_Player_Fire;
-
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -1016,11 +1014,11 @@ namespace Player_Control
             public InputAction @S => m_Wrapper.m_Player_S;
             public InputAction @D => m_Wrapper.m_Player_D;
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
-            public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
             public InputAction @MouseDelta => m_Wrapper.m_Player_MouseDelta;
             public InputAction @Orbit => m_Wrapper.m_Player_Orbit;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
+            public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1045,9 +1043,6 @@ namespace Player_Control
                     @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                     @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-		    @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-		    @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-		    @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                     @MousePos.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                     @MousePos.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                     @MousePos.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
@@ -1060,6 +1055,9 @@ namespace Player_Control
                     @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                    @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                    @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                    @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1079,9 +1077,6 @@ namespace Player_Control
                     @Jump.started += instance.OnJump;
                     @Jump.performed += instance.OnJump;
                     @Jump.canceled += instance.OnJump;
-		    @Fire.started += instance.OnFire;
-		    @Fire.performed += instance.OnFire;
-		    @Fire.canceled += instance.OnFire;
                     @MousePos.started += instance.OnMousePos;
                     @MousePos.performed += instance.OnMousePos;
                     @MousePos.canceled += instance.OnMousePos;
@@ -1094,6 +1089,9 @@ namespace Player_Control
                     @Interact.started += instance.OnInteract;
                     @Interact.performed += instance.OnInteract;
                     @Interact.canceled += instance.OnInteract;
+                    @Fire.started += instance.OnFire;
+                    @Fire.performed += instance.OnFire;
+                    @Fire.canceled += instance.OnFire;
                 }
             }
         }
@@ -1255,11 +1253,11 @@ namespace Player_Control
             void OnS(InputAction.CallbackContext context);
             void OnD(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
-	    void OnFire(InputAction.CallbackContext context);
             void OnMousePos(InputAction.CallbackContext context);
             void OnMouseDelta(InputAction.CallbackContext context);
             void OnOrbit(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
+            void OnFire(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
