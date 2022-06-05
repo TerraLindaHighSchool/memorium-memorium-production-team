@@ -1558,6 +1558,7 @@ GameObject:
   - component: {fileID: 6998799348189771631}
   - component: {fileID: 6998799348189771629}
   - component: {fileID: 6998799348189771630}
+  - component: {fileID: 3297206074160563990}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1626,6 +1627,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3297206074160563990
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998799348189771624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: 31adc0d04fc08584eb65014d0018ae19, type: 3}
 --- !u!1 &6998799348193882016
 GameObject:
   m_ObjectHideFlags: 0
@@ -6207,6 +6222,7 @@ GameObject:
   - component: {fileID: 6998799349078838295}
   - component: {fileID: 6998799349078838293}
   - component: {fileID: 6998799349078838294}
+  - component: {fileID: 9123410121306969818}
   m_Layer: 0
   m_Name: Plane.001
   m_TagString: Untagged
@@ -6275,6 +6291,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9123410121306969818
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998799349078838288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: 31adc0d04fc08584eb65014d0018ae19, type: 3}
 --- !u!1 &6998799349085444044
 GameObject:
   m_ObjectHideFlags: 0
@@ -12476,6 +12506,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6998799350112094004}
+  - component: {fileID: 7257996011105158035}
+  - component: {fileID: 280117891470415992}
   m_Layer: 0
   m_Name: Feather1 (6)
   m_TagString: Untagged
@@ -12499,6 +12531,28 @@ Transform:
   m_Father: {fileID: 6998799348822471555}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -2.3070002, y: 67.11, z: 281.02}
+--- !u!33 &7257996011105158035
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998799350112094005}
+  m_Mesh: {fileID: 0}
+--- !u!64 &280117891470415992
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998799350112094005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: 31adc0d04fc08584eb65014d0018ae19, type: 3}
 --- !u!1 &6998799350141632044
 GameObject:
   m_ObjectHideFlags: 0
