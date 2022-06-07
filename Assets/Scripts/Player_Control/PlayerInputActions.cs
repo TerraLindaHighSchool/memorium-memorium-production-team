@@ -322,7 +322,7 @@ namespace Player_Control
                 {
                     ""name"": """",
                     ""id"": ""b5aef99c-e7e2-4f52-b162-d49caf6a3cbe"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

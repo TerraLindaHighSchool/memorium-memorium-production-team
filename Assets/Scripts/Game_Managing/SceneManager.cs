@@ -41,7 +41,6 @@ namespace Game_Managing {
 				case Scene.FeatherIsland:
 					data.Path                += "Feather Island";
 					data.DefaultRespawnPoint =  new Vector3(127, 9, 210);
-
 					break;
 				case Scene.LibraryIsland:
 					data.Path                += "Library Island";
