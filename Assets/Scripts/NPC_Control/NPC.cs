@@ -3,6 +3,7 @@ using System.Linq;
 using Game_Managing.Game_Context;
 using NPC_Control.Behavior_Tree;
 using NPC_Control.Dialogue;
+using Other;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -90,6 +91,10 @@ namespace NPC_Control {
 		}
 
 		public void StartDialogue() {
+			if (GetComponent<Interactable>()) {
+				if (!GetComponent<Interactable>().isEnabled) return;
+			}
+
 			if (tree.rootNode == null) {
 				Debug.LogWarning("Dialogue tree has no root node. Super Amongus.");
 				return;
